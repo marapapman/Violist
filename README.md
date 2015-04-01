@@ -1,5 +1,4 @@
-# Violist
-A String analysis framework for Java and Android apps
+# Violist: A String analysis framework for Java and Android apps
 
 executable: our executable file and some market test cases
 
