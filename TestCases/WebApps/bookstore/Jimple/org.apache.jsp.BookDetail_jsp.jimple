@@ -1,0 +1,4482 @@
+public final class org.apache.jsp.BookDetail_jsp extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent
+{
+    static final java.lang.String CRLF;
+    static final int UNDEFINT;
+    static final int adText;
+    static final int adDate;
+    static final int adNumber;
+    static final int adSearch_;
+    static final int ad_Search_;
+    static final java.lang.String appPath;
+    static final java.lang.String DBDriver;
+    static final java.lang.String strConn;
+    static final java.lang.String DBusername;
+    static final java.lang.String DBpassword;
+    static final java.lang.String sFileName;
+    private static final javax.servlet.jsp.JspFactory _jspxFactory;
+    private static java.util.List _jspx_dependants;
+    private javax.el.ExpressionFactory _el_expressionfactory;
+    private org.apache.AnnotationProcessor _jsp_annotationprocessor;
+
+    public void <init>()
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        specialinvoke r0.<org.apache.jasper.runtime.HttpJspBase: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String loadDriver()
+    {
+        java.lang.String r0;
+        java.lang.Exception r1, $r6;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+        java.sql.Driver $r4, $r5;
+
+        r0 = "";
+
+     label1:
+        $r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.mysql.jdbc.Driver");
+
+        $r3 = virtualinvoke $r2.<java.lang.Class: java.lang.Object newInstance()>();
+
+        $r4 = (java.sql.Driver) $r3;
+
+        $r5 = (java.sql.Driver) $r4;
+
+        staticinvoke <java.sql.DriverManager: void registerDriver(java.sql.Driver)>($r5);
+
+     label2:
+        goto label4;
+
+     label3:
+        $r6 := @caughtexception;
+
+        r1 = $r6;
+
+        r0 = virtualinvoke r1.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r0, "2743");
+
+     label4:
+        return r0;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public static void absolute(java.sql.ResultSet, int) throws java.sql.SQLException
+    {
+        java.sql.ResultSet r0;
+        int i0, i1;
+
+        r0 := @parameter0: java.sql.ResultSet;
+
+        i0 := @parameter1: int;
+
+        i1 = 1;
+
+     label1:
+        if i1 >= i0 goto label2;
+
+        interfaceinvoke r0.<java.sql.ResultSet: boolean next()>();
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    java.sql.ResultSet openrs(java.sql.Statement, java.lang.String) throws java.sql.SQLException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.Statement r1;
+        java.lang.String r2;
+        java.sql.ResultSet r3;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.Statement;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 = interfaceinvoke r1.<java.sql.Statement: java.sql.ResultSet executeQuery(java.lang.String)>(r2);
+
+        return r3;
+    }
+
+    java.lang.String dLookUp(java.sql.Statement, java.lang.String, java.lang.String, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.Statement r1, r18;
+        java.lang.String r2, r3, r4, r6, $r14, $r16;
+        java.sql.ResultSet r5;
+        java.lang.StringBuilder $r7, $r8, $r9, $r10, $r11, $r12, $r13;
+        boolean $z0;
+        java.lang.Exception $r15;
+        java.sql.Connection r17;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.Statement;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        r4 := @parameter3: java.lang.String;
+
+     label1:
+        r17 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.Connection cn()>();
+
+        r18 = interfaceinvoke r17.<java.sql.Connection: java.sql.Statement createStatement()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("SELECT ");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" FROM ");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r13 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" WHERE ");
+
+        $r12 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r14 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r14, "2744");
+
+        r5 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.ResultSet openrs(java.sql.Statement,java.lang.String)>(r18, $r14);
+
+        $z0 = interfaceinvoke r5.<java.sql.ResultSet: boolean next()>();
+
+        if $z0 != 0 goto label3;
+
+        interfaceinvoke r5.<java.sql.ResultSet: void close()>();
+
+        interfaceinvoke r18.<java.sql.Statement: void close()>();
+
+        interfaceinvoke r17.<java.sql.Connection: void close()>();
+
+     label2:
+        return "";
+
+     label3:
+        r6 = interfaceinvoke r5.<java.sql.ResultSet: java.lang.String getString(int)>(1);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r6, "2745");
+
+        interfaceinvoke r5.<java.sql.ResultSet: void close()>();
+
+        interfaceinvoke r18.<java.sql.Statement: void close()>();
+
+        interfaceinvoke r17.<java.sql.Connection: void close()>();
+
+        if r6 != null goto label4;
+
+        $r16 = "";
+
+        goto label5;
+
+     label4:
+        $r16 = r6;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r16, "2746");
+
+     label5:
+        return $r16;
+
+     label6:
+        $r15 := @caughtexception;
+
+        return "";
+
+        catch java.lang.Exception from label1 to label2 with label6;
+        catch java.lang.Exception from label3 to label5 with label6;
+    }
+
+    long dCountRec(java.sql.Statement, java.lang.String, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.Statement r1;
+        java.lang.String r2, r3, $r10;
+        long l0;
+        java.sql.ResultSet r4;
+        java.lang.StringBuilder $r5, $r6, $r7, $r8, $r9;
+        boolean $z0;
+        java.lang.Exception $r11;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.Statement;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        l0 = 0L;
+
+     label1:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("select count(*) from ");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" where ");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r10, "2747");
+
+        r4 = interfaceinvoke r1.<java.sql.Statement: java.sql.ResultSet executeQuery(java.lang.String)>($r10);
+
+        if r4 == null goto label2;
+
+        $z0 = interfaceinvoke r4.<java.sql.ResultSet: boolean next()>();
+
+        if $z0 == 0 goto label2;
+
+        l0 = interfaceinvoke r4.<java.sql.ResultSet: long getLong(int)>(1);
+
+     label2:
+        interfaceinvoke r4.<java.sql.ResultSet: void close()>();
+
+     label3:
+        goto label5;
+
+     label4:
+        $r11 := @caughtexception;
+
+     label5:
+        return l0;
+
+        catch java.lang.Exception from label1 to label3 with label4;
+    }
+
+    java.lang.String proceedError(javax.servlet.http.HttpServletResponse, java.lang.Exception)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletResponse r1;
+        java.lang.Exception r2;
+        java.lang.String $r3;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletResponse;
+
+        r2 := @parameter1: java.lang.Exception;
+
+        $r3 = virtualinvoke r2.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r3, "2748");
+
+        return $r3;
+    }
+
+    java.lang.String[] getFieldsName(java.sql.ResultSet) throws java.sql.SQLException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.ResultSet r1;
+        java.sql.ResultSetMetaData r2;
+        int i0, i1, $i2;
+        java.lang.String[] r3;
+        java.lang.String $r4;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.ResultSet;
+
+        r2 = interfaceinvoke r1.<java.sql.ResultSet: java.sql.ResultSetMetaData getMetaData()>();
+
+        i0 = interfaceinvoke r2.<java.sql.ResultSetMetaData: int getColumnCount()>();
+
+        r3 = newarray (java.lang.String)[i0];
+
+        i1 = 0;
+
+     label1:
+        if i1 >= i0 goto label2;
+
+        $i2 = i1 + 1;
+
+        $r4 = interfaceinvoke r2.<java.sql.ResultSetMetaData: java.lang.String getColumnLabel(int)>($i2);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r4, "2749");
+
+        r3[i1] = $r4;
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return r3;
+    }
+
+    java.util.Hashtable getRecordToHash(java.sql.ResultSet, java.util.Hashtable, java.lang.String[]) throws java.sql.SQLException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.ResultSet r1;
+        java.util.Hashtable r2;
+        java.lang.String[] r3;
+        int i0, $i1;
+        java.lang.String $r4, $r5, $r6;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.ResultSet;
+
+        r2 := @parameter1: java.util.Hashtable;
+
+        r3 := @parameter2: java.lang.String[];
+
+        i0 = 0;
+
+     label1:
+        $i1 = lengthof r3;
+
+        if i0 >= $i1 goto label2;
+
+        $r5 = r3[i0];
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r5, "2750");
+
+        $r4 = r3[i0];
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r4, "2751");
+
+        $r6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getValue(java.sql.ResultSet,java.lang.String)>(r1, $r4);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r6, "2752");
+
+        virtualinvoke r2.<java.util.Hashtable: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r6);
+
+        i0 = i0 + 1;
+
+        goto label1;
+
+     label2:
+        return r2;
+    }
+
+    java.sql.Connection cn() throws java.sql.SQLException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1;
+        java.sql.Connection $r2;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 = "jdbc:mysql://localhost/bookstore?user=bkUser&password=bkPass&connectTimeout=10000&socketTimeout=10000&allowMultiQueries=true";
+
+        $r2 = staticinvoke <java.sql.DriverManager: java.sql.Connection getConnection(java.lang.String)>(r1);
+
+        return $r2;
+    }
+
+    java.lang.String toURL(java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, $r2;
+        int $i0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        if r1 != null goto label1;
+
+        return "";
+
+     label1:
+        $i0 = virtualinvoke r1.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 != 0 goto label2;
+
+        return "";
+
+     label2:
+        $r2 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String)>(r1);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r2, "2753");
+
+        return $r2;
+    }
+
+    java.lang.String toHTML(java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, r3, r4, r5;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        if r1 != null goto label1;
+
+        return "";
+
+     label1:
+        r2 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r1, "&", "&amp;");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2754");
+
+        r3 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r2, "<", "&lt;");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r3, "2755");
+
+        r4 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r3, ">", "&gt;");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2756");
+
+        r5 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r4, "\"", "&quot;");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2757");
+
+        return r5;
+    }
+
+    java.lang.String getValueHTML(java.sql.ResultSet, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.ResultSet r1;
+        java.lang.String r2, r3, $r4;
+        java.sql.SQLException $r5;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.ResultSet;
+
+        r2 := @parameter1: java.lang.String;
+
+     label1:
+        r3 = interfaceinvoke r1.<java.sql.ResultSet: java.lang.String getString(java.lang.String)>(r2);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r3, "2758");
+
+        if r3 == null goto label3;
+
+        $r4 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r4, "2759");
+
+     label2:
+        return $r4;
+
+     label3:
+        goto label5;
+
+     label4:
+        $r5 := @caughtexception;
+
+     label5:
+        return "";
+
+        catch java.sql.SQLException from label1 to label2 with label4;
+    }
+
+    java.lang.String getValue(java.sql.ResultSet, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.ResultSet r1;
+        java.lang.String r2, r3, $r4;
+        boolean $z0, $z1;
+        java.lang.Exception $r5;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.ResultSet;
+
+        r2 := @parameter1: java.lang.String;
+
+        if r1 == null goto label1;
+
+        $z0 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r2);
+
+        if $z0 != 0 goto label1;
+
+        $r4 = "";
+
+        $z1 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>(r2);
+
+        if $z1 == 0 goto label2;
+
+     label1:
+        return "";
+
+     label2:
+        r3 = interfaceinvoke r1.<java.sql.ResultSet: java.lang.String getString(java.lang.String)>(r2);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r3, "2760");
+
+        if r3 != null goto label3;
+
+        r3 = "";
+
+     label3:
+        return r3;
+
+     label4:
+        $r5 := @caughtexception;
+
+        return "";
+
+        catch java.lang.Exception from label2 to label3 with label4;
+    }
+
+    java.lang.String getParam(javax.servlet.http.HttpServletRequest, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        java.lang.String r2, r3, r4, r5, r6, r7, r8;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>(r2);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r3, "2761");
+
+        if r3 != null goto label1;
+
+        return "";
+
+     label1:
+        r4 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r3, "&amp;", "&");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2762");
+
+        r5 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r4, "&lt;", "<");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2763");
+
+        r6 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r5, "&gt;", ">");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r6, "2764");
+
+        r7 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r6, "&amp;lt;", "<");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2765");
+
+        r8 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r7, "&amp;gt;", ">");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r8, "2766");
+
+        return r8;
+    }
+
+    boolean isNumber(java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, $r3, r6;
+        boolean z0, $z1;
+        java.lang.Double $r4;
+        java.lang.NumberFormatException $r5;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        if r1 == null goto label1;
+
+        $z1 = virtualinvoke r1.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z1 == 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        $r3 = virtualinvoke r1.<java.lang.String: java.lang.String replace(char,char)>(100, 95);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r3, "2767");
+
+        r6 = virtualinvoke $r3.<java.lang.String: java.lang.String replace(char,char)>(102, 95);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r6, "2768");
+
+     label3:
+        $r4 = new java.lang.Double;
+
+        specialinvoke $r4.<java.lang.Double: void <init>(java.lang.String)>(r6);
+
+        z0 = 1;
+
+     label4:
+        goto label6;
+
+     label5:
+        $r5 := @caughtexception;
+
+        z0 = 0;
+
+     label6:
+        return z0;
+
+        catch java.lang.NumberFormatException from label3 to label4 with label5;
+    }
+
+    boolean isEmpty(int)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        int i0;
+        boolean $z0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        i0 := @parameter0: int;
+
+        if i0 != -2147483648 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    boolean isEmpty(java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1;
+        boolean $z0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke r1.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        return $z0;
+    }
+
+    java.lang.String getCheckBoxValue(java.lang.String, java.lang.String, java.lang.String, int)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, r3, $r4, $r5;
+        int i0;
+        boolean $z0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        i0 := @parameter3: int;
+
+        if r1 == null goto label1;
+
+        $z0 = virtualinvoke r1.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $r4 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r3, i0);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r4, "2769");
+
+        return $r4;
+
+     label2:
+        $r5 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r2, i0);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r5, "2770");
+
+        return $r5;
+    }
+
+    java.lang.String toWhereSQL(java.lang.String, java.lang.String, int)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, $r4, r32;
+        int i0;
+        boolean $z0;
+        java.lang.StringBuilder $r5, $r6, $r7, $r8, $r9, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22, $r23, $r24, $r25, $r26, $r27, $r28;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        i0 := @parameter2: int;
+
+        tableswitch(i0)
+        {
+            case 1: goto label1;
+            case 2: goto label3;
+            case 3: goto label2;
+            default: goto label4;
+        };
+
+     label1:
+        $r4 = "";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>(r2);
+
+        if $z0 != 0 goto label2;
+
+        $r24 = new java.lang.StringBuilder;
+
+        specialinvoke $r24.<java.lang.StringBuilder: void <init>()>();
+
+        $r23 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r26 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r25 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" like \'%");
+
+        $r27 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r28 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\'");
+
+        virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" = ");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label3:
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r14 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r13 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" = \'");
+
+        $r16 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r15 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' ");
+
+        virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label4:
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>()>();
+
+        $r19 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r18 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r21 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" = \'");
+
+        $r20 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r22 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' ");
+
+        r32 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r32, "2771");
+
+        return r32;
+    }
+
+    java.lang.String toSQL(java.lang.String, int)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, $r4, $r9, r15, r16;
+        int i0;
+        boolean $z0, $z1, $z2;
+        java.lang.StringBuilder $r5, $r6, $r7, $r8, $r10, $r11, $r12, $r13;
+        java.lang.NumberFormatException $r14;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: int;
+
+        if r1 != null goto label01;
+
+        return "null";
+
+     label01:
+        r2 = r1;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2772");
+
+        $r4 = "";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>(r2);
+
+        if $z0 == 0 goto label03;
+
+        if i0 == 1 goto label02;
+
+        if i0 != 2 goto label03;
+
+     label02:
+        return "null";
+
+     label03:
+        tableswitch(i0)
+        {
+            case 1: goto label04;
+            case 2: goto label11;
+            case 3: goto label06;
+            case 4: goto label05;
+            case 5: goto label05;
+            default: goto label12;
+        };
+
+     label04:
+        r15 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r2, "\'", "\'\'");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r15, "2773");
+
+        r16 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r15, "&amp;", "&");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r16, "2774");
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r16);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        r2 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2775");
+
+        goto label12;
+
+     label05:
+        r2 = specialinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>(r2, "\'", "\'\'");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2776");
+
+        goto label12;
+
+     label06:
+        $z1 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isNumber(java.lang.String)>(r1);
+
+        if $z1 == 0 goto label07;
+
+        $r9 = "";
+
+        $z2 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>(r2);
+
+        if $z2 == 0 goto label08;
+
+     label07:
+        r2 = "null";
+
+        goto label09;
+
+     label08:
+        r2 = r1;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2777");
+
+     label09:
+        goto label12;
+
+     label10:
+        $r14 := @caughtexception;
+
+        r2 = "null";
+
+        goto label12;
+
+     label11:
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r13 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r12 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        r2 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r2, "2778");
+
+     label12:
+        return r2;
+
+        catch java.lang.NumberFormatException from label06 to label09 with label10;
+    }
+
+    private java.lang.String replace(java.lang.String, java.lang.String, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, r3;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        return r1;
+    }
+
+    java.lang.String getOptions(java.sql.Connection, java.lang.String, boolean, boolean, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.sql.Connection r1;
+        java.lang.String r2, r3, r4, r6, r7, $r8, $r9, r27;
+        boolean z0, z1, $z2;
+        java.sql.Statement r5;
+        int $i0;
+        java.lang.StringBuilder $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22, $r23, $r25;
+        java.lang.Exception $r24;
+        java.sql.ResultSet r26;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.sql.Connection;
+
+        r2 := @parameter1: java.lang.String;
+
+        z0 := @parameter2: boolean;
+
+        z1 := @parameter3: boolean;
+
+        r3 := @parameter4: java.lang.String;
+
+        r4 = "";
+
+        if z0 == 0 goto label1;
+
+        $r21 = new java.lang.StringBuilder;
+
+        specialinvoke $r21.<java.lang.StringBuilder: void <init>()>();
+
+        $r22 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r25 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<option value=\"\">All</option>");
+
+        r4 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2779");
+
+        goto label2;
+
+     label1:
+        if z1 != 0 goto label2;
+
+        $r20 = new java.lang.StringBuilder;
+
+        specialinvoke $r20.<java.lang.StringBuilder: void <init>()>();
+
+        $r19 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r23 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<option value=\"\"></option>");
+
+        r4 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2780");
+
+     label2:
+        r5 = interfaceinvoke r1.<java.sql.Connection: java.sql.Statement createStatement()>();
+
+        r26 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.ResultSet openrs(java.sql.Statement,java.lang.String)>(r5, r2);
+
+     label3:
+        $z2 = interfaceinvoke r26.<java.sql.ResultSet: boolean next()>();
+
+        if $z2 == 0 goto label6;
+
+        $r8 = interfaceinvoke r26.<java.sql.ResultSet: java.lang.String getString(int)>(1);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r8, "2781");
+
+        r6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>($r8);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r6, "2782");
+
+        $r9 = interfaceinvoke r26.<java.sql.ResultSet: java.lang.String getString(int)>(2);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r9, "2783");
+
+        r7 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>($r9);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2784");
+
+        $i0 = virtualinvoke r6.<java.lang.String: int compareTo(java.lang.String)>(r3);
+
+        if $i0 != 0 goto label4;
+
+        r27 = "SELECTED";
+
+        goto label5;
+
+     label4:
+        r27 = "";
+
+     label5:
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r13 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<option value=\"");
+
+        $r12 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r15 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\" ");
+
+        $r14 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r27);
+
+        $r17 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r16 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7);
+
+        $r18 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</option>");
+
+        r4 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2785");
+
+        goto label3;
+
+     label6:
+        interfaceinvoke r26.<java.sql.ResultSet: void close()>();
+
+        interfaceinvoke r5.<java.sql.Statement: void close()>();
+
+     label7:
+        goto label9;
+
+     label8:
+        $r24 := @caughtexception;
+
+     label9:
+        return r4;
+
+        catch java.lang.Exception from label2 to label7 with label8;
+    }
+
+    java.lang.String getOptionsLOV(java.lang.String, boolean, boolean, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, r4, r5, r7, r9, r23, r24;
+        boolean z0, z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12, $z13, $z14;
+        java.util.StringTokenizer r8, $r10;
+        int i0, $i1, $i2;
+        java.lang.StringBuilder $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        z0 := @parameter1: boolean;
+
+        z1 := @parameter2: boolean;
+
+        r2 := @parameter3: java.lang.String;
+
+        r4 = "";
+
+        r5 = "";
+
+        r7 = "";
+
+        $r10 = new java.util.StringTokenizer;
+
+        specialinvoke $r10.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String,boolean)>(r1, ";", 1);
+
+        r8 = $r10;
+
+        i0 = 0;
+
+        r9 = ";";
+
+     label01:
+        $z2 = virtualinvoke r8.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $z2 == 0 goto label12;
+
+        r23 = virtualinvoke r8.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r23, "2786");
+
+        $z3 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z3 != 0 goto label02;
+
+        $z14 = virtualinvoke r23.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z14 == 0 goto label02;
+
+        r23 = virtualinvoke r8.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r23, "2787");
+
+        goto label03;
+
+     label02:
+        $z5 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z5 == 0 goto label03;
+
+        $z13 = virtualinvoke r23.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z13 == 0 goto label03;
+
+        r23 = "";
+
+     label03:
+        $z4 = virtualinvoke r23.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z4 != 0 goto label04;
+
+        r9 = r23;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2788");
+
+     label04:
+        i0 = i0 + 1;
+
+        $z6 = virtualinvoke r8.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $z6 == 0 goto label09;
+
+        r7 = virtualinvoke r8.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2789");
+
+        $z9 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z9 != 0 goto label05;
+
+        $z10 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z10 == 0 goto label05;
+
+        r7 = virtualinvoke r8.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2790");
+
+        goto label06;
+
+     label05:
+        $z7 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z7 == 0 goto label06;
+
+        $z12 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z12 == 0 goto label06;
+
+        r7 = "";
+
+     label06:
+        $z8 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z8 == 0 goto label07;
+
+        r7 = "";
+
+     label07:
+        $z11 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z11 != 0 goto label08;
+
+        r9 = r7;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2791");
+
+     label08:
+        i0 = i0 + 1;
+
+     label09:
+        $i2 = virtualinvoke r23.<java.lang.String: int compareTo(java.lang.String)>(r2);
+
+        if $i2 != 0 goto label10;
+
+        r24 = "SELECTED";
+
+        goto label11;
+
+     label10:
+        r24 = "";
+
+     label11:
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>()>();
+
+        $r14 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r17 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<option value=\"");
+
+        $r16 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r23);
+
+        $r19 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\" ");
+
+        $r18 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r24);
+
+        $r21 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r22 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r7);
+
+        $r20 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</option>");
+
+        r4 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r4, "2792");
+
+        goto label01;
+
+     label12:
+        $i1 = i0 % 2;
+
+        if $i1 != 0 goto label13;
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>()>();
+
+        $r11 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r13 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        r5 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2793");
+
+     label13:
+        return r5;
+    }
+
+    java.lang.String getValFromLOV(java.lang.String, java.lang.String)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.lang.String r1, r2, r3, r5, r7, r9;
+        java.util.StringTokenizer r6, $r8;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12;
+        int $i1;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 = "";
+
+        r5 = "";
+
+        $r8 = new java.util.StringTokenizer;
+
+        specialinvoke $r8.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String,boolean)>(r2, ";", 1);
+
+        r6 = $r8;
+
+        r7 = ";";
+
+     label1:
+        $z0 = virtualinvoke r6.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $z0 == 0 goto label9;
+
+        r9 = virtualinvoke r6.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2794");
+
+        $z1 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z1 != 0 goto label2;
+
+        $z12 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z12 == 0 goto label2;
+
+        r9 = virtualinvoke r6.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2795");
+
+        goto label3;
+
+     label2:
+        $z2 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z2 == 0 goto label3;
+
+        $z11 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z11 == 0 goto label3;
+
+        r9 = "";
+
+     label3:
+        $z3 = virtualinvoke r9.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 != 0 goto label4;
+
+        r7 = r9;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2796");
+
+     label4:
+        $z4 = virtualinvoke r6.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $z4 == 0 goto label8;
+
+        r5 = virtualinvoke r6.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2797");
+
+        $z6 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z6 != 0 goto label5;
+
+        $z9 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z9 == 0 goto label5;
+
+        r5 = virtualinvoke r6.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2798");
+
+        goto label6;
+
+     label5:
+        $z5 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z5 == 0 goto label6;
+
+        $z10 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z10 == 0 goto label6;
+
+        r5 = "";
+
+     label6:
+        $z8 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>(";");
+
+        if $z8 == 0 goto label7;
+
+        r5 = "";
+
+     label7:
+        $z7 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z7 != 0 goto label8;
+
+        r7 = r5;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2799");
+
+     label8:
+        $i1 = virtualinvoke r9.<java.lang.String: int compareTo(java.lang.String)>(r1);
+
+        if $i1 != 0 goto label1;
+
+        r3 = r5;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r3, "2800");
+
+        goto label1;
+
+     label9:
+        return r3;
+    }
+
+    java.lang.String checkSecurityNONE(int, javax.servlet.http.HttpSession, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpServletRequest)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        int i0;
+        javax.servlet.http.HttpSession r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpServletRequest r3;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        i0 := @parameter0: int;
+
+        r1 := @parameter1: javax.servlet.http.HttpSession;
+
+        r2 := @parameter2: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter3: javax.servlet.http.HttpServletRequest;
+
+        return "";
+    }
+
+    java.lang.String checkSecurity(int, javax.servlet.http.HttpSession, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpServletRequest)
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        int i0, $i1;
+        javax.servlet.http.HttpSession r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpServletRequest r3;
+        java.lang.Object r4, r5;
+        boolean z0, $z1;
+        java.lang.StringBuilder $r6, $r7, $r10, $r11, $r15;
+        java.lang.String $r8, $r9, $r12, $r13, $r14, $r16, $r17;
+        java.lang.Integer $r18;
+        java.lang.Exception $r19;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        i0 := @parameter0: int;
+
+        r1 := @parameter1: javax.servlet.http.HttpSession;
+
+        r2 := @parameter2: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter3: javax.servlet.http.HttpServletRequest;
+
+     label1:
+        r4 = interfaceinvoke r1.<javax.servlet.http.HttpSession: java.lang.Object getAttribute(java.lang.String)>("UserID");
+
+        r5 = interfaceinvoke r1.<javax.servlet.http.HttpSession: java.lang.Object getAttribute(java.lang.String)>("UserRights");
+
+        z0 = 0;
+
+        if r4 == null goto label2;
+
+        if r5 != null goto label3;
+
+     label2:
+        z0 = 1;
+
+     label3:
+        if z0 != 0 goto label5;
+
+        $r16 = virtualinvoke r4.<java.lang.Object: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r16, "2801");
+
+        $z1 = virtualinvoke $r16.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z1 == 0 goto label4;
+
+        z0 = 1;
+
+        goto label5;
+
+     label4:
+        $r18 = new java.lang.Integer;
+
+        $r17 = virtualinvoke r5.<java.lang.Object: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r17, "2802");
+
+        specialinvoke $r18.<java.lang.Integer: void <init>(java.lang.String)>($r17);
+
+        $i1 = virtualinvoke $r18.<java.lang.Integer: int intValue()>();
+
+        if $i1 >= i0 goto label5;
+
+        z0 = 1;
+
+     label5:
+        if z0 == 0 goto label7;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Login.jsp?querystring=");
+
+        $r8 = interfaceinvoke r3.<javax.servlet.http.HttpServletRequest: java.lang.String getQueryString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r8, "2803");
+
+        $r9 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toURL(java.lang.String)>($r8);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r9, "2804");
+
+        $r10 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&ret_page=");
+
+        $r13 = interfaceinvoke r3.<javax.servlet.http.HttpServletRequest: java.lang.String getRequestURI()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r13, "2805");
+
+        $r12 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toURL(java.lang.String)>($r13);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r12, "2806");
+
+        $r15 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+        $r14 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r14, "2807");
+
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)>($r14);
+
+     label6:
+        return "sendRedirect";
+
+     label7:
+        goto label9;
+
+     label8:
+        $r19 := @caughtexception;
+
+     label9:
+        return "";
+
+        catch java.lang.Exception from label1 to label6 with label8;
+    }
+
+    java.lang.String DetailAction(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r9, r17, $r24, $r25, $r30, $r34, r37, r38, r39, r40;
+        java.sql.Connection r7;
+        java.sql.Statement r8;
+        java.sql.SQLException r21, $r31, $r36;
+        java.lang.StringBuilder $r23, $r26, $r27, $r28, $r29, $r32, $r33;
+        boolean $z3, $z4, $z5, $z6;
+        int $i4;
+        java.lang.Exception $r35, r42;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.sql.Connection;
+
+        r8 := @parameter7: java.sql.Statement;
+
+        r9 = "";
+
+     label01:
+        $z3 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 == 0 goto label03;
+
+     label02:
+        return "";
+
+     label03:
+        r17 = "ShoppingCart.jsp";
+
+        r37 = "?";
+
+        $r23 = new java.lang.StringBuilder;
+
+        specialinvoke $r23.<java.lang.StringBuilder: void <init>()>();
+
+        $r26 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r37);
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("item_id=");
+
+        $r24 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r24, "2808");
+
+        $r25 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toURL(java.lang.String)>($r24);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r25, "2809");
+
+        $r28 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r25);
+
+        r38 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r38, "2810");
+
+        $z4 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("insert");
+
+        if $z4 == 0 goto label04;
+
+     label04:
+        $z5 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("update");
+
+        if $z5 == 0 goto label05;
+
+     label05:
+        $z6 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("delete");
+
+        if $z6 == 0 goto label06;
+
+     label06:
+        r39 = "";
+
+        $i4 = virtualinvoke r9.<java.lang.String: int length()>();
+
+        if $i4 <= 0 goto label08;
+
+     label07:
+        return r9;
+
+     label08:
+        interfaceinvoke r8.<java.sql.Statement: int executeUpdate(java.lang.String)>(r39);
+
+     label09:
+        goto label12;
+
+     label10:
+        $r36 := @caughtexception;
+
+        r21 = $r36;
+
+        r40 = virtualinvoke r21.<java.sql.SQLException: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r40, "2811");
+
+     label11:
+        return r40;
+
+     label12:
+        if r8 == null goto label13;
+
+        interfaceinvoke r8.<java.sql.Statement: void close()>();
+
+     label13:
+        if r7 == null goto label14;
+
+        interfaceinvoke r7.<java.sql.Connection: void close()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $r31 := @caughtexception;
+
+     label16:
+        $r29 = new java.lang.StringBuilder;
+
+        specialinvoke $r29.<java.lang.StringBuilder: void <init>()>();
+
+        $r32 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r17);
+
+        $r33 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r38);
+
+        $r30 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r30, "2812");
+
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)>($r30);
+
+     label17:
+        return "sendRedirect";
+
+     label18:
+        $r35 := @caughtexception;
+
+        r42 = $r35;
+
+        $r34 = virtualinvoke r42.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r34, "2813");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r34);
+
+        return r9;
+
+        catch java.sql.SQLException from label08 to label09 with label10;
+        catch java.sql.SQLException from label12 to label14 with label15;
+        catch java.lang.Exception from label01 to label02 with label18;
+        catch java.lang.Exception from label03 to label07 with label18;
+        catch java.lang.Exception from label08 to label11 with label18;
+        catch java.lang.Exception from label12 to label17 with label18;
+    }
+
+    void Detail_Show(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r7, r11, r12, r13, r14, r15, r16, r17, $r21, $r22, $r32, $r46, $r47, $r50, $r52, $r54, $r55, $r57, $r61, $r68, $r69, $r74, $r75, $r78, $r81, $r88, $r94, $r97, $r100, $r101, $r103, $r107, $r112, $r123, $r124, $r138, $r142, $r151, $r152, $r158, r162, r163, r164, r165, r166, r167, r169, r170, r171, r172, r173, r174, r175, r176, r177;
+        java.sql.Connection r8;
+        java.sql.Statement r9;
+        java.util.Hashtable r10, $r18;
+        boolean z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11;
+        java.lang.String[] r19;
+        java.lang.StringBuilder $r20, $r23, $r24, $r25, $r26, $r27, $r28, $r29, $r30, $r31, $r33, $r34, $r35, $r36, $r37, $r38, $r39, $r40, $r41, $r42, $r43, $r44, $r45, $r48, $r49, $r51, $r53, $r56, $r58, $r59, $r60, $r62, $r63, $r64, $r65, $r66, $r67, $r70, $r71, $r72, $r73, $r76, $r77, $r79, $r80, $r82, $r83, $r86, $r87, $r89, $r90, $r91, $r92, $r93, $r95, $r96, $r98, $r99, $r102, $r104, $r105, $r106, $r108, $r109, $r110, $r111, $r113, $r114, $r122, $r139, $r140, $r141, $r143, $r144, $r149, $r150, $r153, $r155, $r156, $r157, $r159, $r160, $r161;
+        java.lang.Object $r84, $r85, $r115, $r116, $r117, $r118, $r119, $r120, $r121, $r125, $r126, $r127, $r128, $r129, $r130, $r131, $r132, $r133, $r134, $r135, $r136, $r137, $r145, $r146, $r147, $r148;
+        java.lang.Exception $r154, r178;
+        java.sql.ResultSet r168;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.lang.String;
+
+        r8 := @parameter7: java.sql.Connection;
+
+        r9 := @parameter8: java.sql.Statement;
+
+     label01:
+        $r18 = new java.util.Hashtable;
+
+        specialinvoke $r18.<java.util.Hashtable: void <init>()>();
+
+        r10 = $r18;
+
+        r11 = "";
+
+        r13 = "";
+
+        r12 = "";
+
+        r15 = "";
+
+        r14 = "";
+
+        r17 = "";
+
+        r16 = "";
+
+        z0 = 1;
+
+        $r21 = "";
+
+        $z1 = virtualinvoke $r21.<java.lang.String: boolean equals(java.lang.Object)>(r5);
+
+        if $z1 == 0 goto label02;
+
+        r162 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r162, "2814");
+
+        $r143 = new java.lang.StringBuilder;
+
+        specialinvoke $r143.<java.lang.StringBuilder: void <init>()>();
+
+        $r144 = virtualinvoke $r143.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r141 = virtualinvoke $r144.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"Trn_item_id\" value=\"");
+
+        $r142 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r142, "2815");
+
+        $r160 = virtualinvoke $r141.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r142);
+
+        $r159 = virtualinvoke $r160.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        r163 = virtualinvoke $r159.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r163, "2816");
+
+        $r161 = new java.lang.StringBuilder;
+
+        specialinvoke $r161.<java.lang.StringBuilder: void <init>()>();
+
+        $r156 = virtualinvoke $r161.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r155 = virtualinvoke $r156.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Trn_item_id=");
+
+        $r158 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r158, "2817");
+
+        $r157 = virtualinvoke $r155.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r158);
+
+        $r153 = virtualinvoke $r157.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        virtualinvoke $r153.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r164 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r164, "2818");
+
+        goto label03;
+
+     label02:
+        r162 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r162, "2819");
+
+        $r20 = new java.lang.StringBuilder;
+
+        specialinvoke $r20.<java.lang.StringBuilder: void <init>()>();
+
+        $r24 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r25 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"Trn_item_id\" value=\"");
+
+        $r22 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r22, "2820");
+
+        $r23 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r22);
+
+        $r28 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        r163 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r163, "2821");
+
+        $r26 = new java.lang.StringBuilder;
+
+        specialinvoke $r26.<java.lang.StringBuilder: void <init>()>();
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r31 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Trn_item_id=");
+
+        $r32 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r32, "2822");
+
+        $r29 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r32);
+
+        $r30 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        virtualinvoke $r30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r164 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "PK_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r164, "2823");
+
+     label03:
+        $z2 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r164);
+
+        if $z2 == 0 goto label04;
+
+        z0 = 0;
+
+     label04:
+        $r33 = new java.lang.StringBuilder;
+
+        specialinvoke $r33.<java.lang.StringBuilder: void <init>()>();
+
+        $r36 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r35 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("item_id=");
+
+        $r34 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r164);
+
+        r165 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r165, "2824");
+
+        $r40 = new java.lang.StringBuilder;
+
+        specialinvoke $r40.<java.lang.StringBuilder: void <init>()>();
+
+        $r39 = virtualinvoke $r40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r38 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"PK_item_id\" value=\"");
+
+        $r37 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r164);
+
+        $r43 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"/>");
+
+        r166 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r166, "2825");
+
+        $r42 = new java.lang.StringBuilder;
+
+        specialinvoke $r42.<java.lang.StringBuilder: void <init>()>();
+
+        $r41 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("select * from items where ");
+
+        $r45 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r165);
+
+        r167 = virtualinvoke $r45.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r167, "2826");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("    <table style=\"\">");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("     <tr>\n      <td style=\"background-color: #336699; text-align: Center; border-style: outset; border-width: 1\" colspan=\"2\"><font style=\"font-size: 12pt; color: #FFFFFF; font-weight: bold\">Book Detail</font></td>\n     </tr>");
+
+        $z4 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z4 != 0 goto label05;
+
+        $r149 = new java.lang.StringBuilder;
+
+        specialinvoke $r149.<java.lang.StringBuilder: void <init>()>();
+
+        $r150 = virtualinvoke $r149.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFFFFF; border-width: 1\" colspan=\"2\"><font style=\"font-size: 10pt; color: #000000\">");
+
+        $r139 = virtualinvoke $r150.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r140 = virtualinvoke $r139.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</font></td>\n     </tr>");
+
+        $r138 = virtualinvoke $r140.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r138, "2827");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r138);
+
+     label05:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("     <form method=\"get\" action=\"BookDetail.jsp\" name=\"Detail\">");
+
+        if z0 == 0 goto label10;
+
+        $z8 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z8 == 0 goto label06;
+
+        $r151 = "Detail";
+
+        $z11 = virtualinvoke $r151.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z11 != 0 goto label10;
+
+     label06:
+        r168 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.ResultSet openrs(java.sql.Statement,java.lang.String)>(r9, r167);
+
+        interfaceinvoke r168.<java.sql.ResultSet: boolean next()>();
+
+        r19 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String[] getFieldsName(java.sql.ResultSet)>(r168);
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.util.Hashtable getRecordToHash(java.sql.ResultSet,java.util.Hashtable,java.lang.String[])>(r168, r10, r19);
+
+        interfaceinvoke r168.<java.sql.ResultSet: void close()>();
+
+        $r115 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r169 = (java.lang.String) $r115;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r169, "2828");
+
+        $r116 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("name");
+
+        r170 = (java.lang.String) $r116;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r170, "2829");
+
+        $r117 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("author");
+
+        r171 = (java.lang.String) $r117;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r171, "2830");
+
+        $r118 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("category_id");
+
+        r172 = (java.lang.String) $r118;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r172, "2831");
+
+        $r119 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("price");
+
+        r173 = (java.lang.String) $r119;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r173, "2832");
+
+        $r120 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("image_url");
+
+        r174 = (java.lang.String) $r120;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r174, "2833");
+
+        $r121 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("notes");
+
+        r175 = (java.lang.String) $r121;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r175, "2834");
+
+        $r133 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("product_url");
+
+        r176 = (java.lang.String) $r133;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r176, "2835");
+
+        $z10 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z10 != 0 goto label07;
+
+        $r124 = "Detail";
+
+        $z9 = virtualinvoke $r124.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z9 != 0 goto label08;
+
+     label07:
+        $r132 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r162 = (java.lang.String) $r132;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r162, "2836");
+
+        $r131 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("name");
+
+        r13 = (java.lang.String) $r131;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r13, "2837");
+
+        $r137 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("author");
+
+        r12 = (java.lang.String) $r137;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2838");
+
+        $r136 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("category_id");
+
+        r11 = (java.lang.String) $r136;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2839");
+
+        $r135 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("price");
+
+        r15 = (java.lang.String) $r135;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r15, "2840");
+
+        $r134 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("image_url");
+
+        r14 = (java.lang.String) $r134;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r14, "2841");
+
+        $r126 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("notes");
+
+        r17 = (java.lang.String) $r126;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r17, "2842");
+
+        $r125 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("product_url");
+
+        r16 = (java.lang.String) $r125;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r16, "2843");
+
+        goto label09;
+
+     label08:
+        $r130 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r162 = (java.lang.String) $r130;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r162, "2844");
+
+        $r129 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("name");
+
+        r13 = (java.lang.String) $r129;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r13, "2845");
+
+        $r128 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("author");
+
+        r12 = (java.lang.String) $r128;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2846");
+
+        $r127 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("category_id");
+
+        r11 = (java.lang.String) $r127;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2847");
+
+        $r147 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("price");
+
+        r15 = (java.lang.String) $r147;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r15, "2848");
+
+        $r148 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("image_url");
+
+        r14 = (java.lang.String) $r148;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r14, "2849");
+
+        $r145 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("notes");
+
+        r17 = (java.lang.String) $r145;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r17, "2850");
+
+        $r146 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("product_url");
+
+        r16 = (java.lang.String) $r146;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r16, "2851");
+
+     label09:
+        goto label11;
+
+     label10:
+        $r46 = "";
+
+        $z3 = virtualinvoke $r46.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 == 0 goto label11;
+
+        $r123 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r123, "2852");
+
+        r162 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>($r123);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r162, "2853");
+
+     label11:
+        $r44 = new java.lang.StringBuilder;
+
+        specialinvoke $r44.<java.lang.StringBuilder: void <init>()>();
+
+        $r49 = virtualinvoke $r44.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("category_id=");
+
+        $r50 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r11, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r50, "2854");
+
+        $r51 = virtualinvoke $r49.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r50);
+
+        $r52 = virtualinvoke $r51.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r52, "2855");
+
+        r177 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String dLookUp(java.sql.Statement,java.lang.String,java.lang.String,java.lang.String)>(r9, "categories", "name", $r52);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r177, "2856");
+
+        $r47 = "";
+
+        $z5 = virtualinvoke $r47.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z5 == 0 goto label12;
+
+        $r104 = new java.lang.StringBuilder;
+
+        specialinvoke $r104.<java.lang.StringBuilder: void <init>()>();
+
+        $r106 = virtualinvoke $r104.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<img border=0 src=");
+
+        $r105 = virtualinvoke $r106.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r14);
+
+        $r122 = virtualinvoke $r105.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        r14 = virtualinvoke $r122.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r14, "2857");
+
+        r16 = "Review this book on Amazon.com";
+
+     label12:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Title</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r48 = new java.lang.StringBuilder;
+
+        specialinvoke $r48.<java.lang.StringBuilder: void <init>()>();
+
+        $r58 = virtualinvoke $r48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r57 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r13);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r57, "2858");
+
+        $r60 = virtualinvoke $r58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r57);
+
+        $r59 = virtualinvoke $r60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r54 = virtualinvoke $r59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r54, "2859");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r54);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Author</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r53 = new java.lang.StringBuilder;
+
+        specialinvoke $r53.<java.lang.StringBuilder: void <init>()>();
+
+        $r56 = virtualinvoke $r53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r55 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r12);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r55, "2860");
+
+        $r66 = virtualinvoke $r56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r55);
+
+        $r65 = virtualinvoke $r66.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r68 = virtualinvoke $r65.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r68, "2861");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r68);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Category</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r67 = new java.lang.StringBuilder;
+
+        specialinvoke $r67.<java.lang.StringBuilder: void <init>()>();
+
+        $r62 = virtualinvoke $r67.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r61 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r177);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r61, "2862");
+
+        $r64 = virtualinvoke $r62.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r61);
+
+        $r63 = virtualinvoke $r64.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r75 = virtualinvoke $r63.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r75, "2863");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r75);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Price</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r76 = new java.lang.StringBuilder;
+
+        specialinvoke $r76.<java.lang.StringBuilder: void <init>()>();
+
+        $r73 = virtualinvoke $r76.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r74 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r15);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r74, "2864");
+
+        $r71 = virtualinvoke $r73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r74);
+
+        $r72 = virtualinvoke $r71.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r69 = virtualinvoke $r72.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r69, "2865");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r69);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Picture</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r70 = new java.lang.StringBuilder;
+
+        specialinvoke $r70.<java.lang.StringBuilder: void <init>()>();
+
+        $r83 = virtualinvoke $r70.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<a href=\"");
+
+        $r84 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("product_url");
+
+        $r81 = (java.lang.String) $r84;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r81, "2866");
+
+        $r82 = virtualinvoke $r83.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r81);
+
+        $r79 = virtualinvoke $r82.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"><font style=\"font-size: 10pt; color: #000000\">");
+
+        $r80 = virtualinvoke $r79.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r14);
+
+        $r77 = virtualinvoke $r80.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</font></a>");
+
+        $r78 = virtualinvoke $r77.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r78, "2867");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r78);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Notes</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r92 = new java.lang.StringBuilder;
+
+        specialinvoke $r92.<java.lang.StringBuilder: void <init>()>();
+
+        $r91 = virtualinvoke $r92.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r90 = virtualinvoke $r91.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r17);
+
+        $r89 = virtualinvoke $r90.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r88 = virtualinvoke $r89.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r88, "2868");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r88);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\"></font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r87 = new java.lang.StringBuilder;
+
+        specialinvoke $r87.<java.lang.StringBuilder: void <init>()>();
+
+        $r86 = virtualinvoke $r87.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<a href=\"");
+
+        $r85 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("product_url");
+
+        $r100 = (java.lang.String) $r85;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r100, "2869");
+
+        $r99 = virtualinvoke $r86.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r100);
+
+        $r98 = virtualinvoke $r99.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"><font style=\"font-size: 10pt; color: #000000\">");
+
+        $r97 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r16);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r97, "2870");
+
+        $r96 = virtualinvoke $r98.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r97);
+
+        $r95 = virtualinvoke $r96.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</font></a>");
+
+        $r94 = virtualinvoke $r95.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r94, "2871");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r94);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td colspan=\"2\" align=\"right\">");
+
+        if z0 == 0 goto label14;
+
+        $z6 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z6 == 0 goto label13;
+
+        $r103 = "Detail";
+
+        $z7 = virtualinvoke $r103.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z7 != 0 goto label14;
+
+     label13:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"hidden\" name=\"FormName\" value=\"Detail\"><input type=\"hidden\" value=\"\" name=\"FormAction\">");
+
+     label14:
+        $r93 = new java.lang.StringBuilder;
+
+        specialinvoke $r93.<java.lang.StringBuilder: void <init>()>();
+
+        $r108 = virtualinvoke $r93.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"item_id\" value=\"");
+
+        $r107 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r162);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r107, "2872");
+
+        $r110 = virtualinvoke $r108.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r107);
+
+        $r109 = virtualinvoke $r110.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        $r112 = virtualinvoke $r109.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r112, "2873");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r112);
+
+        $r111 = new java.lang.StringBuilder;
+
+        specialinvoke $r111.<java.lang.StringBuilder: void <init>()>();
+
+        $r114 = virtualinvoke $r111.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r163);
+
+        $r113 = virtualinvoke $r114.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r102 = virtualinvoke $r113.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r166);
+
+        $r101 = virtualinvoke $r102.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r101, "2874");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r101);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>\n     </form>\n    </table>");
+
+     label15:
+        goto label17;
+
+     label16:
+        $r154 := @caughtexception;
+
+        r178 = $r154;
+
+        $r152 = virtualinvoke r178.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r152, "2875");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r152);
+
+     label17:
+        return;
+
+        catch java.lang.Exception from label01 to label15 with label16;
+    }
+
+    java.lang.String OrderAction(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r9, r17, $r26, $r28, $r34, $r43, r46, r47, r48, r49, r50;
+        java.sql.Connection r7;
+        java.sql.Statement r8;
+        byte b2;
+        boolean $z2, $z3, $z4, $z5, $z6, $z7;
+        java.sql.SQLException r23, $r44, $r45;
+        java.lang.Object $r24;
+        java.lang.StringBuilder $r25, $r27, $r29, $r30, $r31, $r32, $r33, $r35, $r36, $r37, $r38, $r39, $r41, $r42;
+        int $i4, $i6;
+        java.lang.Exception $r40, r52;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.sql.Connection;
+
+        r8 := @parameter7: java.sql.Statement;
+
+        r9 = "";
+
+     label01:
+        $z2 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z2 == 0 goto label03;
+
+     label02:
+        return "";
+
+     label03:
+        r17 = "ShoppingCart.jsp";
+
+        b2 = 0;
+
+        $z4 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("insert");
+
+        if $z4 == 0 goto label04;
+
+        b2 = 1;
+
+     label04:
+        $z5 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("update");
+
+        if $z5 == 0 goto label05;
+
+        b2 = 2;
+
+     label05:
+        $z3 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("delete");
+
+        if $z3 == 0 goto label06;
+
+        b2 = 3;
+
+     label06:
+        $r24 = interfaceinvoke r3.<javax.servlet.http.HttpSession: java.lang.Object getAttribute(java.lang.String)>("UserID");
+
+        r46 = (java.lang.String) $r24;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r46, "2876");
+
+        r47 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "quantity");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r47, "2877");
+
+        r48 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r48, "2878");
+
+        if b2 == 1 goto label07;
+
+        if b2 != 2 goto label11;
+
+     label07:
+        $z6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r47);
+
+        if $z6 == 0 goto label08;
+
+        $r37 = new java.lang.StringBuilder;
+
+        specialinvoke $r37.<java.lang.StringBuilder: void <init>()>();
+
+        $r42 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        $r41 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The value in field Quantity is required.<br>");
+
+        r9 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2879");
+
+     label08:
+        $z7 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isNumber(java.lang.String)>(r48);
+
+        if $z7 != 0 goto label09;
+
+        $r36 = new java.lang.StringBuilder;
+
+        specialinvoke $r36.<java.lang.StringBuilder: void <init>()>();
+
+        $r39 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        $r38 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The value in field item_id is incorrect.<br>");
+
+        r9 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2880");
+
+     label09:
+        $i4 = virtualinvoke r9.<java.lang.String: int length()>();
+
+        if $i4 <= 0 goto label11;
+
+     label10:
+        return r9;
+
+     label11:
+        r49 = "";
+
+        lookupswitch(b2)
+        {
+            case 1: goto label12;
+            default: goto label13;
+        };
+
+     label12:
+        $r27 = new java.lang.StringBuilder;
+
+        specialinvoke $r27.<java.lang.StringBuilder: void <init>()>();
+
+        $r25 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("insert into orders (member_id,quantity,item_id) values (");
+
+        $r26 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r46, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r26, "2881");
+
+        $r30 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r26);
+
+        $r31 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r28 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r47, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r28, "2882");
+
+        $r29 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r28);
+
+        $r35 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r34 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r48, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r34, "2883");
+
+        $r33 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r34);
+
+        $r32 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        r49 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r49, "2884");
+
+     label13:
+        $i6 = virtualinvoke r9.<java.lang.String: int length()>();
+
+        if $i6 <= 0 goto label15;
+
+     label14:
+        return r9;
+
+     label15:
+        interfaceinvoke r8.<java.sql.Statement: int executeUpdate(java.lang.String)>(r49);
+
+     label16:
+        goto label19;
+
+     label17:
+        $r44 := @caughtexception;
+
+        r23 = $r44;
+
+        r50 = virtualinvoke r23.<java.sql.SQLException: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r50, "2885");
+
+     label18:
+        return r50;
+
+     label19:
+        if r8 == null goto label20;
+
+        interfaceinvoke r8.<java.sql.Statement: void close()>();
+
+     label20:
+        if r7 == null goto label21;
+
+        interfaceinvoke r7.<java.sql.Connection: void close()>();
+
+     label21:
+        goto label23;
+
+     label22:
+        $r45 := @caughtexception;
+
+     label23:
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)>(r17);
+
+     label24:
+        return "sendRedirect";
+
+     label25:
+        $r40 := @caughtexception;
+
+        r52 = $r40;
+
+        $r43 = virtualinvoke r52.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r43, "2886");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r43);
+
+        return r9;
+
+        catch java.sql.SQLException from label15 to label16 with label17;
+        catch java.sql.SQLException from label19 to label21 with label22;
+        catch java.lang.Exception from label01 to label02 with label25;
+        catch java.lang.Exception from label03 to label10 with label25;
+        catch java.lang.Exception from label11 to label14 with label25;
+        catch java.lang.Exception from label15 to label18 with label25;
+        catch java.lang.Exception from label19 to label24 with label25;
+    }
+
+    void Order_Show(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r7, r11, r12, $r15, $r17, $r31, $r32, $r35, $r37, $r40, $r43, $r45, $r48, $r49, $r55, $r58, $r60, $r66, $r68, $r70, r71, r72, r73, r74, r75;
+        java.sql.Connection r8;
+        java.sql.Statement r9;
+        java.util.Hashtable r10, $r13;
+        boolean z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11;
+        java.lang.String[] r14;
+        java.lang.StringBuilder $r16, $r18, $r19, $r20, $r21, $r22, $r23, $r24, $r25, $r26, $r27, $r28, $r29, $r30, $r33, $r34, $r36, $r38, $r39, $r41, $r42, $r44, $r46, $r47, $r50, $r51, $r52, $r53, $r62, $r63, $r64, $r65;
+        java.lang.Object $r54, $r56, $r57, $r59, $r61, $r67;
+        java.lang.Exception $r69, r77;
+        java.sql.ResultSet r76;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.lang.String;
+
+        r8 := @parameter7: java.sql.Connection;
+
+        r9 := @parameter8: java.sql.Statement;
+
+     label01:
+        $r13 = new java.util.Hashtable;
+
+        specialinvoke $r13.<java.util.Hashtable: void <init>()>();
+
+        r10 = $r13;
+
+        r12 = "";
+
+        r11 = "";
+
+        z0 = 1;
+
+        $r15 = "";
+
+        $z1 = virtualinvoke $r15.<java.lang.String: boolean equals(java.lang.Object)>(r5);
+
+        if $z1 == 0 goto label02;
+
+        r71 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r71, "2887");
+
+        r72 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "order_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r72, "2888");
+
+        goto label03;
+
+     label02:
+        r12 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "order_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2889");
+
+        r11 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "quantity");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2890");
+
+        r71 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r71, "2891");
+
+        r72 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "PK_order_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r72, "2892");
+
+     label03:
+        $z2 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r72);
+
+        if $z2 == 0 goto label04;
+
+        z0 = 0;
+
+     label04:
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>()>();
+
+        $r19 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r20 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("order_id=");
+
+        $r17 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r72, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r17, "2893");
+
+        $r18 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r17);
+
+        r73 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r73, "2894");
+
+        $r23 = new java.lang.StringBuilder;
+
+        specialinvoke $r23.<java.lang.StringBuilder: void <init>()>();
+
+        $r21 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r22 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"PK_order_id\" value=\"");
+
+        $r25 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r72);
+
+        $r26 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"/>");
+
+        r74 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r74, "2895");
+
+        $r24 = new java.lang.StringBuilder;
+
+        specialinvoke $r24.<java.lang.StringBuilder: void <init>()>();
+
+        $r28 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("select * from orders where ");
+
+        $r27 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r73);
+
+        r75 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r75, "2896");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("    <table style=\"\">");
+
+        $z3 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 != 0 goto label05;
+
+        $r64 = new java.lang.StringBuilder;
+
+        specialinvoke $r64.<java.lang.StringBuilder: void <init>()>();
+
+        $r65 = virtualinvoke $r64.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFFFFF; border-width: 1\" colspan=\"2\"><font style=\"font-size: 10pt; color: #000000\">");
+
+        $r62 = virtualinvoke $r65.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r63 = virtualinvoke $r62.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</font></td>\n     </tr>");
+
+        $r70 = virtualinvoke $r63.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r70, "2897");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r70);
+
+     label05:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("     <form method=\"get\" action=\"BookDetail.jsp\" name=\"Order\">");
+
+        if z0 == 0 goto label10;
+
+        $z7 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z7 == 0 goto label06;
+
+        $r66 = "Order";
+
+        $z10 = virtualinvoke $r66.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z10 != 0 goto label10;
+
+     label06:
+        r76 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.ResultSet openrs(java.sql.Statement,java.lang.String)>(r9, r75);
+
+        interfaceinvoke r76.<java.sql.ResultSet: boolean next()>();
+
+        r14 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String[] getFieldsName(java.sql.ResultSet)>(r76);
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.util.Hashtable getRecordToHash(java.sql.ResultSet,java.util.Hashtable,java.lang.String[])>(r76, r10, r14);
+
+        interfaceinvoke r76.<java.sql.ResultSet: void close()>();
+
+        $r54 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("order_id");
+
+        r12 = (java.lang.String) $r54;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2898");
+
+        $r61 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r71 = (java.lang.String) $r61;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r71, "2899");
+
+        $r60 = "";
+
+        $z9 = virtualinvoke $r60.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z9 == 0 goto label07;
+
+        $r67 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("quantity");
+
+        r11 = (java.lang.String) $r67;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2900");
+
+     label07:
+        $z8 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z8 != 0 goto label08;
+
+        $r58 = "Order";
+
+        $z11 = virtualinvoke $r58.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z11 != 0 goto label09;
+
+     label08:
+        $r57 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("order_id");
+
+        r12 = (java.lang.String) $r57;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2901");
+
+        $r56 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("quantity");
+
+        r11 = (java.lang.String) $r56;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2902");
+
+        $r59 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r71 = (java.lang.String) $r59;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r71, "2903");
+
+     label09:
+        goto label11;
+
+     label10:
+        $r31 = "";
+
+        $z4 = virtualinvoke $r31.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z4 == 0 goto label11;
+
+        $r55 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r55, "2904");
+
+        r71 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>($r55);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r71, "2905");
+
+        r11 = "1";
+
+     label11:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Quantity</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r30 = new java.lang.StringBuilder;
+
+        specialinvoke $r30.<java.lang.StringBuilder: void <init>()>();
+
+        $r29 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"text\"  name=\"quantity\" maxlength=\"100\" value=\"");
+
+        $r35 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r11);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r35, "2906");
+
+        $r34 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r35);
+
+        $r33 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\" size=\"10\">");
+
+        $r32 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r32, "2907");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r32);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td colspan=\"2\" align=\"right\">");
+
+        if z0 == 0 goto label13;
+
+        $z5 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z5 == 0 goto label12;
+
+        $r49 = "Order";
+
+        $z6 = virtualinvoke $r49.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z6 != 0 goto label13;
+
+     label12:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"hidden\" name=\"FormName\" value=\"Order\"><input type=\"hidden\" value=\"\" name=\"FormAction\">");
+
+        goto label14;
+
+     label13:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"submit\" value=\"Add to Shopping Cart\" onclick=\"document.Order.FormAction.value = \'insert\';\">");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"hidden\" name=\"FormName\" value=\"Order\"><input type=\"hidden\" value=\"insert\" name=\"FormAction\">");
+
+     label14:
+        $r39 = new java.lang.StringBuilder;
+
+        specialinvoke $r39.<java.lang.StringBuilder: void <init>()>();
+
+        $r38 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"order_id\" value=\"");
+
+        $r37 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r12);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r37, "2908");
+
+        $r36 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r37);
+
+        $r44 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        $r45 = virtualinvoke $r44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r45, "2909");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r45);
+
+        $r46 = new java.lang.StringBuilder;
+
+        specialinvoke $r46.<java.lang.StringBuilder: void <init>()>();
+
+        $r47 = virtualinvoke $r46.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"item_id\" value=\"");
+
+        $r40 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r71);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r40, "2910");
+
+        $r41 = virtualinvoke $r47.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r40);
+
+        $r42 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        $r43 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r43, "2911");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r43);
+
+        $r50 = new java.lang.StringBuilder;
+
+        specialinvoke $r50.<java.lang.StringBuilder: void <init>()>();
+
+        $r51 = virtualinvoke $r50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r52 = virtualinvoke $r51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r53 = virtualinvoke $r52.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r74);
+
+        $r48 = virtualinvoke $r53.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r48, "2912");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r48);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>\n     </form>\n    </table>");
+
+     label15:
+        goto label17;
+
+     label16:
+        $r69 := @caughtexception;
+
+        r77 = $r69;
+
+        $r68 = virtualinvoke r77.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r68, "2913");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r68);
+
+     label17:
+        return;
+
+        catch java.lang.Exception from label01 to label15 with label16;
+    }
+
+    java.lang.String RatingAction(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r9, r16, r17, $r29, $r30, $r32, $r36, $r40, $r45, $r46, $r48, $r52, $r69, r71, r72, r73, r74, r75, r76, r77, r78;
+        java.sql.Connection r7;
+        java.sql.Statement r8;
+        byte b2;
+        java.sql.SQLException r23, $r67, $r70;
+        java.lang.StringBuilder $r25, $r26, $r27, $r28, $r31, $r33, $r34, $r35, $r37, $r38, $r39, $r41, $r42, $r43, $r44, $r47, $r49, $r50, $r51, $r53, $r54, $r55, $r56, $r57, $r58, $r59, $r60, $r61, $r62, $r63, $r64, $r65, $r66;
+        boolean $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10;
+        int $i4, $i5;
+        java.lang.Exception $r68, r80;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.sql.Connection;
+
+        r8 := @parameter7: java.sql.Statement;
+
+        r9 = "";
+
+     label01:
+        $z2 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z2 == 0 goto label03;
+
+     label02:
+        return "";
+
+     label03:
+        r17 = "BookDetail.jsp";
+
+        r16 = " ";
+
+        r71 = "?";
+
+        $r27 = new java.lang.StringBuilder;
+
+        specialinvoke $r27.<java.lang.StringBuilder: void <init>()>();
+
+        $r25 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r71);
+
+        $r26 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("item_id=");
+
+        $r29 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r29, "2914");
+
+        $r30 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toURL(java.lang.String)>($r29);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r30, "2915");
+
+        $r28 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r30);
+
+        r72 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r72, "2916");
+
+        b2 = 0;
+
+        $z4 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("insert");
+
+        if $z4 == 0 goto label04;
+
+        b2 = 1;
+
+     label04:
+        $z5 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("update");
+
+        if $z5 == 0 goto label05;
+
+        b2 = 2;
+
+     label05:
+        $z3 = virtualinvoke r5.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("delete");
+
+        if $z3 == 0 goto label06;
+
+        b2 = 3;
+
+     label06:
+        if b2 == 2 goto label07;
+
+        if b2 != 3 goto label10;
+
+     label07:
+        r73 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "PK_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r73, "2917");
+
+        $z6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r73);
+
+        if $z6 == 0 goto label09;
+
+     label08:
+        return r9;
+
+     label09:
+        $r33 = new java.lang.StringBuilder;
+
+        specialinvoke $r33.<java.lang.StringBuilder: void <init>()>();
+
+        $r31 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("item_id=");
+
+        $r32 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r73, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r32, "2918");
+
+        $r34 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r32);
+
+        r16 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r16, "2919");
+
+     label10:
+        r74 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "rating");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r74, "2920");
+
+        r75 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "rating_count");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r75, "2921");
+
+        if b2 == 1 goto label11;
+
+        if b2 != 2 goto label16;
+
+     label11:
+        $z9 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r74);
+
+        if $z9 == 0 goto label12;
+
+        $r61 = new java.lang.StringBuilder;
+
+        specialinvoke $r61.<java.lang.StringBuilder: void <init>()>();
+
+        $r63 = virtualinvoke $r61.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        $r62 = virtualinvoke $r63.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The value in field Your Rating is required.<br>");
+
+        r9 = virtualinvoke $r62.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2922");
+
+     label12:
+        $z8 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isNumber(java.lang.String)>(r74);
+
+        if $z8 != 0 goto label13;
+
+        $r64 = new java.lang.StringBuilder;
+
+        specialinvoke $r64.<java.lang.StringBuilder: void <init>()>();
+
+        $r66 = virtualinvoke $r64.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        $r65 = virtualinvoke $r66.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The value in field Your Rating is incorrect.<br>");
+
+        r9 = virtualinvoke $r65.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2923");
+
+     label13:
+        $z7 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isNumber(java.lang.String)>(r75);
+
+        if $z7 != 0 goto label14;
+
+        $r54 = new java.lang.StringBuilder;
+
+        specialinvoke $r54.<java.lang.StringBuilder: void <init>()>();
+
+        $r56 = virtualinvoke $r54.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        $r55 = virtualinvoke $r56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The value in field rating_count is incorrect.<br>");
+
+        r9 = virtualinvoke $r55.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2924");
+
+     label14:
+        $i4 = virtualinvoke r9.<java.lang.String: int length()>();
+
+        if $i4 <= 0 goto label16;
+
+     label15:
+        return r9;
+
+     label16:
+        r76 = "";
+
+        lookupswitch(b2)
+        {
+            case 2: goto label17;
+            default: goto label18;
+        };
+
+     label17:
+        $r38 = new java.lang.StringBuilder;
+
+        specialinvoke $r38.<java.lang.StringBuilder: void <init>()>();
+
+        $r37 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("update items set rating=rating+");
+
+        $r36 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "rating");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r36, "2925");
+
+        $r35 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r36);
+
+        $r41 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", rating_count=rating_count+1 where item_id=");
+
+        $r40 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r40, "2926");
+
+        $r39 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r40);
+
+        r76 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r76, "2927");
+
+        $r46 = "";
+
+        $z10 = virtualinvoke $r46.<java.lang.String: boolean equals(java.lang.Object)>(r76);
+
+        if $z10 == 0 goto label18;
+
+        $r50 = new java.lang.StringBuilder;
+
+        specialinvoke $r50.<java.lang.StringBuilder: void <init>()>();
+
+        $r51 = virtualinvoke $r50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("update items set rating=");
+
+        $r52 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r74, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r52, "2928");
+
+        $r53 = virtualinvoke $r51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r52);
+
+        $r47 = virtualinvoke $r53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",rating_count=");
+
+        $r48 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r75, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r48, "2929");
+
+        $r49 = virtualinvoke $r47.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r48);
+
+        r77 = virtualinvoke $r49.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r77, "2930");
+
+        $r58 = new java.lang.StringBuilder;
+
+        specialinvoke $r58.<java.lang.StringBuilder: void <init>()>();
+
+        $r57 = virtualinvoke $r58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r77);
+
+        $r60 = virtualinvoke $r57.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" where ");
+
+        $r59 = virtualinvoke $r60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r16);
+
+        r76 = virtualinvoke $r59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r76, "2931");
+
+     label18:
+        $i5 = virtualinvoke r9.<java.lang.String: int length()>();
+
+        if $i5 <= 0 goto label20;
+
+     label19:
+        return r9;
+
+     label20:
+        interfaceinvoke r8.<java.sql.Statement: int executeUpdate(java.lang.String)>(r76);
+
+     label21:
+        goto label24;
+
+     label22:
+        $r67 := @caughtexception;
+
+        r23 = $r67;
+
+        r78 = virtualinvoke r23.<java.sql.SQLException: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r78, "2932");
+
+     label23:
+        return r78;
+
+     label24:
+        if r8 == null goto label25;
+
+        interfaceinvoke r8.<java.sql.Statement: void close()>();
+
+     label25:
+        if r7 == null goto label26;
+
+        interfaceinvoke r7.<java.sql.Connection: void close()>();
+
+     label26:
+        goto label28;
+
+     label27:
+        $r70 := @caughtexception;
+
+     label28:
+        $r42 = new java.lang.StringBuilder;
+
+        specialinvoke $r42.<java.lang.StringBuilder: void <init>()>();
+
+        $r43 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r17);
+
+        $r44 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r72);
+
+        $r45 = virtualinvoke $r44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r45, "2933");
+
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void sendRedirect(java.lang.String)>($r45);
+
+     label29:
+        return "sendRedirect";
+
+     label30:
+        $r68 := @caughtexception;
+
+        r80 = $r68;
+
+        $r69 = virtualinvoke r80.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r69, "2934");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r69);
+
+        return r9;
+
+        catch java.sql.SQLException from label20 to label21 with label22;
+        catch java.sql.SQLException from label24 to label26 with label27;
+        catch java.lang.Exception from label01 to label02 with label30;
+        catch java.lang.Exception from label03 to label08 with label30;
+        catch java.lang.Exception from label09 to label15 with label30;
+        catch java.lang.Exception from label16 to label19 with label30;
+        catch java.lang.Exception from label20 to label23 with label30;
+        catch java.lang.Exception from label24 to label29 with label30;
+    }
+
+    void Rating_Show(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.jsp.JspWriter, java.lang.String, java.lang.String, java.lang.String, java.sql.Connection, java.sql.Statement) throws java.io.IOException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.http.HttpSession r3;
+        javax.servlet.jsp.JspWriter r4;
+        java.lang.String r5, r6, r7, r11, r12, r13, r14, $r16, $r23, $r28, $r33, $r42, $r45, $r48, $r53, $r55, $r56, $r58, $r62, $r69, $r75, $r76, $r80, $r81, $r82, $r89, $r96, $r103, $r107, $r112, $r113, $r115, r121, r122, r123, r124, r125, r126, r128, r129, r130, r131;
+        java.sql.Connection r8;
+        java.sql.Statement r9;
+        java.util.Hashtable r10, $r17;
+        boolean z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12, $z13;
+        java.lang.String[] r15;
+        java.lang.StringBuilder $r18, $r19, $r20, $r21, $r22, $r24, $r25, $r26, $r27, $r29, $r30, $r31, $r32, $r34, $r35, $r36, $r37, $r38, $r39, $r40, $r41, $r43, $r44, $r46, $r47, $r49, $r50, $r51, $r52, $r54, $r57, $r59, $r60, $r61, $r63, $r64, $r65, $r66, $r67, $r68, $r70, $r71, $r72, $r73, $r74, $r77, $r78, $r79, $r83, $r84, $r100, $r101, $r102, $r104, $r105, $r108, $r109, $r110, $r111, $r116, $r117, $r118, $r119, $r120;
+        int $i0, $i1, $i2, $i3;
+        float $f0;
+        java.lang.Object $r85, $r86, $r87, $r88, $r90, $r91, $r92, $r93, $r94, $r95, $r97, $r98, $r99, $r106;
+        java.lang.Exception $r114, r132;
+        java.sql.ResultSet r127;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 := @parameter2: javax.servlet.http.HttpSession;
+
+        r4 := @parameter3: javax.servlet.jsp.JspWriter;
+
+        r5 := @parameter4: java.lang.String;
+
+        r6 := @parameter5: java.lang.String;
+
+        r7 := @parameter6: java.lang.String;
+
+        r8 := @parameter7: java.sql.Connection;
+
+        r9 := @parameter8: java.sql.Statement;
+
+     label01:
+        $r17 = new java.util.Hashtable;
+
+        specialinvoke $r17.<java.util.Hashtable: void <init>()>();
+
+        r10 = $r17;
+
+        r11 = "";
+
+        r13 = "";
+
+        r12 = "";
+
+        r14 = "";
+
+        z0 = 1;
+
+        $r16 = "";
+
+        $z1 = virtualinvoke $r16.<java.lang.String: boolean equals(java.lang.Object)>(r5);
+
+        if $z1 == 0 goto label02;
+
+        r121 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r121, "2935");
+
+        $r100 = new java.lang.StringBuilder;
+
+        specialinvoke $r100.<java.lang.StringBuilder: void <init>()>();
+
+        $r101 = virtualinvoke $r100.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r102 = virtualinvoke $r101.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"Trn_item_id\" value=\"");
+
+        $r103 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r103, "2936");
+
+        $r104 = virtualinvoke $r102.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r103);
+
+        $r105 = virtualinvoke $r104.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        r122 = virtualinvoke $r105.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r122, "2937");
+
+        $r118 = new java.lang.StringBuilder;
+
+        specialinvoke $r118.<java.lang.StringBuilder: void <init>()>();
+
+        $r117 = virtualinvoke $r118.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r116 = virtualinvoke $r117.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Trn_item_id=");
+
+        $r115 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r115, "2938");
+
+        $r120 = virtualinvoke $r116.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r115);
+
+        $r119 = virtualinvoke $r120.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        virtualinvoke $r119.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r123 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r123, "2939");
+
+        goto label03;
+
+     label02:
+        r121 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r121, "2940");
+
+        r11 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "rating");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2941");
+
+        r13 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "rating_count");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r13, "2942");
+
+        $r18 = new java.lang.StringBuilder;
+
+        specialinvoke $r18.<java.lang.StringBuilder: void <init>()>();
+
+        $r19 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r22 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"Trn_item_id\" value=\"");
+
+        $r23 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r23, "2943");
+
+        $r20 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r23);
+
+        $r21 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        r122 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r122, "2944");
+
+        $r26 = new java.lang.StringBuilder;
+
+        specialinvoke $r26.<java.lang.StringBuilder: void <init>()>();
+
+        $r24 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r25 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Trn_item_id=");
+
+        $r28 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "Trn_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r28, "2945");
+
+        $r29 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r28);
+
+        $r27 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+        virtualinvoke $r27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r123 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "PK_item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r123, "2946");
+
+     label03:
+        $z2 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: boolean isEmpty(java.lang.String)>(r123);
+
+        if $z2 == 0 goto label04;
+
+        z0 = 0;
+
+     label04:
+        $r31 = new java.lang.StringBuilder;
+
+        specialinvoke $r31.<java.lang.StringBuilder: void <init>()>();
+
+        $r30 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r34 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("item_id=");
+
+        $r33 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toSQL(java.lang.String,int)>(r123, 3);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r33, "2947");
+
+        $r32 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r33);
+
+        r124 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r124, "2948");
+
+        $r38 = new java.lang.StringBuilder;
+
+        specialinvoke $r38.<java.lang.StringBuilder: void <init>()>();
+
+        $r37 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r36 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"PK_item_id\" value=\"");
+
+        $r35 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r123);
+
+        $r41 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"/>");
+
+        r125 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r125, "2949");
+
+        $r40 = new java.lang.StringBuilder;
+
+        specialinvoke $r40.<java.lang.StringBuilder: void <init>()>();
+
+        $r39 = virtualinvoke $r40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("select * from items where ");
+
+        $r44 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r124);
+
+        r126 = virtualinvoke $r44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r126, "2950");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("    <table style=\"\">");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("     <tr>\n      <td style=\"background-color: #336699; text-align: Center; border-style: outset; border-width: 1\" colspan=\"2\"><font style=\"font-size: 12pt; color: #FFFFFF; font-weight: bold\">Rating</font></td>\n     </tr>");
+
+        $z5 = virtualinvoke r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z5 != 0 goto label05;
+
+        $r108 = new java.lang.StringBuilder;
+
+        specialinvoke $r108.<java.lang.StringBuilder: void <init>()>();
+
+        $r109 = virtualinvoke $r108.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFFFFF; border-width: 1\" colspan=\"2\"><font style=\"font-size: 10pt; color: #000000\">");
+
+        $r110 = virtualinvoke $r109.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r111 = virtualinvoke $r110.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</font></td>\n     </tr>");
+
+        $r112 = virtualinvoke $r111.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r112, "2951");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r112);
+
+     label05:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("     <form method=\"get\" action=\"BookDetail.jsp\" name=\"Rating\">");
+
+        if z0 == 0 goto label11;
+
+        $z9 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z9 == 0 goto label06;
+
+        $r107 = "Rating";
+
+        $z13 = virtualinvoke $r107.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z13 != 0 goto label11;
+
+     label06:
+        r127 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.ResultSet openrs(java.sql.Statement,java.lang.String)>(r9, r126);
+
+        interfaceinvoke r127.<java.sql.ResultSet: boolean next()>();
+
+        r15 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String[] getFieldsName(java.sql.ResultSet)>(r127);
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.util.Hashtable getRecordToHash(java.sql.ResultSet,java.util.Hashtable,java.lang.String[])>(r127, r10, r15);
+
+        interfaceinvoke r127.<java.sql.ResultSet: void close()>();
+
+        $r86 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r128 = (java.lang.String) $r86;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r128, "2952");
+
+        $r85 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating");
+
+        r129 = (java.lang.String) $r85;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r129, "2953");
+
+        $r95 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r130 = (java.lang.String) $r95;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r130, "2954");
+
+        $r94 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r131 = (java.lang.String) $r94;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r131, "2955");
+
+        $r96 = "";
+
+        $z11 = virtualinvoke $r96.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z11 == 0 goto label07;
+
+        $r106 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating");
+
+        r11 = (java.lang.String) $r106;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2956");
+
+     label07:
+        $z12 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z12 != 0 goto label08;
+
+        $r89 = "Rating";
+
+        $z10 = virtualinvoke $r89.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z10 != 0 goto label09;
+
+     label08:
+        $r97 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r121 = (java.lang.String) $r97;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r121, "2957");
+
+        $r99 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating");
+
+        r12 = (java.lang.String) $r99;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2958");
+
+        $r98 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r14 = (java.lang.String) $r98;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r14, "2959");
+
+        $r88 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating");
+
+        r11 = (java.lang.String) $r88;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2960");
+
+        $r87 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r13 = (java.lang.String) $r87;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r13, "2961");
+
+        goto label10;
+
+     label09:
+        $r91 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("item_id");
+
+        r121 = (java.lang.String) $r91;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r121, "2962");
+
+        $r90 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating");
+
+        r12 = (java.lang.String) $r90;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2963");
+
+        $r93 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r14 = (java.lang.String) $r93;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r14, "2964");
+
+        $r92 = virtualinvoke r10.<java.util.Hashtable: java.lang.Object get(java.lang.Object)>("rating_count");
+
+        r13 = (java.lang.String) $r92;
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r13, "2965");
+
+     label10:
+        goto label12;
+
+     label11:
+        $r45 = "";
+
+        $z3 = virtualinvoke $r45.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 == 0 goto label12;
+
+        $r82 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "item_id");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r82, "2966");
+
+        r121 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>($r82);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r121, "2967");
+
+     label12:
+        $r42 = "";
+
+        $z4 = virtualinvoke $r42.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z4 == 0 goto label14;
+
+        $z6 = virtualinvoke r12.<java.lang.String: boolean equals(java.lang.Object)>("0");
+
+        if $z6 == 0 goto label13;
+
+        r12 = "Not rated yet";
+
+        r14 = "";
+
+        goto label14;
+
+     label13:
+        $r79 = new java.lang.StringBuilder;
+
+        specialinvoke $r79.<java.lang.StringBuilder: void <init>()>();
+
+        $r78 = virtualinvoke $r79.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<img src=\"images/");
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(r11);
+
+        $i3 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(r13);
+
+        $i2 = $i0 / $i3;
+
+        $f0 = (float) $i2;
+
+        $i1 = staticinvoke <java.lang.Math: int round(float)>($f0);
+
+        $r84 = virtualinvoke $r78.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r83 = virtualinvoke $r84.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("stars.gif\">");
+
+        r12 = virtualinvoke $r83.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r12, "2968");
+
+     label14:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Current Rating</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r43 = new java.lang.StringBuilder;
+
+        specialinvoke $r43.<java.lang.StringBuilder: void <init>()>();
+
+        $r50 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r51 = virtualinvoke $r50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r12);
+
+        $r52 = virtualinvoke $r51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r53 = virtualinvoke $r52.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r53, "2969");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r53);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Total Votes</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r46 = new java.lang.StringBuilder;
+
+        specialinvoke $r46.<java.lang.StringBuilder: void <init>()>();
+
+        $r47 = virtualinvoke $r46.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<font style=\"font-size: 10pt; color: #000000\">");
+
+        $r48 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r14);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r48, "2970");
+
+        $r49 = virtualinvoke $r47.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r48);
+
+        $r59 = virtualinvoke $r49.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&nbsp;</font>");
+
+        $r58 = virtualinvoke $r59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r58, "2971");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r58);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td style=\"background-color: #FFEAC5; border-style: inset; border-width: 0\"><font style=\"font-size: 10pt; color: #000000\">Your Rating</font></td><td style=\"background-color: #FFFFFF; border-width: 1\">");
+
+        $r61 = new java.lang.StringBuilder;
+
+        specialinvoke $r61.<java.lang.StringBuilder: void <init>()>();
+
+        $r60 = virtualinvoke $r61.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<select name=\"rating\">");
+
+        $r55 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getOptionsLOV(java.lang.String,boolean,boolean,java.lang.String)>("1;Deficient;2;Regular;3;Good;4;Very Good;5;Excellent", 0, 1, r11);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r55, "2972");
+
+        $r54 = virtualinvoke $r60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r55);
+
+        $r57 = virtualinvoke $r54.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</select>");
+
+        $r56 = virtualinvoke $r57.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r56, "2973");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r56);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("     <tr>\n      <td colspan=\"2\" align=\"right\">");
+
+        if z0 == 0 goto label16;
+
+        $z8 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("insert");
+
+        if $z8 == 0 goto label15;
+
+        $r80 = "Rating";
+
+        $z7 = virtualinvoke $r80.<java.lang.String: boolean equals(java.lang.Object)>(r6);
+
+        if $z7 != 0 goto label16;
+
+     label15:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"submit\" value=\"Vote\" onclick=\"document.Rating.FormAction.value = \'update\';\">");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"hidden\" name=\"FormName\" value=\"Rating\"><input type=\"hidden\" value=\"update\" name=\"FormAction\">");
+
+        goto label17;
+
+     label16:
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>("<input type=\"hidden\" name=\"FormName\" value=\"Rating\"><input type=\"hidden\" value=\"insert\" name=\"FormAction\">");
+
+     label17:
+        $r67 = new java.lang.StringBuilder;
+
+        specialinvoke $r67.<java.lang.StringBuilder: void <init>()>();
+
+        $r66 = virtualinvoke $r67.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"item_id\" value=\"");
+
+        $r69 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r121);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r69, "2974");
+
+        $r68 = virtualinvoke $r66.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r69);
+
+        $r63 = virtualinvoke $r68.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        $r62 = virtualinvoke $r63.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r62, "2975");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r62);
+
+        $r65 = new java.lang.StringBuilder;
+
+        specialinvoke $r65.<java.lang.StringBuilder: void <init>()>();
+
+        $r64 = virtualinvoke $r65.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<input type=\"hidden\" name=\"rating_count\" value=\"");
+
+        $r76 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String toHTML(java.lang.String)>(r13);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r76, "2976");
+
+        $r77 = virtualinvoke $r64.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r76);
+
+        $r74 = virtualinvoke $r77.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">");
+
+        $r75 = virtualinvoke $r74.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r75, "2977");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r75);
+
+        $r72 = new java.lang.StringBuilder;
+
+        specialinvoke $r72.<java.lang.StringBuilder: void <init>()>();
+
+        $r73 = virtualinvoke $r72.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r122);
+
+        $r70 = virtualinvoke $r73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r71 = virtualinvoke $r70.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r125);
+
+        $r81 = virtualinvoke $r71.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r81, "2978");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void print(java.lang.String)>($r81);
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>("</td>\n     </tr>\n     </form>\n    </table>");
+
+     label18:
+        goto label20;
+
+     label19:
+        $r114 := @caughtexception;
+
+        r132 = $r114;
+
+        $r113 = virtualinvoke r132.<java.lang.Exception: java.lang.String toString()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r113, "2979");
+
+        virtualinvoke r4.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>($r113);
+
+     label20:
+        return;
+
+        catch java.lang.Exception from label01 to label18 with label19;
+    }
+
+    public java.lang.Object getDependants()
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        java.util.List $r1;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        $r1 = <org.apache.jsp.BookDetail_jsp: java.util.List _jspx_dependants>;
+
+        return $r1;
+    }
+
+    public void _jspInit()
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.jsp.JspFactory $r1;
+        javax.servlet.ServletConfig $r2, $r6;
+        javax.servlet.ServletContext $r3, $r7;
+        javax.servlet.jsp.JspApplicationContext $r4;
+        javax.el.ExpressionFactory $r5;
+        java.lang.Class $r8;
+        java.lang.String $r9;
+        java.lang.Object $r10;
+        org.apache.AnnotationProcessor $r11;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        $r1 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        $r2 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: javax.servlet.ServletConfig getServletConfig()>();
+
+        $r3 = interfaceinvoke $r2.<javax.servlet.ServletConfig: javax.servlet.ServletContext getServletContext()>();
+
+        $r4 = virtualinvoke $r1.<javax.servlet.jsp.JspFactory: javax.servlet.jsp.JspApplicationContext getJspApplicationContext(javax.servlet.ServletContext)>($r3);
+
+        $r5 = interfaceinvoke $r4.<javax.servlet.jsp.JspApplicationContext: javax.el.ExpressionFactory getExpressionFactory()>();
+
+        r0.<org.apache.jsp.BookDetail_jsp: javax.el.ExpressionFactory _el_expressionfactory> = $r5;
+
+        $r6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: javax.servlet.ServletConfig getServletConfig()>();
+
+        $r7 = interfaceinvoke $r6.<javax.servlet.ServletConfig: javax.servlet.ServletContext getServletContext()>();
+
+        $r8 = class "org/apache/AnnotationProcessor";
+
+        $r9 = virtualinvoke $r8.<java.lang.Class: java.lang.String getName()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>($r9, "2980");
+
+        $r10 = interfaceinvoke $r7.<javax.servlet.ServletContext: java.lang.Object getAttribute(java.lang.String)>($r9);
+
+        $r11 = (org.apache.AnnotationProcessor) $r10;
+
+        r0.<org.apache.jsp.BookDetail_jsp: org.apache.AnnotationProcessor _jsp_annotationprocessor> = $r11;
+
+        return;
+    }
+
+    public void _jspDestroy()
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        return;
+    }
+
+    public void _jspService(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.io.IOException, javax.servlet.ServletException
+    {
+        org.apache.jsp.BookDetail_jsp r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.jsp.JspWriter r3, r31, r35;
+        javax.servlet.jsp.PageContext r4, r29;
+        java.lang.String r5, r6, r7, r8, r9, r10, r11, $r14, $r15, $r17, $r19;
+        javax.servlet.jsp.JspFactory $r12, $r16, $r18, $r20, $r22, $r23, $r25, $r27;
+        java.lang.Throwable r13, $r21, $r28, r34;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8;
+        java.lang.Exception $r24;
+        int $i0;
+        java.io.IOException $r26;
+        javax.servlet.http.HttpSession r30;
+        java.sql.Connection r32;
+        java.sql.Statement r33;
+
+        r0 := @this: org.apache.jsp.BookDetail_jsp;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = null;
+
+        r4 = null;
+
+     label01:
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void setContentType(java.lang.String)>("text/html");
+
+        $r12 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        r29 = virtualinvoke $r12.<javax.servlet.jsp.JspFactory: javax.servlet.jsp.PageContext getPageContext(javax.servlet.Servlet,javax.servlet.ServletRequest,javax.servlet.ServletResponse,java.lang.String,boolean,int,boolean)>(r0, r1, r2, null, 1, 8192, 1);
+
+        r4 = r29;
+
+        virtualinvoke r29.<javax.servlet.jsp.PageContext: javax.servlet.ServletContext getServletContext()>();
+
+        virtualinvoke r29.<javax.servlet.jsp.PageContext: javax.servlet.ServletConfig getServletConfig()>();
+
+        r30 = virtualinvoke r29.<javax.servlet.jsp.PageContext: javax.servlet.http.HttpSession getSession()>();
+
+        r31 = virtualinvoke r29.<javax.servlet.jsp.PageContext: javax.servlet.jsp.JspWriter getOut()>();
+
+        r3 = r31;
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+        r5 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String checkSecurity(int,javax.servlet.http.HttpSession,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)>(1, r30, r2, r1);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r5, "2981");
+
+        $r14 = "sendRedirect";
+
+        $z0 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>(r5);
+
+        if $z0 == 0 goto label03;
+
+     label02:
+        $r22 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r22.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        return;
+
+     label03:
+        r6 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "FormAction");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r6, "2982");
+
+        r7 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String getParam(javax.servlet.http.HttpServletRequest,java.lang.String)>(r1, "FormName");
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r7, "2983");
+
+        r8 = "";
+
+        r10 = "";
+
+        r9 = "";
+
+        r11 = staticinvoke <org.apache.jsp.BookDetail_jsp: java.lang.String loadDriver()>();
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r11, "2984");
+
+        r32 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.sql.Connection cn()>();
+
+        r33 = interfaceinvoke r32.<java.sql.Connection: java.sql.Statement createStatement()>();
+
+        $z3 = virtualinvoke r11.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z3 != 0 goto label07;
+
+     label04:
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void println(java.lang.String)>(r11);
+
+     label05:
+        goto label07;
+
+     label06:
+        $r24 := @caughtexception;
+
+     label07:
+        $z1 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("Detail");
+
+        if $z1 == 0 goto label09;
+
+        r8 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String DetailAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r6, r7, r32, r33);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r8, "2985");
+
+        $r19 = "sendRedirect";
+
+        $z7 = virtualinvoke $r19.<java.lang.String: boolean equals(java.lang.Object)>(r8);
+
+        if $z7 == 0 goto label09;
+
+     label08:
+        $r23 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r23.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        return;
+
+     label09:
+        $z2 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("Order");
+
+        if $z2 == 0 goto label11;
+
+        r10 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String OrderAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r6, r7, r32, r33);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r10, "2986");
+
+        $r17 = "sendRedirect";
+
+        $z6 = virtualinvoke $r17.<java.lang.String: boolean equals(java.lang.Object)>(r10);
+
+        if $z6 == 0 goto label11;
+
+     label10:
+        $r20 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r20.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        return;
+
+     label11:
+        $z4 = virtualinvoke r7.<java.lang.String: boolean equals(java.lang.Object)>("Rating");
+
+        if $z4 == 0 goto label13;
+
+        r9 = virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: java.lang.String RatingAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r6, r7, r32, r33);
+
+        staticinvoke <LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>(r9, "2987");
+
+        $r15 = "sendRedirect";
+
+        $z5 = virtualinvoke $r15.<java.lang.String: boolean equals(java.lang.Object)>(r9);
+
+        if $z5 == 0 goto label13;
+
+     label12:
+        $r18 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r18.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        return;
+
+     label13:
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n\n<html>\n<head>\n<title>Book Store</title>\n<meta name=\"GENERATOR\"\n\tcontent=\"YesSoftware CodeCharge v.1.2.0 / JSP.ccp build 05/21/2001\" />\n<meta http-equiv=\"pragma\" content=\"no-cache\" />\n<meta http-equiv=\"expires\" content=\"0\" />\n<meta http-equiv=\"cache-control\" content=\"no-cache\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n</head>\n<body\n\tstyle=\"background-color: #FFFFFF; color: #000000; font-family: Arial, Tahoma, Verdana, Helveticabackground-color: #FFFFFF; color: #000000; font-family: Arial, Tahoma, Verdana, Helvetica\">\n");
+
+        staticinvoke <org.apache.jasper.runtime.JspRuntimeLibrary: void include(javax.servlet.ServletRequest,javax.servlet.ServletResponse,java.lang.String,javax.servlet.jsp.JspWriter,boolean)>(r1, r2, "Header.jsp", r31, 1);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n<table>\n\t<tr>\n\n\t\t<td valign=\"top\">\n\t\t");
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: void Detail_Show(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r8, r7, r6, r32, r33);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n\n\t\t</td>\n\t</tr>\n</table>\n<table>\n\t<tr>\n\t\t<td valign=\"top\">\n\t\t");
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: void Order_Show(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r10, r7, r6, r32, r33);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n\n\t\t</td>\n\t</tr>\n</table>\n<table>\n\t<tr>\n\t\t<td valign=\"top\">\n\t\t");
+
+        virtualinvoke r0.<org.apache.jsp.BookDetail_jsp: void Rating_Show(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession,javax.servlet.jsp.JspWriter,java.lang.String,java.lang.String,java.lang.String,java.sql.Connection,java.sql.Statement)>(r1, r2, r30, r31, r9, r7, r6, r32, r33);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n\n\t\t</td>\n\t</tr>\n</table>\n\n");
+
+        staticinvoke <org.apache.jasper.runtime.JspRuntimeLibrary: void include(javax.servlet.ServletRequest,javax.servlet.ServletResponse,java.lang.String,javax.servlet.jsp.JspWriter,boolean)>(r1, r2, "Footer.jsp", r31, 1);
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\n<center><font face=\"Arial\"><small>This dynamic\nsite was generated with <a href=\"http://www.codecharge.com\">CodeCharge</a></small></font></center>\n</body>\n</html>\n");
+
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+        if r33 == null goto label14;
+
+        interfaceinvoke r33.<java.sql.Statement: void close()>();
+
+     label14:
+        if r32 == null goto label15;
+
+        interfaceinvoke r32.<java.sql.Connection: void close()>();
+
+     label15:
+        virtualinvoke r31.<javax.servlet.jsp.JspWriter: void write(int)>(10);
+
+     label16:
+        $r16 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r16.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        goto label25;
+
+     label17:
+        $r21 := @caughtexception;
+
+        r34 = $r21;
+
+        $z8 = r34 instanceof javax.servlet.jsp.SkipPageException;
+
+        if $z8 != 0 goto label22;
+
+        r35 = r3;
+
+        if r35 == null goto label21;
+
+        $i0 = virtualinvoke r35.<javax.servlet.jsp.JspWriter: int getBufferSize()>();
+
+        if $i0 == 0 goto label21;
+
+     label18:
+        virtualinvoke r35.<javax.servlet.jsp.JspWriter: void clearBuffer()>();
+
+     label19:
+        goto label21;
+
+     label20:
+        $r26 := @caughtexception;
+
+     label21:
+        if r4 == null goto label22;
+
+        virtualinvoke r4.<javax.servlet.jsp.PageContext: void handlePageException(java.lang.Throwable)>(r34);
+
+     label22:
+        $r25 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r25.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        goto label25;
+
+     label23:
+        $r28 := @caughtexception;
+
+        r13 = $r28;
+
+     label24:
+        $r27 = <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r27.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+        throw r13;
+
+     label25:
+        return;
+
+        catch java.lang.Exception from label04 to label05 with label06;
+        catch java.lang.Throwable from label01 to label02 with label17;
+        catch java.lang.Throwable from label03 to label08 with label17;
+        catch java.lang.Throwable from label09 to label10 with label17;
+        catch java.lang.Throwable from label11 to label12 with label17;
+        catch java.lang.Throwable from label13 to label16 with label17;
+        catch java.io.IOException from label18 to label19 with label20;
+        catch java.lang.Throwable from label01 to label02 with label23;
+        catch java.lang.Throwable from label03 to label08 with label23;
+        catch java.lang.Throwable from label09 to label10 with label23;
+        catch java.lang.Throwable from label11 to label12 with label23;
+        catch java.lang.Throwable from label13 to label16 with label23;
+        catch java.lang.Throwable from label17 to label22 with label23;
+        catch java.lang.Throwable from label23 to label24 with label23;
+    }
+
+    static void <clinit>()
+    {
+        javax.servlet.jsp.JspFactory $r0;
+        java.util.ArrayList $r1;
+        java.util.List $r2;
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String sFileName> = "BookDetail.jsp";
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String DBpassword> = "bkPass";
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String DBusername> = "bkUser";
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String strConn> = "jdbc:mysql://localhost/bookstore";
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String DBDriver> = "com.mysql.jdbc.Driver";
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String appPath> = "/";
+
+        <org.apache.jsp.BookDetail_jsp: int ad_Search_> = 5;
+
+        <org.apache.jsp.BookDetail_jsp: int adSearch_> = 4;
+
+        <org.apache.jsp.BookDetail_jsp: int adNumber> = 3;
+
+        <org.apache.jsp.BookDetail_jsp: int adDate> = 2;
+
+        <org.apache.jsp.BookDetail_jsp: int adText> = 1;
+
+        <org.apache.jsp.BookDetail_jsp: int UNDEFINT> = -2147483648;
+
+        <org.apache.jsp.BookDetail_jsp: java.lang.String CRLF> = "\r\n";
+
+        $r0 = staticinvoke <javax.servlet.jsp.JspFactory: javax.servlet.jsp.JspFactory getDefaultFactory()>();
+
+        <org.apache.jsp.BookDetail_jsp: javax.servlet.jsp.JspFactory _jspxFactory> = $r0;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>(int)>(1);
+
+        <org.apache.jsp.BookDetail_jsp: java.util.List _jspx_dependants> = $r1;
+
+        $r2 = <org.apache.jsp.BookDetail_jsp: java.util.List _jspx_dependants>;
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>("/Common.jsp");
+
+        return;
+    }
+}
