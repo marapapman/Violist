@@ -1,0 +1,27 @@
+public class LoggerLib.TestMain extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        LoggerLib.TestMain r0;
+
+        r0 := @this: LoggerLib.TestMain;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <LoggerLib.Logger: void increase(int)>(3);
+
+        staticinvoke <LoggerLib.Logger: void report()>();
+
+        return;
+    }
+}
