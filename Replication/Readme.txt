@@ -50,49 +50,4 @@ This result is slightly different than the result in our paper due to some impro
 
 
 
-The script to run the intepreter SSI of Nyx. There are four apps could run to reproduce the result in our paper. 
-
-
-
-To run Violist on Java Application, follow the structure of the Violist/Java/bookstore folder.
-Command line:
-java -jar Violist_Java.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar ~Violist/Java/bookstore /classlist.txt
-
-To run Violist on Android Application, follow the structure of the Violist/Android folder.
-Command line:
-java -jar Violist_Android.jar path/Violist/Android path/Violist/Android/App1 /a2z.Mobile.DevConnections.txt /a2z.Mobile.DevConnections.instrumented.apk
-
-
-
-
-
-In my machine, the commands are 
-
-java -jar Violist_Java.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/ToyAppTesting /classlist.txt
-java -jar Violist_Java_Widen.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/ToyAppTesting /classlist.txt
-
-java -jar Violist_Java.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/JSATesting /classlist.txt
-java -jar Violist_Java_Widen.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/JSATesting /classlist.txt
-
-java -jar Violist_Java.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/bookstore /classlist.txt
-java -jar Violist_Java_Widen.jar /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Java/reflection /classlist.txt
-
-
-java -jar Violist_Android.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Android /home/dingli/gitprojects/Violist/Result_duplication/Violist/Android/App1 /a2z.Mobile.DevConnections.txt /a2z.Mobile.DevConnections.instrumented.apk
-
-java -jar Violist_Android.jar /home/dingli/gitprojects/Violist/Result_duplication//Violist/Android /home/dingli/gitprojects/Violist/Result_duplication/Violist/Android/App2 /add.me.fast.txt /add.me.fast.instrumented.apk
-
-java -jar Violist_Android.jar /home/dingli/gitprojects/Violist/Result_duplication/Violist/Android /home/dingli/gitprojects/Violist/Result_duplication/Violist/Android/App3 /appinventor.ai_jpicer.PipefitterHandbook.txt /appinventor.ai_jpicer.PipefitterHandbook.instrumented.apk
-
-
-Average: 0.8271916946411242 1.0
-Concat Average: 0.2427228148688213 1.0
-Manip Average: 0.8791208791208791 1.0
-Converge Average: 0.9615384615384616 1.0
-Mix Average: 0.8919413919413919 1.0
-
-Concat Average: 0.25545343364734996 1.0
-Manip Average: 0.7310897435897437 1.0
-Converge Average: 0.9615384615384616 1.0
-Mix Average: 0.8049450549450549 1.0
 
