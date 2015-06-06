@@ -4,8 +4,10 @@ if [ "$#" -ne 2 ] || ! [ -d "$1" ]; then
   exit 1
 fi
 curpath=`pwd`
-
+rm -r $curpath/$1/$2/MethodSummary
+mkdir $curpath/$1/$2/MethodSummary
 rm -r $curpath/$1/$2/AutoOutput
+rm -r $curpath/$1/$2/Output
 mkdir $curpath/$1/$2/Output
 rm -r $curpath/$1/$2/Automatons
 mkdir $curpath/$1/$2/Automatons
