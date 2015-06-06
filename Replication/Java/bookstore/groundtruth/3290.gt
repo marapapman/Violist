@@ -1,0 +1,1 @@
+select c.card_type_id as c_card_type_id, c.name as c_name  from card_types c  order by c.name Asc

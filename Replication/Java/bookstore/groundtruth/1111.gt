@@ -1,0 +1,1 @@
+select e.article_desc as e_article_desc, e.article_title as e_article_title, e.item_id as e_item_id, i.item_id as i_item_id, i.image_url as i_image_url  from editorials e, items i where i.item_id=e.item_id   AND editorial_cat_id=3

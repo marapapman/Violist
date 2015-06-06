@@ -1,0 +1,448 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 33 [label="&"]
+  0 -> 92 [label=">"]
+  0 -> 15 [label="'-="]
+  0 -> 15 [label="\u0000-%"]
+  0 -> 15 [label="?-\uffff"]
+  1 [shape=circle,label=""];
+  1 -> 33 [label="&"]
+  1 -> 95 [label=">"]
+  1 -> 15 [label="'-="]
+  1 -> 15 [label="\u0000-%"]
+  1 -> 15 [label="?-\uffff"]
+  2 [shape=circle,label=""];
+  2 -> 0 [label="\u0022"]
+  2 -> 33 [label="&"]
+  2 -> 15 [label="\u0000-!"]
+  2 -> 15 [label="'-\uffff"]
+  2 -> 15 [label="#-%"]
+  3 [shape=circle,label=""];
+  3 -> 33 [label="&"]
+  3 -> 96 [label="s"]
+  3 -> 15 [label="t-\uffff"]
+  3 -> 15 [label="\u0000-%"]
+  3 -> 15 [label="'-r"]
+  4 [shape=circle,label=""];
+  4 -> 76 [label="\u0022"]
+  5 [shape=circle,label=""];
+  5 -> 33 [label="&"]
+  5 -> 15 [label="\u0000-\u001f"]
+  5 -> 15 [label="!-%"]
+  5 -> 3 [label="\u0020"]
+  5 -> 15 [label="'-\uffff"]
+  6 [shape=circle,label=""];
+  6 -> 26 [label="n"]
+  6 -> 33 [label="&"]
+  6 -> 15 [label="o-\uffff"]
+  6 -> 15 [label="\u0000-%"]
+  6 -> 15 [label="'-m"]
+  7 [shape=circle,label=""];
+  7 -> 61 [label="r"]
+  8 [shape=circle,label=""];
+  8 -> 4 [label="="]
+  9 [shape=circle,label=""];
+  9 -> 43 [label="p"]
+  10 [shape=circle,label=""];
+  10 -> 8 [label="f"]
+  11 [shape=circle,label=""];
+  11 -> 27 [label="z"]
+  11 -> 15 [label="'-y"]
+  11 -> 33 [label="&"]
+  11 -> 15 [label="\u0000-%"]
+  11 -> 15 [label="{-\uffff"]
+  12 [shape=circle,label=""];
+  12 -> 92 [label="=-`"]
+  12 -> 77 [label="f"]
+  12 -> 92 [label="g-\uffff"]
+  12 -> 97 [label="a"]
+  12 -> 92 [label="\u0000-;"]
+  12 -> 16 [label="<"]
+  12 -> 92 [label="b-e"]
+  13 [shape=circle,label=""];
+  13 -> 75 [label="e"]
+  14 [shape=circle,label=""];
+  14 -> 15 [label="'-b"]
+  14 -> 23 [label="c"]
+  14 -> 33 [label="&"]
+  14 -> 15 [label="\u0000-%"]
+  14 -> 15 [label="d-\uffff"]
+  15 [shape=circle,label=""];
+  15 -> 33 [label="&"]
+  15 -> 15 [label="\u0000-%"]
+  15 -> 15 [label="'-\uffff"]
+  16 [shape=circle,label=""];
+  16 -> 92 [label="0-;"]
+  16 -> 92 [label="=-\uffff"]
+  16 -> 92 [label="\u0000-."]
+  16 -> 70 [label="/"]
+  16 -> 16 [label="<"]
+  17 [shape=circle,label=""];
+  17 -> 55 [label="f"]
+  17 -> 33 [label="&"]
+  17 -> 15 [label="g-\uffff"]
+  17 -> 15 [label="'-e"]
+  17 -> 15 [label="\u0000-%"]
+  18 [shape=circle,label=""];
+  18 -> 9 [label="o"]
+  19 [shape=circle,label=""];
+  19 -> 18 [label="h"]
+  20 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 20
+  20 -> 84 [label="<"]
+  21 [shape=circle,label=""];
+  21 -> 57 [label="r"]
+  22 [shape=circle,label=""];
+  22 -> 99 [label="i"]
+  23 [shape=circle,label=""];
+  23 -> 15 [label="p-\uffff"]
+  23 -> 15 [label="'-n"]
+  23 -> 33 [label="&"]
+  23 -> 15 [label="\u0000-%"]
+  23 -> 68 [label="o"]
+  24 [shape=circle,label=""];
+  24 -> 33 [label="&"]
+  24 -> 15 [label="'-q"]
+  24 -> 15 [label="\u0000-%"]
+  24 -> 79 [label="r"]
+  24 -> 15 [label="s-\uffff"]
+  25 [shape=circle,label=""];
+  25 -> 92 [label="0-;"]
+  25 -> 92 [label="=-\uffff"]
+  25 -> 92 [label="\u0000-."]
+  25 -> 12 [label="/"]
+  25 -> 16 [label="<"]
+  26 [shape=circle,label=""];
+  26 -> 47 [label="t"]
+  26 -> 33 [label="&"]
+  26 -> 15 [label="\u0000-%"]
+  26 -> 15 [label="u-\uffff"]
+  26 -> 15 [label="'-s"]
+  27 [shape=circle,label=""];
+  27 -> 33 [label="&"]
+  27 -> 52 [label="e"]
+  27 -> 15 [label="f-\uffff"]
+  27 -> 15 [label="\u0000-%"]
+  27 -> 15 [label="'-d"]
+  28 [shape=circle,label=""];
+  28 -> 33 [label="&"]
+  28 -> 15 [label="\u0000-\u001f"]
+  28 -> 15 [label="!-%"]
+  28 -> 14 [label="\u0020"]
+  28 -> 15 [label="'-\uffff"]
+  29 [shape=circle,label=""];
+  29 -> 91 [label="n"]
+  29 -> 33 [label="&"]
+  29 -> 15 [label="o-\uffff"]
+  29 -> 15 [label="\u0000-%"]
+  29 -> 15 [label="'-m"]
+  30 [shape=circle,label=""];
+  30 -> 33 [label="&"]
+  30 -> 15 [label="\u0000-%"]
+  30 -> 41 [label="y"]
+  30 -> 15 [label="z-\uffff"]
+  30 -> 15 [label="'-x"]
+  31 [shape=circle,label=""];
+  31 -> 86 [label="t"]
+  31 -> 33 [label="&"]
+  31 -> 15 [label="\u0000-%"]
+  31 -> 15 [label="u-\uffff"]
+  31 -> 15 [label="'-s"]
+  32 [shape=circle,label=""];
+  32 -> 33 [label="&"]
+  32 -> 15 [label="'-/"]
+  32 -> 15 [label="1-\uffff"]
+  32 -> 15 [label="\u0000-%"]
+  32 -> 50 [label="0"]
+  33 [shape=circle,label=""];
+  33 -> 1 [label="\u0022"]
+  33 -> 33 [label="&"]
+  33 -> 15 [label="\u0000-!"]
+  33 -> 15 [label="'-\uffff"]
+  33 -> 15 [label="#-%"]
+  34 [shape=circle,label=""];
+  34 -> 35 [label="C"]
+  35 [shape=circle,label=""];
+  35 -> 67 [label="a"]
+  36 [shape=circle,label=""];
+  36 -> 15 [label="p-\uffff"]
+  36 -> 15 [label="'-n"]
+  36 -> 33 [label="&"]
+  36 -> 15 [label="\u0000-%"]
+  36 -> 6 [label="o"]
+  37 [shape=circle,label=""];
+  37 -> 71 [label="\u0020"]
+  38 [shape=circle,label=""];
+  38 -> 15 [label="\u0000-\u0022"]
+  38 -> 33 [label="&"]
+  38 -> 32 [label="#"]
+  38 -> 15 [label="'-\uffff"]
+  38 -> 15 [label="$-%"]
+  39 [shape=circle,label=""];
+  39 -> 101 [label="="]
+  39 -> 15 [label="'-<"]
+  39 -> 33 [label="&"]
+  39 -> 15 [label="\u0000-%"]
+  39 -> 15 [label=">-\uffff"]
+  40 [shape=circle,label=""];
+  40 -> 36 [label="f"]
+  40 -> 33 [label="&"]
+  40 -> 15 [label="g-\uffff"]
+  40 -> 15 [label="'-e"]
+  40 -> 15 [label="\u0000-%"]
+  41 [shape=circle,label=""];
+  41 -> 33 [label="&"]
+  41 -> 15 [label="'-k"]
+  41 -> 15 [label="m-\uffff"]
+  41 -> 73 [label="l"]
+  41 -> 15 [label="\u0000-%"]
+  42 [shape=circle,label=""];
+  42 -> 15 [label="="]
+  43 [shape=circle,label=""];
+  43 -> 64 [label="p"]
+  44 [shape=circle,label=""];
+  44 -> 59 [label="r"]
+  45 [shape=circle,label=""];
+  45 -> 69 [label="t"]
+  45 -> 92 [label="u-\uffff"]
+  45 -> 92 [label="\u0000-;"]
+  45 -> 16 [label="<"]
+  45 -> 92 [label="=-s"]
+  46 [shape=circle,label=""];
+  46 -> 60 [label="r"]
+  47 [shape=circle,label=""];
+  47 -> 33 [label="&"]
+  47 -> 15 [label="\u0000-%"]
+  47 -> 49 [label="-"]
+  47 -> 15 [label="'-,"]
+  47 -> 15 [label=".-\uffff"]
+  48 [shape=circle,label=""];
+  48 -> 33 [label="&"]
+  48 -> 15 [label="'-/"]
+  48 -> 15 [label="1-\uffff"]
+  48 -> 15 [label="\u0000-%"]
+  48 -> 65 [label="0"]
+  49 [shape=circle,label=""];
+  49 -> 33 [label="&"]
+  49 -> 100 [label="s"]
+  49 -> 15 [label="t-\uffff"]
+  49 -> 15 [label="\u0000-%"]
+  49 -> 15 [label="'-r"]
+  50 [shape=circle,label=""];
+  50 -> 33 [label="&"]
+  50 -> 15 [label="'-/"]
+  50 -> 15 [label="1-\uffff"]
+  50 -> 15 [label="\u0000-%"]
+  50 -> 80 [label="0"]
+  51 [shape=circle,label=""];
+  51 -> 93 [label="s"]
+  52 [shape=circle,label=""];
+  52 -> 88 [label=":"]
+  52 -> 33 [label="&"]
+  52 -> 15 [label=";-\uffff"]
+  52 -> 15 [label="'-9"]
+  52 -> 15 [label="\u0000-%"]
+  53 [shape=circle,label=""];
+  53 -> 15 [label="'-0"]
+  53 -> 33 [label="&"]
+  53 -> 15 [label="2-\uffff"]
+  53 -> 15 [label="\u0000-%"]
+  53 -> 58 [label="1"]
+  54 [shape=circle,label=""];
+  54 -> 33 [label="&"]
+  54 -> 15 [label="\u0000-\u001f"]
+  54 -> 38 [label="\u0020"]
+  54 -> 15 [label="!-%"]
+  54 -> 15 [label="'-\uffff"]
+  55 [shape=circle,label=""];
+  55 -> 15 [label="p-\uffff"]
+  55 -> 15 [label="'-n"]
+  55 -> 33 [label="&"]
+  55 -> 15 [label="\u0000-%"]
+  55 -> 29 [label="o"]
+  56 [shape=circle,label=""];
+  56 -> 51 [label="j"]
+  57 [shape=circle,label=""];
+  57 -> 10 [label="e"]
+  58 [shape=circle,label=""];
+  58 -> 33 [label="&"]
+  58 -> 15 [label="'-/"]
+  58 -> 15 [label="1-\uffff"]
+  58 -> 15 [label="\u0000-%"]
+  58 -> 81 [label="0"]
+  59 [shape=circle,label=""];
+  59 -> 82 [label="d"]
+  60 [shape=circle,label=""];
+  60 -> 22 [label="_"]
+  61 [shape=circle,label=""];
+  61 -> 98 [label="d"]
+  62 [shape=circle,label=""];
+  62 -> 33 [label="&"]
+  62 -> 15 [label="'-/"]
+  62 -> 15 [label="1-\uffff"]
+  62 -> 15 [label="\u0000-%"]
+  62 -> 2 [label="0"]
+  63 [shape=circle,label=""];
+  63 -> 83 [label="?"]
+  64 [shape=circle,label=""];
+  64 -> 87 [label="i"]
+  65 [shape=circle,label=""];
+  65 -> 33 [label="&"]
+  65 -> 15 [label="'-/"]
+  65 -> 15 [label="1-\uffff"]
+  65 -> 15 [label="\u0000-%"]
+  65 -> 62 [label="0"]
+  66 [shape=circle,label=""];
+  66 -> 92 [label="=-\uffff"]
+  66 -> 92 [label="\u0000-;"]
+  66 -> 25 [label="<"]
+  67 [shape=circle,label=""];
+  67 -> 94 [label="r"]
+  68 [shape=circle,label=""];
+  68 -> 33 [label="&"]
+  68 -> 15 [label="'-k"]
+  68 -> 15 [label="m-\uffff"]
+  68 -> 85 [label="l"]
+  68 -> 15 [label="\u0000-%"]
+  69 [shape=circle,label=""];
+  69 -> 92 [label="="]
+  69 -> 66 [label=">"]
+  69 -> 92 [label="\u0000-;"]
+  69 -> 16 [label="<"]
+  69 -> 92 [label="?-\uffff"]
+  70 [shape=circle,label=""];
+  70 -> 92 [label="=-e"]
+  70 -> 77 [label="f"]
+  70 -> 92 [label="g-\uffff"]
+  70 -> 92 [label="\u0000-;"]
+  70 -> 16 [label="<"]
+  71 [shape=circle,label=""];
+  71 -> 21 [label="h"]
+  72 [shape=circle,label=""];
+  72 -> 45 [label="n"]
+  72 -> 92 [label="o-\uffff"]
+  72 -> 92 [label="\u0000-;"]
+  72 -> 16 [label="<"]
+  72 -> 92 [label="=-m"]
+  73 [shape=circle,label=""];
+  73 -> 33 [label="&"]
+  73 -> 39 [label="e"]
+  73 -> 15 [label="f-\uffff"]
+  73 -> 15 [label="\u0000-%"]
+  73 -> 15 [label="'-d"]
+  74 [shape=circle,label=""];
+  74 -> 34 [label="g"]
+  75 [shape=circle,label=""];
+  75 -> 89 [label="c"]
+  76 [shape=circle,label=""];
+  76 -> 19 [label="S"]
+  77 [shape=circle,label=""];
+  77 -> 92 [label="p-\uffff"]
+  77 -> 92 [label="=-n"]
+  77 -> 92 [label="\u0000-;"]
+  77 -> 16 [label="<"]
+  77 -> 72 [label="o"]
+  78 [shape=doublecircle,label=""];
+  78 -> 92 [label="=-\uffff"]
+  78 -> 92 [label="\u0000-;"]
+  78 -> 16 [label="<"]
+  79 [shape=circle,label=""];
+  79 -> 54 [label=":"]
+  79 -> 33 [label="&"]
+  79 -> 15 [label=";-\uffff"]
+  79 -> 15 [label="'-9"]
+  79 -> 15 [label="\u0000-%"]
+  80 [shape=circle,label=""];
+  80 -> 33 [label="&"]
+  80 -> 15 [label="'-/"]
+  80 -> 15 [label="1-\uffff"]
+  80 -> 15 [label="\u0000-%"]
+  80 -> 48 [label="0"]
+  81 [shape=circle,label=""];
+  81 -> 15 [label="q-\uffff"]
+  81 -> 15 [label="'-o"]
+  81 -> 33 [label="&"]
+  81 -> 31 [label="p"]
+  81 -> 15 [label="\u0000-%"]
+  82 [shape=circle,label=""];
+  82 -> 56 [label="."]
+  83 [shape=circle,label=""];
+  83 -> 7 [label="o"]
+  84 [shape=circle,label=""];
+  84 -> 37 [label="a"]
+  85 [shape=circle,label=""];
+  85 -> 15 [label="p-\uffff"]
+  85 -> 15 [label="'-n"]
+  85 -> 33 [label="&"]
+  85 -> 15 [label="\u0000-%"]
+  85 -> 24 [label="o"]
+  86 [shape=circle,label=""];
+  86 -> 15 [label="<-\uffff"]
+  86 -> 15 [label="'-:"]
+  86 -> 33 [label="&"]
+  86 -> 28 [label=";"]
+  86 -> 15 [label="\u0000-%"]
+  87 [shape=circle,label=""];
+  87 -> 74 [label="n"]
+  88 [shape=circle,label=""];
+  88 -> 33 [label="&"]
+  88 -> 15 [label="\u0000-\u001f"]
+  88 -> 53 [label="\u0020"]
+  88 -> 15 [label="!-%"]
+  88 -> 15 [label="'-\uffff"]
+  89 [shape=circle,label=""];
+  89 -> 44 [label="o"]
+  90 [shape=circle,label=""];
+  90 -> 13 [label="R"]
+  91 [shape=circle,label=""];
+  91 -> 33 [label="&"]
+  91 -> 5 [label="t"]
+  91 -> 15 [label="\u0000-%"]
+  91 -> 15 [label="u-\uffff"]
+  91 -> 15 [label="'-s"]
+  92 [shape=circle,label=""];
+  92 -> 92 [label="=-\uffff"]
+  92 -> 92 [label="\u0000-;"]
+  92 -> 16 [label="<"]
+  93 [shape=circle,label=""];
+  93 -> 63 [label="p"]
+  94 [shape=circle,label=""];
+  94 -> 90 [label="t"]
+  95 [shape=circle,label=""];
+  95 -> 15 [label="'-;"]
+  95 -> 15 [label="=-\uffff"]
+  95 -> 33 [label="&"]
+  95 -> 15 [label="\u0000-%"]
+  95 -> 17 [label="<"]
+  96 [shape=circle,label=""];
+  96 -> 33 [label="&"]
+  96 -> 30 [label="t"]
+  96 -> 15 [label="\u0000-%"]
+  96 -> 15 [label="u-\uffff"]
+  96 -> 15 [label="'-s"]
+  97 [shape=circle,label=""];
+  97 -> 92 [label="="]
+  97 -> 78 [label=">"]
+  97 -> 92 [label="\u0000-;"]
+  97 -> 16 [label="<"]
+  97 -> 92 [label="?-\uffff"]
+  98 [shape=circle,label=""];
+  98 -> 46 [label="e"]
+  99 [shape=circle,label=""];
+  99 -> 42 [label="d"]
+  100 [shape=circle,label=""];
+  100 -> 33 [label="&"]
+  100 -> 15 [label="\u0000-%"]
+  100 -> 11 [label="i"]
+  100 -> 15 [label="'-h"]
+  100 -> 15 [label="j-\uffff"]
+  101 [shape=circle,label=""];
+  101 -> 40 [label="\u0022"]
+  101 -> 33 [label="&"]
+  101 -> 15 [label="\u0000-!"]
+  101 -> 15 [label="'-\uffff"]
+  101 -> 15 [label="#-%"]
+}
+

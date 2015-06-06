@@ -1,0 +1,1 @@
+select m.first_name as m_first_name, m.last_name as m_last_name, m.member_id as m_member_id, m.member_level as m_member_level, m.member_login as m_member_login  from members m  order by m.member_login Asc

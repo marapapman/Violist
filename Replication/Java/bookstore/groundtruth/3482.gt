@@ -1,0 +1,1 @@
+select e.editorial_cat_id as e_editorial_cat_id, e.editorial_cat_name as e_editorial_cat_name  from editorial_categories e  order by e.editorial_cat_name Asc

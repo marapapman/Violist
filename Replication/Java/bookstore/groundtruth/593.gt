@@ -1,0 +1,1 @@
+select i.author as i_author, i.category_id as i_category_id, i.is_recommended as i_is_recommended, i.item_id as i_item_id, i.name as i_name, i.price as i_price, c.category_id as c_category_id, c.name as c_name  from items i, categories c where c.category_id=i.category_id  

@@ -1,0 +1,1 @@
+select e.article_desc as e_article_desc, e.article_title as e_article_title  from editorials e  WHERE editorial_cat_id=4

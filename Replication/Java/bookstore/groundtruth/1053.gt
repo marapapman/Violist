@@ -1,0 +1,1 @@
+select i.author as i_author, i.image_url as i_image_url, i.item_id as i_item_id, i.name as i_name, i.price as i_price  from items i  WHERE is_recommended=1

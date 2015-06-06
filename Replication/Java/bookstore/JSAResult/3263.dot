@@ -1,0 +1,158 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 28 [label="t"]
+  1 [shape=circle,label=""];
+  1 -> 0 [label="p"]
+  2 [shape=circle,label=""];
+  2 -> 12 [label="p-\uffff"]
+  2 -> 12 [label="=-n"]
+  2 -> 12 [label="\u0000-;"]
+  2 -> 34 [label="<"]
+  2 -> 32 [label="o"]
+  3 [shape=circle,label=""];
+  3 -> 6 [label="u"]
+  4 [shape=circle,label=""];
+  4 -> 3 [label="l"]
+  5 [shape=circle,label=""];
+  5 -> 11 [label="\u0022"]
+  6 [shape=circle,label=""];
+  6 -> 15 [label="e"]
+  7 [shape=circle,label=""];
+  7 -> 4 [label="a"]
+  8 [shape=circle,label=""];
+  8 -> 13 [label="n"]
+  9 [shape=circle,label=""];
+  9 -> 8 [label="o"]
+  10 [shape=circle,label=""];
+  10 -> 16 [label="\u0022"]
+  10 -> 11 [label="\u0000-!"]
+  10 -> 30 [label="T"]
+  10 -> 11 [label="#-S"]
+  10 -> 11 [label="U-\uffff"]
+  11 [shape=circle,label=""];
+  11 -> 16 [label="\u0022"]
+  11 -> 11 [label="#-\uffff"]
+  11 -> 11 [label="\u0000-!"]
+  12 [shape=circle,label=""];
+  12 -> 12 [label="=-\uffff"]
+  12 -> 12 [label="\u0000-;"]
+  12 -> 34 [label="<"]
+  13 [shape=circle,label=""];
+  13 -> 25 [label="\u0020"]
+  14 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 14
+  14 -> 29 [label="<"]
+  15 [shape=circle,label=""];
+  15 -> 5 [label="="]
+  16 [shape=circle,label=""];
+  16 -> 16 [label="\u0022"]
+  16 -> 11 [label="#-\uffff"]
+  16 -> 11 [label="\u0000-\u001f"]
+  16 -> 27 [label="\u0020"]
+  16 -> 11 [label="!"]
+  17 [shape=circle,label=""];
+  17 -> 16 [label="\u0022"]
+  17 -> 11 [label="#-D"]
+  17 -> 11 [label="F-\uffff"]
+  17 -> 11 [label="\u0000-!"]
+  17 -> 18 [label="E"]
+  18 [shape=circle,label=""];
+  18 -> 16 [label="\u0022"]
+  18 -> 11 [label="\u0000-!"]
+  18 -> 11 [label="#-K"]
+  18 -> 31 [label="L"]
+  18 -> 11 [label="M-\uffff"]
+  19 [shape=circle,label=""];
+  19 -> 21 [label="t"]
+  19 -> 12 [label="u-\uffff"]
+  19 -> 12 [label="\u0000-;"]
+  19 -> 34 [label="<"]
+  19 -> 12 [label="=-s"]
+  20 [shape=doublecircle,label=""];
+  20 -> 12 [label="=-\uffff"]
+  20 -> 12 [label="\u0000-;"]
+  20 -> 34 [label="<"]
+  21 [shape=circle,label=""];
+  21 -> 2 [label="i"]
+  21 -> 12 [label="=-h"]
+  21 -> 12 [label="\u0000-;"]
+  21 -> 34 [label="<"]
+  21 -> 12 [label="j-\uffff"]
+  22 [shape=circle,label=""];
+  22 -> 16 [label="\u0022"]
+  22 -> 11 [label="#-="]
+  22 -> 11 [label="\u0000-!"]
+  22 -> 12 [label=">"]
+  22 -> 11 [label="?-\uffff"]
+  23 [shape=circle,label=""];
+  23 -> 12 [label="="]
+  23 -> 20 [label=">"]
+  23 -> 12 [label="\u0000-;"]
+  23 -> 34 [label="<"]
+  23 -> 12 [label="?-\uffff"]
+  24 [shape=circle,label=""];
+  24 -> 16 [label="\u0022"]
+  24 -> 11 [label="\u0000-!"]
+  24 -> 10 [label="C"]
+  24 -> 11 [label="#-B"]
+  24 -> 11 [label="D-\uffff"]
+  25 [shape=circle,label=""];
+  25 -> 7 [label="v"]
+  26 [shape=circle,label=""];
+  26 -> 12 [label="q-\uffff"]
+  26 -> 19 [label="p"]
+  26 -> 12 [label="=-o"]
+  26 -> 12 [label="\u0000-;"]
+  26 -> 34 [label="<"]
+  27 [shape=circle,label=""];
+  27 -> 16 [label="\u0022"]
+  27 -> 11 [label="?-R"]
+  27 -> 11 [label="#-="]
+  27 -> 17 [label="S"]
+  27 -> 11 [label="\u0000-!"]
+  27 -> 12 [label=">"]
+  27 -> 11 [label="T-\uffff"]
+  28 [shape=circle,label=""];
+  28 -> 9 [label="i"]
+  29 [shape=circle,label=""];
+  29 -> 1 [label="o"]
+  30 [shape=circle,label=""];
+  30 -> 16 [label="\u0022"]
+  30 -> 11 [label="#-D"]
+  30 -> 11 [label="F-\uffff"]
+  30 -> 11 [label="\u0000-!"]
+  30 -> 33 [label="E"]
+  31 [shape=circle,label=""];
+  31 -> 16 [label="\u0022"]
+  31 -> 11 [label="#-D"]
+  31 -> 11 [label="F-\uffff"]
+  31 -> 11 [label="\u0000-!"]
+  31 -> 24 [label="E"]
+  32 [shape=circle,label=""];
+  32 -> 23 [label="n"]
+  32 -> 12 [label="o-\uffff"]
+  32 -> 12 [label="\u0000-;"]
+  32 -> 34 [label="<"]
+  32 -> 12 [label="=-m"]
+  33 [shape=circle,label=""];
+  33 -> 16 [label="\u0022"]
+  33 -> 22 [label="D"]
+  33 -> 11 [label="\u0000-!"]
+  33 -> 11 [label="E-\uffff"]
+  33 -> 11 [label="#-C"]
+  34 [shape=circle,label=""];
+  34 -> 12 [label="0-;"]
+  34 -> 12 [label="=-\uffff"]
+  34 -> 12 [label="\u0000-."]
+  34 -> 35 [label="/"]
+  34 -> 34 [label="<"]
+  35 [shape=circle,label=""];
+  35 -> 12 [label="p-\uffff"]
+  35 -> 12 [label="=-n"]
+  35 -> 12 [label="\u0000-;"]
+  35 -> 34 [label="<"]
+  35 -> 26 [label="o"]
+}
+

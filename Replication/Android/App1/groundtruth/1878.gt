@@ -1,0 +1,1 @@
+ SELECT SpeakerID, Prefix, FirstName, MiddleName, LastName, Suffix, Title, Company, Profile, ImageName, Count(1) AS [SessionCount] FROM SessionSpeaker  GROUP BY SpeakerID, Prefix, FirstName, MiddleName, LastName, Suffix, Title, Company, Profile, ImageName  ORDER BY LastName, FirstName 

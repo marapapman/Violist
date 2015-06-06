@@ -1,0 +1,1 @@
+select c.category_id as c_category_id, c.name as c_name  from categories c  order by c.name Asc
