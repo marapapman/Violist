@@ -9,6 +9,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
+import at.ac.tuwien.infosys.www.pixy.analysis.alias.completegraph.Edge;
 import SootEvironment.JavaApp;
 import edu.usc.sql.graphs.cfg.CFGInterface;
 import edu.usc.sql.graphs.cfg.SootCFG;
@@ -34,6 +35,9 @@ public class StringCallGraph {
 	/*public List<Node> reverseTopologySort(){
 		
 	}*/
+	public int size(){
+		return nodes.size();
+	}
 	private void Visit(Node n, List<Node> list, Set<Node> visited)
 	{
 		if(visited.contains(n))
@@ -47,24 +51,6 @@ public class StringCallGraph {
 		list.add(n);
 	}
 	private void RTOsorting(){
-		/*
-		Set<Node> visited=new HashSet<Node> ();
-		for(Node n:nodes)
-		{
-			indegredmap.put(n,n.getIndgree());
-		}
-		 for(Node n:heads)
-		 {
-			 if(n.getOurdgree()>0)
-				 Visit(n,RTOlist,visited);
-		 }
-		 for(Node n:heads)
-		 {
-			 if(n.getOurdgree()==0)
-				 RTOlist.add(n);
-
-		 }*/
-
 		for(Node n:nodes)
 		{
 			indegredmap.put(n,n.getIndgree());
@@ -75,8 +61,6 @@ public class StringCallGraph {
 		while(!S.isEmpty())
 		{
 			Node n=S.poll();
-			//JavaApp.printf(n.getMethod().getSignature());
-
 			visited.add(n);
 			RTOlist.addFirst(n);
 			for(Node m:n.getChildren())
@@ -87,11 +71,18 @@ public class StringCallGraph {
 				if(deg<=0&& !visited.contains(m))
 				{
 					S.add(m);
-
 					visited.add(m);
-
 				}
 			}
+		}
+		for(Node m:indegredmap.keySet())
+		{
+			int deg=indegredmap.get(m);
+			if(deg>0)
+			{
+				System.out.println(m.getMethod().getSignature()+" "+deg+" "+m.getParent());
+			}
+
 		}
 		
 	}
@@ -139,8 +130,8 @@ public class StringCallGraph {
 				//Node top=P.pop();
 				System.out.println("Stringly connected detected");
 				System.out.println(w+" "+w.GetOrder());
-
-					while(P.peek().GetOrder()>w.GetOrder())
+				
+					while((!P.empty())&&(P.peek().GetOrder()>w.GetOrder()))
 					{
 						System.out.println(P.peek()+" "+P.peek().GetOrder());
 						P.pop();
@@ -149,29 +140,33 @@ public class StringCallGraph {
 				
 			}
 		}
-		Node Ptop=P.peek();
-		if(Ptop.equals(n))
+		if(!P.empty())
 		{
-			int cnt=0;
-			while(!S.peek().equals(n))
-			{	cnt++;
-				Node fn=S.pop();
-
-				nodesinscc.add(fn);
-			}
-			if(S.peek().equals(n))
+			Node Ptop=P.peek();
+			if(Ptop.equals(n))
 			{
-				if(cnt>0)
+				int cnt=0;
+				while(!S.peek().equals(n))
+				{	cnt++;
+					Node fn=S.pop();
+
+					nodesinscc.add(fn);
+				}
+				if(S.peek().equals(n))
 				{
-					nodesinscc.add(S.pop());
+					if(cnt>0)
+					{
+						nodesinscc.add(S.pop());
+					}
+					else{
+						S.pop();
+					}
 				}
-				else{
-					S.pop();
-				}
+				P.pop();
+				
 			}
-			P.pop();
-			
 		}
+
 		
 		// there is one step of path-based SCC detection not implemented, it will not be used at this time, but we may want to implement 
 		// it some times in the future
@@ -187,6 +182,7 @@ public class StringCallGraph {
 		 }
 	}
 	public StringCallGraph(CallGraph cg, Set<SootMethod> allmethods){
+		System.out.println("=======================Building the call graph=====================");
 		nodes=new HashSet<Node>();
 		heads=new HashSet<Node>();
 		nodesinscc= new HashSet<Node>();
@@ -202,16 +198,20 @@ public class StringCallGraph {
 		for(Node n:nodes)
 		{
 			SootMethod sm=n.getMethod();
-			Iterator sources = new Sources(cg.edgesInto(sm));
-			//System.out.println("alala "+sources.hasNext());
-			//System.out.println(sm.getSubSignature());
+
+			Sources sources = new Sources(cg.edgesInto(sm));
 			while (sources.hasNext()) {
 				SootMethod src = (SootMethod)sources.next();
+
 				if(allmethods.contains(src))
 				{
 					Node p=methodToNodeMap.get(src);
-					p.addChild(n);
-					n.addParent(p);
+					if(!p.getMethod().getSignature().equals(n.getMethod().getSignature()))
+					{
+						p.addChild(n);
+						n.addParent(p);
+					}
+
 				}
 			}
 		}
