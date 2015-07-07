@@ -80,7 +80,7 @@ public class AndroidApp {
 					try{
 						SootClass sc=Scene.v().loadClassAndSupport(line);
 						//System.out.println("sig"+sc.getName());
-						if(!sc.getName().startsWith("android.support"));
+						if(!sc.getName().startsWith("android.support"))
 						{
 							allmethods.addAll(sc.getMethods());
 							sc.setApplicationClass();

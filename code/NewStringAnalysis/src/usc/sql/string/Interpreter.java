@@ -74,8 +74,10 @@ public class Interpreter {
 		}
 		else if(fieldName.contains("<"))
 		{
-			s.add("null");
+			s.add(fieldName);
 		}
+		else 
+			s.add(fieldName);
 		return s;
 	}
 	
@@ -179,7 +181,7 @@ public class Interpreter {
 				//System.out.println("Field:"+((ExternalPara) ir).getName()+": "+s);
 			}
 			else
-			s.add("(.*)");
+				s.add("(.*)");
 			return s;
 		}
 		else if(ir instanceof Init)

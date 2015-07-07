@@ -109,10 +109,10 @@ public class InterRe {
 		
 		if(actualNode!=null)
 		{
-		//	if(methodName.equals("<com.android.buttonwidget.FetchFromAPI: java.lang.String checkCity(java.lang.String)>"))
+			//if(methodName.equals("<com.android.buttonwidget.FetchFromAPI: java.lang.String checkCity(java.lang.String)>"))
 			//<com.android.buttonwidget.FetchFromAPI: java.lang.String fetchFromAPI(java.lang.String,java.lang.String,java.lang.String)>
-			//<com.bobcares.BobsWeather.XMLFeedParser: void fetchXMLFromUrl(java.lang.String,java.lang.String,java.lang.String)>
-			//	System.out.println(actualNode.toString());
+			//if(methodName.equals("<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForRemoteLocation(java.lang.String)>"))
+			//	System.out.println(n.getOffset().toString()+" "+actualNode.toString());
 			if(actualNode.toString().contains(targetSignature))
 			{
 				targetCount++;
@@ -633,7 +633,7 @@ public class InterRe {
 			}
 			
 
-			
+			// r = *invoke
 			else if(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("interfaceinvoke"))
 			{
 				
@@ -709,8 +709,17 @@ public class InterRe {
 		
 					temp.add(replaceExternal(v,actualNode.getUseBoxes()));
 				}
-				lineUseMapFromOtherMethod.put(n.getOffset().toString(), temp);
 				
+				if(!temp.isEmpty())
+					lineUseMapFromOtherMethod.put(n.getOffset().toString(), temp);
+				else
+				{
+					//if the method return an String but we don't have the summary for that method, return method name.
+					if(actualNode.getUseBoxes().get(0).getValue().getType().toString().equals("java.lang.String"))
+						lineUseMap.put(n.getOffset().toString(), new ExternalPara("###@@@"+methodName+n.getOffset().toString()+":"+actualNode.getDefBoxes().get(0).getValue().toString()+"@@@###"));
+				
+					
+				}
 				//if it calls some api, save the node for later use
 				String signature = methodName;
 				if(!paraMap.containsKey(signature))
@@ -789,6 +798,7 @@ public class InterRe {
 			}
 			
 		}
+		//*invoke
 		else if(actualNode!=null&&(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("specialinvoke"))&&!actualNode.toString().contains("<init>")&&!actualNode.toString().contains("goto"))
 		{
 			String method = actualNode.getUseBoxes().get(actualNode.getUseBoxes().size()-1).getValue().toString();

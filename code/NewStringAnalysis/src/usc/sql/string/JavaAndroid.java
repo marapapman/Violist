@@ -107,7 +107,8 @@ public class JavaAndroid {
     			else
     				fieldMap.put(en.getKey(), en.getValue());
     		}
-    		//fieldMap.putAll(t.getFieldMap());
+    		
+    		
     		 		
     		if(t.getTargetLines().isEmpty())
     			continue;
@@ -142,7 +143,6 @@ public class JavaAndroid {
     		t2 = System.currentTimeMillis();
     		totalTranslate += t2-t1;
     	}
-    	   	
     	int count = 0;
     	for(Entry<String,Map<String,Set<Variable>>> enout: targetMap.entrySet())
     	{
@@ -565,7 +565,6 @@ public class JavaAndroid {
 	private Set<Variable> replaceExternal(Set<Variable> IRs,String signature,Map<String,Set<NodeInterface>> paraMap,Map<String,Translator> tMap,AndroidApp App)
 	{
 
-		
 		boolean existPara = false;
 		for(Variable v:IRs)
 		{
@@ -597,6 +596,7 @@ public class JavaAndroid {
 							for(Variable vv:newIR)
 								copy.add(copyVar(vv));
 							vSet.addAll(replaceExternal(copy,parentSig, paraMap, tMap, App));
+
 						}					
 					}
 					
