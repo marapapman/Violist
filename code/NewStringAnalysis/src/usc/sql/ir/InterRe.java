@@ -17,6 +17,7 @@ import soot.Unit;
 import soot.Value;
 import soot.ValueBox;
 import soot.jimple.FieldRef;
+import soot.jimple.IfStmt;
 import soot.jimple.internal.*;
 import usc.sql.string.Encoder;
 import usc.sql.string.ReachingDefinition;
@@ -39,7 +40,7 @@ public class InterRe {
 	private List<String> stringvirtual = new ArrayList<>();
 	private JavaApp App;
 	private String folderName;
-	private String targetSignature = "<java.net.URL: void <init>(java.lang.String)>";
+	private String targetSignature = "<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>";//"<java.net.URL: void <init>(java.lang.String)>";
 	private int targetCount;
 	private String methodName;
 	public InterRe(List<NodeInterface> nodes,Map<String,Boolean> regionDef,List<String> lineDef,String folderName,Map<NodeInterface,List<String>> targetVarNodeAndName, Map<String, Set<NodeInterface>> paraMap,Map<String,Set<String>> field,int targetCount,String methodName,JavaApp App)
@@ -74,10 +75,15 @@ public class InterRe {
 		stringvirtual.add("<java.lang.String: char[] toCharArray()>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder replace(int,int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder delete(int,int)>");
+		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder deleteCharAt(int)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer delete(int,int)>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder insert(int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer insert(int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer insert(int,char)>");
+		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer replace(int,int,java.lang.String)>");
+		//non java.lang method but return string		
+		stringvirtual.add("<java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>");
+		
 		for(NodeInterface n: nodes)
 		{
 			interpret(n);
@@ -111,8 +117,9 @@ public class InterRe {
 		{
 			//if(methodName.equals("<com.android.buttonwidget.FetchFromAPI: java.lang.String checkCity(java.lang.String)>"))
 			//<com.android.buttonwidget.FetchFromAPI: java.lang.String fetchFromAPI(java.lang.String,java.lang.String,java.lang.String)>
-			//if(methodName.equals("<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForRemoteLocation(java.lang.String)>"))
-			//	System.out.println(n.getOffset().toString()+" "+actualNode.toString());
+			//if(methodName.contains("com.tapjoy.TapjoyVideo$1"))
+		
+			
 			if(actualNode.toString().contains(targetSignature))
 			{
 				targetCount++;
@@ -268,7 +275,7 @@ public class InterRe {
 				for(ValueBox vb:sootUse)
 				{
 					String use = vb.getValue().toString();
-					if(!use.contains("virtualinvoke"))
+					if(!use.contains("virtualinvoke")&&!use.contains("staticinvoke"))
 					{
 						
 						Variable v;
@@ -288,7 +295,7 @@ public class InterRe {
 								v = new ExternalPara(use);
 							}
 						}
-						else if((use.contains("b")||use.contains("i"))||use.contains("c")||use.contains("z")||use.contains("d")&&!use.contains("\""))
+						else if((use.contains("b")||use.contains("i"))||use.contains("c")||use.contains("z")||use.contains("d")||use.contains("l")&&!use.contains("\""))
 						{
 							
 							if(regionDef.get(use))
@@ -361,6 +368,13 @@ public class InterRe {
 							op = new Operation("charAt");
 						else if(use.contains("<java.lang.String: char[] toCharArray()>"))
 							op = new Operation("toCharArray");
+						
+						//non java.lang method
+						else if(use.contains("<java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>"))
+						{
+							op = new Operation("encode");
+						}
+						
 						else 
 						{
 						
@@ -519,6 +533,9 @@ public class InterRe {
 							}
 						}
 					}
+
+
+				
 				}
 			}
 					
@@ -640,6 +657,8 @@ public class InterRe {
 				String method = actualNode.getUseBoxes().get(0).getValue().toString();
 				int index1 = method.indexOf("<");
 				int index2 = method.lastIndexOf(">");
+				//System.out.println(actualNode);
+				//if index out of bound appear, add the method to the stringvirtual list
 				String methodName = method.substring(index1,index2+1);
 				
 				Set<String> fileNameList = new HashSet<>();
@@ -716,7 +735,7 @@ public class InterRe {
 				{
 					//if the method return an String but we don't have the summary for that method, return method name.
 					if(actualNode.getUseBoxes().get(0).getValue().getType().toString().equals("java.lang.String"))
-						lineUseMap.put(n.getOffset().toString(), new ExternalPara("###@@@"+methodName+n.getOffset().toString()+":"+actualNode.getDefBoxes().get(0).getValue().toString()+"@@@###"));
+						lineUseMap.put(n.getOffset().toString(), new ExternalPara("!!!"+methodName+n.getOffset().toString()+":"+actualNode.getDefBoxes().get(0).getValue().toString()+"!!!"));
 				
 					
 				}
@@ -751,7 +770,7 @@ public class InterRe {
 		}
 		
 
-		else if(actualNode!=null&&actualNode.toString().contains("return")&&!actualNode.toString().contains("goto")&&!actualNode.getUseBoxes().isEmpty())
+		else if(actualNode!=null&&actualNode.toString().contains("return")&&!(actualNode instanceof IfStmt)&&!actualNode.getUseBoxes().isEmpty())
 		{
 	
 			if(actualNode.getUseBoxes().get(0).getValue().getType().toString().equals("java.lang.String"))		
@@ -780,7 +799,7 @@ public class InterRe {
 			}
 		}
 		
-		else if(actualNode!=null&&actualNode.toString().contains("<LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>")&&!actualNode.toString().contains("goto"))
+		else if(actualNode!=null&&actualNode.toString().contains("<LoggerLib.Logger: void reportString(java.lang.String,java.lang.String)>")&&!(actualNode instanceof IfStmt))
 		{
 			if(!targetVarNodeAndName.keySet().contains(n))
 			{
@@ -799,7 +818,7 @@ public class InterRe {
 			
 		}
 		//*invoke
-		else if(actualNode!=null&&(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("specialinvoke"))&&!actualNode.toString().contains("<init>")&&!actualNode.toString().contains("goto"))
+		else if(actualNode!=null&&(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("specialinvoke"))&&!actualNode.toString().contains("<init>")&&!(actualNode instanceof IfStmt))
 		{
 			String method = actualNode.getUseBoxes().get(actualNode.getUseBoxes().size()-1).getValue().toString();
 			int index1 = method.indexOf("<");
