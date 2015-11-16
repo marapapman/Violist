@@ -3,3 +3,5 @@
 executable: our executable file and some market test cases
 
 testcases: all of our test cases
+
+We follow GPL license
