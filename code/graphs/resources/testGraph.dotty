@@ -1,0 +1,14 @@
+digraph control_flow_graph {
+
+	A [label="Node A", color="red"];
+	entry -> A;
+	A -> B [label="AB"];
+	B -> C [type="secure"];
+	C -> D;
+	D -> E;
+	D -> F;
+	E -> exit;
+	E -> G;
+	F -> G;
+	G -> exit;
+}
