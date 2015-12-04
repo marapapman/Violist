@@ -18,6 +18,8 @@ import soot.Value;
 import soot.ValueBox;
 import soot.jimple.FieldRef;
 import soot.jimple.internal.*;
+import soot.tagkit.BytecodeOffsetTag;
+import soot.tagkit.Tag;
 import usc.sql.string.Encoder;
 import usc.sql.string.ReachingDefinition;
 import edu.usc.sql.graphs.EdgeInterface;
@@ -39,7 +41,10 @@ public class InterRe {
 	private List<String> stringvirtual = new ArrayList<>();
 	private JavaApp App;
 	private String folderName;
-	private String targetSignature = "<java.net.URL: void <init>(java.lang.String)>";
+	//target signature
+	private String targetSignature = "<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>";
+	//the Nth string parameter
+	private int targetParaOffset = 1;
 	private int targetCount;
 	private String methodName;
 	public InterRe(List<NodeInterface> nodes,Map<String,Boolean> regionDef,List<String> lineDef,String folderName,Map<NodeInterface,List<String>> targetVarNodeAndName, Map<String, Set<NodeInterface>> paraMap,Map<String,Set<String>> field,int targetCount,String methodName,JavaApp App)
@@ -74,10 +79,15 @@ public class InterRe {
 		stringvirtual.add("<java.lang.String: char[] toCharArray()>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder replace(int,int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder delete(int,int)>");
+		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder deleteCharAt(int)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer delete(int,int)>");
 		stringvirtual.add("<java.lang.StringBuilder: java.lang.StringBuilder insert(int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer insert(int,java.lang.String)>");
 		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer insert(int,char)>");
+		stringvirtual.add("<java.lang.StringBuffer: java.lang.StringBuffer replace(int,int,java.lang.String)>");
+		//non java.lang method but return string		
+		stringvirtual.add("<java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>");
+		
 		for(NodeInterface n: nodes)
 		{
 			interpret(n);
@@ -109,29 +119,34 @@ public class InterRe {
 		
 		if(actualNode!=null)
 		{
-		//	if(methodName.equals("<com.android.buttonwidget.FetchFromAPI: java.lang.String checkCity(java.lang.String)>"))
-			//<com.android.buttonwidget.FetchFromAPI: java.lang.String fetchFromAPI(java.lang.String,java.lang.String,java.lang.String)>
-			//<com.bobcares.BobsWeather.XMLFeedParser: void fetchXMLFromUrl(java.lang.String,java.lang.String,java.lang.String)>
-			//	System.out.println(actualNode.toString());
+			
 			if(actualNode.toString().contains(targetSignature))
 			{
-				targetCount++;
+				int paraNum=0;
+				
 				for(ValueBox vb:actualNode.getUseBoxes())
 				{
 					if(vb.getValue().getType().toString().equals("java.lang.String")&&!vb.getValue().toString().contains("<"))
 					{
-						//System.out.println(vb.getValue().toString());
-						List<String> nameAndLabel = new ArrayList<>();
+						paraNum++;
+						if(paraNum==targetParaOffset)
+						{
+							List<String> nameAndLabel = new ArrayList<>();
+							
+							nameAndLabel.add(vb.getValue().toString());
+							
+							int bytecodeOffset = -1;
+							for(Tag t: actualNode.getTags())
+								if(t instanceof BytecodeOffsetTag)
+									bytecodeOffset = ((BytecodeOffsetTag) t).getBytecodeOffset();
+						    nameAndLabel.add(methodName+":"+actualNode.getJavaSourceStartLineNumber()+":"+bytecodeOffset);
+						   // System.out.println(targetCount+":"+vb.getValue().toString());
+							targetVarNodeAndName.put(n, nameAndLabel);
+						}
 						
-						nameAndLabel.add(vb.getValue().toString());
-						
-						
-					    nameAndLabel.add(targetCount+":"+n.getOffset());
-					    
-						targetVarNodeAndName.put(n, nameAndLabel);
 					}
 					
-				}
+				} 
 				
 			}
 		}
@@ -268,7 +283,7 @@ public class InterRe {
 				for(ValueBox vb:sootUse)
 				{
 					String use = vb.getValue().toString();
-					if(!use.contains("virtualinvoke"))
+					if(!use.contains("virtualinvoke")&&!use.contains("staticinvoke"))
 					{
 						
 						Variable v;
@@ -288,7 +303,7 @@ public class InterRe {
 								v = new ExternalPara(use);
 							}
 						}
-						else if((use.contains("b")||use.contains("i"))||use.contains("c")||use.contains("z")||use.contains("d")&&!use.contains("\""))
+						else if((use.contains("b")||use.contains("i"))||use.contains("c")||use.contains("z")||use.contains("d")||use.contains("l")&&!use.contains("\""))
 						{
 							
 							if(regionDef.get(use))
@@ -361,6 +376,13 @@ public class InterRe {
 							op = new Operation("charAt");
 						else if(use.contains("<java.lang.String: char[] toCharArray()>"))
 							op = new Operation("toCharArray");
+						
+						//non java.lang method
+						else if(use.contains("<java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>"))
+						{
+							op = new Operation("encode");
+						}
+						
 						else 
 						{
 						
@@ -447,7 +469,6 @@ public class InterRe {
 					}
 				}
 				
-				
 				else
 				{
 					//case: r = r.something
@@ -520,6 +541,9 @@ public class InterRe {
 							}
 						}
 					}
+
+
+				
 				}
 			}
 					
@@ -634,13 +658,15 @@ public class InterRe {
 			}
 			
 
-			
+			// r = *invoke
 			else if(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("interfaceinvoke"))
 			{
 				
 				String method = actualNode.getUseBoxes().get(0).getValue().toString();
 				int index1 = method.indexOf("<");
 				int index2 = method.lastIndexOf(">");
+				//System.out.println(actualNode);
+				//if index out of bound appear, add the method to the stringvirtual list
 				String methodName = method.substring(index1,index2+1);
 				
 				Set<String> fileNameList = new HashSet<>();
@@ -710,8 +736,20 @@ public class InterRe {
 		
 					temp.add(replaceExternal(v,actualNode.getUseBoxes()));
 				}
-				lineUseMapFromOtherMethod.put(n.getOffset().toString(), temp);
 				
+				if(!temp.isEmpty())
+					lineUseMapFromOtherMethod.put(n.getOffset().toString(), temp);
+				else
+				{
+					//if the method return an String but we don't have the summary for that method, return method name.
+					if(actualNode.getUseBoxes().get(0).getValue().getType().toString().equals("java.lang.String"))
+					{
+						lineUseMap.put(n.getOffset().toString(), new ExternalPara("Unknown"));
+						//lineUseMap.put(n.getOffset().toString(), new ExternalPara("!!!"+methodName+n.getOffset().toString()+":"+actualNode.getDefBoxes().get(0).getValue().toString()+"!!!"));
+					}
+				
+					
+				}
 				//if it calls some api, save the node for later use
 				String signature = methodName;
 				if(!paraMap.containsKey(signature))
@@ -790,6 +828,7 @@ public class InterRe {
 			}
 			
 		}
+		//*invoke
 		else if(actualNode!=null&&(actualNode.toString().contains("staticinvoke")||actualNode.toString().contains("virtualinvoke")||actualNode.toString().contains("specialinvoke")||actualNode.toString().contains("specialinvoke"))&&!actualNode.toString().contains("<init>")&&!actualNode.toString().contains("goto"))
 		{
 			String method = actualNode.getUseBoxes().get(actualNode.getUseBoxes().size()-1).getValue().toString();
