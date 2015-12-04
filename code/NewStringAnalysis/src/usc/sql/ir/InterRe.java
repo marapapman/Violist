@@ -139,7 +139,7 @@ public class InterRe {
 							for(Tag t: actualNode.getTags())
 								if(t instanceof BytecodeOffsetTag)
 									bytecodeOffset = ((BytecodeOffsetTag) t).getBytecodeOffset();
-						    nameAndLabel.add(methodName+":"+actualNode.getJavaSourceStartLineNumber()+":"+bytecodeOffset);
+						    nameAndLabel.add(methodName+":"+actualNode.getJavaSourceStartLineNumber()+":"+bytecodeOffset+":"+targetParaOffset);
 						   // System.out.println(targetCount+":"+vb.getValue().toString());
 							targetVarNodeAndName.put(n, nameAndLabel);
 						}
