@@ -184,7 +184,7 @@ public class JavaAndroid {
 	    	//	System.out.println("Output: "+value);
 	    		
 	    		if(!value.isEmpty())
-	    		{System.out.println(signature+"\n"+value);
+	    		{System.out.println(en.getKey()+"\n"+value);
 	    		/*try
 	    		{
 	    			

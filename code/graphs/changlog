@@ -1,0 +1,6 @@
+Checker.java
+1) Line 330: add "public"
+2) Add a new method:
+public ConnectorComputation getConnectorComp() {
+		return connectorComp;
+}
