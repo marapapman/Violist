@@ -1,0 +1,187 @@
+public class a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter extends android.widget.ArrayAdapter
+{
+    private android.content.Context _context;
+    private java.util.ArrayList _objExhibitorList;
+    private int _textViewResourceId;
+    public java.lang.String referrer;
+
+    public void <init>(android.content.Context, int, java.util.ArrayList)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter $r0;
+        android.content.Context $r1;
+        int $i0;
+        java.util.ArrayList $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.util.ArrayList;
+
+        specialinvoke $r0.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r1, $i0, $r2);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: android.content.Context _context> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: int _textViewResourceId> = $i0;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: java.util.ArrayList _objExhibitorList> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: java.lang.String referrer> = "";
+
+        return;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter $r0;
+        int $i0;
+        android.view.View $r1, $r3;
+        android.view.ViewGroup $r2;
+        android.content.Context $r4;
+        java.lang.Object $r5;
+        android.view.LayoutInflater $r6;
+        java.util.ArrayList $r7;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r8;
+        android.content.res.Resources $r9;
+        android.widget.CheckBox $r10;
+        android.widget.TextView $r11, $r12;
+        android.widget.ImageView $r13, $r14;
+        a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$1 $r15;
+        java.lang.Boolean $r16;
+        boolean $z0;
+        java.lang.String $r17;
+        java.lang.StringBuilder $r18;
+        a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$2 $r19;
+        a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$3 $r20;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.View;
+
+        $r2 := @parameter2: android.view.ViewGroup;
+
+        $r3 = $r1;
+
+        if $r1 != null goto label1;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: android.content.Context getContext()>();
+
+        $r5 = virtualinvoke $r4.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r6 = (android.view.LayoutInflater) $r5;
+
+        $r3 = virtualinvoke $r6.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903045, null);
+
+     label1:
+        $r7 = $r0.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter: java.util.ArrayList _objExhibitorList>;
+
+        $r5 = virtualinvoke $r7.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r8 = (a2z.Mobile.DevConnections.Classes.Exhibitor) $r5;
+
+        if $r8 == null goto label7;
+
+        $r9 = staticinvoke <android.content.res.Resources: android.content.res.Resources getSystem()>();
+
+        $i0 = virtualinvoke $r9.<android.content.res.Resources: int getIdentifier(java.lang.String,java.lang.String,java.lang.String)>("btn_check_holo_light", "drawable", "android");
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230759);
+
+        $r10 = (android.widget.CheckBox) $r1;
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setButtonDrawable(int)>($i0);
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230761);
+
+        $r11 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230762);
+
+        $r12 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230763);
+
+        $r13 = (android.widget.ImageView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230764);
+
+        $r14 = (android.widget.ImageView) $r1;
+
+        if $r10 == null goto label2;
+
+        $r15 = new a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$1;
+
+        specialinvoke $r15.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$1: void <init>(a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter,a2z.Mobile.DevConnections.Classes.Exhibitor)>($r0, $r8);
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setOnClickListener(android.view.View$OnClickListener)>($r15);
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean IsFavorite()>();
+
+        $z0 = virtualinvoke $r16.<java.lang.Boolean: boolean booleanValue()>();
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setChecked(boolean)>($z0);
+
+     label2:
+        if $r11 == null goto label3;
+
+        $r17 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String ExhibitorName()>();
+
+        virtualinvoke $r11.<android.widget.TextView: void setText(java.lang.CharSequence)>($r17);
+
+     label3:
+        if $r12 == null goto label4;
+
+        $r18 = new java.lang.StringBuilder;
+
+        specialinvoke $r18.<java.lang.StringBuilder: void <init>(java.lang.String)>("Booth: ");
+
+        $r17 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String BoothLabels()>();
+
+        $r18 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r17);
+
+        $r17 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r12.<android.widget.TextView: void setText(java.lang.CharSequence)>($r17);
+
+     label4:
+        if $r13 == null goto label5;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230763);
+
+        virtualinvoke $r1.<android.view.View: void setVisibility(int)>(4);
+
+     label5:
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean IsVisited()>();
+
+        $z0 = virtualinvoke $r16.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $z0 == 0 goto label8;
+
+        virtualinvoke $r14.<android.widget.ImageView: void setImageResource(int)>(2130837515);
+
+     label6:
+        $r19 = new a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$2;
+
+        specialinvoke $r19.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$2: void <init>(a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter,a2z.Mobile.DevConnections.Classes.Exhibitor,android.widget.ImageView)>($r0, $r8, $r14);
+
+        virtualinvoke $r14.<android.widget.ImageView: void setOnClickListener(android.view.View$OnClickListener)>($r19);
+
+     label7:
+        $r20 = new a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$3;
+
+        specialinvoke $r20.<a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter$3: void <init>(a2z.Mobile.DevConnections.ListAdapters.ExhibitorListAdapter,a2z.Mobile.DevConnections.Classes.Exhibitor)>($r0, $r8);
+
+        virtualinvoke $r3.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r20);
+
+        return $r3;
+
+     label8:
+        virtualinvoke $r14.<android.widget.ImageView: void setImageResource(int)>(2130837562);
+
+        goto label6;
+    }
+}

@@ -1,0 +1,208 @@
+public class a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter extends android.widget.ArrayAdapter
+{
+    private java.util.ArrayList _objSessionList;
+    public java.lang.String referrer;
+
+    public void <init>(android.content.Context, int, java.util.ArrayList)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter $r0;
+        android.content.Context $r1;
+        int $i0;
+        java.util.ArrayList $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.util.ArrayList;
+
+        specialinvoke $r0.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r1, $i0, $r2);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter: java.util.ArrayList _objSessionList> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter: java.lang.String referrer> = "";
+
+        return;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter $r0;
+        int $i0;
+        android.view.View $r1, $r3;
+        android.view.ViewGroup $r2;
+        android.content.Context $r4;
+        java.lang.Object $r5;
+        android.view.LayoutInflater $r6;
+        java.util.ArrayList $r7;
+        a2z.Mobile.DevConnections.Classes.Session $r8;
+        java.lang.Integer $r9;
+        android.widget.CheckBox $r10;
+        android.widget.TextView $r11, $r12, $r13, $r14;
+        a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$1 $r15;
+        boolean $z0;
+        java.lang.String $r16;
+        java.lang.StringBuilder $r17;
+        a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$2 $r18;
+        android.content.res.Resources $r19;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.View;
+
+        $r2 := @parameter2: android.view.ViewGroup;
+
+        $r3 = $r1;
+
+        if $r1 != null goto label1;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter: android.content.Context getContext()>();
+
+        $r5 = virtualinvoke $r4.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r6 = (android.view.LayoutInflater) $r5;
+
+        $r1 = virtualinvoke $r6.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903063, null);
+
+        $r3 = $r1;
+
+        virtualinvoke $r1.<android.view.View: void setBackgroundColor(int)>(0);
+
+     label1:
+        $r7 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter: java.util.ArrayList _objSessionList>;
+
+        $r5 = virtualinvoke $r7.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r8 = (a2z.Mobile.DevConnections.Classes.Session) $r5;
+
+        if $r8 == null goto label7;
+
+        $r9 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.Integer SessionID()>();
+
+        $i0 = virtualinvoke $r9.<java.lang.Integer: int intValue()>();
+
+        if $i0 != 0 goto label8;
+
+        $i0 = 2130837513;
+
+     label2:
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230830);
+
+        $r10 = (android.widget.CheckBox) $r1;
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setButtonDrawable(int)>($i0);
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230831);
+
+        $r11 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230832);
+
+        $r12 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230833);
+
+        $r13 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230834);
+
+        $r14 = (android.widget.TextView) $r1;
+
+        if $r10 == null goto label3;
+
+        $r15 = new a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$1;
+
+        specialinvoke $r15.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$1: void <init>(a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter,a2z.Mobile.DevConnections.Classes.Session)>($r0, $r8);
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setOnClickListener(android.view.View$OnClickListener)>($r15);
+
+        $z0 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: boolean IsFavorite()>();
+
+        virtualinvoke $r10.<android.widget.CheckBox: void setChecked(boolean)>($z0);
+
+     label3:
+        if $r11 == null goto label4;
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Title()>();
+
+        virtualinvoke $r11.<android.widget.TextView: void setText(java.lang.CharSequence)>($r16);
+
+     label4:
+        if $r12 == null goto label5;
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String RoomNumber()>();
+
+        $i0 = virtualinvoke $r16.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 <= 0 goto label9;
+
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>(java.lang.String)>("Room: ");
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String RoomNumber()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r16);
+
+        $r16 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r12.<android.widget.TextView: void setText(java.lang.CharSequence)>($r16);
+
+     label5:
+        if $r13 == null goto label6;
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        virtualinvoke $r13.<android.widget.TextView: void setText(java.lang.CharSequence)>($r16);
+
+     label6:
+        if $r14 == null goto label7;
+
+        $r17 = new java.lang.StringBuilder;
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String StartTime()>();
+
+        $r16 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r16);
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>(java.lang.String)>($r16);
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $r16 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String EndTime()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r16);
+
+        $r16 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r14.<android.widget.TextView: void setText(java.lang.CharSequence)>($r16);
+
+     label7:
+        virtualinvoke $r3.<android.view.View: void setLongClickable(boolean)>(1);
+
+        $r18 = new a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$2;
+
+        specialinvoke $r18.<a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter$2: void <init>(a2z.Mobile.DevConnections.ListAdapters.SessionListAdapter,a2z.Mobile.DevConnections.Classes.Session)>($r0, $r8);
+
+        virtualinvoke $r3.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r18);
+
+        return $r3;
+
+     label8:
+        $r19 = staticinvoke <android.content.res.Resources: android.content.res.Resources getSystem()>();
+
+        $i0 = virtualinvoke $r19.<android.content.res.Resources: int getIdentifier(java.lang.String,java.lang.String,java.lang.String)>("btn_check_holo_light", "drawable", "android");
+
+        goto label2;
+
+     label9:
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230832);
+
+        virtualinvoke $r1.<android.view.View: void setVisibility(int)>(8);
+
+        goto label5;
+    }
+}

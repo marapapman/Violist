@@ -1,0 +1,147 @@
+public class a2z.Mobile.DevConnections.Classes.Track extends java.lang.Object
+{
+    private java.lang.String _Name;
+    private java.lang.Integer _SessionCount;
+    private java.lang.Integer _TrackID;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.Track $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Track;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.util.ArrayList getList()
+    {
+        java.util.ArrayList $r0;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r1;
+        a2z.Mobile.DevConnections.Classes.Track $r2;
+        android.database.Cursor $r3;
+        boolean $z0;
+        int $i0;
+        java.lang.Integer $r4;
+        java.lang.String $r5;
+
+        $r1 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT DISTINCT TrackID, Title, Count(1) AS [SessionCount] FROM Tracks GROUP BY TrackID, Title ORDER BY Title");
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        if $r3 == null goto label4;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label4;
+
+     label1:
+        $r2 = new a2z.Mobile.DevConnections.Classes.Track;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.Track: void <init>()>();
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("TrackID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.Track: java.lang.Integer _TrackID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Title");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label5;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Title");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.Track: java.lang.String _Name> = $r5;
+
+     label2:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionCount");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label6;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionCount");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.Track: java.lang.Integer _SessionCount> = $r4;
+
+     label3:
+        virtualinvoke $r0.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label1;
+
+     label4:
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r0;
+
+     label5:
+        $r2.<a2z.Mobile.DevConnections.Classes.Track: java.lang.String _Name> = "";
+
+        goto label2;
+
+     label6:
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.Track: java.lang.Integer _SessionCount> = $r4;
+
+        goto label3;
+    }
+
+    public java.lang.String Name()
+    {
+        a2z.Mobile.DevConnections.Classes.Track $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Track;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Track: java.lang.String _Name>;
+
+        return r1;
+    }
+
+    public java.lang.Integer SessionCount()
+    {
+        a2z.Mobile.DevConnections.Classes.Track $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Track;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Track: java.lang.Integer _SessionCount>;
+
+        return r1;
+    }
+
+    public java.lang.Integer TrackID()
+    {
+        a2z.Mobile.DevConnections.Classes.Track $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Track;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Track: java.lang.Integer _TrackID>;
+
+        return r1;
+    }
+}

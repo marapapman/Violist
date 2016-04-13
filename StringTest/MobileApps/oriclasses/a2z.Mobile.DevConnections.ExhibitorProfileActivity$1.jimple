@@ -1,0 +1,66 @@
+class a2z.Mobile.DevConnections.ExhibitorProfileActivity$1 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.ExhibitorProfileActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.ExhibitorProfileActivity)
+    {
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$1 $r0;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ExhibitorProfileActivity$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.ExhibitorProfileActivity;
+
+        $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$1 $r0;
+        android.view.View $r1;
+        android.content.Intent $r2;
+        java.lang.String $r3;
+        java.lang.StringBuilder $r4;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity $r5;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r6;
+        android.net.Uri $r7;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ExhibitorProfileActivity$1;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.DIAL");
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("tel:+");
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity this$0>;
+
+        $r6 = $r5.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r3 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String Phone()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r7 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r3);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r7);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Call", "Exhibitor Profile", null);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity this$0>;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: void startActivity(android.content.Intent)>($r2);
+
+        return;
+    }
+}

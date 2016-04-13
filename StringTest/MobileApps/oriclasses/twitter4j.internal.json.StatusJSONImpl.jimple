@@ -1,0 +1,1281 @@
+final class twitter4j.internal.json.StatusJSONImpl extends twitter4j.internal.json.TwitterResponseImpl implements twitter4j.Status, java.io.Serializable
+{
+    private static final twitter4j.internal.logging.Logger logger;
+    private static final long serialVersionUID;
+    private long[] contributorsIDs;
+    private java.util.Date createdAt;
+    private long currentUserRetweetId;
+    private twitter4j.GeoLocation geoLocation;
+    private twitter4j.HashtagEntity[] hashtagEntities;
+    private long id;
+    private java.lang.String inReplyToScreenName;
+    private long inReplyToStatusId;
+    private long inReplyToUserId;
+    private boolean isFavorited;
+    private boolean isPossiblySensitive;
+    private boolean isTruncated;
+    private twitter4j.MediaEntity[] mediaEntities;
+    private twitter4j.Place place;
+    private long retweetCount;
+    private twitter4j.Status retweetedStatus;
+    private java.lang.String source;
+    private java.lang.String text;
+    private twitter4j.URLEntity[] urlEntities;
+    private twitter4j.User user;
+    private twitter4j.UserMentionEntity[] userMentionEntities;
+
+    static void <clinit>()
+    {
+        twitter4j.internal.logging.Logger $r0;
+
+        <twitter4j.internal.json.StatusJSONImpl: long serialVersionUID> = 7548618898682727465L;
+
+        $r0 = staticinvoke <twitter4j.internal.logging.Logger: twitter4j.internal.logging.Logger getLogger(java.lang.Class)>(class "twitter4j/internal/json/StatusJSONImpl");
+
+        <twitter4j.internal.json.StatusJSONImpl: twitter4j.internal.logging.Logger logger> = $r0;
+
+        return;
+    }
+
+    void <init>()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>()>();
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId> = -1L;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user> = null;
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.internal.org.json.JSONObject $r3;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>(twitter4j.internal.http.HttpResponse)>($r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId> = -1L;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user> = null;
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        specialinvoke $r0.<twitter4j.internal.json.StatusJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r3);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r3);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>()>();
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId> = -1L;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user> = null;
+
+        specialinvoke $r0.<twitter4j.internal.json.StatusJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        twitter4j.conf.Configuration $r2;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>()>();
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place> = null;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId> = -1L;
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user> = null;
+
+        specialinvoke $r0.<twitter4j.internal.json.StatusJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r1);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    static twitter4j.ResponseList createStatusList(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpResponse $r0;
+        twitter4j.conf.Configuration $r1;
+        int $i0, $i1;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.internal.json.StatusJSONImpl $r3;
+        twitter4j.internal.json.ResponseListImpl $r4;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONArray $r5;
+        twitter4j.internal.org.json.JSONObject $r6;
+        twitter4j.TwitterException $r7;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r1 := @parameter1: twitter4j.conf.Configuration;
+
+     label01:
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label02;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+     label02:
+        $r5 = virtualinvoke $r0.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONArray asJSONArray()>();
+
+        $i1 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        $r4 = new twitter4j.internal.json.ResponseListImpl;
+
+        specialinvoke $r4.<twitter4j.internal.json.ResponseListImpl: void <init>(int,twitter4j.internal.http.HttpResponse)>($i1, $r0);
+
+     label03:
+        $i0 = 0;
+
+     label04:
+        if $i0 >= $i1 goto label07;
+
+        $r6 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        $r3 = new twitter4j.internal.json.StatusJSONImpl;
+
+        specialinvoke $r3.<twitter4j.internal.json.StatusJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r6);
+
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label05;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r3, $r6);
+
+     label05:
+        interfaceinvoke $r4.<twitter4j.ResponseList: boolean add(java.lang.Object)>($r3);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label07:
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label10;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r4, $r5);
+
+     label08:
+        return $r4;
+
+     label09:
+        $r2 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r2);
+
+        throw $r7;
+
+     label10:
+        return $r4;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label03 with label09;
+        catch twitter4j.internal.org.json.JSONException from label04 to label06 with label09;
+        catch twitter4j.internal.org.json.JSONException from label07 to label08 with label09;
+    }
+
+    private void init(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0, $r11;
+        twitter4j.internal.org.json.JSONObject $r1, $r8, $r16;
+        int $i0, $i2;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.HashtagEntity[] $r3;
+        twitter4j.MediaEntity[] $r4;
+        long $l1;
+        java.lang.String $r5;
+        java.util.Date $r6;
+        boolean $z0;
+        twitter4j.internal.json.UserJSONImpl $r7;
+        twitter4j.GeoLocation $r9;
+        twitter4j.internal.json.PlaceJSONImpl $r10;
+        twitter4j.internal.org.json.JSONArray $r12;
+        long[] $r13;
+        twitter4j.UserMentionEntity[] $r14;
+        twitter4j.internal.json.UserMentionEntityJSONImpl $r15;
+        twitter4j.URLEntity[] $r17;
+        twitter4j.internal.json.URLEntityJSONImpl $r18;
+        twitter4j.internal.json.HashtagEntityJSONImpl $r19;
+        twitter4j.internal.json.MediaEntityJSONImpl $r20;
+        twitter4j.TwitterException $r21;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $l1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("id", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long id> = $l1;
+
+        $r5 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getUnescapedString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("source", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String source> = $r5;
+
+        $r6 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.util.Date getDate(java.lang.String,twitter4j.internal.org.json.JSONObject)>("created_at", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: java.util.Date createdAt> = $r6;
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("truncated", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isTruncated> = $z0;
+
+        $l1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("in_reply_to_status_id", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToStatusId> = $l1;
+
+        $l1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("in_reply_to_user_id", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToUserId> = $l1;
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("favorited", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isFavorited> = $z0;
+
+        $r5 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getUnescapedString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("in_reply_to_screen_name", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String inReplyToScreenName> = $r5;
+
+        $l1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("retweet_count", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long retweetCount> = $l1;
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("possibly_sensitive", $r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isPossiblySensitive> = $z0;
+
+     label01:
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("user");
+
+        if $z0 != 0 goto label02;
+
+        $r7 = new twitter4j.internal.json.UserJSONImpl;
+
+        $r8 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("user");
+
+        specialinvoke $r7.<twitter4j.internal.json.UserJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r8);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user> = $r7;
+
+     label02:
+        $r9 = staticinvoke <twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.GeoLocation createGeoLocation(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation> = $r9;
+
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("place");
+
+        if $z0 != 0 goto label03;
+
+        $r10 = new twitter4j.internal.json.PlaceJSONImpl;
+
+        $r8 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("place");
+
+        specialinvoke $r10.<twitter4j.internal.json.PlaceJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r8);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place> = $r10;
+
+     label03:
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("retweeted_status");
+
+        if $z0 != 0 goto label04;
+
+        $r11 = new twitter4j.internal.json.StatusJSONImpl;
+
+        $r8 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("retweeted_status");
+
+        specialinvoke $r11.<twitter4j.internal.json.StatusJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r8);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Status retweetedStatus> = $r11;
+
+     label04:
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("contributors");
+
+        if $z0 != 0 goto label10;
+
+        $r12 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("contributors");
+
+        $i0 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label05:
+        $r13 = newarray (long)[$i0];
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long[] contributorsIDs> = $r13;
+
+     label06:
+        $i0 = 0;
+
+     label07:
+        $i2 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i2 goto label12;
+
+        $r13 = $r0.<twitter4j.internal.json.StatusJSONImpl: long[] contributorsIDs>;
+
+        $r5 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: java.lang.String getString(int)>($i0);
+
+        $l1 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r5);
+
+     label08:
+        $r13[$i0] = $l1;
+
+        $i0 = $i0 + 1;
+
+     label09:
+        goto label07;
+
+     label10:
+        $r13 = newarray (long)[0];
+
+     label11:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long[] contributorsIDs> = $r13;
+
+     label12:
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("entities");
+
+        if $z0 != 0 goto label35;
+
+        $r8 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("entities");
+
+        $z0 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("user_mentions");
+
+        if $z0 != 0 goto label18;
+
+        $r12 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("user_mentions");
+
+        $i2 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label13:
+        $r14 = newarray (twitter4j.UserMentionEntity)[$i2];
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities> = $r14;
+
+        $i0 = 0;
+
+     label14:
+        if $i0 >= $i2 goto label18;
+
+     label15:
+        $r14 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+     label16:
+        $r15 = new twitter4j.internal.json.UserMentionEntityJSONImpl;
+
+        $r16 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        specialinvoke $r15.<twitter4j.internal.json.UserMentionEntityJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r16);
+
+     label17:
+        $r14[$i0] = $r15;
+
+        $i0 = $i0 + 1;
+
+        goto label14;
+
+     label18:
+        $z0 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("urls");
+
+        if $z0 != 0 goto label24;
+
+        $r12 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("urls");
+
+        $i2 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label19:
+        $r17 = newarray (twitter4j.URLEntity)[$i2];
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities> = $r17;
+
+        $i0 = 0;
+
+     label20:
+        if $i0 >= $i2 goto label24;
+
+     label21:
+        $r17 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+     label22:
+        $r18 = new twitter4j.internal.json.URLEntityJSONImpl;
+
+        $r16 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        specialinvoke $r18.<twitter4j.internal.json.URLEntityJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r16);
+
+     label23:
+        $r17[$i0] = $r18;
+
+        $i0 = $i0 + 1;
+
+        goto label20;
+
+     label24:
+        $z0 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("hashtags");
+
+        if $z0 != 0 goto label30;
+
+        $r12 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("hashtags");
+
+        $i2 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label25:
+        $r3 = newarray (twitter4j.HashtagEntity)[$i2];
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities> = $r3;
+
+        $i0 = 0;
+
+     label26:
+        if $i0 >= $i2 goto label30;
+
+     label27:
+        $r3 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+     label28:
+        $r19 = new twitter4j.internal.json.HashtagEntityJSONImpl;
+
+        $r16 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        specialinvoke $r19.<twitter4j.internal.json.HashtagEntityJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r16);
+
+     label29:
+        $r3[$i0] = $r19;
+
+        $i0 = $i0 + 1;
+
+        goto label26;
+
+     label30:
+        $z0 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("media");
+
+        if $z0 != 0 goto label35;
+
+        $r12 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("media");
+
+        $i2 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label31:
+        $r4 = newarray (twitter4j.MediaEntity)[$i2];
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities> = $r4;
+
+        $i0 = 0;
+
+     label32:
+        if $i0 >= $i2 goto label35;
+
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+     label33:
+        $r20 = new twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r16 = virtualinvoke $r12.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        specialinvoke $r20.<twitter4j.internal.json.MediaEntityJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r16);
+
+     label34:
+        $r4[$i0] = $r20;
+
+        $i0 = $i0 + 1;
+
+        goto label32;
+
+     label35:
+        $r14 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        if $r14 != null goto label43;
+
+        $r14 = newarray (twitter4j.UserMentionEntity)[0];
+
+     label36:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities> = $r14;
+
+        $r17 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        if $r17 != null goto label44;
+
+        $r17 = newarray (twitter4j.URLEntity)[0];
+
+     label37:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities> = $r17;
+
+        $r3 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+        if $r3 != null goto label45;
+
+        $r3 = newarray (twitter4j.HashtagEntity)[0];
+
+     label38:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities> = $r3;
+
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        if $r4 != null goto label46;
+
+        $r4 = newarray (twitter4j.MediaEntity)[0];
+
+     label39:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities> = $r4;
+
+        $r5 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("text");
+
+     label40:
+        $r14 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        $r17 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        $r3 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+     label41:
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        $r5 = staticinvoke <twitter4j.internal.json.HTMLEntity: java.lang.String unescapeAndSlideEntityIncdices(java.lang.String,twitter4j.UserMentionEntity[],twitter4j.URLEntity[],twitter4j.HashtagEntity[],twitter4j.MediaEntity[])>($r5, $r14, $r17, $r3, $r4);
+
+        $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String text> = $r5;
+
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("current_user_retweet");
+
+        if $z0 != 0 goto label48;
+
+        $r16 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("current_user_retweet");
+
+        $l1 = virtualinvoke $r16.<twitter4j.internal.org.json.JSONObject: long getLong(java.lang.String)>("id");
+
+     label42:
+        $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId> = $l1;
+
+        return;
+
+     label43:
+        $r14 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        goto label36;
+
+     label44:
+        $r17 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        goto label37;
+
+     label45:
+        $r3 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+        goto label38;
+
+     label46:
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        goto label39;
+
+     label47:
+        $r2 := @caughtexception;
+
+        $r21 = new twitter4j.TwitterException;
+
+        specialinvoke $r21.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r2);
+
+        throw $r21;
+
+     label48:
+        return;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label05 with label47;
+        catch twitter4j.internal.org.json.JSONException from label06 to label08 with label47;
+        catch twitter4j.internal.org.json.JSONException from label09 to label10 with label47;
+        catch twitter4j.internal.org.json.JSONException from label11 to label13 with label47;
+        catch twitter4j.internal.org.json.JSONException from label14 to label15 with label47;
+        catch twitter4j.internal.org.json.JSONException from label16 to label17 with label47;
+        catch twitter4j.internal.org.json.JSONException from label18 to label19 with label47;
+        catch twitter4j.internal.org.json.JSONException from label20 to label21 with label47;
+        catch twitter4j.internal.org.json.JSONException from label22 to label23 with label47;
+        catch twitter4j.internal.org.json.JSONException from label24 to label25 with label47;
+        catch twitter4j.internal.org.json.JSONException from label26 to label27 with label47;
+        catch twitter4j.internal.org.json.JSONException from label28 to label29 with label47;
+        catch twitter4j.internal.org.json.JSONException from label30 to label31 with label47;
+        catch twitter4j.internal.org.json.JSONException from label33 to label34 with label47;
+        catch twitter4j.internal.org.json.JSONException from label39 to label40 with label47;
+        catch twitter4j.internal.org.json.JSONException from label41 to label42 with label47;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.Object $r1;
+        int $i0;
+        twitter4j.Status $r2;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (twitter4j.Status) $r1;
+
+        $i0 = virtualinvoke $r0.<twitter4j.internal.json.StatusJSONImpl: int compareTo(twitter4j.Status)>($r2);
+
+        return $i0;
+    }
+
+    public int compareTo(twitter4j.Status)
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.Status $r1;
+        long $l0, $l1;
+        byte $b2;
+        int $i3;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: twitter4j.Status;
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long id>;
+
+        $l1 = interfaceinvoke $r1.<twitter4j.Status: long getId()>();
+
+        $l0 = $l0 - $l1;
+
+        $b2 = $l0 cmp -2147483648L;
+
+        if $b2 >= 0 goto label1;
+
+        return -2147483648;
+
+     label1:
+        $b2 = $l0 cmp 2147483647L;
+
+        if $b2 <= 0 goto label2;
+
+        return 2147483647;
+
+     label2:
+        $i3 = (int) $l0;
+
+        return $i3;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        long $l0, $l1;
+        twitter4j.Status $r2;
+        byte $b2;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        if $r0 == $r1 goto label3;
+
+        $z0 = $r1 instanceof twitter4j.Status;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = (twitter4j.Status) $r1;
+
+        $l1 = interfaceinvoke $r2.<twitter4j.Status: long getId()>();
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long id>;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 == 0 goto label4;
+
+     label2:
+        return 0;
+
+     label3:
+        return 1;
+
+     label4:
+        return 1;
+    }
+
+    public long[] getContributors()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long[] r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: long[] contributorsIDs>;
+
+        return r1;
+    }
+
+    public java.util.Date getCreatedAt()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.util.Date r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.util.Date createdAt>;
+
+        return r1;
+    }
+
+    public long getCurrentUserRetweetId()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId>;
+
+        return l0;
+    }
+
+    public twitter4j.GeoLocation getGeoLocation()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.GeoLocation r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation>;
+
+        return r1;
+    }
+
+    public twitter4j.HashtagEntity[] getHashtagEntities()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.HashtagEntity[] r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+        return r1;
+    }
+
+    public long getId()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long id>;
+
+        return l0;
+    }
+
+    public java.lang.String getInReplyToScreenName()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String inReplyToScreenName>;
+
+        return r1;
+    }
+
+    public long getInReplyToStatusId()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToStatusId>;
+
+        return l0;
+    }
+
+    public long getInReplyToUserId()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToUserId>;
+
+        return l0;
+    }
+
+    public twitter4j.MediaEntity[] getMediaEntities()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.MediaEntity[] r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        return r1;
+    }
+
+    public twitter4j.Place getPlace()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.Place r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place>;
+
+        return r1;
+    }
+
+    public long getRetweetCount()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long retweetCount>;
+
+        return l0;
+    }
+
+    public twitter4j.Status getRetweetedStatus()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.Status r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Status retweetedStatus>;
+
+        return r1;
+    }
+
+    public java.lang.String getSource()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String source>;
+
+        return r1;
+    }
+
+    public java.lang.String getText()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String text>;
+
+        return r1;
+    }
+
+    public twitter4j.URLEntity[] getURLEntities()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.URLEntity[] r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        return r1;
+    }
+
+    public twitter4j.User getUser()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.User r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user>;
+
+        return r1;
+    }
+
+    public twitter4j.UserMentionEntity[] getUserMentionEntities()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.UserMentionEntity[] r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long id>;
+
+        $i1 = (int) $l0;
+
+        return $i1;
+    }
+
+    public boolean isFavorited()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isFavorited>;
+
+        return z0;
+    }
+
+    public boolean isPossiblySensitive()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isPossiblySensitive>;
+
+        return z0;
+    }
+
+    public boolean isRetweet()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        twitter4j.Status $r1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r1 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Status retweetedStatus>;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isRetweetedByMe()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId>;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isTruncated()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isTruncated>;
+
+        return z0;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.StatusJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        java.util.List $r2, $r10;
+        java.util.Date $r3;
+        long $l0;
+        java.lang.String $r4;
+        boolean $z0;
+        twitter4j.GeoLocation $r5;
+        twitter4j.Place $r6;
+        long[] $r7;
+        twitter4j.Status $r8;
+        twitter4j.UserMentionEntity[] $r9;
+        twitter4j.URLEntity[] $r11;
+        twitter4j.HashtagEntity[] $r12;
+        twitter4j.MediaEntity[] $r13;
+        twitter4j.User $r14;
+
+        $r0 := @this: twitter4j.internal.json.StatusJSONImpl;
+
+        $r2 = null;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("StatusJSONImpl{createdAt=");
+
+        $r3 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.util.Date createdAt>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", id=");
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long id>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", text=\'");
+
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String text>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", source=\'");
+
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String source>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", isTruncated=");
+
+        $z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isTruncated>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", inReplyToStatusId=");
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToStatusId>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", inReplyToUserId=");
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long inReplyToUserId>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", isFavorited=");
+
+        $z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isFavorited>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", inReplyToScreenName=\'");
+
+        $r4 = $r0.<twitter4j.internal.json.StatusJSONImpl: java.lang.String inReplyToScreenName>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", geoLocation=");
+
+        $r5 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.GeoLocation geoLocation>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", place=");
+
+        $r6 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Place place>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r6);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", retweetCount=");
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long retweetCount>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", isPossiblySensitive=");
+
+        $z0 = $r0.<twitter4j.internal.json.StatusJSONImpl: boolean isPossiblySensitive>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", contributorsIDs=");
+
+        $r7 = $r0.<twitter4j.internal.json.StatusJSONImpl: long[] contributorsIDs>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r7);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", retweetedStatus=");
+
+        $r8 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.Status retweetedStatus>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r8);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", userMentionEntities=");
+
+        $r9 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        if $r9 != null goto label5;
+
+        $r10 = null;
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r10);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", urlEntities=");
+
+        $r11 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        if $r11 != null goto label6;
+
+        $r10 = null;
+
+     label2:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r10);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", hashtagEntities=");
+
+        $r12 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+        if $r12 != null goto label7;
+
+        $r10 = null;
+
+     label3:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r10);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", mediaEntities=");
+
+        $r13 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        if $r13 != null goto label8;
+
+     label4:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", currentUserRetweetId=");
+
+        $l0 = $r0.<twitter4j.internal.json.StatusJSONImpl: long currentUserRetweetId>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", user=");
+
+        $r14 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.User user>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r14);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+
+     label5:
+        $r9 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.UserMentionEntity[] userMentionEntities>;
+
+        $r10 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r9);
+
+        goto label1;
+
+     label6:
+        $r11 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.URLEntity[] urlEntities>;
+
+        $r10 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r11);
+
+        goto label2;
+
+     label7:
+        $r12 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.HashtagEntity[] hashtagEntities>;
+
+        $r10 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r12);
+
+        goto label3;
+
+     label8:
+        $r13 = $r0.<twitter4j.internal.json.StatusJSONImpl: twitter4j.MediaEntity[] mediaEntities>;
+
+        $r2 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r13);
+
+        goto label4;
+    }
+}

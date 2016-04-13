@@ -1,0 +1,422 @@
+class a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1 extends java.lang.Object implements a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface
+{
+    final a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2;
+    private final java.util.Date val$meetingEndTime;
+    private final java.lang.String val$meetingTitle;
+
+    void <init>(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2, java.util.Date, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1 $r0;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 $r1;
+        java.util.Date $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2;
+
+        $r2 := @parameter1: java.util.Date;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: java.util.Date val$meetingEndTime> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: java.lang.String val$meetingTitle> = $r3;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onSaveNote(java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1 $r0;
+        java.lang.String $r1, $r2;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 $r3;
+        java.lang.StringBuilder $r4, $r10;
+        java.lang.String[] $r5;
+        android.content.Intent $r6;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 $r7;
+        a2z.Mobile.DevConnections.ExhibitorProfileActivity $r8, $r14;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r9;
+        java.util.Date $r11;
+        int $i0;
+        android.content.res.Resources $r12;
+        android.net.Uri $r13;
+        long $l1, $l2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        if $r1 == null goto label3;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor noteExhibitor>;
+
+        virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: void SetSavedNote(java.lang.String)>($r1);
+
+     label1:
+        $r5 = newarray (java.lang.String)[6];
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Meeting with ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String ExhibitorName()>();
+
+        if $r2 == "" goto label4;
+
+        $r10 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String ExhibitorName()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (Booth ");
+
+        $r2 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $r10 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String BoothLabel()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r2 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5[0] = $r2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String ExhibitorName()>();
+
+        $r5[1] = $r2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String BoothLabel()>();
+
+        $r5[2] = $r2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity: java.util.Date access$2(a2z.Mobile.DevConnections.ExhibitorProfileActivity)>($r8);
+
+        $r2 = virtualinvoke $r11.<java.util.Date: java.lang.String toString()>();
+
+        $r5[3] = $r2;
+
+        $r10 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity: java.util.Date access$4(a2z.Mobile.DevConnections.ExhibitorProfileActivity)>($r8);
+
+        $i0 = virtualinvoke $r11.<java.util.Date: int getHours()>();
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity: java.util.Date access$4(a2z.Mobile.DevConnections.ExhibitorProfileActivity)>($r8);
+
+        $i0 = virtualinvoke $r11.<java.util.Date: int getMinutes()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5[4] = $r2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor noteExhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String SavedNote()>();
+
+        $r5[5] = $r2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: void addMeetingToExpoPlan(java.lang.String[])>($r5);
+
+        $r6 = new android.content.Intent;
+
+        specialinvoke $r6.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.SENDTO");
+
+        virtualinvoke $r6.<android.content.Intent: android.content.Intent setType(java.lang.String)>("plain/text");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String Email()>();
+
+        virtualinvoke $r6.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("android.intent.extra.EMAIL", $r2);
+
+        virtualinvoke $r6.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("android.intent.extra.SUBJECT", 2131165219);
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("mailto:");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor exhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String Email()>();
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("?subject=");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r12 = virtualinvoke $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: android.content.res.Resources getResources()>();
+
+        $r2 = virtualinvoke $r12.<android.content.res.Resources: java.lang.String getString(int)>(2131165224);
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r12 = virtualinvoke $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: android.content.res.Resources getResources()>();
+
+        $r2 = virtualinvoke $r12.<android.content.res.Resources: java.lang.String getString(int)>(2131165184);
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&body=");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r12 = virtualinvoke $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: android.content.res.Resources getResources()>();
+
+        $r2 = virtualinvoke $r12.<android.content.res.Resources: java.lang.String getString(int)>(2131165225);
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity: java.util.Date access$4(a2z.Mobile.DevConnections.ExhibitorProfileActivity)>($r8);
+
+        $r2 = virtualinvoke $r11.<java.util.Date: java.lang.String toString()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r12 = virtualinvoke $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: android.content.res.Resources getResources()>();
+
+        $r2 = virtualinvoke $r12.<android.content.res.Resources: java.lang.String getString(int)>(2131165226);
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor noteExhibitor>;
+
+        $r2 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String SavedNote()>();
+
+        $r2 = staticinvoke <android.net.Uri: java.lang.String encode(java.lang.String)>($r2);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r13 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r2);
+
+        virtualinvoke $r6.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r13);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Email", "Exhibitor Profile", null);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r14 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity: java.util.Date access$4(a2z.Mobile.DevConnections.ExhibitorProfileActivity)>($r14);
+
+        $l1 = virtualinvoke $r11.<java.util.Date: long getTime()>();
+
+        $r11 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: java.util.Date val$meetingEndTime>;
+
+        $l2 = virtualinvoke $r11.<java.util.Date: long getTime()>();
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: java.lang.String val$meetingTitle>;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r14 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r14.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor noteExhibitor>;
+
+        $r1 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String SavedNote()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.LauncherUtils: void startAddToCalenderAction(android.app.Activity,long,long,java.lang.String,java.lang.String)>($r8, $l1, $l2, $r2, $r1);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r14 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        virtualinvoke $r14.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: void startActivity(android.content.Intent)>($r6);
+
+        return;
+
+     label3:
+        $r3 = $r0.<a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2$1: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2 this$2>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2: a2z.Mobile.DevConnections.ExhibitorProfileActivity$7 access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7$2)>($r3);
+
+        $r14 = staticinvoke <a2z.Mobile.DevConnections.ExhibitorProfileActivity$7: a2z.Mobile.DevConnections.ExhibitorProfileActivity access$0(a2z.Mobile.DevConnections.ExhibitorProfileActivity$7)>($r7);
+
+        $r9 = $r14.<a2z.Mobile.DevConnections.ExhibitorProfileActivity: a2z.Mobile.DevConnections.Classes.Exhibitor noteExhibitor>;
+
+        virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.Exhibitor: void SetSavedNote(java.lang.String)>("");
+
+        goto label1;
+
+     label4:
+        $r2 = "Exhibitor (Booth ";
+
+        goto label2;
+    }
+}

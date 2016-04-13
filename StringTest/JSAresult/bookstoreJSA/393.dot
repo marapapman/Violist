@@ -1,0 +1,99 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 40 [label="\u0020"]
+  1 [shape=circle,label=""];
+  1 -> 39 [label="l"]
+  2 [shape=circle,label=""];
+  2 -> 11 [label="<"]
+  3 [shape=circle,label=""];
+  3 -> 44 [label="n"]
+  4 [shape=circle,label=""];
+  4 -> 43 [label="\u0022"]
+  5 [shape=circle,label=""];
+  5 -> 13 [label="n"]
+  6 [shape=circle,label=""];
+  6 -> 38 [label="p"]
+  7 [shape=circle,label=""];
+  7 -> 0 [label="\u0020"]
+  8 [shape=circle,label=""];
+  8 -> 35 [label="d"]
+  9 [shape=circle,label=""];
+  9 -> 16 [label="t"]
+  10 [shape=circle,label=""];
+  10 -> 30 [label="\u0022"]
+  11 [shape=circle,label=""];
+  11 -> 8 [label="t"]
+  12 [shape=doublecircle,label=""];
+  13 [shape=circle,label=""];
+  13 -> 4 [label="="]
+  14 [shape=circle,label=""];
+  14 -> 15 [label="l"]
+  15 [shape=circle,label=""];
+  15 -> 6 [label="s"]
+  16 [shape=circle,label=""];
+  16 -> 27 [label="\u0022"]
+  17 [shape=circle,label=""];
+  17 -> 5 [label="g"]
+  18 [shape=circle,label=""];
+  18 -> 33 [label="\u0020"]
+  19 [shape=circle,label=""];
+  19 -> 34 [label="\u0020"]
+  20 [shape=circle,label=""];
+  20 -> 14 [label="o"]
+  21 [shape=circle,label=""];
+  21 -> 20 [label="c"]
+  22 [shape=circle,label=""];
+  22 -> 18 [label="\u0022"]
+  23 [shape=circle,label=""];
+  23 -> 31 [label="\u000a"]
+  24 [shape=circle,label=""];
+  24 -> 28 [label="<"]
+  25 [shape=circle,label=""];
+  25 -> 9 [label="h"]
+  26 [shape=circle,label=""];
+  26 -> 2 [label="\u0020"]
+  27 [shape=circle,label=""];
+  27 -> 12 [label=">"]
+  28 [shape=circle,label=""];
+  28 -> 32 [label="t"]
+  29 [shape=circle,label=""];
+  29 -> 26 [label="\u0020"]
+  30 [shape=circle,label=""];
+  30 -> 22 [label="2"]
+  31 [shape=circle,label=""];
+  31 -> 19 [label="\u0020"]
+  32 [shape=circle,label=""];
+  32 -> 42 [label="r"]
+  33 [shape=circle,label=""];
+  33 -> 1 [label="a"]
+  34 [shape=circle,label=""];
+  34 -> 41 [label="\u0020"]
+  35 [shape=circle,label=""];
+  35 -> 21 [label="\u0020"]
+  36 [shape=circle,label=""];
+  36 -> 25 [label="g"]
+  37 [shape=circle,label=""];
+  37 -> 24 [label="\u0020"]
+  38 [shape=circle,label=""];
+  38 -> 3 [label="a"]
+  39 [shape=circle,label=""];
+  39 -> 17 [label="i"]
+  40 [shape=circle,label=""];
+  40 -> 37 [label="\u0020"]
+  41 [shape=circle,label=""];
+  41 -> 29 [label="\u0020"]
+  42 [shape=circle,label=""];
+  42 -> 23 [label=">"]
+  43 [shape=circle,label=""];
+  43 -> 45 [label="r"]
+  44 [shape=circle,label=""];
+  44 -> 10 [label="="]
+  45 [shape=circle,label=""];
+  45 -> 36 [label="i"]
+  46 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 46
+  46 -> 7 [label="\u0020"]
+}
+

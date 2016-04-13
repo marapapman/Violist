@@ -1,0 +1,149 @@
+public class a2z.Mobile.DevConnections.RateThisSessionActivity extends android.app.Activity
+{
+    private static final java.lang.String LOG_TAG;
+    public java.lang.String flexUrl;
+    private android.widget.ProgressBar mProgressBar;
+    private java.lang.String mUrl;
+    private android.webkit.WebView mWebView;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.RateThisSessionActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.RateThisSessionActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String flexUrl> = null;
+
+        return;
+    }
+
+    static android.widget.ProgressBar access$0(a2z.Mobile.DevConnections.RateThisSessionActivity)
+    {
+        a2z.Mobile.DevConnections.RateThisSessionActivity $r0;
+        android.widget.ProgressBar r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.RateThisSessionActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.widget.ProgressBar mProgressBar>;
+
+        return r1;
+    }
+
+    static android.webkit.WebView access$1(a2z.Mobile.DevConnections.RateThisSessionActivity)
+    {
+        a2z.Mobile.DevConnections.RateThisSessionActivity $r0;
+        android.webkit.WebView r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.RateThisSessionActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView>;
+
+        return r1;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.RateThisSessionActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        android.content.Intent $r3;
+        java.lang.String $r4;
+        android.view.View $r5;
+        android.webkit.WebView $r6;
+        android.widget.ProgressBar $r7;
+        android.webkit.WebSettings $r8;
+        a2z.Mobile.DevConnections.RateThisSessionActivity$1 $r9;
+        android.content.res.Resources $r10;
+
+        $r0 := @this: a2z.Mobile.DevConnections.RateThisSessionActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+     label1:
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r3.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r4 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("URL");
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String flexUrl> = $r4;
+
+     label2:
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("RateThisSessionActivity", "onCreate():");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: void setContentView(int)>(2130903060);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.view.View findViewById(int)>(2131230811);
+
+        $r6 = (android.webkit.WebView) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView> = $r6;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.view.View findViewById(int)>(2131230810);
+
+        $r7 = (android.widget.ProgressBar) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.widget.ProgressBar mProgressBar> = $r7;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView>;
+
+        $r8 = virtualinvoke $r6.<android.webkit.WebView: android.webkit.WebSettings getSettings()>();
+
+        virtualinvoke $r8.<android.webkit.WebSettings: void setJavaScriptEnabled(boolean)>(1);
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView>;
+
+        $r9 = new a2z.Mobile.DevConnections.RateThisSessionActivity$1;
+
+        specialinvoke $r9.<a2z.Mobile.DevConnections.RateThisSessionActivity$1: void <init>(a2z.Mobile.DevConnections.RateThisSessionActivity)>($r0);
+
+        virtualinvoke $r6.<android.webkit.WebView: void setWebChromeClient(android.webkit.WebChromeClient)>($r9);
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String flexUrl>;
+
+        if $r4 == null goto label4;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView>;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String flexUrl>;
+
+        virtualinvoke $r6.<android.webkit.WebView: void loadUrl(java.lang.String)>($r4);
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String flexUrl> = null;
+
+        goto label2;
+
+     label4:
+        $r10 = virtualinvoke $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.content.res.Resources getResources()>();
+
+        $r4 = virtualinvoke $r10.<android.content.res.Resources: java.lang.String getString(int)>(2131165192);
+
+        $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String mUrl> = $r4;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: android.webkit.WebView mWebView>;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String mUrl>;
+
+        virtualinvoke $r6.<android.webkit.WebView: void loadUrl(java.lang.String)>($r4);
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.RateThisSessionActivity: java.lang.String LOG_TAG> = "RateThisSessionActivity";
+
+        return;
+    }
+}

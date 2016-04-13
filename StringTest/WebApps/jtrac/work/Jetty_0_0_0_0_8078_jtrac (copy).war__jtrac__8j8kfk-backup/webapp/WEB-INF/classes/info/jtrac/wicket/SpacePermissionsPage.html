@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <wicket:head>
+            <style>                                
+                .workflow { border-style: solid; border-width: 0 1px 1px 0; border-color: black; }
+                .workflow td { border-style: solid; border-width: 1px 0 0 1px; padding-left: 0.2em; padding-right: 0.2em; }
+                .state { background: #e1ecfe; }
+                .mirror { background: #CCCCCC; }
+                .transition { font-style: italic; }                                  
+            </style>
+        </wicket:head>
+    </head>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="space_roles.spaceRoles"/>:
+                    <span wicket:id="label"></span>
+                </div>                
+                <table class="jtrac" style="empty-cells:show">
+                    <tr class="center">
+                        <td colspan="4"/>
+                        <th wicket:id="statesColspan"><wicket:message key="space_roles.nextAllowedState"/></th>
+                        <th wicket:id="fieldsColspan">   
+                            <wicket:message key="space_roles.fieldLevelPermissions"/><br/>
+                            <span style="font-weight:normal">
+                                <img src="resources/field-mandatory.gif"/><wicket:message key="space_roles.mandatory"/>
+                                <img src="resources/field-optional.gif"/><wicket:message key="space_roles.optional"/>
+                                <img src="resources/field-readonly.gif"/><wicket:message key="space_roles.readonly"/>
+                            </span>
+                        </th>       
+                    </tr>
+                    <tr class="center alt">
+                        <th><wicket:message key="space_roles.state"/></th>
+                        <th><input type="image" wicket:id="addState" src="../resources/add.gif"/></th>
+                        <th><wicket:message key="space_roles.role"/></th>
+                        <th><input type="image" wicket:id="addRole" src="../resources/add.gif"/></th>
+                        <td wicket:id="stateHeads"><span wicket:id="state"></span></td>
+                        <td wicket:id="fieldHeads" class="selected"><span wicket:id="field"></span></td>                        
+                    </tr>
+                    <tbody wicket:id="states" class="roles">
+                        <tr wicket:id="roles">
+                            <td wicket:id="state"></td>
+                            <td wicket:id="editState"><input type="image" wicket:id="editState" src="../resources/edit.gif"/></td>
+                            <td wicket:id="role" class="transition"></td>
+                            <td><input type="image" wicket:id="editRole" src="../resources/edit.gif"/></td>
+                            <td wicket:id="stateHeads"><input type="image" wicket:id="state"/></td>
+                            <td wicket:id="fieldHeads" class="info"><input type="image" wicket:id="field"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p/>
+                <input type="submit" wicket:id="back" wicket:message="value:back"/>                
+                <input type="submit" wicket:id="save" wicket:message="value:save"/>                
+                <p/>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+                <p/>
+                <span wicket:id="workflow"></span>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

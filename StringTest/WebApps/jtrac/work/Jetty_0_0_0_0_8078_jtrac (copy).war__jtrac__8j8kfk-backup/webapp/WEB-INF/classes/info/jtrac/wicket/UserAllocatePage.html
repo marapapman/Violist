@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="user_allocate_space.spacesAllocated"/>:
+                    <span wicket:id="label"></span>                    
+                </div>
+                <table class="jtrac">
+                    <tr>
+                        <th><wicket:message key="user_allocate_space.space"/></th>
+                        <th><wicket:message key="user_allocate_space.role"/></th>
+                        <th><wicket:message key="user_allocate_space.remove"/></th>
+                    </tr>
+                    <tr wicket:id="usrs">
+                        <td>
+                            <span wicket:id="space">
+                                <span wicket:id="name"></span>
+                                [<a href="#" wicket:id="prefixCode"><span wicket:id="prefixCode"></span></a>]
+                            </span>
+                        </td>
+                        <td wicket:id="roleKey"></td>                        
+                        <td align="center"><input type="image" wicket:id="deallocate" src="../resources/delete.gif"/></td>
+                    </tr>
+                </table>
+                <p/>
+                <div class="heading">
+                    <wicket:message key="user_allocate_space.chooseSpace"/>                    
+                </div>
+                <span wicket:id="feedback"></span>
+                <table class="jtrac">
+                    <tr>
+                        <th><wicket:message key="user_allocate_space.space"/></th>
+                        <td>
+                            <select wicket:id="space"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><wicket:message key="user_allocate_space.role"/></th>
+                        <td>
+                            <select wicket:id="roleKey"/>
+                            <input type="submit" wicket:id="allocate" wicket:message="value:space_allocate.allocate"/>                            
+                        </td>        
+                    </tr>
+                </table>
+                <span class="info" wicket:id="makeAdmin">
+                    <p/>
+                    <wicket:message key="user_allocate_space.makeUserAdmin"/>
+                    <input type="submit" wicket:id="makeAdmin" wicket:message="value:user_allocate_space.makeAdmin"/>                    
+                </span>
+                <p/>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

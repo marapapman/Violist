@@ -1,0 +1,87 @@
+<html>
+    <body>
+        <wicket:extend>           
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="user_form.userDetails"/>
+                    <input type="submit" wicket:id="delete" wicket:message="value:delete"/>
+                </div>                 
+                <span wicket:id="feedback"></span>
+                <table class="jtrac">
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.loginId"/>
+                            <font color="red">*</font>
+                        </td>    
+                        <td>
+                            <input wicket:id="user.loginName" size="15"/>
+                            <span wicket:id="locked">
+                                <input type="checkbox" wicket:id="user.locked"/>
+                                <wicket:message key="user_form.locked"/>
+                            </span>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.fullName"/>
+                            <font color="red">*</font>
+                        </td>    
+                        <td>
+                            <input wicket:id="user.name" size="35"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.emailId"/>
+                            <font color="red">*</font>
+                        </td>    
+                        <td>
+                            <input wicket:id="user.email" size="35"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.language"/>                            
+                        </td>    
+                        <td>
+                            <select wicket:id="user.locale"/>                                                            
+                        </td>                        
+                    </tr> 
+                    <tr wicket:id="hide">
+                        <td/>
+                        <td>
+                            <wicket:message key="user_form.passwordMessage"/>                    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.password"/>                            
+                        </td>    
+                        <td>
+                            <input type="password" wicket:id="password" size="15"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="user_form.confirmPassword"/>                            
+                        </td>    
+                        <td>
+                            <input type="password" wicket:id="passwordConfirm" size="15"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td/>
+                        <td>
+                            <input type="submit" wicket:message="value:submit"/>
+                            <span wicket:id="hideSendNotifications">
+                                <input type="checkbox" wicket:id="sendNotifications"/>
+                                <wicket:message key="user_form.mailPassword"/>
+                            </span>
+                        </td>
+                    </tr>                    
+                </table>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

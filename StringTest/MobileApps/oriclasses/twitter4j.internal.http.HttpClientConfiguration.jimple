@@ -1,0 +1,27 @@
+public interface  twitter4j.internal.http.HttpClientConfiguration extends java.lang.Object
+{
+
+    public abstract int getHttpConnectionTimeout();
+
+    public abstract int getHttpDefaultMaxPerRoute();
+
+    public abstract int getHttpMaxTotalConnections();
+
+    public abstract java.lang.String getHttpProxyHost();
+
+    public abstract java.lang.String getHttpProxyPassword();
+
+    public abstract int getHttpProxyPort();
+
+    public abstract java.lang.String getHttpProxyUser();
+
+    public abstract int getHttpReadTimeout();
+
+    public abstract int getHttpRetryCount();
+
+    public abstract int getHttpRetryIntervalSeconds();
+
+    public abstract boolean isGZIPEnabled();
+
+    public abstract boolean isPrettyDebugEnabled();
+}

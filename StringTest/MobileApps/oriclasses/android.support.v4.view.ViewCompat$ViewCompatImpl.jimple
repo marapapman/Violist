@@ -1,0 +1,47 @@
+interface  android.support.v4.view.ViewCompat$ViewCompatImpl extends java.lang.Object
+{
+
+    public abstract boolean canScrollHorizontally(android.view.View, int);
+
+    public abstract boolean canScrollVertically(android.view.View, int);
+
+    public abstract android.support.v4.view.accessibility.AccessibilityNodeProviderCompat getAccessibilityNodeProvider(android.view.View);
+
+    public abstract int getImportantForAccessibility(android.view.View);
+
+    public abstract int getLabelFor(android.view.View);
+
+    public abstract int getLayerType(android.view.View);
+
+    public abstract int getOverScrollMode(android.view.View);
+
+    public abstract boolean hasTransientState(android.view.View);
+
+    public abstract void onInitializeAccessibilityEvent(android.view.View, android.view.accessibility.AccessibilityEvent);
+
+    public abstract void onInitializeAccessibilityNodeInfo(android.view.View, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat);
+
+    public abstract void onPopulateAccessibilityEvent(android.view.View, android.view.accessibility.AccessibilityEvent);
+
+    public abstract boolean performAccessibilityAction(android.view.View, int, android.os.Bundle);
+
+    public abstract void postInvalidateOnAnimation(android.view.View);
+
+    public abstract void postInvalidateOnAnimation(android.view.View, int, int, int, int);
+
+    public abstract void postOnAnimation(android.view.View, java.lang.Runnable);
+
+    public abstract void postOnAnimationDelayed(android.view.View, java.lang.Runnable, long);
+
+    public abstract void setAccessibilityDelegate(android.view.View, android.support.v4.view.AccessibilityDelegateCompat);
+
+    public abstract void setHasTransientState(android.view.View, boolean);
+
+    public abstract void setImportantForAccessibility(android.view.View, int);
+
+    public abstract void setLabelFor(android.view.View, int);
+
+    public abstract void setLayerType(android.view.View, int, android.graphics.Paint);
+
+    public abstract void setOverScrollMode(android.view.View, int);
+}

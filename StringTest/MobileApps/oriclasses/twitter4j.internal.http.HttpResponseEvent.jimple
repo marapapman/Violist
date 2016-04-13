@@ -1,0 +1,242 @@
+public final class twitter4j.internal.http.HttpResponseEvent extends java.lang.Object
+{
+    private twitter4j.internal.http.HttpRequest request;
+    private twitter4j.internal.http.HttpResponse response;
+    private twitter4j.TwitterException twitterException;
+
+    void <init>(twitter4j.internal.http.HttpRequest, twitter4j.internal.http.HttpResponse, twitter4j.TwitterException)
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        twitter4j.internal.http.HttpRequest $r1;
+        twitter4j.internal.http.HttpResponse $r2;
+        twitter4j.TwitterException $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpRequest;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpResponse;
+
+        $r3 := @parameter2: twitter4j.TwitterException;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request> = $r1;
+
+        $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response> = $r2;
+
+        $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.TwitterException twitterException> = $r3;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        twitter4j.internal.http.HttpRequest $r5, $r6;
+        boolean $z0;
+        twitter4j.internal.http.HttpResponse $r7, $r8;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        if $r1 == null goto label02;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label03;
+
+     label02:
+        return 0;
+
+     label03:
+        $r4 = (twitter4j.internal.http.HttpResponseEvent) $r1;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        if $r5 == null goto label05;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        $r6 = $r4.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        $z0 = virtualinvoke $r5.<twitter4j.internal.http.HttpRequest: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label06;
+
+     label04:
+        return 0;
+
+     label05:
+        $r6 = $r4.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        if $r6 != null goto label04;
+
+     label06:
+        $r7 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        if $r7 == null goto label08;
+
+        $r7 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        $r8 = $r4.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        $z0 = virtualinvoke $r7.<java.lang.Object: boolean equals(java.lang.Object)>($r8);
+
+        if $z0 != 0 goto label09;
+
+     label07:
+        return 0;
+
+     label08:
+        $r8 = $r4.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        if $r8 == null goto label10;
+
+        goto label07;
+
+     label09:
+        return 1;
+
+     label10:
+        return 1;
+    }
+
+    public twitter4j.internal.http.HttpRequest getRequest()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        twitter4j.internal.http.HttpRequest r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        return r1;
+    }
+
+    public twitter4j.internal.http.HttpResponse getResponse()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        twitter4j.internal.http.HttpResponse r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        return r1;
+    }
+
+    public twitter4j.TwitterException getTwitterException()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        twitter4j.TwitterException r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.TwitterException twitterException>;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        int $i0, $i1;
+        twitter4j.internal.http.HttpRequest $r1;
+        twitter4j.internal.http.HttpResponse $r2;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        $i1 = 0;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        $i0 = virtualinvoke $r1.<twitter4j.internal.http.HttpRequest: int hashCode()>();
+
+     label1:
+        $i0 = $i0 * 31;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        if $r2 == null goto label2;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        $i1 = virtualinvoke $r2.<java.lang.Object: int hashCode()>();
+
+     label2:
+        $i1 = $i0 + $i1;
+
+        return $i1;
+
+     label3:
+        $i0 = 0;
+
+        goto label1;
+    }
+
+    public boolean isAuthenticated()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        twitter4j.internal.http.HttpRequest $r1;
+        twitter4j.auth.Authorization $r2;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        $r2 = virtualinvoke $r1.<twitter4j.internal.http.HttpRequest: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = interfaceinvoke $r2.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        return $z0;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.http.HttpResponseEvent $r0;
+        java.lang.StringBuilder $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.HttpResponse $r3;
+        java.lang.String $r4;
+
+        $r0 := @this: twitter4j.internal.http.HttpResponseEvent;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("HttpResponseEvent{request=");
+
+        $r2 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpRequest request>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", response=");
+
+        $r3 = $r0.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse response>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+}

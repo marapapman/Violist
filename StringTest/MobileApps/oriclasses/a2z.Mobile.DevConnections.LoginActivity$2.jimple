@@ -1,0 +1,146 @@
+class a2z.Mobile.DevConnections.LoginActivity$2 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.LoginActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.LoginActivity)
+    {
+        a2z.Mobile.DevConnections.LoginActivity$2 $r0;
+        a2z.Mobile.DevConnections.LoginActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.LoginActivity$2;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.LoginActivity;
+
+        $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.LoginActivity$2 $r0;
+        android.view.View $r1;
+        a2z.Mobile.DevConnections.Controllers.LoginController $r2;
+        a2z.Mobile.DevConnections.LoginActivity $r3;
+        android.widget.TextView $r4, $r5, $r6;
+        java.lang.CharSequence $r7;
+        java.lang.String $r8;
+        int $i0;
+        java.lang.Void[] $r9;
+        android.widget.Toast $r10;
+
+        $r0 := @this: a2z.Mobile.DevConnections.LoginActivity$2;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.LoginActivity: android.view.View findViewById(int)>(2131230771);
+
+        $r4 = (android.widget.TextView) $r1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.LoginActivity: android.view.View findViewById(int)>(2131230773);
+
+        $r5 = (android.widget.TextView) $r1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.LoginActivity: android.view.View findViewById(int)>(2131230774);
+
+        $r6 = (android.widget.TextView) $r1;
+
+        $r7 = virtualinvoke $r4.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 <= 0 goto label1;
+
+        $r2 = new a2z.Mobile.DevConnections.Controllers.LoginController;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: void <init>()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.content.Context context> = $r3;
+
+        $r7 = virtualinvoke $r4.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String ecode> = $r8;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String email> = null;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String password> = null;
+
+        $r9 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.os.AsyncTask execute(java.lang.Object[])>($r9);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("LoginUsingBadgeEcode", "Login", null);
+
+        return;
+
+     label1:
+        $r7 = virtualinvoke $r5.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 <= 0 goto label2;
+
+        $r7 = virtualinvoke $r6.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 <= 0 goto label2;
+
+        $r2 = new a2z.Mobile.DevConnections.Controllers.LoginController;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: void <init>()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.content.Context context> = $r3;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String ecode> = null;
+
+        $r7 = virtualinvoke $r5.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String email> = $r8;
+
+        $r7 = virtualinvoke $r6.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r8 = interfaceinvoke $r7.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String password> = $r8;
+
+        $r9 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.os.AsyncTask execute(java.lang.Object[])>($r9);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("LoginUsingEmailPassword", "Login", null);
+
+        return;
+
+     label2:
+        $r3 = $r0.<a2z.Mobile.DevConnections.LoginActivity$2: a2z.Mobile.DevConnections.LoginActivity this$0>;
+
+        $r10 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r3, "Enter ECode / Badge Number / Email & Password to login", 0);
+
+        virtualinvoke $r10.<android.widget.Toast: void show()>();
+
+        return;
+    }
+}

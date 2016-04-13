@@ -1,0 +1,111 @@
+public class a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter extends android.widget.ArrayAdapter
+{
+    private java.util.ArrayList _SessionDateList;
+    public java.lang.String referrer;
+
+    public void <init>(android.content.Context, int, java.util.ArrayList)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter $r0;
+        android.content.Context $r1;
+        int $i0;
+        java.util.ArrayList $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.util.ArrayList;
+
+        specialinvoke $r0.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r1, $i0, $r2);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: java.util.ArrayList _SessionDateList> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: java.lang.String referrer> = "";
+
+        return;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter $r0;
+        int $i0;
+        android.view.View $r1, $r3;
+        android.view.ViewGroup $r2;
+        android.content.Context $r4;
+        java.lang.Object $r5;
+        android.view.LayoutInflater $r6;
+        java.util.ArrayList $r7;
+        a2z.Mobile.DevConnections.Classes.SessionDate $r8;
+        android.widget.TextView $r9;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        java.lang.Integer $r12;
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1 $r13;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.View;
+
+        $r2 := @parameter2: android.view.ViewGroup;
+
+        $r3 = $r1;
+
+        if $r1 != null goto label1;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: android.content.Context getContext()>();
+
+        $r5 = virtualinvoke $r4.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r6 = (android.view.LayoutInflater) $r5;
+
+        $r3 = virtualinvoke $r6.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903047, null);
+
+     label1:
+        $r7 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: java.util.ArrayList _SessionDateList>;
+
+        $r5 = virtualinvoke $r7.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r8 = (a2z.Mobile.DevConnections.Classes.SessionDate) $r5;
+
+        if $r8 == null goto label2;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230768);
+
+        $r9 = (android.widget.TextView) $r1;
+
+        $r10 = new java.lang.StringBuilder;
+
+        $r11 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.String Name()>();
+
+        $r11 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r11);
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>($r11);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (");
+
+        $r12 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer SessionCount()>();
+
+        $r11 = virtualinvoke $r12.<java.lang.Integer: java.lang.String toString()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r11);
+
+     label2:
+        $r13 = new a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1;
+
+        specialinvoke $r13.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: void <init>(a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter,a2z.Mobile.DevConnections.Classes.SessionDate)>($r0, $r8);
+
+        virtualinvoke $r3.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r13);
+
+        return $r3;
+    }
+}

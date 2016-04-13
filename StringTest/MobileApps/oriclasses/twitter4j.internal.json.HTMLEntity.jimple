@@ -1,0 +1,2989 @@
+final class twitter4j.internal.json.HTMLEntity extends java.lang.Object
+{
+    private static final java.util.Map entityEscapeMap;
+    private static final java.util.Map escapeEntityMap;
+
+    static void <clinit>()
+    {
+        java.lang.String[][] $r0;
+        java.lang.String[] $r1;
+        int $i0, $i1;
+        java.util.HashMap $r2;
+        java.util.Map $r3;
+        java.lang.String $r4, $r5;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        <twitter4j.internal.json.HTMLEntity: java.util.Map entityEscapeMap> = $r2;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        <twitter4j.internal.json.HTMLEntity: java.util.Map escapeEntityMap> = $r2;
+
+        $r0 = newarray (java.lang.String[])[251];
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&nbsp;";
+
+        $r1[1] = "&#160;";
+
+        $r1[2] = "\u00a0";
+
+        $r0[0] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&iexcl;";
+
+        $r1[1] = "&#161;";
+
+        $r1[2] = "\u00a1";
+
+        $r0[1] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&cent;";
+
+        $r1[1] = "&#162;";
+
+        $r1[2] = "\u00a2";
+
+        $r0[2] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&pound;";
+
+        $r1[1] = "&#163;";
+
+        $r1[2] = "\u00a3";
+
+        $r0[3] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&curren;";
+
+        $r1[1] = "&#164;";
+
+        $r1[2] = "\u00a4";
+
+        $r0[4] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&yen;";
+
+        $r1[1] = "&#165;";
+
+        $r1[2] = "\u00a5";
+
+        $r0[5] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&brvbar;";
+
+        $r1[1] = "&#166;";
+
+        $r1[2] = "\u00a6";
+
+        $r0[6] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sect;";
+
+        $r1[1] = "&#167;";
+
+        $r1[2] = "\u00a7";
+
+        $r0[7] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&uml;";
+
+        $r1[1] = "&#168;";
+
+        $r1[2] = "\u00a8";
+
+        $r0[8] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&copy;";
+
+        $r1[1] = "&#169;";
+
+        $r1[2] = "\u00a9";
+
+        $r0[9] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ordf;";
+
+        $r1[1] = "&#170;";
+
+        $r1[2] = "\u00aa";
+
+        $r0[10] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&laquo;";
+
+        $r1[1] = "&#171;";
+
+        $r1[2] = "\u00ab";
+
+        $r0[11] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&not;";
+
+        $r1[1] = "&#172;";
+
+        $r1[2] = "\u00ac";
+
+        $r0[12] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&shy;";
+
+        $r1[1] = "&#173;";
+
+        $r1[2] = "\u00ad";
+
+        $r0[13] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&reg;";
+
+        $r1[1] = "&#174;";
+
+        $r1[2] = "\u00ae";
+
+        $r0[14] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&macr;";
+
+        $r1[1] = "&#175;";
+
+        $r1[2] = "\u00af";
+
+        $r0[15] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&deg;";
+
+        $r1[1] = "&#176;";
+
+        $r1[2] = "\u00b0";
+
+        $r0[16] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&plusmn;";
+
+        $r1[1] = "&#177;";
+
+        $r1[2] = "\u00b1";
+
+        $r0[17] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sup2;";
+
+        $r1[1] = "&#178;";
+
+        $r1[2] = "\u00b2";
+
+        $r0[18] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sup3;";
+
+        $r1[1] = "&#179;";
+
+        $r1[2] = "\u00b3";
+
+        $r0[19] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&acute;";
+
+        $r1[1] = "&#180;";
+
+        $r1[2] = "\u00b4";
+
+        $r0[20] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&micro;";
+
+        $r1[1] = "&#181;";
+
+        $r1[2] = "\u00b5";
+
+        $r0[21] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&para;";
+
+        $r1[1] = "&#182;";
+
+        $r1[2] = "\u00b6";
+
+        $r0[22] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&middot;";
+
+        $r1[1] = "&#183;";
+
+        $r1[2] = "\u00b7";
+
+        $r0[23] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&cedil;";
+
+        $r1[1] = "&#184;";
+
+        $r1[2] = "\u00b8";
+
+        $r0[24] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sup1;";
+
+        $r1[1] = "&#185;";
+
+        $r1[2] = "\u00b9";
+
+        $r0[25] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ordm;";
+
+        $r1[1] = "&#186;";
+
+        $r1[2] = "\u00ba";
+
+        $r0[26] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&raquo;";
+
+        $r1[1] = "&#187;";
+
+        $r1[2] = "\u00bb";
+
+        $r0[27] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&frac14;";
+
+        $r1[1] = "&#188;";
+
+        $r1[2] = "\u00bc";
+
+        $r0[28] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&frac12;";
+
+        $r1[1] = "&#189;";
+
+        $r1[2] = "\u00bd";
+
+        $r0[29] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&frac34;";
+
+        $r1[1] = "&#190;";
+
+        $r1[2] = "\u00be";
+
+        $r0[30] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&iquest;";
+
+        $r1[1] = "&#191;";
+
+        $r1[2] = "\u00bf";
+
+        $r0[31] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Agrave;";
+
+        $r1[1] = "&#192;";
+
+        $r1[2] = "\u00c0";
+
+        $r0[32] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Aacute;";
+
+        $r1[1] = "&#193;";
+
+        $r1[2] = "\u00c1";
+
+        $r0[33] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Acirc;";
+
+        $r1[1] = "&#194;";
+
+        $r1[2] = "\u00c2";
+
+        $r0[34] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Atilde;";
+
+        $r1[1] = "&#195;";
+
+        $r1[2] = "\u00c3";
+
+        $r0[35] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Auml;";
+
+        $r1[1] = "&#196;";
+
+        $r1[2] = "\u00c4";
+
+        $r0[36] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Aring;";
+
+        $r1[1] = "&#197;";
+
+        $r1[2] = "\u00c5";
+
+        $r0[37] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&AElig;";
+
+        $r1[1] = "&#198;";
+
+        $r1[2] = "\u00c6";
+
+        $r0[38] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ccedil;";
+
+        $r1[1] = "&#199;";
+
+        $r1[2] = "\u00c7";
+
+        $r0[39] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Egrave;";
+
+        $r1[1] = "&#200;";
+
+        $r1[2] = "\u00c8";
+
+        $r0[40] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Eacute;";
+
+        $r1[1] = "&#201;";
+
+        $r1[2] = "\u00c9";
+
+        $r0[41] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ecirc;";
+
+        $r1[1] = "&#202;";
+
+        $r1[2] = "\u00ca";
+
+        $r0[42] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Euml;";
+
+        $r1[1] = "&#203;";
+
+        $r1[2] = "\u00cb";
+
+        $r0[43] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Igrave;";
+
+        $r1[1] = "&#204;";
+
+        $r1[2] = "\u00cc";
+
+        $r0[44] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Iacute;";
+
+        $r1[1] = "&#205;";
+
+        $r1[2] = "\u00cd";
+
+        $r0[45] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Icirc;";
+
+        $r1[1] = "&#206;";
+
+        $r1[2] = "\u00ce";
+
+        $r0[46] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Iuml;";
+
+        $r1[1] = "&#207;";
+
+        $r1[2] = "\u00cf";
+
+        $r0[47] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ETH;";
+
+        $r1[1] = "&#208;";
+
+        $r1[2] = "\u00d0";
+
+        $r0[48] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ntilde;";
+
+        $r1[1] = "&#209;";
+
+        $r1[2] = "\u00d1";
+
+        $r0[49] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ograve;";
+
+        $r1[1] = "&#210;";
+
+        $r1[2] = "\u00d2";
+
+        $r0[50] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Oacute;";
+
+        $r1[1] = "&#211;";
+
+        $r1[2] = "\u00d3";
+
+        $r0[51] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ocirc;";
+
+        $r1[1] = "&#212;";
+
+        $r1[2] = "\u00d4";
+
+        $r0[52] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Otilde;";
+
+        $r1[1] = "&#213;";
+
+        $r1[2] = "\u00d5";
+
+        $r0[53] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ouml;";
+
+        $r1[1] = "&#214;";
+
+        $r1[2] = "\u00d6";
+
+        $r0[54] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&times;";
+
+        $r1[1] = "&#215;";
+
+        $r1[2] = "\u00d7";
+
+        $r0[55] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Oslash;";
+
+        $r1[1] = "&#216;";
+
+        $r1[2] = "\u00d8";
+
+        $r0[56] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ugrave;";
+
+        $r1[1] = "&#217;";
+
+        $r1[2] = "\u00d9";
+
+        $r0[57] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Uacute;";
+
+        $r1[1] = "&#218;";
+
+        $r1[2] = "\u00da";
+
+        $r0[58] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Ucirc;";
+
+        $r1[1] = "&#219;";
+
+        $r1[2] = "\u00db";
+
+        $r0[59] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Uuml;";
+
+        $r1[1] = "&#220;";
+
+        $r1[2] = "\u00dc";
+
+        $r0[60] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Yacute;";
+
+        $r1[1] = "&#221;";
+
+        $r1[2] = "\u00dd";
+
+        $r0[61] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&THORN;";
+
+        $r1[1] = "&#222;";
+
+        $r1[2] = "\u00de";
+
+        $r0[62] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&szlig;";
+
+        $r1[1] = "&#223;";
+
+        $r1[2] = "\u00df";
+
+        $r0[63] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&agrave;";
+
+        $r1[1] = "&#224;";
+
+        $r1[2] = "\u00e0";
+
+        $r0[64] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&aacute;";
+
+        $r1[1] = "&#225;";
+
+        $r1[2] = "\u00e1";
+
+        $r0[65] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&acirc;";
+
+        $r1[1] = "&#226;";
+
+        $r1[2] = "\u00e2";
+
+        $r0[66] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&atilde;";
+
+        $r1[1] = "&#227;";
+
+        $r1[2] = "\u00e3";
+
+        $r0[67] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&auml;";
+
+        $r1[1] = "&#228;";
+
+        $r1[2] = "\u00e4";
+
+        $r0[68] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&aring;";
+
+        $r1[1] = "&#229;";
+
+        $r1[2] = "\u00e5";
+
+        $r0[69] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&aelig;";
+
+        $r1[1] = "&#230;";
+
+        $r1[2] = "\u00e6";
+
+        $r0[70] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ccedil;";
+
+        $r1[1] = "&#231;";
+
+        $r1[2] = "\u00e7";
+
+        $r0[71] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&egrave;";
+
+        $r1[1] = "&#232;";
+
+        $r1[2] = "\u00e8";
+
+        $r0[72] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&eacute;";
+
+        $r1[1] = "&#233;";
+
+        $r1[2] = "\u00e9";
+
+        $r0[73] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ecirc;";
+
+        $r1[1] = "&#234;";
+
+        $r1[2] = "\u00ea";
+
+        $r0[74] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&euml;";
+
+        $r1[1] = "&#235;";
+
+        $r1[2] = "\u00eb";
+
+        $r0[75] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&igrave;";
+
+        $r1[1] = "&#236;";
+
+        $r1[2] = "\u00ec";
+
+        $r0[76] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&iacute;";
+
+        $r1[1] = "&#237;";
+
+        $r1[2] = "\u00ed";
+
+        $r0[77] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&icirc;";
+
+        $r1[1] = "&#238;";
+
+        $r1[2] = "\u00ee";
+
+        $r0[78] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&iuml;";
+
+        $r1[1] = "&#239;";
+
+        $r1[2] = "\u00ef";
+
+        $r0[79] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&eth;";
+
+        $r1[1] = "&#240;";
+
+        $r1[2] = "\u00f0";
+
+        $r0[80] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ntilde;";
+
+        $r1[1] = "&#241;";
+
+        $r1[2] = "\u00f1";
+
+        $r0[81] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ograve;";
+
+        $r1[1] = "&#242;";
+
+        $r1[2] = "\u00f2";
+
+        $r0[82] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&oacute;";
+
+        $r1[1] = "&#243;";
+
+        $r1[2] = "\u00f3";
+
+        $r0[83] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ocirc;";
+
+        $r1[1] = "&#244;";
+
+        $r1[2] = "\u00f4";
+
+        $r0[84] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&otilde;";
+
+        $r1[1] = "&#245;";
+
+        $r1[2] = "\u00f5";
+
+        $r0[85] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ouml;";
+
+        $r1[1] = "&#246;";
+
+        $r1[2] = "\u00f6";
+
+        $r0[86] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&divide;";
+
+        $r1[1] = "&#247;";
+
+        $r1[2] = "\u00f7";
+
+        $r0[87] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&oslash;";
+
+        $r1[1] = "&#248;";
+
+        $r1[2] = "\u00f8";
+
+        $r0[88] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ugrave;";
+
+        $r1[1] = "&#249;";
+
+        $r1[2] = "\u00f9";
+
+        $r0[89] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&uacute;";
+
+        $r1[1] = "&#250;";
+
+        $r1[2] = "\u00fa";
+
+        $r0[90] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ucirc;";
+
+        $r1[1] = "&#251;";
+
+        $r1[2] = "\u00fb";
+
+        $r0[91] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&uuml;";
+
+        $r1[1] = "&#252;";
+
+        $r1[2] = "\u00fc";
+
+        $r0[92] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&yacute;";
+
+        $r1[1] = "&#253;";
+
+        $r1[2] = "\u00fd";
+
+        $r0[93] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&thorn;";
+
+        $r1[1] = "&#254;";
+
+        $r1[2] = "\u00fe";
+
+        $r0[94] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&yuml;";
+
+        $r1[1] = "&#255;";
+
+        $r1[2] = "\u00ff";
+
+        $r0[95] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&fnof;";
+
+        $r1[1] = "&#402;";
+
+        $r1[2] = "\u0192";
+
+        $r0[96] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Alpha;";
+
+        $r1[1] = "&#913;";
+
+        $r1[2] = "\u0391";
+
+        $r0[97] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Beta;";
+
+        $r1[1] = "&#914;";
+
+        $r1[2] = "\u0392";
+
+        $r0[98] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Gamma;";
+
+        $r1[1] = "&#915;";
+
+        $r1[2] = "\u0393";
+
+        $r0[99] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Delta;";
+
+        $r1[1] = "&#916;";
+
+        $r1[2] = "\u0394";
+
+        $r0[100] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Epsilon;";
+
+        $r1[1] = "&#917;";
+
+        $r1[2] = "\u0395";
+
+        $r0[101] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Zeta;";
+
+        $r1[1] = "&#918;";
+
+        $r1[2] = "\u0396";
+
+        $r0[102] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Eta;";
+
+        $r1[1] = "&#919;";
+
+        $r1[2] = "\u0397";
+
+        $r0[103] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Theta;";
+
+        $r1[1] = "&#920;";
+
+        $r1[2] = "\u0398";
+
+        $r0[104] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Iota;";
+
+        $r1[1] = "&#921;";
+
+        $r1[2] = "\u0399";
+
+        $r0[105] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Kappa;";
+
+        $r1[1] = "&#922;";
+
+        $r1[2] = "\u039a";
+
+        $r0[106] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Lambda;";
+
+        $r1[1] = "&#923;";
+
+        $r1[2] = "\u039b";
+
+        $r0[107] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Mu;";
+
+        $r1[1] = "&#924;";
+
+        $r1[2] = "\u039c";
+
+        $r0[108] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Nu;";
+
+        $r1[1] = "&#925;";
+
+        $r1[2] = "\u039d";
+
+        $r0[109] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Xi;";
+
+        $r1[1] = "&#926;";
+
+        $r1[2] = "\u039e";
+
+        $r0[110] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Omicron;";
+
+        $r1[1] = "&#927;";
+
+        $r1[2] = "\u039f";
+
+        $r0[111] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Pi;";
+
+        $r1[1] = "&#928;";
+
+        $r1[2] = "\u03a0";
+
+        $r0[112] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Rho;";
+
+        $r1[1] = "&#929;";
+
+        $r1[2] = "\u03a1";
+
+        $r0[113] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Sigma;";
+
+        $r1[1] = "&#931;";
+
+        $r1[2] = "\u03a3";
+
+        $r0[114] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Tau;";
+
+        $r1[1] = "&#932;";
+
+        $r1[2] = "\u03a4";
+
+        $r0[115] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Upsilon;";
+
+        $r1[1] = "&#933;";
+
+        $r1[2] = "\u03a5";
+
+        $r0[116] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Phi;";
+
+        $r1[1] = "&#934;";
+
+        $r1[2] = "\u03a6";
+
+        $r0[117] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Chi;";
+
+        $r1[1] = "&#935;";
+
+        $r1[2] = "\u03a7";
+
+        $r0[118] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Psi;";
+
+        $r1[1] = "&#936;";
+
+        $r1[2] = "\u03a8";
+
+        $r0[119] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Omega;";
+
+        $r1[1] = "&#937;";
+
+        $r1[2] = "\u03a9";
+
+        $r0[120] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&alpha;";
+
+        $r1[1] = "&#945;";
+
+        $r1[2] = "\u03b1";
+
+        $r0[121] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&beta;";
+
+        $r1[1] = "&#946;";
+
+        $r1[2] = "\u03b2";
+
+        $r0[122] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&gamma;";
+
+        $r1[1] = "&#947;";
+
+        $r1[2] = "\u03b3";
+
+        $r0[123] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&delta;";
+
+        $r1[1] = "&#948;";
+
+        $r1[2] = "\u03b4";
+
+        $r0[124] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&epsilon;";
+
+        $r1[1] = "&#949;";
+
+        $r1[2] = "\u03b5";
+
+        $r0[125] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&zeta;";
+
+        $r1[1] = "&#950;";
+
+        $r1[2] = "\u03b6";
+
+        $r0[126] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&eta;";
+
+        $r1[1] = "&#951;";
+
+        $r1[2] = "\u03b7";
+
+        $r0[127] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&theta;";
+
+        $r1[1] = "&#952;";
+
+        $r1[2] = "\u03b8";
+
+        $r0[128] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&iota;";
+
+        $r1[1] = "&#953;";
+
+        $r1[2] = "\u03b9";
+
+        $r0[129] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&kappa;";
+
+        $r1[1] = "&#954;";
+
+        $r1[2] = "\u03ba";
+
+        $r0[130] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lambda;";
+
+        $r1[1] = "&#955;";
+
+        $r1[2] = "\u03bb";
+
+        $r0[131] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&mu;";
+
+        $r1[1] = "&#956;";
+
+        $r1[2] = "\u03bc";
+
+        $r0[132] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&nu;";
+
+        $r1[1] = "&#957;";
+
+        $r1[2] = "\u03bd";
+
+        $r0[133] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&xi;";
+
+        $r1[1] = "&#958;";
+
+        $r1[2] = "\u03be";
+
+        $r0[134] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&omicron;";
+
+        $r1[1] = "&#959;";
+
+        $r1[2] = "\u03bf";
+
+        $r0[135] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&pi;";
+
+        $r1[1] = "&#960;";
+
+        $r1[2] = "\u03c0";
+
+        $r0[136] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rho;";
+
+        $r1[1] = "&#961;";
+
+        $r1[2] = "\u03c1";
+
+        $r0[137] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sigmaf;";
+
+        $r1[1] = "&#962;";
+
+        $r1[2] = "\u03c2";
+
+        $r0[138] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sigma;";
+
+        $r1[1] = "&#963;";
+
+        $r1[2] = "\u03c3";
+
+        $r0[139] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&tau;";
+
+        $r1[1] = "&#964;";
+
+        $r1[2] = "\u03c4";
+
+        $r0[140] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&upsilon;";
+
+        $r1[1] = "&#965;";
+
+        $r1[2] = "\u03c5";
+
+        $r0[141] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&phi;";
+
+        $r1[1] = "&#966;";
+
+        $r1[2] = "\u03c6";
+
+        $r0[142] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&chi;";
+
+        $r1[1] = "&#967;";
+
+        $r1[2] = "\u03c7";
+
+        $r0[143] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&psi;";
+
+        $r1[1] = "&#968;";
+
+        $r1[2] = "\u03c8";
+
+        $r0[144] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&omega;";
+
+        $r1[1] = "&#969;";
+
+        $r1[2] = "\u03c9";
+
+        $r0[145] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&thetasym;";
+
+        $r1[1] = "&#977;";
+
+        $r1[2] = "\u03d1";
+
+        $r0[146] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&upsih;";
+
+        $r1[1] = "&#978;";
+
+        $r1[2] = "\u03d2";
+
+        $r0[147] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&piv;";
+
+        $r1[1] = "&#982;";
+
+        $r1[2] = "\u03d6";
+
+        $r0[148] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&bull;";
+
+        $r1[1] = "&#8226;";
+
+        $r1[2] = "\u2022";
+
+        $r0[149] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&hellip;";
+
+        $r1[1] = "&#8230;";
+
+        $r1[2] = "\u2026";
+
+        $r0[150] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&prime;";
+
+        $r1[1] = "&#8242;";
+
+        $r1[2] = "\u2032";
+
+        $r0[151] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Prime;";
+
+        $r1[1] = "&#8243;";
+
+        $r1[2] = "\u2033";
+
+        $r0[152] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&oline;";
+
+        $r1[1] = "&#8254;";
+
+        $r1[2] = "\u203e";
+
+        $r0[153] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&frasl;";
+
+        $r1[1] = "&#8260;";
+
+        $r1[2] = "\u2044";
+
+        $r0[154] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&weierp;";
+
+        $r1[1] = "&#8472;";
+
+        $r1[2] = "\u2118";
+
+        $r0[155] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&image;";
+
+        $r1[1] = "&#8465;";
+
+        $r1[2] = "\u2111";
+
+        $r0[156] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&real;";
+
+        $r1[1] = "&#8476;";
+
+        $r1[2] = "\u211c";
+
+        $r0[157] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&trade;";
+
+        $r1[1] = "&#8482;";
+
+        $r1[2] = "\u2122";
+
+        $r0[158] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&alefsym;";
+
+        $r1[1] = "&#8501;";
+
+        $r1[2] = "\u2135";
+
+        $r0[159] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&larr;";
+
+        $r1[1] = "&#8592;";
+
+        $r1[2] = "\u2190";
+
+        $r0[160] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&uarr;";
+
+        $r1[1] = "&#8593;";
+
+        $r1[2] = "\u2191";
+
+        $r0[161] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rarr;";
+
+        $r1[1] = "&#8594;";
+
+        $r1[2] = "\u2192";
+
+        $r0[162] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&darr;";
+
+        $r1[1] = "&#8595;";
+
+        $r1[2] = "\u2193";
+
+        $r0[163] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&harr;";
+
+        $r1[1] = "&#8596;";
+
+        $r1[2] = "\u2194";
+
+        $r0[164] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&crarr;";
+
+        $r1[1] = "&#8629;";
+
+        $r1[2] = "\u21b5";
+
+        $r0[165] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lArr;";
+
+        $r1[1] = "&#8656;";
+
+        $r1[2] = "\u21d0";
+
+        $r0[166] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&uArr;";
+
+        $r1[1] = "&#8657;";
+
+        $r1[2] = "\u21d1";
+
+        $r0[167] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rArr;";
+
+        $r1[1] = "&#8658;";
+
+        $r1[2] = "\u21d2";
+
+        $r0[168] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&dArr;";
+
+        $r1[1] = "&#8659;";
+
+        $r1[2] = "\u21d3";
+
+        $r0[169] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&hArr;";
+
+        $r1[1] = "&#8660;";
+
+        $r1[2] = "\u21d4";
+
+        $r0[170] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&forall;";
+
+        $r1[1] = "&#8704;";
+
+        $r1[2] = "\u2200";
+
+        $r0[171] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&part;";
+
+        $r1[1] = "&#8706;";
+
+        $r1[2] = "\u2202";
+
+        $r0[172] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&exist;";
+
+        $r1[1] = "&#8707;";
+
+        $r1[2] = "\u2203";
+
+        $r0[173] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&empty;";
+
+        $r1[1] = "&#8709;";
+
+        $r1[2] = "\u2205";
+
+        $r0[174] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&nabla;";
+
+        $r1[1] = "&#8711;";
+
+        $r1[2] = "\u2207";
+
+        $r0[175] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&isin;";
+
+        $r1[1] = "&#8712;";
+
+        $r1[2] = "\u2208";
+
+        $r0[176] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&notin;";
+
+        $r1[1] = "&#8713;";
+
+        $r1[2] = "\u2209";
+
+        $r0[177] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ni;";
+
+        $r1[1] = "&#8715;";
+
+        $r1[2] = "\u220b";
+
+        $r0[178] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&prod;";
+
+        $r1[1] = "&#8719;";
+
+        $r1[2] = "\u220f";
+
+        $r0[179] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sum;";
+
+        $r1[1] = "&#8721;";
+
+        $r1[2] = "\u2211";
+
+        $r0[180] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&minus;";
+
+        $r1[1] = "&#8722;";
+
+        $r1[2] = "\u2212";
+
+        $r0[181] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lowast;";
+
+        $r1[1] = "&#8727;";
+
+        $r1[2] = "\u2217";
+
+        $r0[182] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&radic;";
+
+        $r1[1] = "&#8730;";
+
+        $r1[2] = "\u221a";
+
+        $r0[183] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&prop;";
+
+        $r1[1] = "&#8733;";
+
+        $r1[2] = "\u221d";
+
+        $r0[184] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&infin;";
+
+        $r1[1] = "&#8734;";
+
+        $r1[2] = "\u221e";
+
+        $r0[185] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ang;";
+
+        $r1[1] = "&#8736;";
+
+        $r1[2] = "\u2220";
+
+        $r0[186] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&and;";
+
+        $r1[1] = "&#8743;";
+
+        $r1[2] = "\u2227";
+
+        $r0[187] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&or;";
+
+        $r1[1] = "&#8744;";
+
+        $r1[2] = "\u2228";
+
+        $r0[188] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&cap;";
+
+        $r1[1] = "&#8745;";
+
+        $r1[2] = "\u2229";
+
+        $r0[189] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&cup;";
+
+        $r1[1] = "&#8746;";
+
+        $r1[2] = "\u222a";
+
+        $r0[190] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&int;";
+
+        $r1[1] = "&#8747;";
+
+        $r1[2] = "\u222b";
+
+        $r0[191] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&there4;";
+
+        $r1[1] = "&#8756;";
+
+        $r1[2] = "\u2234";
+
+        $r0[192] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sim;";
+
+        $r1[1] = "&#8764;";
+
+        $r1[2] = "\u223c";
+
+        $r0[193] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&cong;";
+
+        $r1[1] = "&#8773;";
+
+        $r1[2] = "\u2245";
+
+        $r0[194] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&asymp;";
+
+        $r1[1] = "&#8776;";
+
+        $r1[2] = "\u2248";
+
+        $r0[195] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ne;";
+
+        $r1[1] = "&#8800;";
+
+        $r1[2] = "\u2260";
+
+        $r0[196] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&equiv;";
+
+        $r1[1] = "&#8801;";
+
+        $r1[2] = "\u2261";
+
+        $r0[197] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&le;";
+
+        $r1[1] = "&#8804;";
+
+        $r1[2] = "\u2264";
+
+        $r0[198] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ge;";
+
+        $r1[1] = "&#8805;";
+
+        $r1[2] = "\u2265";
+
+        $r0[199] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sub;";
+
+        $r1[1] = "&#8834;";
+
+        $r1[2] = "\u2282";
+
+        $r0[200] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sup;";
+
+        $r1[1] = "&#8835;";
+
+        $r1[2] = "\u2283";
+
+        $r0[201] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sube;";
+
+        $r1[1] = "&#8838;";
+
+        $r1[2] = "\u2286";
+
+        $r0[202] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&supe;";
+
+        $r1[1] = "&#8839;";
+
+        $r1[2] = "\u2287";
+
+        $r0[203] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&oplus;";
+
+        $r1[1] = "&#8853;";
+
+        $r1[2] = "\u2295";
+
+        $r0[204] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&otimes;";
+
+        $r1[1] = "&#8855;";
+
+        $r1[2] = "\u2297";
+
+        $r0[205] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&perp;";
+
+        $r1[1] = "&#8869;";
+
+        $r1[2] = "\u22a5";
+
+        $r0[206] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sdot;";
+
+        $r1[1] = "&#8901;";
+
+        $r1[2] = "\u22c5";
+
+        $r0[207] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lceil;";
+
+        $r1[1] = "&#8968;";
+
+        $r1[2] = "\u2308";
+
+        $r0[208] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rceil;";
+
+        $r1[1] = "&#8969;";
+
+        $r1[2] = "\u2309";
+
+        $r0[209] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lfloor;";
+
+        $r1[1] = "&#8970;";
+
+        $r1[2] = "\u230a";
+
+        $r0[210] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rfloor;";
+
+        $r1[1] = "&#8971;";
+
+        $r1[2] = "\u230b";
+
+        $r0[211] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lang;";
+
+        $r1[1] = "&#9001;";
+
+        $r1[2] = "\u2329";
+
+        $r0[212] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rang;";
+
+        $r1[1] = "&#9002;";
+
+        $r1[2] = "\u232a";
+
+        $r0[213] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&loz;";
+
+        $r1[1] = "&#9674;";
+
+        $r1[2] = "\u25ca";
+
+        $r0[214] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&spades;";
+
+        $r1[1] = "&#9824;";
+
+        $r1[2] = "\u2660";
+
+        $r0[215] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&clubs;";
+
+        $r1[1] = "&#9827;";
+
+        $r1[2] = "\u2663";
+
+        $r0[216] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&hearts;";
+
+        $r1[1] = "&#9829;";
+
+        $r1[2] = "\u2665";
+
+        $r0[217] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&diams;";
+
+        $r1[1] = "&#9830;";
+
+        $r1[2] = "\u2666";
+
+        $r0[218] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&quot;";
+
+        $r1[1] = "&#34;";
+
+        $r1[2] = "\"";
+
+        $r0[219] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&amp;";
+
+        $r1[1] = "&#38;";
+
+        $r1[2] = "&";
+
+        $r0[220] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lt;";
+
+        $r1[1] = "&#60;";
+
+        $r1[2] = "<";
+
+        $r0[221] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&gt;";
+
+        $r1[1] = "&#62;";
+
+        $r1[2] = ">";
+
+        $r0[222] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&OElig;";
+
+        $r1[1] = "&#338;";
+
+        $r1[2] = "\u0152";
+
+        $r0[223] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&oelig;";
+
+        $r1[1] = "&#339;";
+
+        $r1[2] = "\u0153";
+
+        $r0[224] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Scaron;";
+
+        $r1[1] = "&#352;";
+
+        $r1[2] = "\u0160";
+
+        $r0[225] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&scaron;";
+
+        $r1[1] = "&#353;";
+
+        $r1[2] = "\u0161";
+
+        $r0[226] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Yuml;";
+
+        $r1[1] = "&#376;";
+
+        $r1[2] = "\u0178";
+
+        $r0[227] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&circ;";
+
+        $r1[1] = "&#710;";
+
+        $r1[2] = "\u02c6";
+
+        $r0[228] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&tilde;";
+
+        $r1[1] = "&#732;";
+
+        $r1[2] = "\u02dc";
+
+        $r0[229] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ensp;";
+
+        $r1[1] = "&#8194;";
+
+        $r1[2] = "\u2002";
+
+        $r0[230] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&emsp;";
+
+        $r1[1] = "&#8195;";
+
+        $r1[2] = "\u2003";
+
+        $r0[231] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&thinsp;";
+
+        $r1[1] = "&#8201;";
+
+        $r1[2] = "\u2009";
+
+        $r0[232] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&zwnj;";
+
+        $r1[1] = "&#8204;";
+
+        $r1[2] = "\u200c";
+
+        $r0[233] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&zwj;";
+
+        $r1[1] = "&#8205;";
+
+        $r1[2] = "\u200d";
+
+        $r0[234] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lrm;";
+
+        $r1[1] = "&#8206;";
+
+        $r1[2] = "\u200e";
+
+        $r0[235] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rlm;";
+
+        $r1[1] = "&#8207;";
+
+        $r1[2] = "\u200f";
+
+        $r0[236] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ndash;";
+
+        $r1[1] = "&#8211;";
+
+        $r1[2] = "\u2013";
+
+        $r0[237] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&mdash;";
+
+        $r1[1] = "&#8212;";
+
+        $r1[2] = "\u2014";
+
+        $r0[238] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lsquo;";
+
+        $r1[1] = "&#8216;";
+
+        $r1[2] = "\u2018";
+
+        $r0[239] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rsquo;";
+
+        $r1[1] = "&#8217;";
+
+        $r1[2] = "\u2019";
+
+        $r0[240] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&sbquo;";
+
+        $r1[1] = "&#8218;";
+
+        $r1[2] = "\u201a";
+
+        $r0[241] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&ldquo;";
+
+        $r1[1] = "&#8220;";
+
+        $r1[2] = "\u201c";
+
+        $r0[242] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rdquo;";
+
+        $r1[1] = "&#8221;";
+
+        $r1[2] = "\u201d";
+
+        $r0[243] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&bdquo;";
+
+        $r1[1] = "&#8222;";
+
+        $r1[2] = "\u201e";
+
+        $r0[244] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&dagger;";
+
+        $r1[1] = "&#8224;";
+
+        $r1[2] = "\u2020";
+
+        $r0[245] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&Dagger;";
+
+        $r1[1] = "&#8225;";
+
+        $r1[2] = "\u2021";
+
+        $r0[246] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&permil;";
+
+        $r1[1] = "&#8240;";
+
+        $r1[2] = "\u2030";
+
+        $r0[247] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&lsaquo;";
+
+        $r1[1] = "&#8249;";
+
+        $r1[2] = "\u2039";
+
+        $r0[248] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&rsaquo;";
+
+        $r1[1] = "&#8250;";
+
+        $r1[2] = "\u203a";
+
+        $r0[249] = $r1;
+
+        $r1 = newarray (java.lang.String)[3];
+
+        $r1[0] = "&euro;";
+
+        $r1[1] = "&#8364;";
+
+        $r1[2] = "\u20ac";
+
+        $r0[250] = $r1;
+
+        $i1 = lengthof $r0;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1 = $r0[$i0];
+
+        $r3 = <twitter4j.internal.json.HTMLEntity: java.util.Map entityEscapeMap>;
+
+        $r4 = $r1[2];
+
+        $r5 = $r1[0];
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r5);
+
+        $r3 = <twitter4j.internal.json.HTMLEntity: java.util.Map escapeEntityMap>;
+
+        $r5 = $r1[0];
+
+        $r4 = $r1[2];
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r4);
+
+        $r3 = <twitter4j.internal.json.HTMLEntity: java.util.Map escapeEntityMap>;
+
+        $r5 = $r1[1];
+
+        $r4 = $r1[2];
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r5, $r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    void <init>()
+    {
+        twitter4j.internal.json.HTMLEntity $r0;
+
+        $r0 := @this: twitter4j.internal.json.HTMLEntity;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static java.lang.String escape(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.StringBuilder $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r0);
+
+        staticinvoke <twitter4j.internal.json.HTMLEntity: void escape(java.lang.StringBuilder)>($r1);
+
+        $r0 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r0;
+    }
+
+    static void escape(java.lang.StringBuilder)
+    {
+        java.lang.StringBuilder $r0;
+        int $i0, $i1;
+        java.util.Map $r1;
+        java.lang.String $r2;
+        java.lang.Object $r3;
+
+        $r0 := @parameter0: java.lang.StringBuilder;
+
+        $i0 = 0;
+
+     label1:
+        $i1 = virtualinvoke $r0.<java.lang.StringBuilder: int length()>();
+
+        if $i0 >= $i1 goto label3;
+
+        $r1 = <twitter4j.internal.json.HTMLEntity: java.util.Map entityEscapeMap>;
+
+        $i1 = $i0 + 1;
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String substring(int,int)>($i0, $i1);
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r2 = (java.lang.String) $r3;
+
+        if $r2 == null goto label2;
+
+        $i1 = $i0 + 1;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder replace(int,int,java.lang.String)>($i0, $i1, $r2);
+
+        $i1 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $i0 = $i0 + $i1;
+
+        goto label1;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    static java.lang.String unescape(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.StringBuilder $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        if $r0 == null goto label1;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r0);
+
+        staticinvoke <twitter4j.internal.json.HTMLEntity: void unescape(java.lang.StringBuilder)>($r1);
+
+        $r0 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    static void unescape(java.lang.StringBuilder)
+    {
+        java.lang.StringBuilder $r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1;
+        java.util.Map $r2;
+        java.lang.Object $r3;
+
+        $r0 := @parameter0: java.lang.StringBuilder;
+
+        $i0 = 0;
+
+     label1:
+        $i1 = virtualinvoke $r0.<java.lang.StringBuilder: int length()>();
+
+        if $i0 >= $i1 goto label4;
+
+        $i1 = virtualinvoke $r0.<java.lang.StringBuilder: int indexOf(java.lang.String,int)>("&", $i0);
+
+        if -1 != $i1 goto label2;
+
+        return;
+
+     label2:
+        $i0 = virtualinvoke $r0.<java.lang.StringBuilder: int indexOf(java.lang.String,int)>(";", $i1);
+
+        if -1 == $i0 goto label5;
+
+        $i2 = $i0 + 1;
+
+        $r1 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String substring(int,int)>($i1, $i2);
+
+        $r2 = <twitter4j.internal.json.HTMLEntity: java.util.Map escapeEntityMap>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r1 = (java.lang.String) $r3;
+
+        if $r1 == null goto label3;
+
+        $i2 = $i0 + 1;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder replace(int,int,java.lang.String)>($i1, $i2, $r1);
+
+     label3:
+        $i0 = $i1 + 1;
+
+        goto label1;
+
+     label4:
+        return;
+
+     label5:
+        return;
+    }
+
+    static java.lang.String unescapeAndSlideEntityIncdices(java.lang.String, twitter4j.UserMentionEntity[], twitter4j.URLEntity[], twitter4j.HashtagEntity[], twitter4j.MediaEntity[])
+    {
+        java.lang.String $r0, $r7;
+        twitter4j.UserMentionEntity[] $r1;
+        twitter4j.URLEntity[] $r2;
+        twitter4j.HashtagEntity[] $r3;
+        twitter4j.MediaEntity[] $r4;
+        int $i0, $i1, $i2, $i4;
+        twitter4j.internal.json.EntityIndex[] $r5;
+        boolean $z0;
+        java.lang.StringBuilder $r6;
+        char $c3;
+        java.util.Map $r8;
+        java.lang.Object $r9;
+        twitter4j.internal.json.EntityIndex $r10;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: twitter4j.UserMentionEntity[];
+
+        $r2 := @parameter2: twitter4j.URLEntity[];
+
+        $r3 := @parameter3: twitter4j.HashtagEntity[];
+
+        $r4 := @parameter4: twitter4j.MediaEntity[];
+
+        if $r1 != null goto label12;
+
+        $i1 = 0;
+
+     label01:
+        $i1 = 0 + $i1;
+
+        if $r2 != null goto label13;
+
+        $i0 = 0;
+
+     label02:
+        $i1 = $i1 + $i0;
+
+        if $r3 != null goto label14;
+
+        $i0 = 0;
+
+     label03:
+        $i1 = $i1 + $i0;
+
+        if $r4 != null goto label15;
+
+        $i0 = 0;
+
+     label04:
+        $i1 = $i1 + $i0;
+
+        $r5 = newarray (twitter4j.internal.json.EntityIndex)[$i1];
+
+        $i0 = 0;
+
+        if $r1 == null goto label05;
+
+        $i1 = lengthof $r1;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r1, 0, $r5, 0, $i1);
+
+        $i1 = lengthof $r1;
+
+        $i0 = 0 + $i1;
+
+     label05:
+        if $r2 == null goto label06;
+
+        $i1 = lengthof $r2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r2, 0, $r5, $i0, $i1);
+
+        $i1 = lengthof $r2;
+
+        $i0 = $i0 + $i1;
+
+     label06:
+        if $r3 == null goto label07;
+
+        $i1 = lengthof $r3;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r3, 0, $r5, $i0, $i1);
+
+        $i1 = lengthof $r3;
+
+        $i0 = $i0 + $i1;
+
+     label07:
+        if $r4 == null goto label08;
+
+        $i1 = lengthof $r4;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r5, $i0, $i1);
+
+     label08:
+        staticinvoke <java.util.Arrays: void sort(java.lang.Object[])>($r5);
+
+        $z0 = 1;
+
+        $i0 = 0;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(int)>($i1);
+
+        $i1 = 0;
+
+     label09:
+        $i2 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i1 >= $i2 goto label20;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i1);
+
+        if $c3 != 38 goto label18;
+
+        $i2 = virtualinvoke $r0.<java.lang.String: int indexOf(java.lang.String,int)>(";", $i1);
+
+        if -1 == $i2 goto label17;
+
+        $i4 = $i2 + 1;
+
+        $r7 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int,int)>($i1, $i4);
+
+        $r8 = <twitter4j.internal.json.HTMLEntity: java.util.Map escapeEntityMap>;
+
+        $r9 = interfaceinvoke $r8.<java.util.Map: java.lang.Object get(java.lang.Object)>($r7);
+
+        $r7 = (java.lang.String) $r9;
+
+        if $r7 == null goto label16;
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $i1 = $i2;
+
+     label10:
+        $i4 = lengthof $r5;
+
+        if $i0 >= $i4 goto label11;
+
+        if $z0 == 0 goto label19;
+
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: int getStart()>();
+
+        $i2 = 0 + $i1;
+
+        if $i4 != $i2 goto label11;
+
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r6.<java.lang.StringBuilder: int length()>();
+
+        $i4 = $i4 + -1;
+
+        virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: void setStart(int)>($i4);
+
+        $z0 = 0;
+
+     label11:
+        $i1 = $i1 + 1;
+
+        goto label09;
+
+     label12:
+        $i1 = lengthof $r1;
+
+        goto label01;
+
+     label13:
+        $i0 = lengthof $r2;
+
+        goto label02;
+
+     label14:
+        $i0 = lengthof $r3;
+
+        goto label03;
+
+     label15:
+        $i0 = lengthof $r4;
+
+        goto label04;
+
+     label16:
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c3);
+
+        goto label10;
+
+     label17:
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c3);
+
+        goto label10;
+
+     label18:
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c3);
+
+        goto label10;
+
+     label19:
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: int getEnd()>();
+
+        $i2 = 0 + $i1;
+
+        if $i4 != $i2 goto label11;
+
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r6.<java.lang.StringBuilder: int length()>();
+
+        $i4 = $i4 + -1;
+
+        virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: void setEnd(int)>($i4);
+
+        $i0 = $i0 + 1;
+
+        $z0 = 1;
+
+        goto label11;
+
+     label20:
+        $i4 = lengthof $r5;
+
+        if $i0 >= $i4 goto label21;
+
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: int getEnd()>();
+
+        $i2 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i4 != $i2 goto label21;
+
+        $r10 = $r5[$i0];
+
+        $i4 = virtualinvoke $r6.<java.lang.StringBuilder: int length()>();
+
+        virtualinvoke $r10.<twitter4j.internal.json.EntityIndex: void setEnd(int)>($i4);
+
+     label21:
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r7;
+    }
+}

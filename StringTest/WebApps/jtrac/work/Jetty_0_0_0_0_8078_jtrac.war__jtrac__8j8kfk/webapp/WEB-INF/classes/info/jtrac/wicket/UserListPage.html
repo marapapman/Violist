@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <wicket:extend>
+            <div class="heading">
+                <wicket:message key="user_list.usersAndSpaces"/>
+                [ <a href="#" wicket:id="create"><wicket:message key="user_list.createNewUser"/></a> ]
+            </div>
+            <form wicket:id="form">
+                <wicket:message key="user_list.filterBy"/> <select wicket:id="searchOn"/>
+                <input wicket:id="searchText"/><input type="submit" wicket:message="value:search"/>
+            </form>            
+            <table class="jtrac">
+                <tr>
+                    <th><wicket:message key="user_list.userName"/></th>
+                    <th><wicket:message key="user_list.loginName"/></th>
+                    <th><wicket:message key="user_list.email"/></th>
+                    <th><wicket:message key="user_list.locale"/></th>
+                    <th><wicket:message key="user_list.locked"/></th>
+                    <th><wicket:message key="user_list.editProfile"/></th>                                        
+                    <th><wicket:message key="user_list.allocateSpaceRole"/></th>
+                </tr>            
+                <tr wicket:id="users">
+                    <td wicket:id="name"></td>
+                    <td wicket:id="loginName"></td>
+                    <td wicket:id="email"></td>
+                    <td wicket:id="locale"></td>
+                    <td align="center"><img src="../resources/error.gif" wicket:id="locked"/></td>
+                    <td wicket:id="edit" align="center"><a href="#"><img src="resources/edit.gif"/></a></td>
+                    <td wicket:id="allocate" align="center"><a href="#"><img src="resources/spaces.gif"/></a></td>
+                </tr>                
+            </table>
+        </wicket:extend>
+    </body>
+</html>

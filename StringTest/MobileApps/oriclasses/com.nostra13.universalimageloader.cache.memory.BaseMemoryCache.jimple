@@ -1,0 +1,122 @@
+public abstract class com.nostra13.universalimageloader.cache.memory.BaseMemoryCache extends java.lang.Object implements com.nostra13.universalimageloader.cache.memory.MemoryCacheAware
+{
+    private final java.util.Map softMap;
+
+    public void <init>()
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.util.HashMap $r1;
+        java.util.Map $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $r2 = staticinvoke <java.util.Collections: java.util.Map synchronizedMap(java.util.Map)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap> = $r2;
+
+        return;
+    }
+
+    public void clear()
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.util.Map $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        $r1 = $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap>;
+
+        interfaceinvoke $r1.<java.util.Map: void clear()>();
+
+        return;
+    }
+
+    protected abstract java.lang.ref.Reference createReference(java.lang.Object);
+
+    public java.lang.Object get(java.lang.Object)
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.lang.Object $r1;
+        java.util.Map $r2;
+        java.lang.ref.Reference $r3;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap>;
+
+        $r1 = interfaceinvoke $r2.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (java.lang.ref.Reference) $r1;
+
+        if $r3 == null goto label1;
+
+        $r1 = virtualinvoke $r3.<java.lang.ref.Reference: java.lang.Object get()>();
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    public java.util.Collection keys()
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.util.Map $r1;
+        java.util.Set $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        $r1 = $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap>;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.util.Set keySet()>();
+
+        return $r2;
+    }
+
+    public boolean put(java.lang.Object, java.lang.Object)
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.lang.Object $r1, $r2;
+        java.util.Map $r3;
+        java.lang.ref.Reference $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap>;
+
+        $r4 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.lang.ref.Reference createReference(java.lang.Object)>($r2);
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+        return 1;
+    }
+
+    public void remove(java.lang.Object)
+    {
+        com.nostra13.universalimageloader.cache.memory.BaseMemoryCache $r0;
+        java.lang.Object $r1;
+        java.util.Map $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.BaseMemoryCache;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.util.Map softMap>;
+
+        interfaceinvoke $r2.<java.util.Map: java.lang.Object remove(java.lang.Object)>($r1);
+
+        return;
+    }
+}

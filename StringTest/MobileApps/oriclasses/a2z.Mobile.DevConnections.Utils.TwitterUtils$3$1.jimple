@@ -1,0 +1,61 @@
+class a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final a2z.Mobile.DevConnections.Utils.TwitterUtils$3 this$1;
+    private final a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface val$callback;
+    private final a2z.Mobile.DevConnections.A2zApplication val$mApp;
+
+    void <init>(a2z.Mobile.DevConnections.Utils.TwitterUtils$3, a2z.Mobile.DevConnections.A2zApplication, a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface)
+    {
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1 $r0;
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$3 $r1;
+        a2z.Mobile.DevConnections.A2zApplication $r2;
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.Utils.TwitterUtils$3;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.A2zApplication;
+
+        $r3 := @parameter2: a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.Utils.TwitterUtils$3 this$1> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.A2zApplication val$mApp> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface val$callback> = $r3;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1 $r0;
+        a2z.Mobile.DevConnections.A2zApplication $r1;
+        android.widget.Toast $r2;
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.A2zApplication val$mApp>;
+
+        $r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r1, "Retweet sent successfully.", 0);
+
+        virtualinvoke $r2.<android.widget.Toast: void show()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface val$callback>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$3$1: a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface val$callback>;
+
+        interfaceinvoke $r3.<a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface: void onSuccess()>();
+
+        return;
+
+     label1:
+        return;
+    }
+}

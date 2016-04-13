@@ -1,0 +1,437 @@
+public class a2z.Mobile.DevConnections.GCMIntentService extends com.google.android.gcm.GCMBaseIntentService
+{
+    private static final java.lang.String GCM_SENDER_ID;
+    private static final java.lang.String LOG_TAG;
+    private static android.content.Context context;
+    private android.content.SharedPreferences appSharedPrefs;
+
+    static void <clinit>()
+    {
+        android.content.Context $r0;
+
+        <a2z.Mobile.DevConnections.GCMIntentService: java.lang.String LOG_TAG> = "a2z::GCMIntentService";
+
+        <a2z.Mobile.DevConnections.GCMIntentService: java.lang.String GCM_SENDER_ID> = "321719053414";
+
+        $r0 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        java.lang.String[] $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 = newarray (java.lang.String)[1];
+
+        $r1[0] = "321719053414";
+
+        specialinvoke $r0.<com.google.android.gcm.GCMBaseIntentService: void <init>(java.lang.String[])>($r1);
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "GCMIntentService constructor called");
+
+        return;
+    }
+
+    private void handleMessage(android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Intent $r1;
+        android.app.Notification $r2;
+        java.lang.Object $r3;
+        android.app.NotificationManager $r4;
+        long $l0;
+        android.content.Context $r5;
+        java.lang.String $r6;
+        android.app.PendingIntent $r7;
+        int $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.GCMIntentService: java.lang.Object getSystemService(java.lang.String)>("notification");
+
+        $r4 = (android.app.NotificationManager) $r3;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.GCMIntentService: android.content.Context getApplicationContext()>();
+
+        $r6 = virtualinvoke $r5.<android.content.Context: java.lang.String getString(int)>(2131165184);
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/SplashActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("target", "BuzzListActivity");
+
+        $r7 = staticinvoke <android.app.PendingIntent: android.app.PendingIntent getActivity(android.content.Context,int,android.content.Intent,int)>($r0, 0, $r1, 0);
+
+        $r2 = new android.app.Notification;
+
+        specialinvoke $r2.<android.app.Notification: void <init>(int,java.lang.CharSequence,long)>(2130837530, "New Buzz Message", $l0);
+
+        virtualinvoke $r2.<android.app.Notification: void setLatestEventInfo(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent)>($r5, $r6, "New Buzz Message - Click to View", $r7);
+
+        $i1 = $r2.<android.app.Notification: int defaults>;
+
+        $i1 = $i1 | 4;
+
+        $r2.<android.app.Notification: int defaults> = $i1;
+
+        $i1 = $r2.<android.app.Notification: int flags>;
+
+        $i1 = $i1 | 17;
+
+        $r2.<android.app.Notification: int flags> = $i1;
+
+        virtualinvoke $r4.<android.app.NotificationManager: void notify(int,android.app.Notification)>(1, $r2);
+
+        return;
+    }
+
+    private void handleRegistration(android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Intent $r1;
+        java.lang.Exception $r2;
+        org.apache.http.client.methods.HttpGet $r3;
+        org.apache.http.impl.client.DefaultHttpClient $r4;
+        java.lang.String $r5, $r6, $r7, $r11;
+        android.content.SharedPreferences $r8;
+        android.content.SharedPreferences$Editor $r9;
+        android.content.Context $r10;
+        java.lang.StringBuilder $r12;
+        org.apache.http.HttpResponse $r13;
+        org.apache.http.StatusLine $r14;
+        int $i0, $i1;
+        org.apache.http.HttpEntity $r15;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $r5 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("registration_id");
+
+        $r6 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("error");
+
+        $r7 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("unregistered");
+
+        if $r5 == null goto label2;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.GCMIntentService: android.content.SharedPreferences appSharedPrefs>;
+
+        $r9 = interfaceinvoke $r8.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        $r9 = interfaceinvoke $r9.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>("GCMID", $r5);
+
+        interfaceinvoke $r9.<android.content.SharedPreferences$Editor: void apply()>();
+
+        $r10 = <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r10, "a2zExpoServiceUrl");
+
+        $r12 = new java.lang.StringBuilder;
+
+        $r11 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r11);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/registerDeviceForPushNotification/");
+
+        $r10 = <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r10, "ServiceSessionID");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r10 = <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r10, "DBGUID");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r10 = <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r10, "EventID");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r10 = <a2z.Mobile.DevConnections.GCMIntentService: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r10, "ChirpeEventID");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Android");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r11 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>("serviceUrl = ");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r5 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", $r5);
+
+        $r4 = new org.apache.http.impl.client.DefaultHttpClient;
+
+     label1:
+        specialinvoke $r4.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r3 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r3.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r11);
+
+        $r13 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3);
+
+        $r14 = interfaceinvoke $r13.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r14.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 != 200 goto label2;
+
+        $r15 = interfaceinvoke $r13.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r11 = staticinvoke <org.apache.http.util.EntityUtils: java.lang.String toString(org.apache.http.HttpEntity)>($r15);
+
+        $i0 = virtualinvoke $r11.<java.lang.String: int indexOf(java.lang.String)>("Status");
+
+        $i1 = virtualinvoke $r11.<java.lang.String: int indexOf(java.lang.String)>(",");
+
+        $r11 = virtualinvoke $r11.<java.lang.String: java.lang.String substring(int,int)>($i0, $i1);
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Status raw ", $r11);
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>()>();
+
+        $i1 = virtualinvoke $r11.<java.lang.String: int length()>();
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r5 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("status.length()", $r5);
+
+        $i1 = virtualinvoke $r11.<java.lang.String: int length()>();
+
+        $i1 = $i1 + -1;
+
+        $r11 = virtualinvoke $r11.<java.lang.String: java.lang.String substring(int,int)>(9, $i1);
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("Status : ", $r11);
+
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>("Success");
+
+        if $z0 == 0 goto label4;
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "RegID passed to server");
+
+     label2:
+        if $r7 == null goto label3;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.GCMIntentService: android.content.SharedPreferences appSharedPrefs>;
+
+        $r9 = interfaceinvoke $r8.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        $r9 = interfaceinvoke $r9.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>("GCMID", "");
+
+        interfaceinvoke $r9.<android.content.SharedPreferences$Editor: void apply()>();
+
+     label3:
+        if $r6 == null goto label7;
+
+        $r11 = "SERVICE_NOT_AVAILABLE";
+
+        $z0 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label8;
+
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>("Received error: ");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r11 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("MyIntentService", $r11);
+
+        return;
+
+     label4:
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "RegID pass to server failed:");
+
+     label5:
+        goto label2;
+
+     label6:
+        $r2 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("LOG_TAG", "Error passing GCM RegID", $r2);
+
+        goto label2;
+
+     label7:
+        return;
+
+     label8:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label6;
+        catch java.lang.Exception from label4 to label5 with label6;
+    }
+
+    protected void onError(android.content.Context, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Context $r1;
+        java.lang.String $r2;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("GCMIntentService onError called: ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", $r2);
+
+        return;
+    }
+
+    protected void onMessage(android.content.Context, android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Context $r1;
+        android.content.Intent $r2;
+        java.lang.String $r3;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: android.content.Intent;
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "GCMIntentService onMessage called");
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Message is: ");
+
+        $r3 = virtualinvoke $r2.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("message");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", $r3);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.GCMIntentService: void handleMessage(android.content.Intent)>($r2);
+
+        return;
+    }
+
+    protected void onRegistered(android.content.Context, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Context $r1;
+        java.lang.String $r2, $r5;
+        android.content.Intent $r3;
+        java.lang.StringBuilder $r4;
+        android.content.SharedPreferences $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "GCMIntentService onRegistered called");
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Registration id is: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", $r5);
+
+        $r6 = virtualinvoke $r1.<android.content.Context: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>("a2z.Mobile.DevConnections", 0);
+
+        $r0.<a2z.Mobile.DevConnections.GCMIntentService: android.content.SharedPreferences appSharedPrefs> = $r6;
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("registration_id", $r2);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.GCMIntentService: void handleRegistration(android.content.Intent)>($r3);
+
+        return;
+    }
+
+    protected void onUnregistered(android.content.Context, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.GCMIntentService $r0;
+        android.content.Context $r1;
+        java.lang.String $r2;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.GCMIntentService;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", "GCMIntentService onUnregistered called");
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("Registration id is: ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("a2z::GCMIntentService", $r2);
+
+        return;
+    }
+}

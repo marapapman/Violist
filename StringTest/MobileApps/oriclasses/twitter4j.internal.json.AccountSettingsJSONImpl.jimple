@@ -1,0 +1,306 @@
+class twitter4j.internal.json.AccountSettingsJSONImpl extends twitter4j.internal.json.TwitterResponseImpl implements twitter4j.AccountSettings, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private final boolean ALWAYS_USE_HTTPS;
+    private final boolean DISCOVERABLE_BY_EMAIL;
+    private final boolean GEO_ENABLED;
+    private final java.lang.String LANGUAGE;
+    private final java.lang.String SLEEP_END_TIME;
+    private final java.lang.String SLEEP_START_TIME;
+    private final boolean SLEEP_TIME_ENABLED;
+    private final twitter4j.TimeZone TIMEZONE;
+    private final twitter4j.Location[] TREND_LOCATION;
+
+    void <init>(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.internal.org.json.JSONObject $r3;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        specialinvoke $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.internal.org.json.JSONObject)>($r1, $r3);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r3);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void <init>(twitter4j.internal.http.HttpResponse, twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.org.json.JSONObject $r2, $r4;
+        twitter4j.internal.org.json.JSONException $r3;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.String $r5;
+        twitter4j.Location[] $r6;
+        twitter4j.internal.json.TimeZoneJSONImpl $r7;
+        twitter4j.internal.org.json.JSONArray $r8;
+        twitter4j.internal.json.LocationJSONImpl $r9;
+        twitter4j.TwitterException $r10;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>(twitter4j.internal.http.HttpResponse)>($r1);
+
+     label01:
+        $r4 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("sleep_time");
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("enabled", $r4);
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean SLEEP_TIME_ENABLED> = $z0;
+
+        $r5 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("start_time");
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String SLEEP_START_TIME> = $r5;
+
+        $r5 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("end_time");
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String SLEEP_END_TIME> = $r5;
+
+        $z0 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("trend_location");
+
+        if $z0 == 0 goto label08;
+
+     label02:
+        $r6 = newarray (twitter4j.Location)[0];
+
+     label03:
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.Location[] TREND_LOCATION> = $r6;
+
+     label04:
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("geo_enabled", $r2);
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean GEO_ENABLED> = $z0;
+
+        $r5 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("language");
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String LANGUAGE> = $r5;
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("always_use_https", $r2);
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean ALWAYS_USE_HTTPS> = $z0;
+
+        $z0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: boolean getBoolean(java.lang.String,twitter4j.internal.org.json.JSONObject)>("discoverable_by_email", $r2);
+
+     label05:
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean DISCOVERABLE_BY_EMAIL> = $z0;
+
+     label06:
+        $r7 = new twitter4j.internal.json.TimeZoneJSONImpl;
+
+        $r4 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("time_zone");
+
+        specialinvoke $r7.<twitter4j.internal.json.TimeZoneJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r4);
+
+     label07:
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.TimeZone TIMEZONE> = $r7;
+
+        return;
+
+     label08:
+        $r8 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("trend_location");
+
+        $i0 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label09:
+        $r6 = newarray (twitter4j.Location)[$i0];
+
+        $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.Location[] TREND_LOCATION> = $r6;
+
+     label10:
+        $i0 = 0;
+
+     label11:
+        $i1 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label04;
+
+     label12:
+        $r6 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.Location[] TREND_LOCATION>;
+
+     label13:
+        $r9 = new twitter4j.internal.json.LocationJSONImpl;
+
+        $r4 = virtualinvoke $r8.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        specialinvoke $r9.<twitter4j.internal.json.LocationJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r4);
+
+     label14:
+        $r6[$i0] = $r9;
+
+        $i0 = $i0 + 1;
+
+        goto label11;
+
+     label15:
+        $r3 := @caughtexception;
+
+        $r10 = new twitter4j.TwitterException;
+
+        specialinvoke $r10.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r3);
+
+        throw $r10;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label02 with label15;
+        catch twitter4j.internal.org.json.JSONException from label03 to label05 with label15;
+        catch twitter4j.internal.org.json.JSONException from label06 to label07 with label15;
+        catch twitter4j.internal.org.json.JSONException from label08 to label09 with label15;
+        catch twitter4j.internal.org.json.JSONException from label10 to label12 with label15;
+        catch twitter4j.internal.org.json.JSONException from label13 to label14 with label15;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.internal.org.json.JSONObject)>(null, $r1);
+
+        return;
+    }
+
+    public java.lang.String getLanguage()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String LANGUAGE>;
+
+        return r1;
+    }
+
+    public java.lang.String getSleepEndTime()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String SLEEP_END_TIME>;
+
+        return r1;
+    }
+
+    public java.lang.String getSleepStartTime()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: java.lang.String SLEEP_START_TIME>;
+
+        return r1;
+    }
+
+    public twitter4j.TimeZone getTimeZone()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        twitter4j.TimeZone r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.TimeZone TIMEZONE>;
+
+        return r1;
+    }
+
+    public twitter4j.Location[] getTrendLocations()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        twitter4j.Location[] r1;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: twitter4j.Location[] TREND_LOCATION>;
+
+        return r1;
+    }
+
+    public boolean isAlwaysUseHttps()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean ALWAYS_USE_HTTPS>;
+
+        return z0;
+    }
+
+    public boolean isDiscoverableByEmail()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean DISCOVERABLE_BY_EMAIL>;
+
+        return z0;
+    }
+
+    public boolean isGeoEnabled()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean GEO_ENABLED>;
+
+        return z0;
+    }
+
+    public boolean isSleepTimeEnabled()
+    {
+        twitter4j.internal.json.AccountSettingsJSONImpl $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        z0 = $r0.<twitter4j.internal.json.AccountSettingsJSONImpl: boolean SLEEP_TIME_ENABLED>;
+
+        return z0;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.AccountSettingsJSONImpl: long serialVersionUID> = 7983363611306383416L;
+
+        return;
+    }
+}

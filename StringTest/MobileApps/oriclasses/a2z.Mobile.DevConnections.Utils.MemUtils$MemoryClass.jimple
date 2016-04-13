@@ -1,0 +1,202 @@
+public final enum class a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass extends java.lang.Enum
+{
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass EIGHT;
+    private static final a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] ENUM$VALUES;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FIFTYFOUR;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTY;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTYEIGHT;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass MEMORY_CEILING_BUFFER;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SEVENTYFOUR;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTEEN;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTY;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTYEIGHT;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass THIRTYTWO;
+    public static final enum a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass TWENTYFOUR;
+    final int mMemoryClassInMbs;
+
+    static void <clinit>()
+    {
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass $r0;
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] $r1;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("MEMORY_CEILING_BUFFER", 0, 1);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass MEMORY_CEILING_BUFFER> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("EIGHT", 1, 8);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass EIGHT> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("SIXTEEN", 2, 16);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTEEN> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("TWENTYFOUR", 3, 24);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass TWENTYFOUR> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("THIRTYTWO", 4, 32);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass THIRTYTWO> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("FORTY", 5, 40);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTY> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("FORTYEIGHT", 6, 48);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTYEIGHT> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("FIFTYFOUR", 7, 54);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FIFTYFOUR> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("SIXTY", 8, 60);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTY> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("SIXTYEIGHT", 9, 68);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTYEIGHT> = $r0;
+
+        $r0 = new a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: void <init>(java.lang.String,int,int)>("SEVENTYFOUR", 10, 74);
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SEVENTYFOUR> = $r0;
+
+        $r1 = newarray (a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass)[11];
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass MEMORY_CEILING_BUFFER>;
+
+        $r1[0] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass EIGHT>;
+
+        $r1[1] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTEEN>;
+
+        $r1[2] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass TWENTYFOUR>;
+
+        $r1[3] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass THIRTYTWO>;
+
+        $r1[4] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTY>;
+
+        $r1[5] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FORTYEIGHT>;
+
+        $r1[6] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass FIFTYFOUR>;
+
+        $r1[7] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTY>;
+
+        $r1[8] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SIXTYEIGHT>;
+
+        $r1[9] = $r0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass SEVENTYFOUR>;
+
+        $r1[10] = $r0;
+
+        <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] ENUM$VALUES> = $r1;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int, int)
+    {
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r0.<java.lang.Enum: void <init>(java.lang.String,int)>($r1, $i0);
+
+        $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: int mMemoryClassInMbs> = $i1;
+
+        return;
+    }
+
+    public static a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass valueOf(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Enum $r1;
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "a2z/Mobile/DevConnections/Utils/MemUtils$MemoryClass", $r0);
+
+        $r2 = (a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass) $r1;
+
+        return $r2;
+    }
+
+    public static a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] values()
+    {
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] $r0, $r1;
+        int $i0;
+
+        $r0 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass[] ENUM$VALUES>;
+
+        $i0 = lengthof $r0;
+
+        $r1 = newarray (a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass)[$i0];
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r0, 0, $r1, 0, $i0);
+
+        return $r1;
+    }
+
+    public int getValue()
+    {
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass $r0;
+        int i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: int mMemoryClassInMbs>;
+
+        return i0;
+    }
+}

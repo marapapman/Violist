@@ -1,0 +1,125 @@
+public abstract class com.nostra13.universalimageloader.core.download.ImageDownloader extends java.lang.Object
+{
+    protected static final int BUFFER_SIZE;
+    protected static final java.lang.String PROTOCOL_FILE;
+    protected static final java.lang.String PROTOCOL_FTP;
+    protected static final java.lang.String PROTOCOL_HTTP;
+    protected static final java.lang.String PROTOCOL_HTTPS;
+
+    public void <init>()
+    {
+        com.nostra13.universalimageloader.core.download.ImageDownloader $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.ImageDownloader;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.io.InputStream getStream(java.net.URI) throws java.io.IOException
+    {
+        com.nostra13.universalimageloader.core.download.ImageDownloader $r0;
+        java.net.URI $r1;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+        java.io.InputStream $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.ImageDownloader;
+
+        $r1 := @parameter0: java.net.URI;
+
+        $r3 = virtualinvoke $r1.<java.net.URI: java.lang.String getScheme()>();
+
+        $r2 = "http";
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = "https";
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = "ftp";
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        $r4 = virtualinvoke $r0.<com.nostra13.universalimageloader.core.download.ImageDownloader: java.io.InputStream getStreamFromNetwork(java.net.URI)>($r1);
+
+        return $r4;
+
+     label2:
+        $r2 = "file";
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label3;
+
+        $r4 = virtualinvoke $r0.<com.nostra13.universalimageloader.core.download.ImageDownloader: java.io.InputStream getStreamFromFile(java.net.URI)>($r1);
+
+        return $r4;
+
+     label3:
+        $r4 = virtualinvoke $r0.<com.nostra13.universalimageloader.core.download.ImageDownloader: java.io.InputStream getStreamFromOtherSource(java.net.URI)>($r1);
+
+        return $r4;
+    }
+
+    protected java.io.InputStream getStreamFromFile(java.net.URI) throws java.io.IOException
+    {
+        com.nostra13.universalimageloader.core.download.ImageDownloader $r0;
+        java.net.URI $r1;
+        java.io.BufferedInputStream $r2;
+        java.net.URL $r3;
+        java.io.InputStream $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.ImageDownloader;
+
+        $r1 := @parameter0: java.net.URI;
+
+        $r2 = new java.io.BufferedInputStream;
+
+        $r3 = virtualinvoke $r1.<java.net.URI: java.net.URL toURL()>();
+
+        $r4 = virtualinvoke $r3.<java.net.URL: java.io.InputStream openStream()>();
+
+        specialinvoke $r2.<java.io.BufferedInputStream: void <init>(java.io.InputStream,int)>($r4, 8192);
+
+        return $r2;
+    }
+
+    protected abstract java.io.InputStream getStreamFromNetwork(java.net.URI) throws java.io.IOException;
+
+    protected java.io.InputStream getStreamFromOtherSource(java.net.URI) throws java.io.IOException
+    {
+        com.nostra13.universalimageloader.core.download.ImageDownloader $r0;
+        java.net.URI $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.ImageDownloader;
+
+        $r1 := @parameter0: java.net.URI;
+
+        return null;
+    }
+
+    public static void <clinit>()
+    {
+        <com.nostra13.universalimageloader.core.download.ImageDownloader: java.lang.String PROTOCOL_HTTPS> = "https";
+
+        <com.nostra13.universalimageloader.core.download.ImageDownloader: java.lang.String PROTOCOL_HTTP> = "http";
+
+        <com.nostra13.universalimageloader.core.download.ImageDownloader: java.lang.String PROTOCOL_FTP> = "ftp";
+
+        <com.nostra13.universalimageloader.core.download.ImageDownloader: java.lang.String PROTOCOL_FILE> = "file";
+
+        <com.nostra13.universalimageloader.core.download.ImageDownloader: int BUFFER_SIZE> = 8192;
+
+        return;
+    }
+}

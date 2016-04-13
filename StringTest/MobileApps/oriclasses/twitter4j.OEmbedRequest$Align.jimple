@@ -1,0 +1,106 @@
+public final enum class twitter4j.OEmbedRequest$Align extends java.lang.Enum
+{
+    private static final twitter4j.OEmbedRequest$Align[] $VALUES;
+    public static final enum twitter4j.OEmbedRequest$Align CENTER;
+    public static final enum twitter4j.OEmbedRequest$Align LEFT;
+    public static final enum twitter4j.OEmbedRequest$Align NONE;
+    public static final enum twitter4j.OEmbedRequest$Align RIGHT;
+
+    static void <clinit>()
+    {
+        twitter4j.OEmbedRequest$Align $r0;
+        twitter4j.OEmbedRequest$Align[] $r1;
+
+        $r0 = new twitter4j.OEmbedRequest$Align;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest$Align: void <init>(java.lang.String,int)>("LEFT", 0);
+
+        <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align LEFT> = $r0;
+
+        $r0 = new twitter4j.OEmbedRequest$Align;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest$Align: void <init>(java.lang.String,int)>("CENTER", 1);
+
+        <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align CENTER> = $r0;
+
+        $r0 = new twitter4j.OEmbedRequest$Align;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest$Align: void <init>(java.lang.String,int)>("RIGHT", 2);
+
+        <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align RIGHT> = $r0;
+
+        $r0 = new twitter4j.OEmbedRequest$Align;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest$Align: void <init>(java.lang.String,int)>("NONE", 3);
+
+        <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align NONE> = $r0;
+
+        $r1 = newarray (twitter4j.OEmbedRequest$Align)[4];
+
+        $r0 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align LEFT>;
+
+        $r1[0] = $r0;
+
+        $r0 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align CENTER>;
+
+        $r1[1] = $r0;
+
+        $r0 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align RIGHT>;
+
+        $r1[2] = $r0;
+
+        $r0 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align NONE>;
+
+        $r1[3] = $r0;
+
+        <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align[] $VALUES> = $r1;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        twitter4j.OEmbedRequest$Align $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.OEmbedRequest$Align;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<java.lang.Enum: void <init>(java.lang.String,int)>($r1, $i0);
+
+        return;
+    }
+
+    public static twitter4j.OEmbedRequest$Align valueOf(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Enum $r1;
+        twitter4j.OEmbedRequest$Align $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "twitter4j/OEmbedRequest$Align", $r0);
+
+        $r2 = (twitter4j.OEmbedRequest$Align) $r1;
+
+        return $r2;
+    }
+
+    public static twitter4j.OEmbedRequest$Align[] values()
+    {
+        twitter4j.OEmbedRequest$Align[] $r0;
+        java.lang.Object $r1;
+
+        $r0 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align[] $VALUES>;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+        $r0 = (twitter4j.OEmbedRequest$Align[]) $r1;
+
+        return $r0;
+    }
+}

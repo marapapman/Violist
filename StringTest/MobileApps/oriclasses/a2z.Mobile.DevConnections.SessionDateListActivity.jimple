@@ -1,0 +1,106 @@
+public class a2z.Mobile.DevConnections.SessionDateListActivity extends android.app.ListActivity
+{
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.SessionDateListActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDateListActivity;
+
+        specialinvoke $r0.<android.app.ListActivity: void <init>()>();
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.SessionDateListActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter $r3;
+        java.util.ArrayList $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDateListActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.ListActivity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDateListActivity: void setTitle(java.lang.CharSequence)>("Session Dates");
+
+        $r3 = new a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter;
+
+     label1:
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.Classes.SessionDate: java.util.ArrayList getList()>();
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: void <init>(android.content.Context,int,java.util.ArrayList)>($r0, 2130903047, $r4);
+
+        $r3.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: java.lang.String referrer> = "SessionDateList";
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDateListActivity: void setListAdapter(android.widget.ListAdapter)>($r3);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r5 = virtualinvoke $r2.<java.lang.Exception: java.lang.String getMessage()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("SessionDateListActivity", $r5);
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.SessionDateListActivity $r0;
+        android.view.Menu $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDateListActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.ListActivity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        return 1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.SessionDateListActivity $r0;
+        android.view.MenuItem $r1;
+        android.content.Intent $r2;
+        java.lang.CharSequence $r3;
+        boolean $z0;
+        android.content.Context $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDateListActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDateListActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "SessionDateList");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDateListActivity: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+     label1:
+        return 1;
+    }
+}

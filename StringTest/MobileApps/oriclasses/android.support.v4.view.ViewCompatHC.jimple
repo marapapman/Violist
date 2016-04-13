@@ -1,0 +1,52 @@
+class android.support.v4.view.ViewCompatHC extends java.lang.Object
+{
+
+    void <init>()
+    {
+        android.support.v4.view.ViewCompatHC $r0;
+
+        $r0 := @this: android.support.v4.view.ViewCompatHC;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static long getFrameTime()
+    {
+        long $l0;
+
+        $l0 = staticinvoke <android.animation.ValueAnimator: long getFrameDelay()>();
+
+        return $l0;
+    }
+
+    public static int getLayerType(android.view.View)
+    {
+        android.view.View $r0;
+        int $i0;
+
+        $r0 := @parameter0: android.view.View;
+
+        $i0 = virtualinvoke $r0.<android.view.View: int getLayerType()>();
+
+        return $i0;
+    }
+
+    public static void setLayerType(android.view.View, int, android.graphics.Paint)
+    {
+        android.view.View $r0;
+        int $i0;
+        android.graphics.Paint $r1;
+
+        $r0 := @parameter0: android.view.View;
+
+        $i0 := @parameter1: int;
+
+        $r1 := @parameter2: android.graphics.Paint;
+
+        virtualinvoke $r0.<android.view.View: void setLayerType(int,android.graphics.Paint)>($i0, $r1);
+
+        return;
+    }
+}

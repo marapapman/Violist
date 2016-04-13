@@ -1,0 +1,5 @@
+public interface  com.nostra13.universalimageloader.core.display.BitmapDisplayer extends java.lang.Object
+{
+
+    public abstract android.graphics.Bitmap display(android.graphics.Bitmap, android.widget.ImageView);
+}

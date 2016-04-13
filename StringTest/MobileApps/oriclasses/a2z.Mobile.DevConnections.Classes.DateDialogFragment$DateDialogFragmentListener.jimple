@@ -1,0 +1,5 @@
+public interface  a2z.Mobile.DevConnections.Classes.DateDialogFragment$DateDialogFragmentListener extends java.lang.Object
+{
+
+    public abstract void dateDialogFragmentDateSet(java.util.Calendar);
+}

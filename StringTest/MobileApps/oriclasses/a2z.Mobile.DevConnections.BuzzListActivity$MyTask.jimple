@@ -1,0 +1,265 @@
+class a2z.Mobile.DevConnections.BuzzListActivity$MyTask extends android.os.AsyncTask
+{
+    private android.app.ProgressDialog progressDialog;
+    final a2z.Mobile.DevConnections.BuzzListActivity this$0;
+
+    private void <init>(a2z.Mobile.DevConnections.BuzzListActivity)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        a2z.Mobile.DevConnections.BuzzListActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0> = $r1;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        return;
+    }
+
+    void <init>(a2z.Mobile.DevConnections.BuzzListActivity, a2z.Mobile.DevConnections.BuzzListActivity$MyTask)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0, $r2;
+        a2z.Mobile.DevConnections.BuzzListActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: void <init>(a2z.Mobile.DevConnections.BuzzListActivity)>($r1);
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void $r2;
+        java.lang.Void[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.Void[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: java.lang.Void doInBackground(java.lang.Void[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.Void[])
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        java.lang.Void[] $r1;
+        java.lang.Exception $r2;
+        org.apache.http.client.methods.HttpGet $r3;
+        org.apache.http.impl.client.DefaultHttpClient $r4;
+        int $i0, $i1;
+        org.json.JSONObject $r5;
+        a2z.Mobile.DevConnections.Classes.Tweet $r6;
+        java.lang.String $r7, $r10, $r11;
+        a2z.Mobile.DevConnections.BuzzListActivity $r8;
+        android.content.Context $r9;
+        java.lang.StringBuilder $r12;
+        org.apache.http.HttpResponse $r13;
+        org.apache.http.StatusLine $r14;
+        org.apache.http.HttpEntity $r15;
+        org.json.JSONArray $r16;
+        java.util.ArrayList $r17;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: java.lang.Void[];
+
+     label1:
+        $r8 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Context context>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "a2zExpoServiceUrl");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Context context>;
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "ChirpeSessionID");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r9 = $r8.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "ChirpeEventID");
+
+        $r12 = new java.lang.StringBuilder;
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/getChirpEBuzz/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/25/1");
+
+        $r11 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r4.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r3 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r3.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r11);
+
+        $r13 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3);
+
+        $r14 = interfaceinvoke $r13.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r14.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 != 200 goto label3;
+
+        $r15 = interfaceinvoke $r13.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r11 = staticinvoke <org.apache.http.util.EntityUtils: java.lang.String toString(org.apache.http.HttpEntity)>($r15);
+
+        $r11 = virtualinvoke $r11.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $r5 = new org.json.JSONObject;
+
+        specialinvoke $r5.<org.json.JSONObject: void <init>(java.lang.String)>($r11);
+
+        $r5 = virtualinvoke $r5.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("a2zRootNode");
+
+        $r5 = virtualinvoke $r5.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("Data");
+
+        $r16 = virtualinvoke $r5.<org.json.JSONObject: org.json.JSONArray getJSONArray(java.lang.String)>("Records");
+
+        $i0 = 0;
+
+     label2:
+        $i1 = virtualinvoke $r16.<org.json.JSONArray: int length()>();
+
+        if $i0 < $i1 goto label4;
+
+     label3:
+        return null;
+
+     label4:
+        $r5 = virtualinvoke $r16.<org.json.JSONArray: org.json.JSONObject getJSONObject(int)>($i0);
+
+        $r6 = new a2z.Mobile.DevConnections.Classes.Tweet;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.Classes.Tweet: void <init>()>();
+
+        $r11 = virtualinvoke $r5.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("Message");
+
+        $r6.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String content> = $r11;
+
+        $r11 = virtualinvoke $r5.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("Sender");
+
+        $r6.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String author> = $r11;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r17 = staticinvoke <a2z.Mobile.DevConnections.BuzzListActivity: java.util.ArrayList access$0(a2z.Mobile.DevConnections.BuzzListActivity)>($r8);
+
+        virtualinvoke $r17.<java.util.ArrayList: boolean add(java.lang.Object)>($r6);
+
+     label5:
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label6:
+        $r2 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("TwitterFeedActivity", "Error loading JSON for BuzzListActivity", $r2);
+
+        goto label3;
+
+        catch java.lang.Exception from label1 to label3 with label6;
+        catch java.lang.Exception from label4 to label5 with label6;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        java.lang.Object $r1;
+        java.lang.Void $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Void) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: void onPostExecute(java.lang.Void)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        java.lang.Void $r1;
+        android.app.ProgressDialog $r2;
+        a2z.Mobile.DevConnections.BuzzListActivity$TweetListAdaptor $r3;
+        a2z.Mobile.DevConnections.BuzzListActivity $r4, $r5, $r6, $r8;
+        java.util.ArrayList $r7;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: android.app.ProgressDialog progressDialog>;
+
+        virtualinvoke $r2.<android.app.ProgressDialog: void dismiss()>();
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r3 = new a2z.Mobile.DevConnections.BuzzListActivity$TweetListAdaptor;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.BuzzListActivity: java.util.ArrayList access$0(a2z.Mobile.DevConnections.BuzzListActivity)>($r6);
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.BuzzListActivity$TweetListAdaptor: void <init>(a2z.Mobile.DevConnections.BuzzListActivity,android.content.Context,int,java.util.ArrayList)>($r4, $r5, 2130903068, $r7);
+
+        virtualinvoke $r8.<a2z.Mobile.DevConnections.BuzzListActivity: void setListAdapter(android.widget.ListAdapter)>($r3);
+
+        return;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r0;
+        a2z.Mobile.DevConnections.BuzzListActivity $r1;
+        android.app.ProgressDialog $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: a2z.Mobile.DevConnections.BuzzListActivity this$0>;
+
+        $r2 = staticinvoke <android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>($r1, "", "Loading. Please wait...", 1);
+
+        $r0.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: android.app.ProgressDialog progressDialog> = $r2;
+
+        return;
+    }
+}

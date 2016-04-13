@@ -1,0 +1,99 @@
+class a2z.Mobile.DevConnections.Utils.TwitterUtils$1 extends java.lang.Thread
+{
+    private final android.app.Activity val$activity;
+    private final a2z.Mobile.DevConnections.A2zApplication val$mApp;
+    private final java.lang.String val$statusUpdateString;
+    private final twitter4j.Twitter val$twitter;
+
+    void <init>(twitter4j.Twitter, java.lang.String, android.app.Activity, a2z.Mobile.DevConnections.A2zApplication)
+    {
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$1 $r0;
+        twitter4j.Twitter $r1;
+        java.lang.String $r2;
+        android.app.Activity $r3;
+        a2z.Mobile.DevConnections.A2zApplication $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.TwitterUtils$1;
+
+        $r1 := @parameter0: twitter4j.Twitter;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: android.app.Activity;
+
+        $r4 := @parameter3: a2z.Mobile.DevConnections.A2zApplication;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: twitter4j.Twitter val$twitter> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: java.lang.String val$statusUpdateString> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: android.app.Activity val$activity> = $r3;
+
+        $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: a2z.Mobile.DevConnections.A2zApplication val$mApp> = $r4;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$1 $r0;
+        twitter4j.TwitterException $r1;
+        twitter4j.Twitter $r2;
+        java.lang.String $r3;
+        twitter4j.Status $r4;
+        java.lang.StringBuilder $r5;
+        android.app.Activity $r6;
+        a2z.Mobile.DevConnections.Utils.TwitterUtils$1$1 $r7;
+        a2z.Mobile.DevConnections.A2zApplication $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.TwitterUtils$1;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: twitter4j.Twitter val$twitter>;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: java.lang.String val$statusUpdateString>;
+
+     label1:
+        $r4 = interfaceinvoke $r2.<twitter4j.Twitter: twitter4j.Status updateStatus(java.lang.String)>($r3);
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Successfully updated the status to [");
+
+        $r3 = interfaceinvoke $r4.<twitter4j.Status: java.lang.String getText()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("].");
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("TwitterUtils", $r3);
+
+     label2:
+        $r6 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: android.app.Activity val$activity>;
+
+        $r7 = new a2z.Mobile.DevConnections.Utils.TwitterUtils$1$1;
+
+     label3:
+        $r8 = $r0.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1: a2z.Mobile.DevConnections.A2zApplication val$mApp>;
+
+        specialinvoke $r7.<a2z.Mobile.DevConnections.Utils.TwitterUtils$1$1: void <init>(a2z.Mobile.DevConnections.Utils.TwitterUtils$1,a2z.Mobile.DevConnections.A2zApplication)>($r0, $r8);
+
+        virtualinvoke $r6.<android.app.Activity: void runOnUiThread(java.lang.Runnable)>($r7);
+
+     label4:
+        return;
+
+     label5:
+        $r1 := @caughtexception;
+
+        virtualinvoke $r1.<twitter4j.TwitterException: void printStackTrace()>();
+
+        return;
+
+        catch twitter4j.TwitterException from label1 to label2 with label5;
+        catch twitter4j.TwitterException from label3 to label4 with label5;
+    }
+}

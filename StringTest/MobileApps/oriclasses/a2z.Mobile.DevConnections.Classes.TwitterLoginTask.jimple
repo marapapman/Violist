@@ -1,0 +1,160 @@
+public class a2z.Mobile.DevConnections.Classes.TwitterLoginTask extends android.os.AsyncTask
+{
+    private android.app.Activity mActivity;
+    private android.content.Intent mIntent;
+    int mRequestCode;
+    private twitter4j.auth.RequestToken mRequestToken;
+
+    public void <init>(android.app.Activity, int)
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+        android.app.Activity $r1;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: int mRequestCode> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.app.Activity mActivity> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: int mRequestCode> = $i0;
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.String[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: java.lang.Void doInBackground(java.lang.String[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+        java.lang.String[] $r1;
+        java.lang.String $r2;
+        a2z.Mobile.DevConnections.A2zApplication $r3;
+        twitter4j.auth.RequestToken $r4;
+        android.content.Intent $r5;
+        android.app.Activity $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r3 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r2 = <a2z.Mobile.DevConnections.Utils.TwitterUtils: java.lang.String CALLBACK_URL>;
+
+        $r4 = virtualinvoke $r3.<a2z.Mobile.DevConnections.A2zApplication: twitter4j.auth.RequestToken getTwitterRequestToken(java.lang.String)>($r2);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: twitter4j.auth.RequestToken mRequestToken> = $r4;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: twitter4j.auth.RequestToken mRequestToken>;
+
+        $r2 = virtualinvoke $r4.<twitter4j.auth.RequestToken: java.lang.String getAuthenticationURL()>();
+
+        $r5 = new android.content.Intent;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.app.Activity mActivity>;
+
+        specialinvoke $r5.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r6, class "a2z/Mobile/DevConnections/TwitterLoginActivity");
+
+        $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.content.Intent mIntent> = $r5;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.content.Intent mIntent>;
+
+        virtualinvoke $r5.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("a2z.Mobile.DevConnections.url", $r2);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.content.Intent mIntent>;
+
+        $r2 = <a2z.Mobile.DevConnections.Utils.TwitterUtils: java.lang.String CALLBACK_URL>;
+
+        virtualinvoke $r5.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("a2z.Mobile.DevConnections.url.callback", $r2);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.content.Intent mIntent>;
+
+        $r2 = $r1[0];
+
+        virtualinvoke $r5.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("text_to_send_to_twitter", $r2);
+
+        return null;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+        java.lang.Object $r1;
+        java.lang.Void $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Void) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: void onPostExecute(java.lang.Void)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+        java.lang.Void $r1;
+        int $i0;
+        android.app.Activity $r2;
+        android.content.Intent $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.app.Activity mActivity>;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: android.content.Intent mIntent>;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: int mRequestCode>;
+
+        if $i0 != 0 goto label2;
+
+        $i0 = 1045;
+
+     label1:
+        virtualinvoke $r2.<android.app.Activity: void startActivityForResult(android.content.Intent,int)>($r3, $i0);
+
+        return;
+
+     label2:
+        $i0 = $r0.<a2z.Mobile.DevConnections.Classes.TwitterLoginTask: int mRequestCode>;
+
+        goto label1;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.Classes.TwitterLoginTask $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.TwitterLoginTask;
+
+        return;
+    }
+}

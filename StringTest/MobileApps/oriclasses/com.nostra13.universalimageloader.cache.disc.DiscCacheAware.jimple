@@ -1,0 +1,9 @@
+public interface  com.nostra13.universalimageloader.cache.disc.DiscCacheAware extends java.lang.Object
+{
+
+    public abstract void clear();
+
+    public abstract java.io.File get(java.lang.String);
+
+    public abstract void put(java.lang.String, java.io.File);
+}

@@ -1,0 +1,18 @@
+<html>
+    <body>     
+        <wicket:extend>
+            <div class="heading"><wicket:message key="item_relate_remove.heading"/></div>
+            <span wicket:id="relating"><a href="#" wicket:id="refId"></a></span>
+            <span wicket:id="message"></span>
+            <span wicket:id="related"><a href="#" wicket:id="refId"></a></span>
+            <p/>
+            <form wicket:id="form">                  
+                <wicket:message key="item_view_form.comment"/><br/>
+                <textarea wicket:id="comment" rows="2" cols="40"></textarea>
+                <input type="submit" wicket:message="value:submit"/>                
+            </form>
+            <span wicket:id="relatingDialog"></span>
+            <span wicket:id="relatedDialog"></span>
+        </wicket:extend>
+    </body>
+</html>

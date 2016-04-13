@@ -1,0 +1,37 @@
+public class a2z.Mobile.DevConnections.Classes.App extends android.app.Application
+{
+    private static android.content.Context mContext;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.App $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.App;
+
+        specialinvoke $r0.<android.app.Application: void <init>()>();
+
+        return;
+    }
+
+    public static android.content.Context getContext()
+    {
+        android.content.Context r0;
+
+        r0 = <a2z.Mobile.DevConnections.Classes.App: android.content.Context mContext>;
+
+        return r0;
+    }
+
+    public void onCreate()
+    {
+        a2z.Mobile.DevConnections.Classes.App $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.App;
+
+        specialinvoke $r0.<android.app.Application: void onCreate()>();
+
+        <a2z.Mobile.DevConnections.Classes.App: android.content.Context mContext> = $r0;
+
+        return;
+    }
+}

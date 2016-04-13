@@ -1,0 +1,931 @@
+public final class twitter4j.internal.http.HttpClientWrapper extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private twitter4j.internal.http.HttpClient http;
+    private twitter4j.internal.http.HttpResponseListener httpResponseListener;
+    private final java.util.Map requestHeaders;
+    private final twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf;
+
+    public void <init>()
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.conf.Configuration $r1;
+        twitter4j.internal.http.HttpClientWrapperConfiguration $r2;
+        java.util.Map $r3;
+        twitter4j.internal.http.HttpClient $r4;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = staticinvoke <twitter4j.conf.ConfigurationContext: twitter4j.conf.Configuration getInstance()>();
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf> = $r1;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $r3 = interfaceinvoke $r2.<twitter4j.internal.http.HttpClientWrapperConfiguration: java.util.Map getRequestHeaders()>();
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders> = $r3;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $r4 = staticinvoke <twitter4j.internal.http.HttpClientFactory: twitter4j.internal.http.HttpClient getInstance(twitter4j.internal.http.HttpClientConfiguration)>($r2);
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http> = $r4;
+
+        return;
+    }
+
+    public void <init>(twitter4j.internal.http.HttpClientWrapperConfiguration)
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.internal.http.HttpClientWrapperConfiguration $r1;
+        java.util.Map $r2;
+        twitter4j.internal.http.HttpClient $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpClientWrapperConfiguration;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf> = $r1;
+
+        $r2 = interfaceinvoke $r1.<twitter4j.internal.http.HttpClientWrapperConfiguration: java.util.Map getRequestHeaders()>();
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders> = $r2;
+
+        $r3 = staticinvoke <twitter4j.internal.http.HttpClientFactory: twitter4j.internal.http.HttpClient getInstance(twitter4j.internal.http.HttpClientConfiguration)>($r1);
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http> = $r3;
+
+        return;
+    }
+
+    private twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.internal.http.HttpRequest $r1;
+        twitter4j.TwitterException $r2;
+        twitter4j.internal.http.HttpClient $r3;
+        twitter4j.internal.http.HttpResponseEvent $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+        twitter4j.internal.http.HttpResponseListener $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpRequest;
+
+        $r3 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+     label1:
+        $r5 = interfaceinvoke $r3.<twitter4j.internal.http.HttpClient: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r1);
+
+     label2:
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener>;
+
+        if $r6 == null goto label7;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener>;
+
+     label3:
+        $r4 = new twitter4j.internal.http.HttpResponseEvent;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpResponseEvent: void <init>(twitter4j.internal.http.HttpRequest,twitter4j.internal.http.HttpResponse,twitter4j.TwitterException)>($r1, $r5, null);
+
+        interfaceinvoke $r6.<twitter4j.internal.http.HttpResponseListener: void httpResponseReceived(twitter4j.internal.http.HttpResponseEvent)>($r4);
+
+     label4:
+        return $r5;
+
+     label5:
+        $r2 := @caughtexception;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener>;
+
+        if $r6 == null goto label6;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener>;
+
+        $r4 = new twitter4j.internal.http.HttpResponseEvent;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpResponseEvent: void <init>(twitter4j.internal.http.HttpRequest,twitter4j.internal.http.HttpResponse,twitter4j.TwitterException)>($r1, null, $r2);
+
+        interfaceinvoke $r6.<twitter4j.internal.http.HttpResponseListener: void httpResponseReceived(twitter4j.internal.http.HttpResponseEvent)>($r4);
+
+     label6:
+        throw $r2;
+
+     label7:
+        return $r5;
+
+        catch twitter4j.TwitterException from label1 to label2 with label5;
+        catch twitter4j.TwitterException from label3 to label4 with label5;
+    }
+
+    public twitter4j.internal.http.HttpResponse delete(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.RequestMethod $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.http.HttpRequest;
+
+        $r3 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod DELETE>;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r3, $r1, null, null, $r4);
+
+        $r5 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r2);
+
+        return $r5;
+    }
+
+    public twitter4j.internal.http.HttpResponse delete(java.lang.String, twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod DELETE>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, null, $r2, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse delete(java.lang.String, twitter4j.internal.http.HttpParameter[]) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod DELETE>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, $r2, null, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse delete(java.lang.String, twitter4j.internal.http.HttpParameter[], twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.auth.Authorization $r3;
+        twitter4j.internal.http.HttpRequest $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.Map $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: twitter4j.auth.Authorization;
+
+        $r4 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod DELETE>;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, $r3, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r4);
+
+        return $r7;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        twitter4j.internal.http.HttpClient $r5, $r6;
+        boolean $z0;
+        java.util.Map $r7, $r8;
+        twitter4j.internal.http.HttpClientWrapperConfiguration $r9, $r10;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label2;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $r4 = (twitter4j.internal.http.HttpClientWrapper) $r1;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+        $r6 = $r4.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+        $z0 = virtualinvoke $r5.<java.lang.Object: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        $r7 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        $r8 = $r4.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        $z0 = interfaceinvoke $r7.<java.util.Map: boolean equals(java.lang.Object)>($r8);
+
+        if $z0 != 0 goto label5;
+
+        return 0;
+
+     label5:
+        $r9 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $r10 = $r4.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $z0 = virtualinvoke $r9.<java.lang.Object: boolean equals(java.lang.Object)>($r10);
+
+        if $z0 != 0 goto label6;
+
+        return 0;
+
+     label6:
+        return 1;
+    }
+
+    public twitter4j.internal.http.HttpResponse get(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.RequestMethod $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.http.HttpRequest;
+
+        $r3 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod GET>;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r3, $r1, null, null, $r4);
+
+        $r5 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r2);
+
+        return $r5;
+    }
+
+    public twitter4j.internal.http.HttpResponse get(java.lang.String, twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod GET>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, null, $r2, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse get(java.lang.String, twitter4j.internal.http.HttpParameter[]) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod GET>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, $r2, null, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse get(java.lang.String, twitter4j.internal.http.HttpParameter[], twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.auth.Authorization $r3;
+        twitter4j.internal.http.HttpRequest $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.Map $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: twitter4j.auth.Authorization;
+
+        $r4 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod GET>;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, $r3, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r4);
+
+        return $r7;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.internal.http.HttpClientWrapperConfiguration $r1;
+        twitter4j.internal.http.HttpClient $r2;
+        int $i0, $i1;
+        java.util.Map $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $i0 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        $i0 = $i0 * 31;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+        $i1 = virtualinvoke $r2.<java.lang.Object: int hashCode()>();
+
+        $i1 = $i0 + $i1;
+
+        $i1 = $i1 * 31;
+
+        $r3 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        $i0 = interfaceinvoke $r3.<java.util.Map: int hashCode()>();
+
+        $i1 = $i1 + $i0;
+
+        return $i1;
+    }
+
+    public twitter4j.internal.http.HttpResponse head(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.RequestMethod $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.http.HttpRequest;
+
+        $r3 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod HEAD>;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r3, $r1, null, null, $r4);
+
+        $r5 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r2);
+
+        return $r5;
+    }
+
+    public twitter4j.internal.http.HttpResponse head(java.lang.String, twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod HEAD>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, null, $r2, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse head(java.lang.String, twitter4j.internal.http.HttpParameter[]) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod HEAD>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, $r2, null, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse head(java.lang.String, twitter4j.internal.http.HttpParameter[], twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.auth.Authorization $r3;
+        twitter4j.internal.http.HttpRequest $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.Map $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: twitter4j.auth.Authorization;
+
+        $r4 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod HEAD>;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, $r3, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r4);
+
+        return $r7;
+    }
+
+    public twitter4j.internal.http.HttpResponse post(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.RequestMethod $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.http.HttpRequest;
+
+        $r3 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod POST>;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r3, $r1, null, null, $r4);
+
+        $r5 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r2);
+
+        return $r5;
+    }
+
+    public twitter4j.internal.http.HttpResponse post(java.lang.String, twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod POST>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, null, $r2, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse post(java.lang.String, twitter4j.internal.http.HttpParameter[]) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod POST>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, $r2, null, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse post(java.lang.String, twitter4j.internal.http.HttpParameter[], java.util.Map) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        java.util.Map $r3, $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.HashMap $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+        twitter4j.internal.http.HttpRequest $r8;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: java.util.Map;
+
+        $r6 = new java.util.HashMap;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r6.<java.util.HashMap: void <init>(java.util.Map)>($r4);
+
+        if $r3 == null goto label1;
+
+        interfaceinvoke $r6.<java.util.Map: void putAll(java.util.Map)>($r3);
+
+     label1:
+        $r8 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod POST>;
+
+        specialinvoke $r8.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, null, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r8);
+
+        return $r7;
+    }
+
+    public twitter4j.internal.http.HttpResponse post(java.lang.String, twitter4j.internal.http.HttpParameter[], twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.auth.Authorization $r3;
+        twitter4j.internal.http.HttpRequest $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.Map $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: twitter4j.auth.Authorization;
+
+        $r4 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod POST>;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, $r3, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r4);
+
+        return $r7;
+    }
+
+    public twitter4j.internal.http.HttpResponse put(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpRequest $r2;
+        twitter4j.internal.http.RequestMethod $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.http.HttpRequest;
+
+        $r3 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod PUT>;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r3, $r1, null, null, $r4);
+
+        $r5 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r2);
+
+        return $r5;
+    }
+
+    public twitter4j.internal.http.HttpResponse put(java.lang.String, twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod PUT>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, null, $r2, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse put(java.lang.String, twitter4j.internal.http.HttpParameter[]) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.internal.http.HttpRequest $r3;
+        twitter4j.internal.http.RequestMethod $r4;
+        java.util.Map $r5;
+        twitter4j.internal.http.HttpResponse $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 = new twitter4j.internal.http.HttpRequest;
+
+        $r4 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod PUT>;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r3.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r4, $r1, $r2, null, $r5);
+
+        $r6 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r3);
+
+        return $r6;
+    }
+
+    public twitter4j.internal.http.HttpResponse put(java.lang.String, twitter4j.internal.http.HttpParameter[], twitter4j.auth.Authorization) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.String $r1;
+        twitter4j.internal.http.HttpParameter[] $r2;
+        twitter4j.auth.Authorization $r3;
+        twitter4j.internal.http.HttpRequest $r4;
+        twitter4j.internal.http.RequestMethod $r5;
+        java.util.Map $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: twitter4j.internal.http.HttpParameter[];
+
+        $r3 := @parameter2: twitter4j.auth.Authorization;
+
+        $r4 = new twitter4j.internal.http.HttpRequest;
+
+        $r5 = <twitter4j.internal.http.RequestMethod: twitter4j.internal.http.RequestMethod PUT>;
+
+        $r6 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpRequest: void <init>(twitter4j.internal.http.RequestMethod,java.lang.String,twitter4j.internal.http.HttpParameter[],twitter4j.auth.Authorization,java.util.Map)>($r5, $r1, $r2, $r3, $r6);
+
+        $r7 = specialinvoke $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest)>($r4);
+
+        return $r7;
+    }
+
+    public void setHttpResponseListener(twitter4j.internal.http.HttpResponseListener)
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.internal.http.HttpResponseListener $r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponseListener;
+
+        $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener> = $r1;
+
+        return;
+    }
+
+    public void shutdown()
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        twitter4j.internal.http.HttpClient $r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+        interfaceinvoke $r1.<twitter4j.internal.http.HttpClient: void shutdown()>();
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.http.HttpClientWrapper $r0;
+        java.lang.StringBuilder $r1;
+        twitter4j.internal.http.HttpClientWrapperConfiguration $r2;
+        twitter4j.internal.http.HttpClient $r3;
+        java.util.Map $r4;
+        twitter4j.internal.http.HttpResponseListener $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientWrapper;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("HttpClientWrapper{wrapperConf=");
+
+        $r2 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClientWrapperConfiguration wrapperConf>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", http=");
+
+        $r3 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpClient http>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", requestHeaders=");
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientWrapper: java.util.Map requestHeaders>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", httpResponseListener=");
+
+        $r5 = $r0.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponseListener httpResponseListener>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r6;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.http.HttpClientWrapper: long serialVersionUID> = -6511977105603119379L;
+
+        return;
+    }
+}

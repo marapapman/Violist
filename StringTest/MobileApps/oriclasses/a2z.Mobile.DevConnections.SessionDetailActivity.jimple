@@ -1,0 +1,891 @@
+public class a2z.Mobile.DevConnections.SessionDetailActivity extends android.app.Activity
+{
+    private android.app.AlertDialog alert;
+    private android.content.Context context;
+    private android.widget.ImageButton mCalenderImageButton;
+    private java.util.ArrayList mHandouts;
+    private android.widget.TableLayout mHandoutsTableLayout;
+    private android.view.LayoutInflater mInflater;
+    private android.widget.ImageButton mMapit;
+    private android.widget.ImageButton mNotesImageButton;
+    private android.widget.Button mRateThisSessionButton;
+    private java.text.SimpleDateFormat mSimpleDateFormat;
+    a2z.Mobile.DevConnections.Classes.Session session;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        java.util.ArrayList $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session> = null;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts> = $r1;
+
+        return;
+    }
+
+    static android.content.Context access$0(a2z.Mobile.DevConnections.SessionDetailActivity)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.content.Context r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Context context>;
+
+        return r1;
+    }
+
+    static android.app.AlertDialog access$1(a2z.Mobile.DevConnections.SessionDetailActivity)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.app.AlertDialog r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        return r1;
+    }
+
+    static void access$2(a2z.Mobile.DevConnections.SessionDetailActivity, android.app.AlertDialog)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.app.AlertDialog $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r1 := @parameter1: android.app.AlertDialog;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert> = $r1;
+
+        return;
+    }
+
+    static java.text.SimpleDateFormat access$3(a2z.Mobile.DevConnections.SessionDetailActivity)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        java.text.SimpleDateFormat r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.text.SimpleDateFormat mSimpleDateFormat>;
+
+        return r1;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        java.util.ArrayList $r3;
+        java.lang.Integer $r4, $r11;
+        android.view.View $r5;
+        android.widget.TableRow $r6;
+        android.widget.TextView $r7;
+        java.lang.Object $r8;
+        android.view.LayoutInflater $r9;
+        android.content.Intent $r10;
+        int $i0, $i1;
+        a2z.Mobile.DevConnections.Classes.Session $r12;
+        java.lang.String $r13, $r14;
+        java.text.SimpleDateFormat $r15;
+        java.lang.StringBuilder $r16;
+        android.widget.TableLayout $r17;
+        android.widget.ImageButton $r18;
+        a2z.Mobile.DevConnections.SessionDetailActivity$3 $r19;
+        a2z.Mobile.DevConnections.SessionDetailActivity$4 $r20;
+        a2z.Mobile.DevConnections.SessionDetailActivity$5 $r21;
+        android.widget.Button $r22;
+        a2z.Mobile.DevConnections.Classes.Speaker $r23;
+        android.widget.TableRow$LayoutParams $r24;
+        a2z.Mobile.DevConnections.SessionDetailActivity$1 $r25;
+        android.widget.TableLayout$LayoutParams $r26;
+        android.view.ViewGroup$LayoutParams $r27;
+        a2z.Mobile.DevConnections.Classes.Handout $r28;
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r29;
+        a2z.Mobile.DevConnections.SessionDetailActivity$6 $r30;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: void setTitle(java.lang.CharSequence)>("Session Details");
+
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r9 = (android.view.LayoutInflater) $r8;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.LayoutInflater mInflater> = $r9;
+
+        $r10 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r10.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("SessionID");
+
+        $r11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r12 = new a2z.Mobile.DevConnections.Classes.Session;
+
+        specialinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: void <init>(java.lang.Integer)>($r11);
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session> = $r12;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Context context> = $r0;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert> = null;
+
+     label01:
+        $r13 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        $r14 = virtualinvoke $r11.<java.lang.Integer: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Session Detail", $r13, $r14);
+
+     label02:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: void setContentView(int)>(2130903062);
+
+        $r15 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r15.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("EEE, dd MMM yyyy hh:mm aa");
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.text.SimpleDateFormat mSimpleDateFormat> = $r15;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230816);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Title()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String RoomNumber()>();
+
+        $i0 = virtualinvoke $r14.<java.lang.String: int compareToIgnoreCase(java.lang.String)>("");
+
+        if $i0 <= 0 goto label14;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230817);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("Room: ");
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String RoomNumber()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+     label03:
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        $i0 = virtualinvoke $r14.<java.lang.String: int compareToIgnoreCase(java.lang.String)>("");
+
+        if $i0 <= 0 goto label15;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230818);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r16 = new java.lang.StringBuilder;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        $r14 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r14);
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", ");
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+     label04:
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String StartTime()>();
+
+        $i0 = virtualinvoke $r14.<java.lang.String: int compareToIgnoreCase(java.lang.String)>("");
+
+        if $i0 <= 0 goto label16;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230819);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r16 = new java.lang.StringBuilder;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String StartTime()>();
+
+        $r14 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r14);
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String EndTime()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+     label05:
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Description()>();
+
+        $i0 = virtualinvoke $r14.<java.lang.String: int compareToIgnoreCase(java.lang.String)>("");
+
+        if $i0 <= 0 goto label17;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230824);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r14 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Description()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+     label06:
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>()>();
+
+        $r3 = staticinvoke <a2z.Mobile.DevConnections.Classes.Speaker: java.util.ArrayList getListBySession(java.lang.Integer)>($r11);
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        if $i0 <= 0 goto label20;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230826);
+
+        $r17 = (android.widget.TableLayout) $r5;
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+     label07:
+        $i0 = virtualinvoke $r4.<java.lang.Integer: int intValue()>();
+
+        $i1 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        if $i0 < $i1 goto label18;
+
+     label08:
+        $r3 = staticinvoke <a2z.Mobile.DevConnections.Classes.Handout: java.util.ArrayList getListBySession(java.lang.Integer)>($r11);
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts> = $r3;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230828);
+
+        $r17 = (android.widget.TableLayout) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.TableLayout mHandoutsTableLayout> = $r17;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts>;
+
+        $i1 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        if $i1 <= 0 goto label23;
+
+        $i1 = 0;
+
+     label09:
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts>;
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        if $i1 < $i0 goto label21;
+
+     label10:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230820);
+
+        $r18 = (android.widget.ImageButton) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mMapit> = $r18;
+
+        $r18 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mMapit>;
+
+        $r19 = new a2z.Mobile.DevConnections.SessionDetailActivity$3;
+
+        specialinvoke $r19.<a2z.Mobile.DevConnections.SessionDetailActivity$3: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity)>($r0);
+
+        virtualinvoke $r18.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r19);
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $i1 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: int MapID()>();
+
+        if $i1 < 1 goto label11;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $i1 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: int SessionRoomX()>();
+
+        if $i1 < 1 goto label11;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $i1 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: int SessionRoomY()>();
+
+        if $i1 >= 1 goto label12;
+
+     label11:
+        $r18 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mMapit>;
+
+        virtualinvoke $r18.<android.widget.ImageButton: void setVisibility(int)>(8);
+
+     label12:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230821);
+
+        $r18 = (android.widget.ImageButton) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mNotesImageButton> = $r18;
+
+        $r18 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mNotesImageButton>;
+
+        $r20 = new a2z.Mobile.DevConnections.SessionDetailActivity$4;
+
+        specialinvoke $r20.<a2z.Mobile.DevConnections.SessionDetailActivity$4: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity)>($r0);
+
+        virtualinvoke $r18.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r20);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230822);
+
+        $r18 = (android.widget.ImageButton) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mCalenderImageButton> = $r18;
+
+        $r18 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.ImageButton mCalenderImageButton>;
+
+        $r21 = new a2z.Mobile.DevConnections.SessionDetailActivity$5;
+
+        specialinvoke $r21.<a2z.Mobile.DevConnections.SessionDetailActivity$5: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity)>($r0);
+
+        virtualinvoke $r18.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r21);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230829);
+
+        $r22 = (android.widget.Button) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.Button mRateThisSessionButton> = $r22;
+
+        $r12 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r11 = virtualinvoke $r12.<a2z.Mobile.DevConnections.Classes.Session: java.lang.Integer SessionID()>();
+
+        $i1 = virtualinvoke $r11.<java.lang.Integer: int intValue()>();
+
+        if $i1 != 0 goto label24;
+
+        $r22 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.Button mRateThisSessionButton>;
+
+        virtualinvoke $r22.<android.widget.Button: void setVisibility(int)>(8);
+
+        return;
+
+     label13:
+        $r2 := @caughtexception;
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in referral to ");
+
+        $r14 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.lang.String getLocalClassName()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r14, null, null);
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label02;
+
+     label14:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230817);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label03;
+
+     label15:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230818);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label04;
+
+     label16:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230819);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label05;
+
+     label17:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230824);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230823);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label06;
+
+     label18:
+        $i1 = virtualinvoke $r4.<java.lang.Integer: int intValue()>();
+
+        $r8 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r23 = (a2z.Mobile.DevConnections.Classes.Speaker) $r8;
+
+        $r6 = new android.widget.TableRow;
+
+        specialinvoke $r6.<android.widget.TableRow: void <init>(android.content.Context)>($r0);
+
+        $r24 = new android.widget.TableRow$LayoutParams;
+
+        specialinvoke $r24.<android.widget.TableRow$LayoutParams: void <init>(int,int)>(-1, -2);
+
+        virtualinvoke $r6.<android.widget.TableRow: void setLayoutParams(android.view.ViewGroup$LayoutParams)>($r24);
+
+        $r7 = new android.widget.TextView;
+
+        specialinvoke $r7.<android.widget.TextView: void <init>(android.content.Context)>($r0);
+
+        $r16 = new java.lang.StringBuilder;
+
+        $r14 = virtualinvoke $r23.<a2z.Mobile.DevConnections.Classes.Speaker: java.lang.String FirstName()>();
+
+        $r14 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r14);
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r14 = virtualinvoke $r23.<a2z.Mobile.DevConnections.Classes.Speaker: java.lang.String LastName()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r14 = virtualinvoke $r23.<a2z.Mobile.DevConnections.Classes.Speaker: java.lang.String Suffix()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        $r24 = new android.widget.TableRow$LayoutParams;
+
+        specialinvoke $r24.<android.widget.TableRow$LayoutParams: void <init>(int,int)>(-1, -2);
+
+        virtualinvoke $r7.<android.widget.TextView: void setLayoutParams(android.view.ViewGroup$LayoutParams)>($r24);
+
+        virtualinvoke $r7.<android.widget.TextView: void setHeight(int)>(48);
+
+        virtualinvoke $r7.<android.widget.TextView: void setPadding(int,int,int,int)>(5, 5, 5, 5);
+
+        virtualinvoke $r7.<android.widget.TextView: void setTextColor(int)>(-16777216);
+
+        virtualinvoke $r6.<android.widget.TableRow: void addView(android.view.View)>($r7);
+
+        $r25 = new a2z.Mobile.DevConnections.SessionDetailActivity$1;
+
+        specialinvoke $r25.<a2z.Mobile.DevConnections.SessionDetailActivity$1: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity,a2z.Mobile.DevConnections.Classes.Speaker)>($r0, $r23);
+
+        virtualinvoke $r6.<android.widget.TableRow: void setOnClickListener(android.view.View$OnClickListener)>($r25);
+
+        $r26 = new android.widget.TableLayout$LayoutParams;
+
+        specialinvoke $r26.<android.widget.TableLayout$LayoutParams: void <init>(int,int)>(-1, -2);
+
+        virtualinvoke $r17.<android.widget.TableLayout: void addView(android.view.View,android.view.ViewGroup$LayoutParams)>($r6, $r26);
+
+        $i1 = virtualinvoke $r4.<java.lang.Integer: int intValue()>();
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        $i0 = $i0 + -1;
+
+        if $i1 >= $i0 goto label19;
+
+        $r5 = new android.view.View;
+
+        specialinvoke $r5.<android.view.View: void <init>(android.content.Context)>($r0);
+
+        virtualinvoke $r5.<android.view.View: void setBackgroundColor(int)>(-4144960);
+
+        $r27 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r27.<android.view.ViewGroup$LayoutParams: void <init>(int,int)>(-1, 2);
+
+        virtualinvoke $r17.<android.widget.TableLayout: void addView(android.view.View,android.view.ViewGroup$LayoutParams)>($r5, $r27);
+
+     label19:
+        $i1 = virtualinvoke $r4.<java.lang.Integer: int intValue()>();
+
+        $i1 = $i1 + 1;
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        goto label07;
+
+     label20:
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230826);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230825);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label08;
+
+     label21:
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts>;
+
+        $r8 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i1);
+
+        $r28 = (a2z.Mobile.DevConnections.Classes.Handout) $r8;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.LayoutInflater mInflater>;
+
+        $r5 = virtualinvoke $r9.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903064, null);
+
+        $r6 = (android.widget.TableRow) $r5;
+
+        $r5 = virtualinvoke $r6.<android.widget.TableRow: android.view.View findViewById(int)>(2131230835);
+
+        $r7 = (android.widget.TextView) $r5;
+
+        $r14 = virtualinvoke $r28.<a2z.Mobile.DevConnections.Classes.Handout: java.lang.String getHandoutTitle()>();
+
+        virtualinvoke $r7.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        $r29 = new a2z.Mobile.DevConnections.SessionDetailActivity$2;
+
+        specialinvoke $r29.<a2z.Mobile.DevConnections.SessionDetailActivity$2: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity,a2z.Mobile.DevConnections.Classes.Handout)>($r0, $r28);
+
+        virtualinvoke $r6.<android.widget.TableRow: void setOnClickListener(android.view.View$OnClickListener)>($r29);
+
+        $r17 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.TableLayout mHandoutsTableLayout>;
+
+        virtualinvoke $r17.<android.widget.TableLayout: void addView(android.view.View)>($r6);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: java.util.ArrayList mHandouts>;
+
+        $i0 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        $i0 = $i0 + -1;
+
+        if $i1 >= $i0 goto label22;
+
+        $r5 = new android.view.View;
+
+        specialinvoke $r5.<android.view.View: void <init>(android.content.Context)>($r0);
+
+        virtualinvoke $r5.<android.view.View: void setBackgroundColor(int)>(-4144960);
+
+        $r17 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.TableLayout mHandoutsTableLayout>;
+
+        $r27 = new android.view.ViewGroup$LayoutParams;
+
+        specialinvoke $r27.<android.view.ViewGroup$LayoutParams: void <init>(int,int)>(-1, 2);
+
+        virtualinvoke $r17.<android.widget.TableLayout: void addView(android.view.View,android.view.ViewGroup$LayoutParams)>($r5, $r27);
+
+     label22:
+        $i1 = $i1 + 1;
+
+        goto label09;
+
+     label23:
+        $r17 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.TableLayout mHandoutsTableLayout>;
+
+        virtualinvoke $r17.<android.widget.TableLayout: void setVisibility(int)>(8);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.view.View findViewById(int)>(2131230827);
+
+        virtualinvoke $r5.<android.view.View: void setVisibility(int)>(8);
+
+        goto label10;
+
+     label24:
+        $r22 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.widget.Button mRateThisSessionButton>;
+
+        $r30 = new a2z.Mobile.DevConnections.SessionDetailActivity$6;
+
+        specialinvoke $r30.<a2z.Mobile.DevConnections.SessionDetailActivity$6: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity)>($r0);
+
+        virtualinvoke $r22.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r30);
+
+        return;
+
+        catch java.lang.Exception from label01 to label02 with label13;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.view.Menu $r1;
+        java.lang.Integer $r2;
+        a2z.Mobile.DevConnections.Classes.Session $r3;
+        int $i0;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r2 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Session: java.lang.Integer SessionID()>();
+
+        $i0 = virtualinvoke $r2.<java.lang.Integer: int intValue()>();
+
+        if $i0 != 0 goto label2;
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Cancel Meeting");
+
+     label1:
+        return 1;
+
+     label2:
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $z0 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Session: boolean IsFavorite()>();
+
+        if $z0 == 0 goto label3;
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Remove from Favorites");
+
+        goto label1;
+
+     label3:
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Add to Favorites");
+
+        goto label1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.view.MenuItem $r1;
+        android.content.Intent $r2;
+        java.lang.CharSequence $r3;
+        boolean $z0;
+        android.content.Context $r4;
+        java.lang.String[] $r5;
+        a2z.Mobile.DevConnections.Classes.Session $r6;
+        java.lang.String $r7;
+        java.lang.Integer $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+        return 1;
+
+     label1:
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Cancel Meeting");
+
+        if $z0 == 0 goto label2;
+
+        $r5 = newarray (java.lang.String)[3];
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r7 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Title()>();
+
+        $r5[0] = $r7;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r7 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        $r5[1] = $r7;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r7 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String StartTime()>();
+
+        $r5[2] = $r7;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Exhibitor: void DeleteMeeting(java.lang.String[])>($r5);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: void finish()>();
+
+        return 1;
+
+     label2:
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Remove from Favorites");
+
+        if $z0 == 0 goto label3;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: void removeFromItinerary()>();
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r8 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: java.lang.Integer SessionID()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void RemoveFromItinerary(java.lang.Integer,java.lang.String)>($r8, "SessionDetail");
+
+        interfaceinvoke $r1.<android.view.MenuItem: android.view.MenuItem setTitle(java.lang.CharSequence)>("Add to Favorites");
+
+        return 1;
+
+     label3:
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Add to Favorites");
+
+        if $z0 == 0 goto label4;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: void addToItinerary()>();
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r8 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.Session: java.lang.Integer SessionID()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void AddToItinerary(java.lang.Integer,java.lang.String)>($r8, "SessionDetail");
+
+        interfaceinvoke $r1.<android.view.MenuItem: android.view.MenuItem setTitle(java.lang.CharSequence)>("Remove from Favorites");
+
+        return 1;
+
+     label4:
+        return 1;
+    }
+
+    protected void onPause()
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.app.AlertDialog $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        $z0 = virtualinvoke $r1.<android.app.AlertDialog: boolean isShowing()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        virtualinvoke $r1.<android.app.AlertDialog: void dismiss()>();
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    protected void onStop()
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity $r0;
+        android.app.AlertDialog $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onStop()>();
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        $z0 = virtualinvoke $r1.<android.app.AlertDialog: boolean isShowing()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog alert>;
+
+        virtualinvoke $r1.<android.app.AlertDialog: void dismiss()>();
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+}

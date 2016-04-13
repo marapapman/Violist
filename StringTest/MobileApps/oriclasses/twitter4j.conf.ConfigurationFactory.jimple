@@ -1,0 +1,9 @@
+public interface  twitter4j.conf.ConfigurationFactory extends java.lang.Object
+{
+
+    public abstract void dispose();
+
+    public abstract twitter4j.conf.Configuration getInstance();
+
+    public abstract twitter4j.conf.Configuration getInstance(java.lang.String);
+}

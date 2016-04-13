@@ -1,0 +1,912 @@
+public final class twitter4j.conf.ConfigurationBuilder extends java.lang.Object
+{
+    private twitter4j.conf.ConfigurationBase configurationBean;
+
+    public void <init>()
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        twitter4j.conf.PropertyConfiguration $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new twitter4j.conf.PropertyConfiguration;
+
+        specialinvoke $r1.<twitter4j.conf.PropertyConfiguration: void <init>()>();
+
+        $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean> = $r1;
+
+        return;
+    }
+
+    private void checkNotBuilt()
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        twitter4j.conf.ConfigurationBase $r1;
+        java.lang.IllegalStateException $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Cannot use this builder any longer, build() has already been called");
+
+        throw $r2;
+
+     label1:
+        return;
+    }
+
+    public twitter4j.conf.Configuration build()
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        twitter4j.conf.ConfigurationBase $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void cacheInstance()>();
+
+     label1:
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+     label2:
+        $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean> = null;
+
+        return $r1;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean> = null;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setAsyncNumThreads(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setAsyncNumThreads(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setClientURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setClientURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setClientVersion(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setClientVersion(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setContributingTo(long)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        long $l0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $l0 := @parameter0: long;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setContributingTo(long)>($l0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setDebugEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setDebug(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setDispatcherImpl(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setDispatcherImpl(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setGZIPEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setGZIPEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpConnectionTimeout(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpConnectionTimeout(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpDefaultMaxPerRoute(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpDefaultMaxPerRoute(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpMaxTotalConnections(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpMaxTotalConnections(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpProxyHost(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setHttpProxyHost(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpProxyPassword(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setHttpProxyPassword(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpProxyPort(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpProxyPort(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpProxyUser(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setHttpProxyUser(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpReadTimeout(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpReadTimeout(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpRetryCount(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpRetryCount(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpRetryIntervalSeconds(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpRetryIntervalSeconds(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setHttpStreamingReadTimeout(int)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        int $i0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setHttpStreamingReadTimeout(int)>($i0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setIncludeEntitiesEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setIncludeEntitiesEnbled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setIncludeMyRetweetEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setIncludeMyRetweetEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setIncludeRTsEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setIncludeRTsEnbled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setJSONStoreEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setJSONStoreEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setLoggerImpl(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setLoggerFactory(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setMBeanEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setMBeanEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setMediaProvider(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setMediaProvider(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setMediaProviderAPIKey(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setMediaProviderAPIKey(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setMediaProviderParameters(java.util.Properties)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.util.Properties $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.util.Properties;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setMediaProviderParameters(java.util.Properties)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthAccessToken(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthAccessToken(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthAccessTokenSecret(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthAccessTokenSecret(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthAccessTokenURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthAccessTokenURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthAuthenticationURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthAuthenticationURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthAuthorizationURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthAuthorizationURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthConsumerKey(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthConsumerKey(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthConsumerSecret(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthConsumerSecret(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setOAuthRequestTokenURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setOAuthRequestTokenURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setPassword(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setPassword(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setPrettyDebugEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setPrettyDebugEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setRestBaseURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setRestBaseURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setSiteStreamBaseURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setSiteStreamBaseURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setStreamBaseURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setStreamBaseURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setUseSSL(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setUseSSL(boolean)>($z0);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setUser(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setUser(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setUserStreamBaseURL(java.lang.String)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        java.lang.String $r1;
+        twitter4j.conf.ConfigurationBase $r2;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r2 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r2.<twitter4j.conf.ConfigurationBase: void setUserStreamBaseURL(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.conf.ConfigurationBuilder setUserStreamRepliesAllEnabled(boolean)
+    {
+        twitter4j.conf.ConfigurationBuilder $r0;
+        boolean $z0;
+        twitter4j.conf.ConfigurationBase $r1;
+
+        $r0 := @this: twitter4j.conf.ConfigurationBuilder;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r0.<twitter4j.conf.ConfigurationBuilder: void checkNotBuilt()>();
+
+        $r1 = $r0.<twitter4j.conf.ConfigurationBuilder: twitter4j.conf.ConfigurationBase configurationBean>;
+
+        virtualinvoke $r1.<twitter4j.conf.ConfigurationBase: void setUserStreamRepliesAllEnabled(boolean)>($z0);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,25 @@
+public interface  twitter4j.Relationship extends java.lang.Object implements twitter4j.TwitterResponse, java.io.Serializable
+{
+
+    public abstract long getSourceUserId();
+
+    public abstract java.lang.String getSourceUserScreenName();
+
+    public abstract long getTargetUserId();
+
+    public abstract java.lang.String getTargetUserScreenName();
+
+    public abstract boolean isSourceBlockingTarget();
+
+    public abstract boolean isSourceFollowedByTarget();
+
+    public abstract boolean isSourceFollowingTarget();
+
+    public abstract boolean isSourceNotificationsEnabled();
+
+    public abstract boolean isSourceWantRetweets();
+
+    public abstract boolean isTargetFollowedBySource();
+
+    public abstract boolean isTargetFollowingSource();
+}

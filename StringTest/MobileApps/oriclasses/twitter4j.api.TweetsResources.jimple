@@ -1,0 +1,17 @@
+public interface  twitter4j.api.TweetsResources extends java.lang.Object
+{
+
+    public abstract twitter4j.Status destroyStatus(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.OEmbed getOEmbed(twitter4j.OEmbedRequest) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getRetweets(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.Status retweetStatus(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.Status showStatus(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.Status updateStatus(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.Status updateStatus(twitter4j.StatusUpdate) throws twitter4j.TwitterException;
+}

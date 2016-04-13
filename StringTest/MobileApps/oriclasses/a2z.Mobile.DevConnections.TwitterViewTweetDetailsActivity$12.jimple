@@ -1,0 +1,37 @@
+class a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12 extends java.lang.Object implements a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface
+{
+    final a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12 $r0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onSuccess()
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12 $r0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r1;
+        android.widget.ImageButton $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity this$0>;
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton access$10(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r1);
+
+        virtualinvoke $r2.<android.widget.ImageButton: void setImageResource(int)>(2130837524);
+
+        return;
+    }
+}

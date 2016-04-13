@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <!-- Spring context config location(s) -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/applicationContext.xml
+            /WEB-INF/applicationContext-acegi.xml
+            /WEB-INF/applicationContext-lucene.xml
+            /WEB-INF/applicationContext-scheduler.xml
+        </param-value>
+    </context-param>  
+    
+    <!-- used by Log4jConfigListener -->
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>jtrac.root</param-value>
+    </context-param>     
+        
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/log4j.properties</param-value>
+    </context-param>   
+    
+    <filter>
+        <filter-name>openSessionInView</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>jtrac-app</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+        <init-param>
+            <param-name>applicationClassName</param-name>
+            <param-value>info.jtrac.wicket.JtracApplication</param-value>
+        </init-param>
+        <init-param>
+            <param-name>configuration</param-name>
+            <param-value>DEPLOYMENT</param-value>
+        </init-param>
+    </filter>    
+        
+    <!-- for acegi CAS authentication -->
+    <!--
+    <filter> 
+        <filter-name>acegi</filter-name> 
+        <filter-class>org.acegisecurity.util.FilterToBeanProxy</filter-class> 
+        <init-param> 
+            <param-name>targetClass</param-name> 
+            <param-value>org.acegisecurity.util.FilterChainProxy</param-value> 
+        </init-param> 
+    </filter>     
+    
+    <filter-mapping>
+        <filter-name>acegi</filter-name>
+        <url-pattern>/auth/*</url-pattern>
+    </filter-mapping>
+    -->
+    
+    <!-- open session should be above the wicket filter -->
+    <filter-mapping>
+        <filter-name>openSessionInView</filter-name>
+        <url-pattern>/app/*</url-pattern>
+    </filter-mapping>     
+    
+    <filter-mapping>
+        <filter-name>jtrac-app</filter-name>
+        <url-pattern>/app/*</url-pattern>
+    </filter-mapping>           
+        
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+        
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>jtrac-api</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    
+    <!-- optional for acegi CAS authentication -->    
+    <!--
+    <context-param>
+        <param-name>edu.yale.its.tp.cas.proxyUrl</param-name>
+        <param-value>https://localhost:8443/jtrac/casProxy</param-value>
+    </context-param>    
+    
+    <servlet>
+        <servlet-name>casProxy</servlet-name>
+        <servlet-class>edu.yale.its.tp.cas.proxy.ProxyTicketReceptor</servlet-class>
+    </servlet>        
+    
+    <servlet-mapping>
+        <servlet-name>casProxy</servlet-name>
+        <url-pattern>/casProxy/*</url-pattern>
+    </servlet-mapping>
+    -->
+    
+    <servlet-mapping>
+        <servlet-name>jtrac-api</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>    
+  
+    <!-- backwards compatibility for e-mail links -->
+    <servlet-mapping>
+        <servlet-name>jtrac-api</servlet-name>
+        <url-pattern>/flow/*</url-pattern>
+    </servlet-mapping>
+    
+    <!--
+    <resource-ref>
+        <res-ref-name>jdbc/JTracDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    -->
+    
+    <!--
+    <resource-ref>
+        <res-ref-name>mail/Session</res-ref-name>
+        <res-type>javax.mail.Session</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    -->
+        
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+</web-app>

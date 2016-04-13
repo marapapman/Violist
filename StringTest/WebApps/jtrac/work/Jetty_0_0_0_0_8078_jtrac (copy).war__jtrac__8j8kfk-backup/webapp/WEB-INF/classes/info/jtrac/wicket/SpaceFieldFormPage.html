@@ -1,0 +1,60 @@
+<html>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="space_field_form.editField"/>
+                </div>
+                <span wicket:id="feedback"></span>
+                <table class="jtrac">
+                    <tr>
+                        <td class="label"><wicket:message key="space_field_form.internalName"/></td>
+                        <td>
+                            <span wicket:id="name"></span>
+                            <input type="submit" wicket:id="delete" wicket:message="value:delete"/>                                                       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="space_field_form.label"/>
+                            <font color="red">*</font>
+                        </td>
+                        <td>
+                            <input wicket:id="field.label"/>
+                        </td>
+                    </tr>
+                    <tbody wicket:id="hide">
+                        <tr>
+                            <td class="label"><wicket:message key="space_field_form.options"/></td>
+                            <td>
+                                <table>                                
+                                    <tr wicket:id="options">
+                                        <td wicket:id="key"></td>
+                                        <td wicket:id="value" class="alt"></td>
+                                        <td><a href="#" wicket:id="up"><img src="resources/up.gif"/></a></td>
+                                        <td><a href="#" wicket:id="down"><img src="resources/down.gif"/></a></td>
+                                        <td><a href="#" wicket:id="edit"><img src="resources/edit.gif"/></a></td>
+                                    </tr>                                
+                                </table>
+                            </td>                        
+                        </tr>
+                        <tr>
+                            <td class="label"><wicket:message key="space_field_form.addOption"/></td>
+                            <td>
+                                <input wicket:id="option"/>
+                                <input type="submit" wicket:id="add" wicket:message="value:space_field_form.update"/>                                
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td/>
+                        <td>
+                            <input type="submit" wicket:id="done" wicket:message="value:space_field_form.done"/>                            
+                        </td>
+                    </tr>
+                </table>                
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+class a2z.Mobile.DevConnections.SessionDetailActivity$5 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.SessionDetailActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.SessionDetailActivity)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$5 $r0;
+        a2z.Mobile.DevConnections.SessionDetailActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$5;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$5 $r0;
+        android.view.View $r1;
+        java.lang.StringBuilder $r2;
+        a2z.Mobile.DevConnections.SessionDetailActivity $r3, $r11;
+        java.lang.String $r4, $r6;
+        a2z.Mobile.DevConnections.Classes.Session $r5;
+        java.text.SimpleDateFormat $r7;
+        java.text.ParsePosition $r8;
+        java.util.Date $r9, $r10;
+        long $l0, $l1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$5;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r4 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r4 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String StartTime()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Date()>();
+
+        $r6 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r6);
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>($r6);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String EndTime()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: java.text.SimpleDateFormat access$3(a2z.Mobile.DevConnections.SessionDetailActivity)>($r3);
+
+        $r8 = new java.text.ParsePosition;
+
+        specialinvoke $r8.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $r9 = virtualinvoke $r7.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String,java.text.ParsePosition)>($r4, $r8);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: java.text.SimpleDateFormat access$3(a2z.Mobile.DevConnections.SessionDetailActivity)>($r3);
+
+        $r8 = new java.text.ParsePosition;
+
+        specialinvoke $r8.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $r10 = virtualinvoke $r7.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String,java.text.ParsePosition)>($r6, $r8);
+
+        $r11 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $l0 = virtualinvoke $r9.<java.util.Date: long getTime()>();
+
+        $l1 = virtualinvoke $r10.<java.util.Date: long getTime()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Title()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r3.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        $r4 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Description()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.LauncherUtils: void startAddToCalenderAction(android.app.Activity,long,long,java.lang.String,java.lang.String)>($r11, $l0, $l1, $r6, $r4);
+
+        $r11 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$5: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r5 = $r11.<a2z.Mobile.DevConnections.SessionDetailActivity: a2z.Mobile.DevConnections.Classes.Session session>;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Session: void addToItinerary()>();
+
+        return;
+    }
+}

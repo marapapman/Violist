@@ -1,0 +1,104 @@
+class a2z.Mobile.DevConnections.MyNotesActivity$1$2 extends java.lang.Object implements a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface
+{
+    final a2z.Mobile.DevConnections.MyNotesActivity$1 this$1;
+    private final a2z.Mobile.DevConnections.Classes.Exhibitor val$exhibitor;
+    private final java.util.Map val$map;
+
+    void <init>(a2z.Mobile.DevConnections.MyNotesActivity$1, a2z.Mobile.DevConnections.Classes.Exhibitor, java.util.Map)
+    {
+        a2z.Mobile.DevConnections.MyNotesActivity$1$2 $r0;
+        a2z.Mobile.DevConnections.MyNotesActivity$1 $r1;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r2;
+        java.util.Map $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.MyNotesActivity$1$2;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.MyNotesActivity$1;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r3 := @parameter2: java.util.Map;
+
+        $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.MyNotesActivity$1 this$1> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.Classes.Exhibitor val$exhibitor> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: java.util.Map val$map> = $r3;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onSaveNote(java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.MyNotesActivity$1$2 $r0;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r3;
+        java.util.Map $r4;
+        a2z.Mobile.DevConnections.MyNotesActivity$1 $r5;
+        a2z.Mobile.DevConnections.MyNotesActivity $r6;
+        a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter $r7;
+        java.util.List $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.MyNotesActivity$1$2;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        if $r1 == null goto label1;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.Classes.Exhibitor val$exhibitor>;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Exhibitor: void saveNote(java.lang.String)>($r1);
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: java.util.Map val$map>;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("content", $r1);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.MyNotesActivity$1 this$1>;
+
+        $r6 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity access$0(a2z.Mobile.DevConnections.MyNotesActivity$1)>($r5);
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity: a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter access$0(a2z.Mobile.DevConnections.MyNotesActivity)>($r6);
+
+        virtualinvoke $r7.<a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter: void notifyDataSetChanged()>();
+
+        return;
+
+     label1:
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.Classes.Exhibitor val$exhibitor>;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Exhibitor: void saveNote(java.lang.String)>("");
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.MyNotesActivity$1 this$1>;
+
+        $r6 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity access$0(a2z.Mobile.DevConnections.MyNotesActivity$1)>($r5);
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity: java.util.List access$3(a2z.Mobile.DevConnections.MyNotesActivity)>($r6);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.Classes.Exhibitor val$exhibitor>;
+
+        interfaceinvoke $r8.<java.util.List: boolean remove(java.lang.Object)>($r3);
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: java.util.Map val$map>;
+
+        interfaceinvoke $r4.<java.util.Map: void clear()>();
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: a2z.Mobile.DevConnections.MyNotesActivity$1 this$1>;
+
+        $r6 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity access$0(a2z.Mobile.DevConnections.MyNotesActivity$1)>($r5);
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity: a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter access$0(a2z.Mobile.DevConnections.MyNotesActivity)>($r6);
+
+        virtualinvoke $r7.<a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter: void notifyDataSetChanged()>();
+
+        return;
+    }
+}

@@ -1,0 +1,929 @@
+public class a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity extends android.app.Activity
+{
+    private static final java.lang.String LOG_TAG;
+    public static final int TWITTER_CREATE_FAVORITE_AUTH_REQUEST_CODE;
+    public static final int TWITTER_REPLY_AUTH_REQUEST_CODE;
+    public static final int TWITTER_RETWEET_AUTH_REQUEST_CODE;
+    public static final int TWITTER_STATUS_UPDATE_AUTH_REQUEST_CODE;
+    private a2z.Mobile.DevConnections.A2zApplication mApp;
+    private android.widget.ImageButton mFavoritImageButton;
+    private com.nostra13.universalimageloader.core.ImageLoader mImageLoader;
+    private boolean mIsFavorite;
+    private android.widget.ImageButton mLaunchSendersProfileImageButton;
+    android.widget.ImageButton mPostToTwitterButton;
+    private android.widget.ImageButton mReplyImageButton;
+    private android.widget.ImageButton mRetweetImageButton;
+    private a2z.Mobile.DevConnections.Classes.Tweet mTweet;
+    private android.widget.ImageView mTweetProfileImage;
+    private android.widget.TextView mTweetSendersNameTextView;
+    private android.widget.TextView mTweetTextTextView;
+    private android.widget.TextView mTweetTimestampTextView;
+    private twitter4j.Twitter mTwitter;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        a2z.Mobile.DevConnections.A2zApplication $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r1 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.A2zApplication mApp> = $r1;
+
+        return;
+    }
+
+    static android.widget.ImageView access$0(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.widget.ImageView r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageView mTweetProfileImage>;
+
+        return r1;
+    }
+
+    static a2z.Mobile.DevConnections.Classes.Tweet access$1(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        a2z.Mobile.DevConnections.Classes.Tweet r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        return r1;
+    }
+
+    static android.widget.ImageButton access$10(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.widget.ImageButton r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mFavoritImageButton>;
+
+        return r1;
+    }
+
+    static void access$11(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void updateTwitterStatus(java.lang.String)>($r1);
+
+        return;
+    }
+
+    static twitter4j.Twitter access$12(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        twitter4j.Twitter r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter>;
+
+        return r1;
+    }
+
+    static void access$13(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, boolean)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        boolean $z0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $z0 := @parameter1: boolean;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: boolean mIsFavorite> = $z0;
+
+        return;
+    }
+
+    static void access$2(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void replyToTweet(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    static void access$3(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: android.app.Activity;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void reTweet(android.app.Activity,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    static boolean access$4(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        boolean z0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        z0 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: boolean mIsFavorite>;
+
+        return z0;
+    }
+
+    static void access$5(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: android.app.Activity;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void createFavorite(android.app.Activity,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    static void access$6(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: android.app.Activity;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void destroyFavorite(android.app.Activity,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    static void access$7(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void statusUpdate(java.lang.String)>($r1);
+
+        return;
+    }
+
+    static a2z.Mobile.DevConnections.A2zApplication access$8(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        a2z.Mobile.DevConnections.A2zApplication r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        return r1;
+    }
+
+    static android.widget.ImageButton access$9(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.widget.ImageButton r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mRetweetImageButton>;
+
+        return r1;
+    }
+
+    private void checkRetweetAndFavoriteTweetStatus(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$17 $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$17;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$17: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void checkRetweetAndFavoriteTweetStatus(android.app.Activity,java.lang.String,a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedCheckRetweetAndFavoriteTweetInterface)>($r0, $r1, $r2);
+
+        return;
+    }
+
+    private void createFavorite(android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$11 $r3;
+        twitter4j.Twitter $r4;
+        twitter4j.auth.Authorization $r5;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12 $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$11;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$11: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r1.<android.app.Activity: void runOnUiThread(java.lang.Runnable)>($r3);
+
+        return;
+
+     label1:
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter>;
+
+        $r5 = interfaceinvoke $r4.<twitter4j.Twitter: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = interfaceinvoke $r5.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label2;
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void TwitterOAuthLogin(android.app.Activity,int,java.lang.String)>($r0, 1049, "");
+
+        return;
+
+     label2:
+        $r6 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$12: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void markTweetAsFavorite(android.app.Activity,java.lang.String,a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface)>($r1, $r2, $r6);
+
+        return;
+    }
+
+    private void destroyFavorite(android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$13 $r3;
+        twitter4j.Twitter $r4;
+        twitter4j.auth.Authorization $r5;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$14 $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$13;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$13: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r1.<android.app.Activity: void runOnUiThread(java.lang.Runnable)>($r3);
+
+        return;
+
+     label1:
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter>;
+
+        $r5 = interfaceinvoke $r4.<twitter4j.Twitter: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = interfaceinvoke $r5.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label2;
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void TwitterOAuthLogin(android.app.Activity,int,java.lang.String)>($r0, 1049, "");
+
+        return;
+
+     label2:
+        $r6 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$14;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$14: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void unMarkTweetAsFavorite(android.app.Activity,java.lang.String,a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface)>($r1, $r2, $r6);
+
+        return;
+    }
+
+    private void initViews()
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        a2z.Mobile.DevConnections.Classes.Tweet $r1;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$1 $r2;
+        android.view.View $r3;
+        android.widget.ImageView $r4;
+        java.lang.String $r5;
+        boolean $z0;
+        com.nostra13.universalimageloader.core.ImageLoader $r6;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$2 $r7;
+        android.widget.TextView $r8;
+        android.widget.ImageButton $r9;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$3 $r10;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$4 $r11;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$5 $r12;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$6 $r13;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$7 $r14;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230856);
+
+        $r4 = (android.widget.ImageView) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageView mTweetProfileImage> = $r4;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getImageUrl()>();
+
+        if $r5 == null goto label1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getImageUrl()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: com.nostra13.universalimageloader.core.ImageLoader mImageLoader>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getImageUrl()>();
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$1;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$1: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r6.<com.nostra13.universalimageloader.core.ImageLoader: void loadImage(android.content.Context,java.lang.String,com.nostra13.universalimageloader.core.assist.ImageLoadingListener)>($r0, $r5, $r2);
+
+     label1:
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageView mTweetProfileImage>;
+
+        $r7 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$2;
+
+        specialinvoke $r7.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$2: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r4.<android.widget.ImageView: void setOnClickListener(android.view.View$OnClickListener)>($r7);
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230858);
+
+        $r8 = (android.widget.TextView) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetSendersNameTextView> = $r8;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getFromUserName()>();
+
+        if $r5 == null goto label5;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getFromUserName()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label5;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetSendersNameTextView>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getFromUserName()>();
+
+        virtualinvoke $r8.<android.widget.TextView: void setText(java.lang.CharSequence)>($r5);
+
+     label2:
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230859);
+
+        $r8 = (android.widget.TextView) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetTimestampTextView> = $r8;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getCreationDate()>();
+
+        if $r5 == null goto label3;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getCreationDate()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label3;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetTimestampTextView>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getCreationDate()>();
+
+        virtualinvoke $r8.<android.widget.TextView: void setText(java.lang.CharSequence)>($r5);
+
+     label3:
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230862);
+
+        $r8 = (android.widget.TextView) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetTextTextView> = $r8;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getText()>();
+
+        if $r5 == null goto label4;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getText()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label4;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetTextTextView>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getText()>();
+
+        virtualinvoke $r8.<android.widget.TextView: void setText(java.lang.CharSequence)>($r5);
+
+     label4:
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230861);
+
+        $r9 = (android.widget.ImageButton) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mLaunchSendersProfileImageButton> = $r9;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mLaunchSendersProfileImageButton>;
+
+        $r10 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$3;
+
+        specialinvoke $r10.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$3: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r9.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r10);
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230863);
+
+        $r9 = (android.widget.ImageButton) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mReplyImageButton> = $r9;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mReplyImageButton>;
+
+        $r11 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$4;
+
+        specialinvoke $r11.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$4: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r9.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r11);
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230864);
+
+        $r9 = (android.widget.ImageButton) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mRetweetImageButton> = $r9;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mRetweetImageButton>;
+
+        $r12 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$5;
+
+        specialinvoke $r12.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$5: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r9.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r12);
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230865);
+
+        $r9 = (android.widget.ImageButton) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mFavoritImageButton> = $r9;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mFavoritImageButton>;
+
+        $r13 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$6;
+
+        specialinvoke $r13.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$6: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r9.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r13);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "TwitterTitle");
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.view.View findViewById(int)>(2131230867);
+
+        $r9 = (android.widget.ImageButton) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mPostToTwitterButton> = $r9;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.ImageButton mPostToTwitterButton>;
+
+        $r14 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$7;
+
+        specialinvoke $r14.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$7: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r9.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r14);
+
+        return;
+
+     label5:
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getUserName()>();
+
+        if $r5 == null goto label2;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getUserName()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.widget.TextView mTweetSendersNameTextView>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r5 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getUserName()>();
+
+        virtualinvoke $r8.<android.widget.TextView: void setText(java.lang.CharSequence)>($r5);
+
+        goto label2;
+    }
+
+    private void reTweet(android.app.Activity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.app.Activity $r1;
+        java.lang.String $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$9 $r3;
+        twitter4j.Twitter $r4;
+        twitter4j.auth.Authorization $r5;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$10 $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$9;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$9: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r1.<android.app.Activity: void runOnUiThread(java.lang.Runnable)>($r3);
+
+        return;
+
+     label1:
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter>;
+
+        $r5 = interfaceinvoke $r4.<twitter4j.Twitter: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = interfaceinvoke $r5.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label2;
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void TwitterOAuthLogin(android.app.Activity,int,java.lang.String)>($r0, 1048, "");
+
+        return;
+
+     label2:
+        $r6 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$10;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$10: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void reTweet(android.app.Activity,java.lang.String,a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedInterface)>($r1, $r2, $r6);
+
+        return;
+    }
+
+    private void replyToTweet(java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1, $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$8 $r3;
+        twitter4j.Twitter $r4;
+        twitter4j.auth.Authorization $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$8;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$8: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void runOnUiThread(java.lang.Runnable)>($r3);
+
+        return;
+
+     label1:
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter>;
+
+        $r5 = interfaceinvoke $r4.<twitter4j.Twitter: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = interfaceinvoke $r5.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label2;
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void TwitterOAuthLogin(android.app.Activity,int,java.lang.String)>($r0, 1046, "");
+
+        return;
+
+     label2:
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void replyToTweet(android.app.Activity,java.lang.String,java.lang.String)>($r0, $r1, $r2);
+
+        return;
+    }
+
+    private void statusUpdate(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$16 $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$16;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$16: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.DialogUtils: void twitterStatusUpdateDialog(android.content.Context,java.lang.String,a2z.Mobile.DevConnections.Utils.DialogUtils$TwitterStatusUpdateInterface)>($r0, $r1, $r2);
+
+        return;
+    }
+
+    private void updateTwitterStatus(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void updateTwitterStatus(android.app.Activity,java.lang.String)>($r0, $r1);
+
+        return;
+    }
+
+    protected void onActivityResult(int, int, android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        int $i0, $i1;
+        android.content.Intent $r1;
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$15 $r2;
+        android.os.Bundle $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 := @parameter2: android.content.Intent;
+
+        if -1 != $i1 goto label2;
+
+        if $i0 == 1046 goto label1;
+
+        if $i0 == 1047 goto label1;
+
+        if $i0 == 1048 goto label1;
+
+        if $i0 != 1049 goto label3;
+
+     label1:
+        $r3 = virtualinvoke $r1.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$15;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity$15: void <init>(a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity,android.os.Bundle,int)>($r0, $r3, $i0);
+
+        virtualinvoke $r2.<java.lang.Thread: void start()>();
+
+        return;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity $r0;
+        android.os.Bundle $r1;
+        android.content.Intent $r2;
+        a2z.Mobile.DevConnections.Classes.Tweet $r3;
+        a2z.Mobile.DevConnections.A2zApplication $r4;
+        com.nostra13.universalimageloader.core.ImageLoader $r5;
+        twitter4j.Twitter $r6;
+        boolean $z0;
+        java.lang.String $r7;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("TwitterViewTweetDetailsActivity", "onCreate");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void setContentView(int)>(2130903070);
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r2.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r3 = new a2z.Mobile.DevConnections.Classes.Tweet;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet> = $r3;
+
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r5 = virtualinvoke $r4.<a2z.Mobile.DevConnections.A2zApplication: com.nostra13.universalimageloader.core.ImageLoader getImageLoader()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: com.nostra13.universalimageloader.core.ImageLoader mImageLoader> = $r5;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        $r6 = virtualinvoke $r4.<a2z.Mobile.DevConnections.A2zApplication: twitter4j.Twitter getTwitter()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: twitter4j.Twitter mTwitter> = $r6;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: boolean mIsFavorite> = 0;
+
+        if $r1 == null goto label7;
+
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("from_user_name");
+
+        if $z0 == 0 goto label1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("from_user_name");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setFromUserName(java.lang.String)>($r7);
+
+     label1:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("from_user");
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("from_user");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setUserName(java.lang.String)>($r7);
+
+     label2:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("text");
+
+        if $z0 == 0 goto label3;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("text");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setText(java.lang.String)>($r7);
+
+     label3:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("profile_image_url");
+
+        if $z0 == 0 goto label4;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("profile_image_url");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setimageUrl(java.lang.String)>($r7);
+
+     label4:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("created_at");
+
+        if $z0 == 0 goto label5;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("created_at");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setCreationDate(java.lang.String)>($r7);
+
+     label5:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("from_user_id_str");
+
+        if $z0 == 0 goto label6;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("from_user_id_str");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setmFromUserIdString(java.lang.String)>($r7);
+
+     label6:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("id_str");
+
+        if $z0 == 0 goto label7;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("id_str");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: void setIdString(java.lang.String)>($r7);
+
+     label7:
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void initViews()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: a2z.Mobile.DevConnections.Classes.Tweet mTweet>;
+
+        $r7 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Tweet: java.lang.String getIdString()>();
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: void checkRetweetAndFavoriteTweetStatus(java.lang.String)>($r7);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: int TWITTER_STATUS_UPDATE_AUTH_REQUEST_CODE> = 1047;
+
+        <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: int TWITTER_RETWEET_AUTH_REQUEST_CODE> = 1048;
+
+        <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: int TWITTER_REPLY_AUTH_REQUEST_CODE> = 1046;
+
+        <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: int TWITTER_CREATE_FAVORITE_AUTH_REQUEST_CODE> = 1049;
+
+        <a2z.Mobile.DevConnections.TwitterViewTweetDetailsActivity: java.lang.String LOG_TAG> = "TwitterViewTweetDetailsActivity";
+
+        return;
+    }
+}

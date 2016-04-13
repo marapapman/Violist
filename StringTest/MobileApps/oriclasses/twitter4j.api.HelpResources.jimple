@@ -1,0 +1,15 @@
+public interface  twitter4j.api.HelpResources extends java.lang.Object
+{
+
+    public abstract twitter4j.TwitterAPIConfiguration getAPIConfiguration() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getLanguages() throws twitter4j.TwitterException;
+
+    public abstract java.lang.String getPrivacyPolicy() throws twitter4j.TwitterException;
+
+    public abstract java.util.Map getRateLimitStatus() throws twitter4j.TwitterException;
+
+    public abstract transient java.util.Map getRateLimitStatus(java.lang.String[]) throws twitter4j.TwitterException;
+
+    public abstract java.lang.String getTermsOfService() throws twitter4j.TwitterException;
+}

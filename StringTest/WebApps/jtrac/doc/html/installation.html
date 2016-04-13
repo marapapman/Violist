@@ -1,0 +1,285 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;3.&nbsp;Installation</title><link rel="stylesheet" href="../styles/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.60.1"><link rel="home" href="index.html" title="JTrac"><link rel="up" href="index.html" title="JTrac"><link rel="previous" href="features.html" title="Chapter&nbsp;2.&nbsp;Features"><link rel="next" href="faq.html" title="Chapter&nbsp;4.&nbsp;FAQ"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader"><table width="100%" summary="Navigation footer"><tr><td><a href="http://jtrac.info/"><img style="border:none" src="../images/jtrac-logo.png"></a></td><td align="right"><a href="http://sourceforge.net"><img style="border:none" src="http://sflogo.sourceforge.net/sflogo.php?group_id=162983&amp;type=7"></a></td></tr></table></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="installation"></a>Chapter&nbsp;3.&nbsp;Installation</h2></div></div><div></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-prerequisites"></a>3.1.&nbsp;Prerequisites</h2></div></div><div></div></div><p>    
+                All you require in order to start using JTrac is Java 5 (or higher).  Only a JRE (Java Runtime Environment)
+                is required and not the full-blown JDK (Java Development Kit).
+            </p><p>    
+                There is a good chance that Java is already installed on your system and you can verify whether it is ready 
+                to run JTrac by opening a command prompt and typing the following command:
+            </p><p>
+                </p><pre class="programlisting">
+
+java -version
+                </pre><p>
+            </p><p>
+                If the system responds with a java version that is 1.5 or greater, you are ready to download and run JTrac.
+            </p><p>
+                You can download Java from here: <a href="http://www.java.com/download" target="_top">http://www.java.com/download</a>.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-quick"></a>3.2.&nbsp;Quick Installation</h2></div></div><div></div></div><p>                    
+                Once you have Java you can start using JTrac right away because you do not need to configure a web-application 
+                server or a database.  JTrac embeds both of these (<a href="http://jetty.mortbay.org/" target="_top">Jetty</a> and 
+                <a href="http://www.hsqldb.org/" target="_top">HSQLDB</a>) to make it easy for you to evaluate JTrac.
+            </p><p>            
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+                            First, download the latest release from  
+                            <a href="http://sourceforge.net/project/showfiles.php?group_id=162983&amp;package_id=184104" target="_top">
+                            the JTrac downloads area</a>                           
+                        </p></li><li><p>Extract the zip file into a directory of your choice</p></li><li><p>
+                            Double-click or run "start.bat" to start JTrac
+                        </p></li><li><p>Point your web-browser to <a href="http://localhost/jtrac" target="_top">http://localhost/jtrac</a></p></li><li><p>Sign on with the user name "admin" and password "admin"</p></li><li><p>Start using JTrac</p></li></ul></div><p>                 
+            </p><p>
+                You can use the "stop.bat" script to stop the application.  The "start.bat" file configures the 
+                Jetty server to use port 80 which you can easily change by editing "start.bat".  You may need to do this 
+                if for example JTrac does not start because a web-server (like Apache or IIS) is already running on port 80.
+            </p><p>
+                Remote users should be able to access JTrac over the network by using the machine name instead of "localhost" 
+                in the URL shown above.  If there is a problem, it could be due to a firewall running on the machine where JTrac 
+                is installed - and you may have to reconfigure things so that for example "java.exe" is not blocked.
+            </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-quick-linux"></a>3.2.1.&nbsp;Notes for Linux / Unix users</h3></div></div><div></div></div><p>
+                    If you are not on Windows, you may want to rename the start and stop *.bat files to e.g. *.sh for Linux 
+                    (*.bat is reported to work for Ubuntu).  The commands within the batch files will work unchanged as long as 
+                    Java has been installed correctly i.e. "java" is in the PATH and it is the expected 1.5 or greater version.  
+                    You may need to do things like apply executable permissions to the batch files on Linux, e.g. "chmod +x *.bat".  
+                    And also - unless you have "root" permissions, you may face problems starting services on port 80 etc.
+                </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-quick-othernotes"></a>3.2.2.&nbsp;Security and Backup</h3></div></div><div></div></div><p>
+                    For security reasons, it is best that you change the default "admin" password after installing 
+                    JTrac, especially if you are going to make the application accessible on a public-facing web-site
+                    over the internet.
+                </p><p>
+                    JTrac by default will use a "data" directory that will be automatically created
+                    within the root folder "jtrac".  The data directory will contain the files needed by HSQLDB
+                    (the embedded database) as well as hold uploaded attachments.  When using JTrac in production,
+                    this is the location that you should consider <a href="installation.html#installation-backup" title="3.11.&nbsp;What to Backup">backing-up</a> 
+                    on a regular basis.
+                </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-settings"></a>3.3.&nbsp;Settings</h2></div></div><div></div></div><p>
+                For e-mail notifications to work, an SMTP server needs to be configured in JTrac.
+                Users who have the ADMIN role will be able to access the JTrac configuration settings
+                screen from a link on the "OPTIONS" screen.  Note that you will need to provide values
+                for the "mail.from" and the "jtrac.url.base" properties also, for things like the hyperlinks
+                within e-mail to work properly.  JTrac also supports mail servers that require authentication
+                or secure connections using SSL.  You can refer the descriptions of the available configuration 
+                property settings available from the settings screen as shown below.             
+            </p><p>
+                If you have trouble getting e-mail to work, one of the things to watch out for is whether
+                there is any firewall blocking the communication between JTrac and the mail server - for example
+                you may have a firewall runnning on the machine where JTrac is installed.  It is very common
+                for mail servers to be configured to prevent mail-relay requests from unknown applications or
+                IP addresses so you may need to check with your mail server administrator.
+            </p><p>
+                </p><div class="mediaobject" align="center"><img src="../images/settings.png" align="middle"><div class="caption"><p>The JTrac settings screen where you can configure an e-mail / SMTP server</p></div></div><p>
+            </p><p>
+                JTrac also can lookup and use a JNDI mail session (javax.mail.Session) if required.  If you 
+                provide a JNDI name, JTrac will ignore the SMTP server details provided.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-war"></a>3.4.&nbsp;Using only the WAR file</h2></div></div><div></div></div><p>
+                JTrac is designed so that you can be up and running by just deploying the WAR file into your 
+                existing web-application server.  Note that you need a servlet 2.4 compliant container.  
+                For example, if you have <a href="http://tomcat.apache.org/" target="_top">Apache Tomcat</a> 5.5.X, 
+                you can either copy the WAR file into the [tomcat.home]/webapps folder or choose to upload 
+                the WAR file through the Tomcat console.
+            </p><p>                    
+                JTrac saves database information and uploaded attachments into a directory on the server.
+                This directory is logically called the "jtrac.home".  When you do a "quick-install" of JTrac
+                by just deploying the WAR file, JTrac creates a ".jtrac" folder in the user home folder and
+                uses that location as the home directory.  This is great for quickly evaluating JTrac but
+                when you actually use JTrac in production you should configure the JTrac home directory as 
+                a location that can easily be backed-up for example.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-custom"></a>3.5.&nbsp;Custom Installation</h2></div></div><div></div></div><p>                    
+                To customize the location of "jtrac.home" you have the following three options.  On startup, JTrac tries to
+                detect the value of "jtrac.home", and checks the following configuration options in the order listed below.
+            </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-custom-initprops"></a>3.5.1.&nbsp;Edit the "jtrac-init.properties" file</h3></div></div><div></div></div><p>
+                    If you explode (unzip) the WAR file, you can edit the /WEB-INF/classes/jtrac-init.properties file
+                    and customize the location of "jtrac.home".  Note that you can choose to deploy JTrac as an exploded-war 
+                    and it is not mandatory that you re-package (zip) the WAR file after editing "jtrac-init.properties".
+                </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-custom-servletparams"></a>3.5.2.&nbsp;Set a Servlet context parameter</h3></div></div><div></div></div><p>
+                    For example you can specify the jtrac.home using the Tomcat administration console or as 
+                    follows using a &lt;Context&gt; parameter.                     
+                </p><p>
+                    </p><pre class="programlisting">
+                                                
+&lt;Context docBase="${catalina.home}/jtrac/jtrac.war"&gt;
+    &lt;Parameter name="jtrac.home" value="C:/data/jtrac_home"/&gt;
+&lt;/Context&gt;              
+                    </pre><p>
+                </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-custom-systemparams"></a>3.5.3.&nbsp;Set a System / JVM parameter</h3></div></div><div></div></div><p>
+                    If you can easily set a system property called "jtrac.home" within the environment of your 
+                    application server then you don't need to edit the WAR file.  Please look at the contents of "start.bat" 
+                    to see an example of how the appropriate JVM (Java Virtual Machine) parameters can be set when deploying JTrac.  
+                    For example, if you are using <a href="http://tomcat.apache.org/" target="_top">Apache Tomcat</a> 5.5.X, you can 
+                    set an environment variable called JAVA_OPTS before invoking the startup script (startup.bat / startup.sh).
+                    Here is an example for Tomcat 5.5.X on Windows:                
+                </p><p>
+                    </p><pre class="programlisting">
+
+set JAVA_OPTS=-Djtrac.home=C:/data/jtrac_home -Dfile.encoding=UTF-8
+                    </pre><p>
+                </p><p>
+                    If "jtrac.home" has not been configured in any of the above ways, JTrac will create a folder called
+                    ".jtrac" in the user home directory and proceed to use that as "jtrac.home".
+                </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-database"></a>3.6.&nbsp;Using a different database such as MySQL</h2></div></div><div></div></div><p>                    
+                You can configure the database that JTrac uses by editing the "jtrac.properties" file that JTrac expects
+                within the "jtrac.home" folder.  Note that if JTrac does not find a "jtrac.properties" file in the
+                expected location, JTrac creates a fresh one which is pre-configured for HSQLDB.  The contents of this file
+                are as follows:                
+            </p><p>
+                </p><pre class="programlisting">
+
+database.driver=org.hsqldb.jdbcDriver
+database.url=jdbc:hsqldb:file:${jtrac.home}/db/jtrac
+database.username=sa
+database.password=
+hibernate.dialect=org.hibernate.dialect.HSQLDialect
+hibernate.show_sql=false
+                </pre><p>
+            </p><p>
+                You can change the database values and the hibernate dialect to match the settings of a 
+                database that you have already.  When JTrac starts, it will connect to the database and
+                create the schema if one does not already exist.
+            </p><p>
+                If you edit the "jtrac.properties" file, ensure that there are no trailing spaces in the entries shown above
+                (especially when cutting and pasting from somewhere).  This can save you a lot of frustration!
+            </p><p>
+                Don't forget to make the database driver available for the web-application.  If you are using the bundled
+                Jetty web-app server, this is as simple as copying the jar file into the "lib" folder along with the
+                jetty jar files.  If you are using Tomcat, you can either place the jar file under "shared/lib" or within
+                the "/WEB-INF/lib" folder of the "jtrac" (exploded) WAR itself.
+            </p><p>
+                Given below is a sample jtrac.properties file for MySQL.  Using the default "root" user is obviously
+                not advisable from a security point of view and you should try and have a separate user for the database
+                used by JTrac.
+                </p><pre class="programlisting">
+
+database.driver=com.mysql.jdbc.Driver
+database.url=jdbc:mysql://localhost/jtrac
+database.username=root
+database.password=
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=false
+                </pre><p>
+            </p><p>
+                For MySQL, do not use the "autoReconnect=true" parameter in the MySQL URL, this is 
+                <a href="http://dev.mysql.com/doc/connector/j/en/connector-j-usagenotes-j2ee.html#connector-j-usagenotes-tomcat" target="_top">not recommended</a>
+                by the MySQL team.  The <a href="http://jakarta.apache.org/commons/dbcp/" target="_top">Apache DBCP</a> 
+                connection pool used internally by JTrac is configured to refresh stale database connections.                
+            </p><p>
+                The default query to test idle database connections is "SELECT 1".  This has been reported
+                to not work for databases such as Derby and Progress because they consider this invalid SQL.  You can
+                customize the validation query by adding a "database.validationQuery" property in "jtrac.properties.
+                If you set the validation query to an empty string, this effectively disables the periodic testing of
+                idle database connections that Apache DBCP performs.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-jndi-datasource"></a>3.7.&nbsp;Using a JNDI Datasource</h2></div></div><div></div></div><p>
+                You can provide a JNDI datasource name as an additional property called "database.datasource.jndiname" 
+                in the "jtrac.properties" file.  JTrac will ignore the other database properties in this case.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-ldap"></a>3.8.&nbsp;Configuring LDAP Authentication</h2></div></div><div></div></div><p>
+                A couple of extra entries in "jtrac.properties" are required in order to configure LDAP authentication.
+                JTrac will attempt LDAP authentication if an "ldap.url" config entry is present.
+            </p><p>
+                </p><pre class="programlisting">
+                    
+ldap.url=ldap://myldaphost
+ldap.searchBase=DC=foo,DC=bar,DC=org
+                </pre><p>
+            </p><p>
+                The following additional entry is recommended if you are using Active Directory.  This switches on an 
+                LDAP optimization that is specific to Active Directory.
+            </p><p>
+                </p><pre class="programlisting">
+                    
+ldap.activeDirectoryDomain=MYDOMAIN
+                </pre><p>
+            </p><p>
+                The benefit of LDAP authentication is that users can sign-on to JTrac by using their existing LDAP credentials
+                (username and password).  At the moment, LDAP support is limited to authentication and not authorization.
+                Users still have to be created by an administrator and mapped to the relevant Spaces using the JTrac
+                administration screens before they can start using JTrac.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-cas"></a>3.9.&nbsp;Integrating with CAS for Single Sign On</h2></div></div><div></div></div><p>
+                In order to integrate JTrac with <a href="http://www.ja-sig.org/products/cas/" target="_top">CAS</a>
+                you have to edit a couple of XML files within the "WEB-INF" folder ('web.xml' and 'applicationContext-acegi-cas.xml').
+                The changes that you need to make are described below.
+            </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-cas-webxml"></a>3.9.1.&nbsp;Changes to web.xml</h3></div></div><div></div></div><p>
+                    </p><div class="itemizedlist"><ul type="disc"><li><p>
+                                Change "applicationContext-acegi.xml" to "applicationContext-acegi-cas.xml".
+                                This appears towards the start of the file in the 'contextConfigLocation' context-param.
+                            </p></li><li><p>
+                                Uncomment the filter and filter-mapping XML for the 'acegi' FilterToBeanProxy
+                            </p></li><li><p>
+                                Uncomment the servlet and servlet-mapping XML for the 'casProxy' ProxyTicketReceptor.
+                                You should also uncomment the associated context-param called 'edu.yale.its.tp.cas.proxyUrl'
+                                and customize the value for your environment.
+                            </p></li></ul></div><p> 
+                </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="installation-cas-appcontext"></a>3.9.2.&nbsp;Changes to applicationContext-acegi-cas.xml</h3></div></div><div></div></div><p>
+                    In the XML corresponding to bean id "casProxyTicketValidator" - edit the following
+                    property values to suit your environment:
+                </p><p>
+                    </p><div class="itemizedlist"><ul type="disc"><li><p>
+                                casValidate
+                            </p></li><li><p>
+                                proxyCallbackUrl
+                            </p></li><li><p>
+                                trustStore
+                            </p></li><li><p>
+                                loginUrl
+                            </p></li><li><p>
+                                logoutUrl
+                            </p></li></ul></div><p> 
+                </p><p>
+                    For more details and troubleshooting, you can refer to the 
+                    <a href="http://www.acegisecurity.org/guide/springsecurity.html#cas-client" target="_top">Acegi documentation on CAS integration</a>.
+                </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-windowsservice"></a>3.10.&nbsp;Installing as a Windows Service</h2></div></div><div></div></div><p>
+                Note that this approach can reportedly apply to other operating systems.  If you have been able to do
+                this successfully on Linux or Mac environments, please consider contributing some documentation on this.
+            </p><p>                    
+                If you choose to use the bundled <a href="http://jetty.mortbay.org/" target="_top">Jetty</a> web-application 
+                server, you can easily install JTrac as a Windows service so that it can start automatically when 
+                the host machine is switched on.  One of the big advantages of this is that the console window will be invisible 
+                and will run in the background.  You can therefore avoid the possibility of the Jetty server getting
+                terminated because somebody decided to close "that pesky DOS Window that gets in the way".  Having JTrac
+                start automatically without requiring someone to log-in is ideal when you have a server that may be
+                restarted occasionally due to power outages or maintenance.
+            </p><p>
+                JTrac can be configured as a Windows service by using the 
+                <a href="http://wrapper.tanukisoftware.org/" target="_top">Java Service Wrapper</a> project.  For convenience, 
+                the JTrac distribution contains a "wrapper.conf" file in the "etc" folder that is pre-configured for 
+                the Java Service Wrapper.  But first you have to download the Java Service Wrapper distribution separately.
+                Note that the Java Service Wrapper project supports other operating systems such as Linux or Mac also.
+            </p><p>
+                Place some of the files from the Java Service Wrapper distribution into the JTrac folder structure
+                as follows:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>From the "bin" folder, copy "wrapper.exe" to the "jtrac" root folder</p></li><li><p>From the "lib" folder, copy "wrapper.jar" and "wrapper.dll" into the "jtrac/etc" folder</p></li></ul></div><p>                 
+            </p><p>
+                To install JTrac as a windows service, open a command prompt, change to the "jtrac" directory
+                (where you extracted the JTrac distribution) and run the following command:
+            </p><p>
+                </p><pre class="programlisting">
+
+wrapper.exe -i etc/wrapper.conf
+                </pre><p>
+            </p><p>
+                This will install a windows service called "JTrac-Jetty".  You can now go to the Windows -
+                Control Panel :: Administrative Tools :: Services dialog to start the "JTrac-Jetty" service.
+                Note that this service is configured to automatically start when Windows starts, by default.
+                To remove the service, you can use the following command:
+            </p><p>
+                </p><pre class="programlisting">
+
+wrapper.exe -r etc/wrapper.conf
+                </pre><p>
+            </p><p>
+                The "wrapper.conf" file in the "etc" folder can be modified in case you need JTrac to run
+                on a different port from the default (80).  Look for the "-Djetty.port=80" entry.
+                When running as a service under the Java Service Wrapper, you can look at the
+                "wrapper.log" file in the "jtrac/logs" folder for troubleshooting.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-backup"></a>3.11.&nbsp;What to Backup</h2></div></div><div></div></div><p>
+                Although in practice JTrac has been found to be extremely stable in production - to safeguard against
+                hardware failures, you should regularly backup the database and stored attachments.  If you are using JTrac with 
+                the embedded HSQLDB database, backing up the contents of "jtrac.home" will be sufficient.
+                The HSQLDB data will be stored as files in a directory called "db" under the JTrac home.
+            </p><p>    
+                If you are using the JTrac distribution as-is, i.e. if you are using the bundled Jetty application
+                server - the JTrac home directory will be called "data" and this is created automatically under the
+                folder where you un-zipped JTrac.                
+            </p><p>
+                Of course, if you are using a different database you will have to backup the database separately.
+                The "jtrac.home" would still need to be backed up because this is where uploaded attachments are stored.                
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation-upgrading"></a>3.12.&nbsp;Upgrading</h2></div></div><div></div></div><p>
+                Please refer to the "<a href="upgrading.html" title="Chapter&nbsp;7.&nbsp;Upgrading and Database Migration">upgrading</a>" section of this document.
+            </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="features.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="index.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="faq.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Features&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;FAQ</td></tr></table></div></body></html>

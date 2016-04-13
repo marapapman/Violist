@@ -1,0 +1,308 @@
+class a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask extends android.os.AsyncTask
+{
+    final a2z.Mobile.DevConnections.SplashActivity this$0;
+
+    private void <init>(a2z.Mobile.DevConnections.SplashActivity)
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+        a2z.Mobile.DevConnections.SplashActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.SplashActivity;
+
+        $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: a2z.Mobile.DevConnections.SplashActivity this$0> = $r1;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        return;
+    }
+
+    void <init>(a2z.Mobile.DevConnections.SplashActivity, a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask)
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0, $r2;
+        a2z.Mobile.DevConnections.SplashActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.SplashActivity;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: void <init>(a2z.Mobile.DevConnections.SplashActivity)>($r1);
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void $r2;
+        java.lang.Void[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.Void[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: java.lang.Void doInBackground(java.lang.Void[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.Void[])
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+        java.lang.Void[] $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2, $r3;
+        java.lang.Exception $r4, $r6, $r21;
+        java.io.IOException $r5;
+        org.apache.http.client.methods.HttpGet $r7;
+        org.apache.http.impl.client.DefaultHttpClient $r8;
+        android.content.Context $r9;
+        java.lang.String $r10, $r11, $r12;
+        java.lang.StringBuilder $r13;
+        a2z.Mobile.DevConnections.SplashActivity $r14;
+        boolean $z0;
+        org.apache.http.HttpResponse $r15;
+        org.apache.http.StatusLine $r16;
+        int $i0;
+        org.apache.http.HttpEntity $r17;
+        java.io.InputStream $r18;
+        java.lang.Throwable $r19;
+        java.lang.InterruptedException $r20;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: java.lang.Void[];
+
+        $r2 = null;
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "a2zExpoServiceUrl");
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "DBGUID");
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        $r12 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "EventID");
+
+        $r13 = new java.lang.StringBuilder;
+
+        $r10 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r10);
+
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>($r10);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/getChirpESqlDB/");
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+        $r12 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r9, "UserID");
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+     label01:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void downloadFileFromURL(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean)>($r9, "walkingMapSample.pdf", "package", "walkingMapSample.pdf", 0);
+
+     label02:
+        $r3 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r9 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+     label03:
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>($r9);
+
+     label04:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT BoothID from Booth LIMIT 1;");
+
+     label05:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+     label06:
+        $r14 = $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: a2z.Mobile.DevConnections.SplashActivity this$0>;
+
+     label07:
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.SplashActivity: boolean access$0(a2z.Mobile.DevConnections.SplashActivity)>($r14);
+
+        if $z0 != 0 goto label19;
+
+        staticinvoke <java.lang.Thread: void sleep(long)>(3000L);
+
+     label08:
+        return null;
+
+     label09:
+        $r5 := @caughtexception;
+
+        virtualinvoke $r5.<java.io.IOException: void printStackTrace()>();
+
+        goto label02;
+
+     label10:
+        $r4 := @caughtexception;
+
+     label11:
+        $r8 = new org.apache.http.impl.client.DefaultHttpClient;
+
+     label12:
+        specialinvoke $r8.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r7 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r7.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r12);
+
+        $r15 = interfaceinvoke $r8.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r7);
+
+        $r16 = interfaceinvoke $r15.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r16.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 != 200 goto label13;
+
+        $r17 = interfaceinvoke $r15.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r18 = interfaceinvoke $r17.<org.apache.http.HttpEntity: java.io.InputStream getContent()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.DataHandler: void updateDatabase(java.io.InputStream)>($r18);
+
+     label13:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        goto label06;
+
+     label14:
+        $r6 := @caughtexception;
+
+     label15:
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("SplashActivity - AsyncTask", "Error downloading database", $r6);
+
+     label16:
+        goto label13;
+
+     label17:
+        $r19 := @caughtexception;
+
+     label18:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r19;
+
+     label19:
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("****************Splash thread sleep*********************", "thread sleep bypassed");
+
+     label20:
+        goto label08;
+
+     label21:
+        $r20 := @caughtexception;
+
+        virtualinvoke $r20.<java.lang.InterruptedException: void printStackTrace()>();
+
+        goto label08;
+
+     label22:
+        $r19 := @caughtexception;
+
+        $r2 = $r3;
+
+        goto label18;
+
+     label23:
+        $r21 := @caughtexception;
+
+        $r2 = $r3;
+
+        goto label11;
+
+        catch java.io.IOException from label01 to label02 with label09;
+        catch java.lang.Exception from label03 to label04 with label10;
+        catch java.lang.Throwable from label02 to label04 with label17;
+        catch java.lang.Exception from label04 to label05 with label23;
+        catch java.lang.Throwable from label04 to label05 with label22;
+        catch java.lang.InterruptedException from label07 to label08 with label21;
+        catch java.lang.Exception from label12 to label13 with label14;
+        catch java.lang.Throwable from label11 to label13 with label17;
+        catch java.lang.Throwable from label15 to label16 with label17;
+        catch java.lang.InterruptedException from label19 to label20 with label21;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+        java.lang.Object $r1;
+        java.lang.Void $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Void) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: void onPostExecute(java.lang.Void)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+        java.lang.Void $r1;
+        android.content.Intent $r2;
+        boolean $z0;
+        a2z.Mobile.DevConnections.SplashActivity $r3;
+        android.content.Context $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        staticinvoke <android.util.Log: int i(java.lang.String,java.lang.String)>("Splash onPostexecute", "onPostExecute");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: a2z.Mobile.DevConnections.SplashActivity this$0>;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.SplashActivity: boolean access$0(a2z.Mobile.DevConnections.SplashActivity)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = <a2z.Mobile.DevConnections.SplashActivity: android.content.Context context>;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Splash");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("CheckForDBUpdate", "true");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask: a2z.Mobile.DevConnections.SplashActivity this$0>;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.SplashActivity: void startActivity(android.content.Intent)>($r2);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SplashActivity$SplashActivityTask;
+
+        return;
+    }
+}

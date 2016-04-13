@@ -1,0 +1,202 @@
+public final class a2z.Mobile.DevConnections.R$drawable extends java.lang.Object
+{
+    public static final int appstorelogo;
+    public static final int arrow_down_float;
+    public static final int background;
+    public static final int backgroundstate;
+    public static final int banner_ad;
+    public static final int bird_blue_48;
+    public static final int button_map_it;
+    public static final int buzz_icon;
+    public static final int calendar;
+    public static final int calendar36;
+    public static final int calendar_icon;
+    public static final int checkedbox;
+    public static final int content_icon;
+    public static final int enhanced_badge;
+    public static final int event_info_icon;
+    public static final int exhibitors_icon;
+    public static final int facebook_icon;
+    public static final int favorite;
+    public static final int favorite_hover;
+    public static final int favorite_off_large;
+    public static final int favorite_on;
+    public static final int favorite_on_large;
+    public static final int hardcodedimg;
+    public static final int ic_menu_compose;
+    public static final int ic_menu_delete;
+    public static final int ic_menu_save;
+    public static final int icon;
+    public static final int linkedin_icon;
+    public static final int local_info_icon;
+    public static final int login_icon;
+    public static final int map1000229event483;
+    public static final int map1event1;
+    public static final int map2event1;
+    public static final int maps_icon;
+    public static final int my_background;
+    public static final int my_planner_icon;
+    public static final int mynotes_icon;
+    public static final int news_icon;
+    public static final int nocompany;
+    public static final int noimage;
+    public static final int notes_icon;
+    public static final int pencil;
+    public static final int personalized_icon;
+    public static final int products_icon;
+    public static final int red_dot;
+    public static final int reply;
+    public static final int reply_hover;
+    public static final int retweet;
+    public static final int retweet_hover;
+    public static final int retweet_on;
+    public static final int schedule_icon;
+    public static final int speakers_icon;
+    public static final int specials_icon;
+    public static final int splash;
+    public static final int sponsor_icon;
+    public static final int sync_icon;
+    public static final int tracks_icon;
+    public static final int twitter_icon;
+    public static final int uncheckedbox;
+    public static final int videogallery_icon;
+    public static final int youtube_icon;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$drawable $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$drawable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$drawable: int youtube_icon> = 2130837564;
+
+        <a2z.Mobile.DevConnections.R$drawable: int videogallery_icon> = 2130837563;
+
+        <a2z.Mobile.DevConnections.R$drawable: int uncheckedbox> = 2130837562;
+
+        <a2z.Mobile.DevConnections.R$drawable: int twitter_icon> = 2130837561;
+
+        <a2z.Mobile.DevConnections.R$drawable: int tracks_icon> = 2130837560;
+
+        <a2z.Mobile.DevConnections.R$drawable: int sync_icon> = 2130837559;
+
+        <a2z.Mobile.DevConnections.R$drawable: int sponsor_icon> = 2130837558;
+
+        <a2z.Mobile.DevConnections.R$drawable: int splash> = 2130837557;
+
+        <a2z.Mobile.DevConnections.R$drawable: int specials_icon> = 2130837556;
+
+        <a2z.Mobile.DevConnections.R$drawable: int speakers_icon> = 2130837555;
+
+        <a2z.Mobile.DevConnections.R$drawable: int schedule_icon> = 2130837554;
+
+        <a2z.Mobile.DevConnections.R$drawable: int retweet_on> = 2130837553;
+
+        <a2z.Mobile.DevConnections.R$drawable: int retweet_hover> = 2130837552;
+
+        <a2z.Mobile.DevConnections.R$drawable: int retweet> = 2130837551;
+
+        <a2z.Mobile.DevConnections.R$drawable: int reply_hover> = 2130837550;
+
+        <a2z.Mobile.DevConnections.R$drawable: int reply> = 2130837549;
+
+        <a2z.Mobile.DevConnections.R$drawable: int red_dot> = 2130837548;
+
+        <a2z.Mobile.DevConnections.R$drawable: int products_icon> = 2130837547;
+
+        <a2z.Mobile.DevConnections.R$drawable: int personalized_icon> = 2130837546;
+
+        <a2z.Mobile.DevConnections.R$drawable: int pencil> = 2130837545;
+
+        <a2z.Mobile.DevConnections.R$drawable: int notes_icon> = 2130837544;
+
+        <a2z.Mobile.DevConnections.R$drawable: int noimage> = 2130837543;
+
+        <a2z.Mobile.DevConnections.R$drawable: int nocompany> = 2130837542;
+
+        <a2z.Mobile.DevConnections.R$drawable: int news_icon> = 2130837541;
+
+        <a2z.Mobile.DevConnections.R$drawable: int mynotes_icon> = 2130837540;
+
+        <a2z.Mobile.DevConnections.R$drawable: int my_planner_icon> = 2130837539;
+
+        <a2z.Mobile.DevConnections.R$drawable: int my_background> = 2130837538;
+
+        <a2z.Mobile.DevConnections.R$drawable: int maps_icon> = 2130837537;
+
+        <a2z.Mobile.DevConnections.R$drawable: int map2event1> = 2130837536;
+
+        <a2z.Mobile.DevConnections.R$drawable: int map1event1> = 2130837535;
+
+        <a2z.Mobile.DevConnections.R$drawable: int map1000229event483> = 2130837534;
+
+        <a2z.Mobile.DevConnections.R$drawable: int login_icon> = 2130837533;
+
+        <a2z.Mobile.DevConnections.R$drawable: int local_info_icon> = 2130837532;
+
+        <a2z.Mobile.DevConnections.R$drawable: int linkedin_icon> = 2130837531;
+
+        <a2z.Mobile.DevConnections.R$drawable: int icon> = 2130837530;
+
+        <a2z.Mobile.DevConnections.R$drawable: int ic_menu_save> = 2130837529;
+
+        <a2z.Mobile.DevConnections.R$drawable: int ic_menu_delete> = 2130837528;
+
+        <a2z.Mobile.DevConnections.R$drawable: int ic_menu_compose> = 2130837527;
+
+        <a2z.Mobile.DevConnections.R$drawable: int hardcodedimg> = 2130837526;
+
+        <a2z.Mobile.DevConnections.R$drawable: int favorite_on_large> = 2130837525;
+
+        <a2z.Mobile.DevConnections.R$drawable: int favorite_on> = 2130837524;
+
+        <a2z.Mobile.DevConnections.R$drawable: int favorite_off_large> = 2130837523;
+
+        <a2z.Mobile.DevConnections.R$drawable: int favorite_hover> = 2130837522;
+
+        <a2z.Mobile.DevConnections.R$drawable: int favorite> = 2130837521;
+
+        <a2z.Mobile.DevConnections.R$drawable: int facebook_icon> = 2130837520;
+
+        <a2z.Mobile.DevConnections.R$drawable: int exhibitors_icon> = 2130837519;
+
+        <a2z.Mobile.DevConnections.R$drawable: int event_info_icon> = 2130837518;
+
+        <a2z.Mobile.DevConnections.R$drawable: int enhanced_badge> = 2130837517;
+
+        <a2z.Mobile.DevConnections.R$drawable: int content_icon> = 2130837516;
+
+        <a2z.Mobile.DevConnections.R$drawable: int checkedbox> = 2130837515;
+
+        <a2z.Mobile.DevConnections.R$drawable: int calendar_icon> = 2130837514;
+
+        <a2z.Mobile.DevConnections.R$drawable: int calendar36> = 2130837513;
+
+        <a2z.Mobile.DevConnections.R$drawable: int calendar> = 2130837512;
+
+        <a2z.Mobile.DevConnections.R$drawable: int buzz_icon> = 2130837511;
+
+        <a2z.Mobile.DevConnections.R$drawable: int button_map_it> = 2130837510;
+
+        <a2z.Mobile.DevConnections.R$drawable: int bird_blue_48> = 2130837509;
+
+        <a2z.Mobile.DevConnections.R$drawable: int banner_ad> = 2130837508;
+
+        <a2z.Mobile.DevConnections.R$drawable: int backgroundstate> = 2130837507;
+
+        <a2z.Mobile.DevConnections.R$drawable: int background> = 2130837506;
+
+        <a2z.Mobile.DevConnections.R$drawable: int arrow_down_float> = 2130837505;
+
+        <a2z.Mobile.DevConnections.R$drawable: int appstorelogo> = 2130837504;
+
+        return;
+    }
+}

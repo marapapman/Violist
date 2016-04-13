@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- Spring-Modules Lucene support configuration as Spring context -->
+
+<beans>
+    
+    <bean id="indexDirectory" class="org.springmodules.lucene.index.support.FSDirectoryFactoryBean">
+        <property name="location" value="file:///${jtrac.home}/indexes"/>
+    </bean>
+    
+    <bean id="indexFactory" class="org.springmodules.lucene.index.support.SimpleIndexFactoryBean">
+        <property name="directory" ref="indexDirectory"/>
+        <property name="analyzer" ref="analyzer"/>
+        <property name="create" value="true"/>
+    </bean>
+    
+    <bean id="indexer" class="info.jtrac.lucene.Indexer">
+        <property name="indexFactory" ref="indexFactory"/>
+    </bean>
+    
+    <bean id="searcherFactory" class="org.springmodules.lucene.search.factory.SimpleSearcherFactory">
+        <property name="directory" ref="indexDirectory"/>
+    </bean>
+    
+    <bean id="indexSearcher" class="info.jtrac.lucene.IndexSearcher">
+        <property name="searcherFactory" ref="searcherFactory"/>
+        <property name="analyzer" ref="analyzer"/>
+    </bean>
+    
+    <bean id="analyzer" class="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
+           
+</beans>
+
+

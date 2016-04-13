@@ -1,0 +1,117 @@
+public final class twitter4j.conf.ConfigurationContext extends java.lang.Object
+{
+    public static final java.lang.String CONFIGURATION_IMPL;
+    public static final java.lang.String DEFAULT_CONFIGURATION_FACTORY;
+    private static final twitter4j.conf.ConfigurationFactory factory;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+        java.lang.ClassNotFoundException $r1;
+        java.lang.IllegalAccessException $r2;
+        java.lang.InstantiationException $r3;
+        java.lang.SecurityException $r4;
+        java.lang.Class $r5;
+        java.lang.Object $r6;
+        twitter4j.conf.ConfigurationFactory $r7;
+        java.lang.AssertionError $r8;
+
+        <twitter4j.conf.ConfigurationContext: java.lang.String DEFAULT_CONFIGURATION_FACTORY> = "twitter4j.conf.PropertyConfigurationFactory";
+
+        <twitter4j.conf.ConfigurationContext: java.lang.String CONFIGURATION_IMPL> = "twitter4j.configurationFactory";
+
+     label1:
+        $r0 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String,java.lang.String)>("twitter4j.configurationFactory", "twitter4j.conf.PropertyConfigurationFactory");
+
+     label2:
+        $r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.Object newInstance()>();
+
+     label3:
+        $r7 = (twitter4j.conf.ConfigurationFactory) $r6;
+
+        <twitter4j.conf.ConfigurationContext: twitter4j.conf.ConfigurationFactory factory> = $r7;
+
+        return;
+
+     label4:
+        $r4 := @caughtexception;
+
+        $r0 = "twitter4j.conf.PropertyConfigurationFactory";
+
+        goto label2;
+
+     label5:
+        $r1 := @caughtexception;
+
+        $r8 = new java.lang.AssertionError;
+
+        specialinvoke $r8.<java.lang.AssertionError: void <init>(java.lang.Object)>($r1);
+
+        throw $r8;
+
+     label6:
+        $r3 := @caughtexception;
+
+        $r8 = new java.lang.AssertionError;
+
+        specialinvoke $r8.<java.lang.AssertionError: void <init>(java.lang.Object)>($r3);
+
+        throw $r8;
+
+     label7:
+        $r2 := @caughtexception;
+
+        $r8 = new java.lang.AssertionError;
+
+        specialinvoke $r8.<java.lang.AssertionError: void <init>(java.lang.Object)>($r2);
+
+        throw $r8;
+
+        return;
+
+        catch java.lang.SecurityException from label1 to label2 with label4;
+        catch java.lang.ClassNotFoundException from label2 to label3 with label5;
+        catch java.lang.InstantiationException from label2 to label3 with label6;
+        catch java.lang.IllegalAccessException from label2 to label3 with label7;
+    }
+
+    public void <init>()
+    {
+        twitter4j.conf.ConfigurationContext $r0;
+
+        $r0 := @this: twitter4j.conf.ConfigurationContext;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static twitter4j.conf.Configuration getInstance()
+    {
+        twitter4j.conf.ConfigurationFactory $r0;
+        twitter4j.conf.Configuration $r1;
+
+        $r0 = <twitter4j.conf.ConfigurationContext: twitter4j.conf.ConfigurationFactory factory>;
+
+        $r1 = interfaceinvoke $r0.<twitter4j.conf.ConfigurationFactory: twitter4j.conf.Configuration getInstance()>();
+
+        return $r1;
+    }
+
+    public static twitter4j.conf.Configuration getInstance(java.lang.String)
+    {
+        java.lang.String $r0;
+        twitter4j.conf.ConfigurationFactory $r1;
+        twitter4j.conf.Configuration $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = <twitter4j.conf.ConfigurationContext: twitter4j.conf.ConfigurationFactory factory>;
+
+        $r2 = interfaceinvoke $r1.<twitter4j.conf.ConfigurationFactory: twitter4j.conf.Configuration getInstance(java.lang.String)>($r0);
+
+        return $r2;
+    }
+}

@@ -1,0 +1,317 @@
+public class a2z.Mobile.DevConnections.Classes.Navigation extends java.lang.Object
+{
+    public java.lang.String _AdditionalInfo;
+    private java.lang.String _ImageName;
+    private int _ImageResourceID;
+    private java.lang.String _ImageURL;
+    private java.lang.String _Name;
+    private java.lang.Integer _NavID;
+    private java.lang.Integer _SortOrder;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.Integer $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _NavID> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _Name> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: int _ImageResourceID> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _ImageURL> = "http://dev5.a2zinc.net/iPhone%20App/SponsorIcon.png";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _ImageName> = "";
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _SortOrder> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _AdditionalInfo> = "";
+
+        return;
+    }
+
+    public void <init>(java.lang.Integer, java.lang.String, int, int)
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.Integer $r1;
+        java.lang.String $r2;
+        int $i0, $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r1 := @parameter0: java.lang.Integer;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _NavID> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _Name> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: int _ImageResourceID> = $i0;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _SortOrder> = $r1;
+
+        return;
+    }
+
+    public void <init>(java.lang.Integer, java.lang.String, int, int, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.Integer $r1;
+        java.lang.String $r2, $r3;
+        int $i0, $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r1 := @parameter0: java.lang.Integer;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        $r3 := @parameter4: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _NavID> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _Name> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: int _ImageResourceID> = $i0;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _SortOrder> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _AdditionalInfo> = $r3;
+
+        return;
+    }
+
+    public static java.util.ArrayList getList()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.util.ArrayList $r1;
+        java.lang.Integer $r2;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Tracks", 2130837560, 6);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Sessions", 2130837554, 4);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Speakers", 2130837555, 5);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(34);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "Presentations", 2130837541, 34, "http://www.devconnections.com/presentations");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(30);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "Twitter", 2130837561, 30, "https://twitter.com/devconnections");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Buzz", 2130837511, 12);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "My Planner", 2130837539, 3);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(32);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "Facebook", 2130837520, 32, "https://www.facebook.com/devconnections");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(35);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "Event Info", 2130837518, 35, "http://eventservices.penton.com/events/2013/DevConnections/mobile/DEV14_eventinfo.html");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Map of Venue", 2130837537, 2);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "My Notes", 2130837545, 21);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(22);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r2, "Login/out", 2130837533, 22);
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(35);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "Local Info", 2130837516, 35, "http://www.lvcva.com/");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(33);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int,java.lang.String)>($r2, "YouTube", 2130837564, 33, "http://youtube.com/itdevconnections");
+
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.String AdditionalInfo()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _AdditionalInfo>;
+
+        return r1;
+    }
+
+    public int Image()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        int i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: int _ImageResourceID>;
+
+        return i0;
+    }
+
+    public java.lang.String ImageName()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _ImageName>;
+
+        return r1;
+    }
+
+    public java.lang.String ImageURL()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _ImageURL>;
+
+        return r1;
+    }
+
+    public java.lang.String Name()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String _Name>;
+
+        return r1;
+    }
+
+    public java.lang.Integer NavID()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _NavID>;
+
+        return r1;
+    }
+
+    public java.lang.Integer SortOrder()
+    {
+        a2z.Mobile.DevConnections.Classes.Navigation $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Navigation;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer _SortOrder>;
+
+        return r1;
+    }
+}

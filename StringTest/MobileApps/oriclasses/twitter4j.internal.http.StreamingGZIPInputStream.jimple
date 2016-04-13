@@ -1,0 +1,35 @@
+final class twitter4j.internal.http.StreamingGZIPInputStream extends java.util.zip.GZIPInputStream
+{
+    private final java.io.InputStream wrapped;
+
+    public void <init>(java.io.InputStream) throws java.io.IOException
+    {
+        twitter4j.internal.http.StreamingGZIPInputStream $r0;
+        java.io.InputStream $r1;
+
+        $r0 := @this: twitter4j.internal.http.StreamingGZIPInputStream;
+
+        $r1 := @parameter0: java.io.InputStream;
+
+        specialinvoke $r0.<java.util.zip.GZIPInputStream: void <init>(java.io.InputStream)>($r1);
+
+        $r0.<twitter4j.internal.http.StreamingGZIPInputStream: java.io.InputStream wrapped> = $r1;
+
+        return;
+    }
+
+    public int available() throws java.io.IOException
+    {
+        twitter4j.internal.http.StreamingGZIPInputStream $r0;
+        java.io.InputStream $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.http.StreamingGZIPInputStream;
+
+        $r1 = $r0.<twitter4j.internal.http.StreamingGZIPInputStream: java.io.InputStream wrapped>;
+
+        $i0 = virtualinvoke $r1.<java.io.InputStream: int available()>();
+
+        return $i0;
+    }
+}

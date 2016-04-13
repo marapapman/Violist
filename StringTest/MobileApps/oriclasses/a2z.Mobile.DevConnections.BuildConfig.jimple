@@ -1,0 +1,15 @@
+public final class a2z.Mobile.DevConnections.BuildConfig extends java.lang.Object
+{
+    public static final boolean DEBUG;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.BuildConfig $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuildConfig;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

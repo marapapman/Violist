@@ -1,0 +1,41 @@
+public interface  twitter4j.Status extends java.lang.Object implements java.lang.Comparable, twitter4j.TwitterResponse, twitter4j.EntitySupport, java.io.Serializable
+{
+
+    public abstract long[] getContributors();
+
+    public abstract java.util.Date getCreatedAt();
+
+    public abstract long getCurrentUserRetweetId();
+
+    public abstract twitter4j.GeoLocation getGeoLocation();
+
+    public abstract long getId();
+
+    public abstract java.lang.String getInReplyToScreenName();
+
+    public abstract long getInReplyToStatusId();
+
+    public abstract long getInReplyToUserId();
+
+    public abstract twitter4j.Place getPlace();
+
+    public abstract long getRetweetCount();
+
+    public abstract twitter4j.Status getRetweetedStatus();
+
+    public abstract java.lang.String getSource();
+
+    public abstract java.lang.String getText();
+
+    public abstract twitter4j.User getUser();
+
+    public abstract boolean isFavorited();
+
+    public abstract boolean isPossiblySensitive();
+
+    public abstract boolean isRetweet();
+
+    public abstract boolean isRetweetedByMe();
+
+    public abstract boolean isTruncated();
+}

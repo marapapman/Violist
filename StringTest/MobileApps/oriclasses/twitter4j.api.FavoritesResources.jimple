@@ -1,0 +1,19 @@
+public interface  twitter4j.api.FavoritesResources extends java.lang.Object
+{
+
+    public abstract twitter4j.Status createFavorite(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.Status destroyFavorite(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites(long, twitter4j.Paging) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites(java.lang.String, twitter4j.Paging) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getFavorites(twitter4j.Paging) throws twitter4j.TwitterException;
+}

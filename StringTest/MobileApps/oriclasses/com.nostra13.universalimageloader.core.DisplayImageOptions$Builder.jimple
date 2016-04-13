@@ -1,0 +1,342 @@
+public class com.nostra13.universalimageloader.core.DisplayImageOptions$Builder extends java.lang.Object
+{
+    private android.graphics.Bitmap$Config bitmapConfig;
+    private boolean cacheInMemory;
+    private boolean cacheOnDisc;
+    private int delayBeforeLoading;
+    private com.nostra13.universalimageloader.core.display.BitmapDisplayer displayer;
+    private int imageForEmptyUri;
+    private com.nostra13.universalimageloader.core.assist.ImageScaleType imageScaleType;
+    private boolean resetViewBeforeLoading;
+    private int stubImage;
+
+    public void <init>()
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.assist.ImageScaleType $r1;
+        com.nostra13.universalimageloader.core.display.BitmapDisplayer $r2;
+        android.graphics.Bitmap$Config $r3;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int stubImage> = 0;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int imageForEmptyUri> = 0;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean resetViewBeforeLoading> = 0;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheInMemory> = 0;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheOnDisc> = 0;
+
+        $r1 = <com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType IN_SAMPLE_POWER_OF_2>;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.assist.ImageScaleType imageScaleType> = $r1;
+
+        $r3 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config ARGB_8888>;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: android.graphics.Bitmap$Config bitmapConfig> = $r3;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int delayBeforeLoading> = 0;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.DefaultConfigurationFactory: com.nostra13.universalimageloader.core.display.BitmapDisplayer createBitmapDisplayer()>();
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.display.BitmapDisplayer displayer> = $r2;
+
+        return;
+    }
+
+    static int access$000(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int i0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        i0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int stubImage>;
+
+        return i0;
+    }
+
+    static int access$100(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int i0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        i0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int imageForEmptyUri>;
+
+        return i0;
+    }
+
+    static boolean access$200(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        z0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean resetViewBeforeLoading>;
+
+        return z0;
+    }
+
+    static boolean access$300(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        z0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheInMemory>;
+
+        return z0;
+    }
+
+    static boolean access$400(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        z0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheOnDisc>;
+
+        return z0;
+    }
+
+    static com.nostra13.universalimageloader.core.assist.ImageScaleType access$500(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.assist.ImageScaleType r1;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        r1 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.assist.ImageScaleType imageScaleType>;
+
+        return r1;
+    }
+
+    static android.graphics.Bitmap$Config access$600(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        android.graphics.Bitmap$Config r1;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        r1 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: android.graphics.Bitmap$Config bitmapConfig>;
+
+        return r1;
+    }
+
+    static int access$700(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int i0;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        i0 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int delayBeforeLoading>;
+
+        return i0;
+    }
+
+    static com.nostra13.universalimageloader.core.display.BitmapDisplayer access$800(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.display.BitmapDisplayer r1;
+
+        $r0 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        r1 = $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.display.BitmapDisplayer displayer>;
+
+        return r1;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder bitmapConfig(android.graphics.Bitmap$Config)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        android.graphics.Bitmap$Config $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r1 := @parameter0: android.graphics.Bitmap$Config;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: android.graphics.Bitmap$Config bitmapConfig> = $r1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions build()
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.DisplayImageOptions $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r1 = new com.nostra13.universalimageloader.core.DisplayImageOptions;
+
+        specialinvoke $r1.<com.nostra13.universalimageloader.core.DisplayImageOptions: void <init>(com.nostra13.universalimageloader.core.DisplayImageOptions$Builder,com.nostra13.universalimageloader.core.DisplayImageOptions$1)>($r0, null);
+
+        return $r1;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheInMemory()
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheInMemory> = 1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheOnDisc()
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheOnDisc> = 1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cloneFrom(com.nostra13.universalimageloader.core.DisplayImageOptions)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.DisplayImageOptions $r1;
+        int $i0;
+        boolean $z0;
+        com.nostra13.universalimageloader.core.assist.ImageScaleType $r2;
+        android.graphics.Bitmap$Config $r3;
+        com.nostra13.universalimageloader.core.display.BitmapDisplayer $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r1 := @parameter0: com.nostra13.universalimageloader.core.DisplayImageOptions;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: int access$900(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int stubImage> = $i0;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: int access$1000(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int imageForEmptyUri> = $i0;
+
+        $z0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: boolean access$1100(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean resetViewBeforeLoading> = $z0;
+
+        $z0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: boolean access$1200(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheInMemory> = $z0;
+
+        $z0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: boolean access$1300(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean cacheOnDisc> = $z0;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: com.nostra13.universalimageloader.core.assist.ImageScaleType access$1400(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.assist.ImageScaleType imageScaleType> = $r2;
+
+        $r3 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: android.graphics.Bitmap$Config access$1500(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: android.graphics.Bitmap$Config bitmapConfig> = $r3;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: int access$1600(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int delayBeforeLoading> = $i0;
+
+        $r4 = staticinvoke <com.nostra13.universalimageloader.core.DisplayImageOptions: com.nostra13.universalimageloader.core.display.BitmapDisplayer access$1700(com.nostra13.universalimageloader.core.DisplayImageOptions)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.display.BitmapDisplayer displayer> = $r4;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder delayBeforeLoading(int)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int $i0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int delayBeforeLoading> = $i0;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder displayer(com.nostra13.universalimageloader.core.display.BitmapDisplayer)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.display.BitmapDisplayer $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r1 := @parameter0: com.nostra13.universalimageloader.core.display.BitmapDisplayer;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.display.BitmapDisplayer displayer> = $r1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder imageScaleType(com.nostra13.universalimageloader.core.assist.ImageScaleType)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        com.nostra13.universalimageloader.core.assist.ImageScaleType $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r1 := @parameter0: com.nostra13.universalimageloader.core.assist.ImageScaleType;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.assist.ImageScaleType imageScaleType> = $r1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder resetViewBeforeLoading()
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: boolean resetViewBeforeLoading> = 1;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showImageForEmptyUri(int)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int $i0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int imageForEmptyUri> = $i0;
+
+        return $r0;
+    }
+
+    public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showStubImage(int)
+    {
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r0;
+        int $i0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: int stubImage> = $i0;
+
+        return $r0;
+    }
+}

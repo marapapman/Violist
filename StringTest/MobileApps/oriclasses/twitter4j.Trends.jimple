@@ -1,0 +1,11 @@
+public interface  twitter4j.Trends extends java.lang.Object implements twitter4j.TwitterResponse, java.lang.Comparable, java.io.Serializable
+{
+
+    public abstract java.util.Date getAsOf();
+
+    public abstract twitter4j.Location getLocation();
+
+    public abstract java.util.Date getTrendAt();
+
+    public abstract twitter4j.Trend[] getTrends();
+}

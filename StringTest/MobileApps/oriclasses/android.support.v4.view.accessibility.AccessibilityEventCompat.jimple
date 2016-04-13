@@ -1,0 +1,149 @@
+public class android.support.v4.view.accessibility.AccessibilityEventCompat extends java.lang.Object
+{
+    private static final android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL;
+    public static final int TYPES_ALL_MASK;
+    public static final int TYPE_ANNOUNCEMENT;
+    public static final int TYPE_GESTURE_DETECTION_END;
+    public static final int TYPE_GESTURE_DETECTION_START;
+    public static final int TYPE_TOUCH_EXPLORATION_GESTURE_END;
+    public static final int TYPE_TOUCH_EXPLORATION_GESTURE_START;
+    public static final int TYPE_TOUCH_INTERACTION_END;
+    public static final int TYPE_TOUCH_INTERACTION_START;
+    public static final int TYPE_VIEW_ACCESSIBILITY_FOCUSED;
+    public static final int TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
+    public static final int TYPE_VIEW_HOVER_ENTER;
+    public static final int TYPE_VIEW_HOVER_EXIT;
+    public static final int TYPE_VIEW_SCROLLED;
+    public static final int TYPE_VIEW_TEXT_SELECTION_CHANGED;
+    public static final int TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+    public static final int TYPE_WINDOW_CONTENT_CHANGED;
+
+    static void <clinit>()
+    {
+        int $i0;
+        android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventIcsImpl $r0;
+        android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventStubImpl $r1;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_WINDOW_CONTENT_CHANGED> = 2048;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY> = 131072;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_TEXT_SELECTION_CHANGED> = 8192;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_SCROLLED> = 4096;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_HOVER_EXIT> = 256;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_HOVER_ENTER> = 128;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED> = 65536;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_VIEW_ACCESSIBILITY_FOCUSED> = 32768;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_TOUCH_INTERACTION_START> = 1048576;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_TOUCH_INTERACTION_END> = 2097152;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_TOUCH_EXPLORATION_GESTURE_START> = 512;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_TOUCH_EXPLORATION_GESTURE_END> = 1024;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_GESTURE_DETECTION_START> = 262144;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_GESTURE_DETECTION_END> = 524288;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPE_ANNOUNCEMENT> = 16384;
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: int TYPES_ALL_MASK> = -1;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 14 goto label1;
+
+        $r0 = new android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventIcsImpl;
+
+        specialinvoke $r0.<android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventIcsImpl: void <init>()>();
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL> = $r0;
+
+        return;
+
+     label1:
+        $r1 = new android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventStubImpl;
+
+        specialinvoke $r1.<android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventStubImpl: void <init>()>();
+
+        <android.support.v4.view.accessibility.AccessibilityEventCompat: android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL> = $r1;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        android.support.v4.view.accessibility.AccessibilityEventCompat $r0;
+
+        $r0 := @this: android.support.v4.view.accessibility.AccessibilityEventCompat;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void appendRecord(android.view.accessibility.AccessibilityEvent, android.support.v4.view.accessibility.AccessibilityRecordCompat)
+    {
+        android.view.accessibility.AccessibilityEvent $r0;
+        android.support.v4.view.accessibility.AccessibilityRecordCompat $r1;
+        android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl $r2;
+        java.lang.Object $r3;
+
+        $r0 := @parameter0: android.view.accessibility.AccessibilityEvent;
+
+        $r1 := @parameter1: android.support.v4.view.accessibility.AccessibilityRecordCompat;
+
+        $r2 = <android.support.v4.view.accessibility.AccessibilityEventCompat: android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL>;
+
+        $r3 = virtualinvoke $r1.<android.support.v4.view.accessibility.AccessibilityRecordCompat: java.lang.Object getImpl()>();
+
+        interfaceinvoke $r2.<android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl: void appendRecord(android.view.accessibility.AccessibilityEvent,java.lang.Object)>($r0, $r3);
+
+        return;
+    }
+
+    public static android.support.v4.view.accessibility.AccessibilityRecordCompat getRecord(android.view.accessibility.AccessibilityEvent, int)
+    {
+        android.view.accessibility.AccessibilityEvent $r0;
+        int $i0;
+        android.support.v4.view.accessibility.AccessibilityRecordCompat $r1;
+        android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl $r2;
+        java.lang.Object $r3;
+
+        $r0 := @parameter0: android.view.accessibility.AccessibilityEvent;
+
+        $i0 := @parameter1: int;
+
+        $r1 = new android.support.v4.view.accessibility.AccessibilityRecordCompat;
+
+        $r2 = <android.support.v4.view.accessibility.AccessibilityEventCompat: android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL>;
+
+        $r3 = interfaceinvoke $r2.<android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl: java.lang.Object getRecord(android.view.accessibility.AccessibilityEvent,int)>($r0, $i0);
+
+        specialinvoke $r1.<android.support.v4.view.accessibility.AccessibilityRecordCompat: void <init>(java.lang.Object)>($r3);
+
+        return $r1;
+    }
+
+    public static int getRecordCount(android.view.accessibility.AccessibilityEvent)
+    {
+        android.view.accessibility.AccessibilityEvent $r0;
+        android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl $r1;
+        int $i0;
+
+        $r0 := @parameter0: android.view.accessibility.AccessibilityEvent;
+
+        $r1 = <android.support.v4.view.accessibility.AccessibilityEventCompat: android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl IMPL>;
+
+        $i0 = interfaceinvoke $r1.<android.support.v4.view.accessibility.AccessibilityEventCompat$AccessibilityEventVersionImpl: int getRecordCount(android.view.accessibility.AccessibilityEvent)>($r0);
+
+        return $i0;
+    }
+}

@@ -1,0 +1,87 @@
+public final class com.google.android.gcm.GCMConstants extends java.lang.Object
+{
+    public static final java.lang.String DEFAULT_INTENT_SERVICE_CLASS_NAME;
+    public static final java.lang.String ERROR_ACCOUNT_MISSING;
+    public static final java.lang.String ERROR_AUTHENTICATION_FAILED;
+    public static final java.lang.String ERROR_INVALID_PARAMETERS;
+    public static final java.lang.String ERROR_INVALID_SENDER;
+    public static final java.lang.String ERROR_PHONE_REGISTRATION_ERROR;
+    public static final java.lang.String ERROR_SERVICE_NOT_AVAILABLE;
+    public static final java.lang.String EXTRA_APPLICATION_PENDING_INTENT;
+    public static final java.lang.String EXTRA_ERROR;
+    public static final java.lang.String EXTRA_REGISTRATION_ID;
+    public static final java.lang.String EXTRA_SENDER;
+    public static final java.lang.String EXTRA_SPECIAL_MESSAGE;
+    public static final java.lang.String EXTRA_TOTAL_DELETED;
+    public static final java.lang.String EXTRA_UNREGISTERED;
+    public static final java.lang.String INTENT_FROM_GCM_LIBRARY_RETRY;
+    public static final java.lang.String INTENT_FROM_GCM_MESSAGE;
+    public static final java.lang.String INTENT_FROM_GCM_REGISTRATION_CALLBACK;
+    public static final java.lang.String INTENT_TO_GCM_REGISTRATION;
+    public static final java.lang.String INTENT_TO_GCM_UNREGISTRATION;
+    public static final java.lang.String PERMISSION_GCM_INTENTS;
+    public static final java.lang.String VALUE_DELETED_MESSAGES;
+
+    private void <init>()
+    {
+        com.google.android.gcm.GCMConstants $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.google.android.gcm.GCMConstants;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $r1;
+    }
+
+    public static void <clinit>()
+    {
+        <com.google.android.gcm.GCMConstants: java.lang.String VALUE_DELETED_MESSAGES> = "deleted_messages";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String PERMISSION_GCM_INTENTS> = "com.google.android.c2dm.permission.SEND";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String INTENT_TO_GCM_UNREGISTRATION> = "com.google.android.c2dm.intent.UNREGISTER";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String INTENT_TO_GCM_REGISTRATION> = "com.google.android.c2dm.intent.REGISTER";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String INTENT_FROM_GCM_REGISTRATION_CALLBACK> = "com.google.android.c2dm.intent.REGISTRATION";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String INTENT_FROM_GCM_MESSAGE> = "com.google.android.c2dm.intent.RECEIVE";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String INTENT_FROM_GCM_LIBRARY_RETRY> = "com.google.android.gcm.intent.RETRY";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_UNREGISTERED> = "unregistered";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_TOTAL_DELETED> = "total_deleted";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_SPECIAL_MESSAGE> = "message_type";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_SENDER> = "sender";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_REGISTRATION_ID> = "registration_id";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_ERROR> = "error";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String EXTRA_APPLICATION_PENDING_INTENT> = "app";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_SERVICE_NOT_AVAILABLE> = "SERVICE_NOT_AVAILABLE";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_PHONE_REGISTRATION_ERROR> = "PHONE_REGISTRATION_ERROR";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_INVALID_SENDER> = "INVALID_SENDER";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_INVALID_PARAMETERS> = "INVALID_PARAMETERS";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_AUTHENTICATION_FAILED> = "AUTHENTICATION_FAILED";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String ERROR_ACCOUNT_MISSING> = "ACCOUNT_MISSING";
+
+        <com.google.android.gcm.GCMConstants: java.lang.String DEFAULT_INTENT_SERVICE_CLASS_NAME> = ".GCMIntentService";
+
+        return;
+    }
+}

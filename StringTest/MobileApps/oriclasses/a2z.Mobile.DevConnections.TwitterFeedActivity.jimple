@@ -1,0 +1,406 @@
+public class a2z.Mobile.DevConnections.TwitterFeedActivity extends android.app.Activity
+{
+    private static final java.lang.String LOG_TAG;
+    private a2z.Mobile.DevConnections.A2zApplication mApp;
+    private a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor mListAdapter;
+    private android.widget.ListView mListView;
+    private android.widget.ImageButton mPostToTwitterButton;
+    private twitter4j.Twitter mTwitter;
+    private java.util.ArrayList tweets;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.util.ArrayList $r1;
+        a2z.Mobile.DevConnections.A2zApplication $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: java.util.ArrayList tweets> = $r1;
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: a2z.Mobile.DevConnections.A2zApplication mApp> = $r2;
+
+        return;
+    }
+
+    static java.util.ArrayList access$0(a2z.Mobile.DevConnections.TwitterFeedActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: java.util.ArrayList tweets>;
+
+        return r1;
+    }
+
+    static void access$1(a2z.Mobile.DevConnections.TwitterFeedActivity, a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter1: a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor mListAdapter> = $r1;
+
+        return;
+    }
+
+    static android.widget.ListView access$2(a2z.Mobile.DevConnections.TwitterFeedActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        android.widget.ListView r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.widget.ListView mListView>;
+
+        return r1;
+    }
+
+    static a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor access$3(a2z.Mobile.DevConnections.TwitterFeedActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: a2z.Mobile.DevConnections.TwitterFeedActivity$TweetListAdaptor mListAdapter>;
+
+        return r1;
+    }
+
+    static void access$4(a2z.Mobile.DevConnections.TwitterFeedActivity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void postToTwitter(java.lang.String)>($r1);
+
+        return;
+    }
+
+    static a2z.Mobile.DevConnections.A2zApplication access$5(a2z.Mobile.DevConnections.TwitterFeedActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        a2z.Mobile.DevConnections.A2zApplication r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        return r1;
+    }
+
+    static twitter4j.Twitter access$6(a2z.Mobile.DevConnections.TwitterFeedActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        twitter4j.Twitter r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: twitter4j.Twitter mTwitter>;
+
+        return r1;
+    }
+
+    static void access$7(a2z.Mobile.DevConnections.TwitterFeedActivity, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void updateTwitterStatus(java.lang.String)>($r1);
+
+        return;
+    }
+
+    private void postToTwitter(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$3 $r2;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$4 $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterFeedActivity$3;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterFeedActivity$3: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity)>($r0);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void runOnUiThread(java.lang.Runnable)>($r2);
+
+        return;
+
+     label1:
+        $r3 = new a2z.Mobile.DevConnections.TwitterFeedActivity$4;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterFeedActivity$4: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.DialogUtils: void twitterStatusUpdateDialog(android.content.Context,java.lang.String,a2z.Mobile.DevConnections.Utils.DialogUtils$TwitterStatusUpdateInterface)>($r0, $r1, $r3);
+
+        return;
+    }
+
+    private void updateTwitterStatus(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$6 $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: boolean isOnline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterFeedActivity$6;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterFeedActivity$6: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity)>($r0);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void runOnUiThread(java.lang.Runnable)>($r2);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void updateTwitterStatus(android.app.Activity,java.lang.String)>($r0, $r1);
+
+        return;
+    }
+
+    protected void onActivityResult(int, int, android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        int $i0, $i1;
+        android.content.Intent $r1;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$5 $r2;
+        android.os.Bundle $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 := @parameter2: android.content.Intent;
+
+        if $i0 != 1045 goto label1;
+
+        if -1 != $i1 goto label2;
+
+        $r3 = virtualinvoke $r1.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r2 = new a2z.Mobile.DevConnections.TwitterFeedActivity$5;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity,android.os.Bundle)>($r0, $r3);
+
+        virtualinvoke $r2.<java.lang.Thread: void start()>();
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$1 $r3;
+        java.lang.String $r4;
+        android.view.View $r5;
+        android.widget.ListView $r6;
+        android.widget.ImageButton $r7;
+        a2z.Mobile.DevConnections.A2zApplication $r8;
+        twitter4j.Twitter $r9;
+        android.content.Intent $r10;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$MyTask $r11;
+        java.lang.Void[] $r12;
+        android.view.Window $r13;
+        a2z.Mobile.DevConnections.TwitterFeedActivity$2 $r14;
+        java.lang.StringBuilder $r15;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: java.lang.String getString(int)>(2131165189);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void setTitle(java.lang.CharSequence)>($r4);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void setContentView(int)>(2130903069);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.view.View findViewById(int)>(2131230852);
+
+        $r6 = (android.widget.ListView) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.widget.ListView mListView> = $r6;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.view.View findViewById(int)>(2131230853);
+
+        $r7 = (android.widget.ImageButton) $r5;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.widget.ImageButton mPostToTwitterButton> = $r7;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.widget.ImageButton mPostToTwitterButton>;
+
+        $r3 = new a2z.Mobile.DevConnections.TwitterFeedActivity$1;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.TwitterFeedActivity$1: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity)>($r0);
+
+        virtualinvoke $r7.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r3);
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        $r9 = virtualinvoke $r8.<a2z.Mobile.DevConnections.A2zApplication: twitter4j.Twitter getTwitter()>();
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: twitter4j.Twitter mTwitter> = $r9;
+
+        $r10 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r10.<android.content.Intent: android.os.Bundle getExtras()>();
+
+     label1:
+        $r4 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("TwitterFeed", $r4, null);
+
+     label2:
+        $r11 = new a2z.Mobile.DevConnections.TwitterFeedActivity$MyTask;
+
+        specialinvoke $r11.<a2z.Mobile.DevConnections.TwitterFeedActivity$MyTask: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity,a2z.Mobile.DevConnections.TwitterFeedActivity$MyTask)>($r0, null);
+
+        $r12 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r11.<a2z.Mobile.DevConnections.TwitterFeedActivity$MyTask: android.os.AsyncTask execute(java.lang.Object[])>($r12);
+
+        $r13 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.view.Window getWindow()>();
+
+        $r5 = virtualinvoke $r13.<android.view.Window: android.view.View getDecorView()>();
+
+        $r5 = virtualinvoke $r5.<android.view.View: android.view.View findViewById(int)>(16908290);
+
+        virtualinvoke $r5.<android.view.View: void setBackgroundResource(int)>(2130837506);
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.widget.ListView mListView>;
+
+        $r14 = new a2z.Mobile.DevConnections.TwitterFeedActivity$2;
+
+        specialinvoke $r14.<a2z.Mobile.DevConnections.TwitterFeedActivity$2: void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity)>($r0);
+
+        virtualinvoke $r6.<android.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r14);
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in referral to ");
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: java.lang.String getLocalClassName()>();
+
+        $r15 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r4, null, null);
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        android.view.Menu $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        return 1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r0;
+        android.view.MenuItem $r1;
+        android.content.Intent $r2;
+        java.lang.CharSequence $r3;
+        boolean $z0;
+        android.content.Context $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "TwitterFeed");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+     label1:
+        return 1;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.TwitterFeedActivity: java.lang.String LOG_TAG> = "TwitterFeedActivity";
+
+        return;
+    }
+}

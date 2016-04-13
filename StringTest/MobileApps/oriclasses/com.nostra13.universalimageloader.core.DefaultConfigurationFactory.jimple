@@ -1,0 +1,126 @@
+public class com.nostra13.universalimageloader.core.DefaultConfigurationFactory extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.nostra13.universalimageloader.core.DefaultConfigurationFactory $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.DefaultConfigurationFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static com.nostra13.universalimageloader.core.display.BitmapDisplayer createBitmapDisplayer()
+    {
+        com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer $r0;
+
+        $r0 = new com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer: void <init>()>();
+
+        return $r0;
+    }
+
+    public static com.nostra13.universalimageloader.cache.disc.DiscCacheAware createDiscCache(android.content.Context, com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator, int, int)
+    {
+        android.content.Context $r0;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r1;
+        int $i0, $i1;
+        java.io.File $r3;
+        com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache r4;
+        com.nostra13.universalimageloader.cache.disc.impl.FileCountLimitedDiscCache r5;
+        com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache r6;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
+
+        $i0 := @parameter2: int;
+
+        $i1 := @parameter3: int;
+
+        if $i0 <= 0 goto label1;
+
+        $r3 = staticinvoke <com.nostra13.universalimageloader.utils.StorageUtils: java.io.File getIndividualCacheDirectory(android.content.Context)>($r0);
+
+        r4 = new com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache;
+
+        specialinvoke r4.<com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,int)>($r3, $r1, $i0);
+
+        return r4;
+
+     label1:
+        if $i1 <= 0 goto label2;
+
+        $r3 = staticinvoke <com.nostra13.universalimageloader.utils.StorageUtils: java.io.File getIndividualCacheDirectory(android.content.Context)>($r0);
+
+        r5 = new com.nostra13.universalimageloader.cache.disc.impl.FileCountLimitedDiscCache;
+
+        specialinvoke r5.<com.nostra13.universalimageloader.cache.disc.impl.FileCountLimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,int)>($r3, $r1, $i1);
+
+        return r5;
+
+     label2:
+        $r3 = staticinvoke <com.nostra13.universalimageloader.utils.StorageUtils: java.io.File getCacheDirectory(android.content.Context)>($r0);
+
+        r6 = new com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+
+        specialinvoke r6.<com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator)>($r3, $r1);
+
+        return r6;
+    }
+
+    public static com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator createFileNameGenerator()
+    {
+        com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator $r0;
+
+        $r0 = new com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator: void <init>()>();
+
+        return $r0;
+    }
+
+    public static com.nostra13.universalimageloader.core.download.ImageDownloader createImageDownloader()
+    {
+        com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader $r0;
+
+        $r0 = new com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: void <init>()>();
+
+        return $r0;
+    }
+
+    public static com.nostra13.universalimageloader.cache.memory.MemoryCacheAware createMemoryCache(int, boolean)
+    {
+        int $i0;
+        boolean $z0;
+        com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache $r0;
+        com.nostra13.universalimageloader.cache.memory.impl.FuzzyKeyMemoryCache $r1;
+        java.util.Comparator $r2;
+
+        $i0 := @parameter0: int;
+
+        $z0 := @parameter1: boolean;
+
+        $r0 = new com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache: void <init>(int)>($i0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new com.nostra13.universalimageloader.cache.memory.impl.FuzzyKeyMemoryCache;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.assist.MemoryCacheUtil: java.util.Comparator createFuzzyKeyComparator()>();
+
+        specialinvoke $r1.<com.nostra13.universalimageloader.cache.memory.impl.FuzzyKeyMemoryCache: void <init>(com.nostra13.universalimageloader.cache.memory.MemoryCacheAware,java.util.Comparator)>($r0, $r2);
+
+        return $r1;
+
+     label1:
+        return $r0;
+    }
+}

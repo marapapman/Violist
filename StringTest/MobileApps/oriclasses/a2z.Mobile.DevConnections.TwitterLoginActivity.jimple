@@ -1,0 +1,230 @@
+public class a2z.Mobile.DevConnections.TwitterLoginActivity extends android.app.Activity
+{
+    public static final java.lang.String EXTRA_ATOZ_CALLBACK_URL;
+    public static final java.lang.String EXTRA_ATOZ_URL;
+    public static final java.lang.String EXTRA_OAUTH_DENIED;
+    public static final java.lang.String EXTRA_OAUTH_TOKEN_KEY;
+    public static final java.lang.String EXTRA_OAUTH_VERIFIER_KEY;
+    private static final java.lang.String LOG_TAG;
+    private java.lang.String mCallback;
+    private android.widget.ProgressBar mProgressBar;
+    private java.lang.String mTextToSendToTwitter;
+    private java.lang.String mUrl;
+    private android.webkit.WebView mWebView;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    static android.widget.ProgressBar access$0(a2z.Mobile.DevConnections.TwitterLoginActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+        android.widget.ProgressBar r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.widget.ProgressBar mProgressBar>;
+
+        return r1;
+    }
+
+    static android.webkit.WebView access$1(a2z.Mobile.DevConnections.TwitterLoginActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+        android.webkit.WebView r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        return r1;
+    }
+
+    static java.lang.String access$2(a2z.Mobile.DevConnections.TwitterLoginActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mCallback>;
+
+        return r1;
+    }
+
+    static java.lang.String access$3(a2z.Mobile.DevConnections.TwitterLoginActivity)
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mTextToSendToTwitter>;
+
+        return r1;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.TwitterLoginActivity $r0;
+        android.os.Bundle $r1;
+        android.view.View $r2;
+        android.webkit.WebView $r3;
+        android.webkit.WebSettings $r4;
+        a2z.Mobile.DevConnections.TwitterLoginActivity$1 $r5;
+        android.widget.ProgressBar $r6;
+        android.content.Intent $r7;
+        boolean $z0;
+        java.lang.String $r8;
+        a2z.Mobile.DevConnections.TwitterLoginActivity$2 $r9;
+        a2z.Mobile.DevConnections.TwitterLoginActivity$3 $r10;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterLoginActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("WebViewActivity", "onCreate():");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: void setContentView(int)>(2130903073);
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.view.View findViewById(int)>(2131230873);
+
+        $r3 = (android.webkit.WebView) $r2;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView> = $r3;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r4 = virtualinvoke $r3.<android.webkit.WebView: android.webkit.WebSettings getSettings()>();
+
+        virtualinvoke $r4.<android.webkit.WebSettings: void setJavaScriptEnabled(boolean)>(1);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r4 = virtualinvoke $r3.<android.webkit.WebView: android.webkit.WebSettings getSettings()>();
+
+        virtualinvoke $r4.<android.webkit.WebSettings: void setPluginsEnabled(boolean)>(1);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r4 = virtualinvoke $r3.<android.webkit.WebView: android.webkit.WebSettings getSettings()>();
+
+        virtualinvoke $r4.<android.webkit.WebSettings: void setDomStorageEnabled(boolean)>(1);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        virtualinvoke $r3.<android.webkit.WebView: boolean requestFocus(int)>(130);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r5 = new a2z.Mobile.DevConnections.TwitterLoginActivity$1;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.TwitterLoginActivity$1: void <init>(a2z.Mobile.DevConnections.TwitterLoginActivity)>($r0);
+
+        virtualinvoke $r3.<android.webkit.WebView: void setOnTouchListener(android.view.View$OnTouchListener)>($r5);
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.view.View findViewById(int)>(2131230872);
+
+        $r6 = (android.widget.ProgressBar) $r2;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.widget.ProgressBar mProgressBar> = $r6;
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r7.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        if $r1 == null goto label3;
+
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("a2z.Mobile.DevConnections.url");
+
+        if $z0 == 0 goto label1;
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("a2z.Mobile.DevConnections.url");
+
+        $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mUrl> = $r8;
+
+     label1:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("a2z.Mobile.DevConnections.url.callback");
+
+        if $z0 == 0 goto label2;
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("a2z.Mobile.DevConnections.url.callback");
+
+        $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mCallback> = $r8;
+
+     label2:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("text_to_send_to_twitter");
+
+        if $z0 == 0 goto label3;
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("text_to_send_to_twitter");
+
+        $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mTextToSendToTwitter> = $r8;
+
+     label3:
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r9 = new a2z.Mobile.DevConnections.TwitterLoginActivity$2;
+
+        specialinvoke $r9.<a2z.Mobile.DevConnections.TwitterLoginActivity$2: void <init>(a2z.Mobile.DevConnections.TwitterLoginActivity)>($r0);
+
+        virtualinvoke $r3.<android.webkit.WebView: void setWebChromeClient(android.webkit.WebChromeClient)>($r9);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r10 = new a2z.Mobile.DevConnections.TwitterLoginActivity$3;
+
+        specialinvoke $r10.<a2z.Mobile.DevConnections.TwitterLoginActivity$3: void <init>(a2z.Mobile.DevConnections.TwitterLoginActivity)>($r0);
+
+        virtualinvoke $r3.<android.webkit.WebView: void setWebViewClient(android.webkit.WebViewClient)>($r10);
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mUrl>;
+
+        if $r8 == null goto label4;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mUrl>;
+
+        $z0 = virtualinvoke $r8.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label4;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: android.webkit.WebView mWebView>;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String mUrl>;
+
+        virtualinvoke $r3.<android.webkit.WebView: void loadUrl(java.lang.String)>($r8);
+
+        return;
+
+     label4:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.TwitterLoginActivity: void finish()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String LOG_TAG> = "WebViewActivity";
+
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String EXTRA_OAUTH_VERIFIER_KEY> = "oauth_verifier=";
+
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String EXTRA_OAUTH_TOKEN_KEY> = "oauth_token=";
+
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String EXTRA_OAUTH_DENIED> = "denied=";
+
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String EXTRA_ATOZ_URL> = "a2z.Mobile.DevConnections.url";
+
+        <a2z.Mobile.DevConnections.TwitterLoginActivity: java.lang.String EXTRA_ATOZ_CALLBACK_URL> = "a2z.Mobile.DevConnections.url.callback";
+
+        return;
+    }
+}

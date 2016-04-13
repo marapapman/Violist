@@ -1,0 +1,140 @@
+class a2z.Mobile.DevConnections.MyNotesActivity$1 extends java.lang.Object implements android.widget.AdapterView$OnItemClickListener
+{
+    final a2z.Mobile.DevConnections.MyNotesActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.MyNotesActivity)
+    {
+        a2z.Mobile.DevConnections.MyNotesActivity$1 $r0;
+        a2z.Mobile.DevConnections.MyNotesActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.MyNotesActivity$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.MyNotesActivity;
+
+        $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static a2z.Mobile.DevConnections.MyNotesActivity access$0(a2z.Mobile.DevConnections.MyNotesActivity$1)
+    {
+        a2z.Mobile.DevConnections.MyNotesActivity$1 $r0;
+        a2z.Mobile.DevConnections.MyNotesActivity r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.MyNotesActivity$1;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        return r1;
+    }
+
+    public void onItemClick(android.widget.AdapterView, android.view.View, int, long)
+    {
+        a2z.Mobile.DevConnections.MyNotesActivity$1 $r0;
+        android.widget.AdapterView $r1;
+        android.view.View $r2;
+        int $i0;
+        long $l1;
+        a2z.Mobile.DevConnections.MyNotesActivity $r3;
+        a2z.Mobile.DevConnections.MyNotesActivity$1$1 $r4;
+        a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter $r5;
+        java.lang.Object $r6;
+        java.util.Map $r7;
+        boolean $z0;
+        a2z.Mobile.DevConnections.Classes.Session $r8;
+        java.lang.String $r9, $r10;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r11;
+        a2z.Mobile.DevConnections.MyNotesActivity$1$2 $r12;
+        a2z.Mobile.DevConnections.Classes.PersonalNote $r13;
+        a2z.Mobile.DevConnections.MyNotesActivity$1$3 $r14;
+
+        $r0 := @this: a2z.Mobile.DevConnections.MyNotesActivity$1;
+
+        $r1 := @parameter0: android.widget.AdapterView;
+
+        $r2 := @parameter1: android.view.View;
+
+        $i0 := @parameter2: int;
+
+        $l1 := @parameter3: long;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        $r5 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity: a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter access$0(a2z.Mobile.DevConnections.MyNotesActivity)>($r3);
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.ListAdapters.SeparatedListAdapter: java.lang.Object getItem(int)>($i0);
+
+        $r7 = (java.util.Map) $r6;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        $r6 = staticinvoke <a2z.Mobile.DevConnections.MyNotesActivity: java.lang.Object access$1(a2z.Mobile.DevConnections.MyNotesActivity,java.util.Map)>($r3, $r7);
+
+        $z0 = $r6 instanceof a2z.Mobile.DevConnections.Classes.Session;
+
+        if $z0 == 0 goto label1;
+
+        $r8 = (a2z.Mobile.DevConnections.Classes.Session) $r6;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        $r9 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String Title()>();
+
+        $r10 = virtualinvoke $r8.<a2z.Mobile.DevConnections.Classes.Session: java.lang.String SavedNote()>();
+
+        $r4 = new a2z.Mobile.DevConnections.MyNotesActivity$1$1;
+
+        specialinvoke $r4.<a2z.Mobile.DevConnections.MyNotesActivity$1$1: void <init>(a2z.Mobile.DevConnections.MyNotesActivity$1,a2z.Mobile.DevConnections.Classes.Session,java.util.Map)>($r0, $r8, $r7);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.DialogUtils: void NoteInputDialog(android.content.Context,java.lang.String,java.lang.String,boolean,a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface)>($r3, $r9, $r10, 0, $r4);
+
+        return;
+
+     label1:
+        $z0 = $r6 instanceof a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        if $z0 == 0 goto label2;
+
+        $r11 = (a2z.Mobile.DevConnections.Classes.Exhibitor) $r6;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        $r10 = virtualinvoke $r11.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String ExhibitorName()>();
+
+        $r9 = virtualinvoke $r11.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String SavedNote()>();
+
+        $r12 = new a2z.Mobile.DevConnections.MyNotesActivity$1$2;
+
+        specialinvoke $r12.<a2z.Mobile.DevConnections.MyNotesActivity$1$2: void <init>(a2z.Mobile.DevConnections.MyNotesActivity$1,a2z.Mobile.DevConnections.Classes.Exhibitor,java.util.Map)>($r0, $r11, $r7);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.DialogUtils: void NoteInputDialog(android.content.Context,java.lang.String,java.lang.String,boolean,a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface)>($r3, $r10, $r9, 0, $r12);
+
+        return;
+
+     label2:
+        $z0 = $r6 instanceof a2z.Mobile.DevConnections.Classes.PersonalNote;
+
+        if $z0 == 0 goto label3;
+
+        $r13 = (a2z.Mobile.DevConnections.Classes.PersonalNote) $r6;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.MyNotesActivity$1: a2z.Mobile.DevConnections.MyNotesActivity this$0>;
+
+        $r10 = virtualinvoke $r13.<a2z.Mobile.DevConnections.Classes.PersonalNote: java.lang.String getTitle()>();
+
+        $r9 = virtualinvoke $r13.<a2z.Mobile.DevConnections.Classes.PersonalNote: java.lang.String getContents()>();
+
+        $r14 = new a2z.Mobile.DevConnections.MyNotesActivity$1$3;
+
+        specialinvoke $r14.<a2z.Mobile.DevConnections.MyNotesActivity$1$3: void <init>(a2z.Mobile.DevConnections.MyNotesActivity$1,a2z.Mobile.DevConnections.Classes.PersonalNote,java.util.Map)>($r0, $r13, $r7);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.DialogUtils: void NoteInputDialog(android.content.Context,java.lang.String,java.lang.String,boolean,a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface)>($r3, $r10, $r9, 1, $r14);
+
+        return;
+
+     label3:
+        return;
+    }
+}

@@ -1,0 +1,24 @@
+<wicket:panel>
+    <tr class="nav-table" wicket:id="rows">        
+        <td span wicket:id="space" class="selected" style="text-align:left"></td>
+        <td class="icon" wicket:id="new">
+            <a href="#" wicket:id="new"><img src="resources/new.gif" wicket:message="title:dashboard.new"/></a>           
+        </td>
+        <td wicket:id="search" class="icon">            
+            <a href="#"><img src="resources/search.gif" wicket:message="title:dashboard.search"/></a>            
+        </td>
+        <td wicket:id="link" style="padding:0pt" valign="top">
+           <a href="#"><img src="resources/expanded.gif" wicket:message="title:dashboard.hideDetails"/></a>           
+        </td>                    
+        <td wicket:id="status"></td>
+        <td wicket:id="loggedByMe"><a href="#" wicket:id="loggedByMe"></a></td>
+        <td wicket:id="assignedToMe"><a href="#" wicket:id="assignedToMe"></a></td>
+        <td wicket:id="total"><a href="#" wicket:id="total"></a></td>        
+    </tr>
+    <tr class="nav-table">
+        <th/>
+        <td wicket:id="loggedByMeTotal"><a href="#" wicket:id="loggedByMe"></a></td>
+        <td wicket:id="assignedToMeTotal"><a href="#" wicket:id="assignedToMe"></a></td>
+        <td wicket:id="totalTotal" class="selected"><a href="#" wicket:id="total"></a></td>         
+    </tr>
+</wicket:panel>       

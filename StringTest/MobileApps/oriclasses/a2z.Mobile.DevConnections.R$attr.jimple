@@ -1,0 +1,14 @@
+public final class a2z.Mobile.DevConnections.R$attr extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$attr $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$attr;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

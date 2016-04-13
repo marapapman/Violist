@@ -1,0 +1,61 @@
+public interface  twitter4j.api.UsersResources extends java.lang.Object
+{
+
+    public abstract twitter4j.User createBlock(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User createBlock(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User destroyBlock(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User destroyBlock(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.AccountSettings getAccountSettings() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.IDs getBlocksIDs() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.IDs getBlocksIDs(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.PagableResponseList getBlocksList() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.PagableResponseList getBlocksList(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getContributees(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getContributees(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getContributors(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getContributors(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList lookupUsers(long[]) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList lookupUsers(java.lang.String[]) throws twitter4j.TwitterException;
+
+    public abstract void removeProfileBanner() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList searchUsers(java.lang.String, int) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User showUser(long) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User showUser(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.AccountSettings updateAccountSettings(java.lang.Integer, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfile(java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfileBackgroundImage(java.io.File, boolean) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfileBackgroundImage(java.io.InputStream, boolean) throws twitter4j.TwitterException;
+
+    public abstract void updateProfileBanner(java.io.File) throws twitter4j.TwitterException;
+
+    public abstract void updateProfileBanner(java.io.InputStream) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfileColors(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfileImage(java.io.File) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User updateProfileImage(java.io.InputStream) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.User verifyCredentials() throws twitter4j.TwitterException;
+}

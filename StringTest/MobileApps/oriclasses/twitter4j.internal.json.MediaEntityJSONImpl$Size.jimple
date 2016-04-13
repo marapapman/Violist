@@ -1,0 +1,211 @@
+class twitter4j.internal.json.MediaEntityJSONImpl$Size extends java.lang.Object implements twitter4j.MediaEntity$Size
+{
+    private static final long serialVersionUID;
+    int height;
+    int resize;
+    int width;
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        int $i0;
+        java.lang.String $r2, $r3;
+        boolean $z0;
+        byte $b1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $i0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: int getInt(java.lang.String)>("w");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width> = $i0;
+
+        $i0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: int getInt(java.lang.String)>("h");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height> = $i0;
+
+        $r2 = "fit";
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("resize");
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label2;
+
+        $b1 = 100;
+
+     label1:
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize> = $b1;
+
+        return;
+
+     label2:
+        $b1 = 101;
+
+        goto label1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        int $i0, $i1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (twitter4j.internal.json.MediaEntityJSONImpl$Size) $r1;
+
+        $i1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height>;
+
+        $i0 = $r2.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height>;
+
+        if $i1 == $i0 goto label3;
+
+        return 0;
+
+     label3:
+        $i1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize>;
+
+        $i0 = $r2.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize>;
+
+        if $i1 == $i0 goto label4;
+
+        return 0;
+
+     label4:
+        $i1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width>;
+
+        $i0 = $r2.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width>;
+
+        if $i1 == $i0 goto label5;
+
+        return 0;
+
+     label5:
+        return 1;
+    }
+
+    public int getHeight()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height>;
+
+        return i0;
+    }
+
+    public int getResize()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize>;
+
+        return i0;
+    }
+
+    public int getWidth()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width>;
+
+        return i0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        int $i0, $i1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width>;
+
+        $i0 = $i0 * 31;
+
+        $i1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height>;
+
+        $i1 = $i0 + $i1;
+
+        $i1 = $i1 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize>;
+
+        $i1 = $i1 + $i0;
+
+        return $i1;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Size{width=");
+
+        $i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int width>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", height=");
+
+        $i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int height>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", resize=");
+
+        $i0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl$Size: int resize>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.MediaEntityJSONImpl$Size: long serialVersionUID> = 8681853416159361581L;
+
+        return;
+    }
+}

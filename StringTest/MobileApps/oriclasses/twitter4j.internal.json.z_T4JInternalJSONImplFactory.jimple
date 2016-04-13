@@ -1,0 +1,1102 @@
+public class twitter4j.internal.json.z_T4JInternalJSONImplFactory extends java.lang.Object implements twitter4j.internal.json.z_T4JInternalFactory
+{
+    private static final long serialVersionUID;
+    private twitter4j.conf.Configuration conf;
+
+    public void <init>(twitter4j.conf.Configuration)
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.conf.Configuration $r1;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf> = $r1;
+
+        return;
+    }
+
+    static twitter4j.GeoLocation[][] coordinatesAsGeoLocationArray(twitter4j.internal.org.json.JSONArray) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.org.json.JSONArray $r0, $r4, $r6;
+        twitter4j.GeoLocation[][] $r1;
+        int $i0, $i1, $i2;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.GeoLocation $r3;
+        twitter4j.GeoLocation[] $r5;
+        double $d0, $d1;
+        twitter4j.TwitterException $r7;
+
+        $r0 := @parameter0: twitter4j.internal.org.json.JSONArray;
+
+     label01:
+        $i1 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label02:
+        $r1 = newarray (twitter4j.GeoLocation[])[$i1];
+
+     label03:
+        $i0 = 0;
+
+     label04:
+        $i1 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label13;
+
+        $r4 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONArray getJSONArray(int)>($i0);
+
+        $i1 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label05:
+        $r5 = newarray (twitter4j.GeoLocation)[$i1];
+
+        $r1[$i0] = $r5;
+
+     label06:
+        $i1 = 0;
+
+     label07:
+        $i2 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i1 >= $i2 goto label11;
+
+        $r6 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONArray getJSONArray(int)>($i1);
+
+     label08:
+        $r5 = $r1[$i0];
+
+     label09:
+        $r3 = new twitter4j.GeoLocation;
+
+        $d0 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONArray: double getDouble(int)>(1);
+
+        $d1 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONArray: double getDouble(int)>(0);
+
+        specialinvoke $r3.<twitter4j.GeoLocation: void <init>(double,double)>($d0, $d1);
+
+     label10:
+        $r5[$i1] = $r3;
+
+        $i1 = $i1 + 1;
+
+        goto label07;
+
+     label11:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label12:
+        $r2 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r2);
+
+        throw $r7;
+
+     label13:
+        return $r1;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label02 with label12;
+        catch twitter4j.internal.org.json.JSONException from label03 to label05 with label12;
+        catch twitter4j.internal.org.json.JSONException from label06 to label08 with label12;
+        catch twitter4j.internal.org.json.JSONException from label09 to label10 with label12;
+    }
+
+    static twitter4j.GeoLocation createGeoLocation(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        twitter4j.internal.org.json.JSONException $r1;
+        boolean $z0;
+        java.lang.String $r2;
+        int $i0;
+        java.lang.String[] $r3;
+        twitter4j.GeoLocation $r4;
+        double $d0, $d1;
+        twitter4j.TwitterException $r5;
+
+        $r0 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+     label1:
+        $z0 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("geo");
+
+        if $z0 != 0 goto label6;
+
+        $r0 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("geo");
+
+        $r2 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("coordinates");
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int,int)>(1, $i0);
+
+        $r3 = staticinvoke <twitter4j.internal.util.z_T4JInternalStringUtil: java.lang.String[] split(java.lang.String,java.lang.String)>($r2, ",");
+
+     label2:
+        $r4 = new twitter4j.GeoLocation;
+
+     label3:
+        $r2 = $r3[0];
+
+        $d0 = staticinvoke <java.lang.Double: double parseDouble(java.lang.String)>($r2);
+
+        $r2 = $r3[1];
+
+        $d1 = staticinvoke <java.lang.Double: double parseDouble(java.lang.String)>($r2);
+
+        specialinvoke $r4.<twitter4j.GeoLocation: void <init>(double,double)>($d0, $d1);
+
+     label4:
+        return $r4;
+
+     label5:
+        $r1 := @caughtexception;
+
+        $r5 = new twitter4j.TwitterException;
+
+        specialinvoke $r5.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r1);
+
+        throw $r5;
+
+     label6:
+        return null;
+
+        catch twitter4j.internal.org.json.JSONException from label1 to label2 with label5;
+        catch twitter4j.internal.org.json.JSONException from label3 to label4 with label5;
+    }
+
+    public static twitter4j.HashtagEntity createHashtagEntity(int, int, java.lang.String)
+    {
+        int $i0, $i1;
+        java.lang.String $r0;
+        twitter4j.internal.json.HashtagEntityJSONImpl $r1;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r0 := @parameter2: java.lang.String;
+
+        $r1 = new twitter4j.internal.json.HashtagEntityJSONImpl;
+
+        specialinvoke $r1.<twitter4j.internal.json.HashtagEntityJSONImpl: void <init>(int,int,java.lang.String)>($i0, $i1, $r0);
+
+        return $r1;
+    }
+
+    public static twitter4j.RateLimitStatus createRateLimitStatusFromResponseHeader(twitter4j.internal.http.HttpResponse)
+    {
+        twitter4j.internal.http.HttpResponse $r0;
+        twitter4j.RateLimitStatus $r1;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r1 = staticinvoke <twitter4j.internal.json.RateLimitStatusJSONImpl: twitter4j.RateLimitStatus createFromResponseHeader(twitter4j.internal.http.HttpResponse)>($r0);
+
+        return $r1;
+    }
+
+    public static twitter4j.URLEntity createUrlEntity(int, int, java.lang.String, java.lang.String, java.lang.String)
+    {
+        int $i0, $i1;
+        java.lang.String $r0, $r1, $r2;
+        twitter4j.internal.json.URLEntityJSONImpl $r3;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r0 := @parameter2: java.lang.String;
+
+        $r1 := @parameter3: java.lang.String;
+
+        $r2 := @parameter4: java.lang.String;
+
+        $r3 = new twitter4j.internal.json.URLEntityJSONImpl;
+
+        specialinvoke $r3.<twitter4j.internal.json.URLEntityJSONImpl: void <init>(int,int,java.lang.String,java.lang.String,java.lang.String)>($i0, $i1, $r0, $r1, $r2);
+
+        return $r3;
+    }
+
+    public static twitter4j.UserMentionEntity createUserMentionEntity(int, int, java.lang.String, java.lang.String, long)
+    {
+        int $i0, $i1;
+        java.lang.String $r0, $r1;
+        long $l2;
+        twitter4j.internal.json.UserMentionEntityJSONImpl $r2;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r0 := @parameter2: java.lang.String;
+
+        $r1 := @parameter3: java.lang.String;
+
+        $l2 := @parameter4: long;
+
+        $r2 = new twitter4j.internal.json.UserMentionEntityJSONImpl;
+
+        specialinvoke $r2.<twitter4j.internal.json.UserMentionEntityJSONImpl: void <init>(int,int,java.lang.String,java.lang.String,long)>($i0, $i1, $r0, $r1, $l2);
+
+        return $r2;
+    }
+
+    public twitter4j.UserList createAUserList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.UserListJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.UserListJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.UserListJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.UserList createAUserList(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        twitter4j.internal.json.UserListJSONImpl $r2;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = new twitter4j.internal.json.UserListJSONImpl;
+
+        specialinvoke $r2.<twitter4j.internal.json.UserListJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return $r2;
+    }
+
+    public twitter4j.AccountSettings createAccountSettings(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.AccountSettingsJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.AccountSettingsJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.AccountSettingsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.AccountTotals createAccountTotals(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.AccountTotalsJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.AccountTotalsJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.AccountTotalsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createCategoryList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.CategoryJSONImpl: twitter4j.ResponseList createCategoriesList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.DirectMessage createDirectMessage(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.DirectMessageJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.DirectMessageJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.DirectMessageJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.DirectMessage createDirectMessage(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        twitter4j.internal.json.DirectMessageJSONImpl $r2;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = new twitter4j.internal.json.DirectMessageJSONImpl;
+
+        specialinvoke $r2.<twitter4j.internal.json.DirectMessageJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createDirectMessageList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.DirectMessageJSONImpl: twitter4j.ResponseList createDirectMessageList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.ResponseList createEmptyResponseList()
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.json.ResponseListImpl $r1;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 = new twitter4j.internal.json.ResponseListImpl;
+
+        specialinvoke $r1.<twitter4j.internal.json.ResponseListImpl: void <init>(int,twitter4j.internal.http.HttpResponse)>(0, null);
+
+        return $r1;
+    }
+
+    public twitter4j.ResponseList createFriendshipList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.FriendshipJSONImpl: twitter4j.ResponseList createFriendshipList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.IDs createIDs(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.IDsJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.IDsJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.IDsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createLanguageList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.LanguageJSONImpl: twitter4j.ResponseList createLanguageList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.ResponseList createLocationList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.LocationJSONImpl: twitter4j.ResponseList createLocationList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.OEmbed createOEmbed(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.OEmbedJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.OEmbedJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.OEmbedJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.PagableResponseList createPagableUserList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.PagableResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.UserJSONImpl: twitter4j.PagableResponseList createPagableUserList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.PagableResponseList createPagableUserListList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.PagableResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.UserListJSONImpl: twitter4j.PagableResponseList createPagableUserListList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.Place createPlace(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.PlaceJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.PlaceJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.PlaceJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createPlaceList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.TwitterException $r2;
+        twitter4j.conf.Configuration $r3;
+        twitter4j.ResponseList $r4;
+        twitter4j.internal.json.ResponseListImpl $r5;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+     label1:
+        $r4 = staticinvoke <twitter4j.internal.json.PlaceJSONImpl: twitter4j.ResponseList createPlaceList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+     label2:
+        return $r4;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $i0 = virtualinvoke $r2.<twitter4j.TwitterException: int getStatusCode()>();
+
+        if $i0 != 404 goto label4;
+
+        $r5 = new twitter4j.internal.json.ResponseListImpl;
+
+        specialinvoke $r5.<twitter4j.internal.json.ResponseListImpl: void <init>(int,twitter4j.internal.http.HttpResponse)>(0, null);
+
+        return $r5;
+
+     label4:
+        throw $r2;
+
+        catch twitter4j.TwitterException from label1 to label2 with label3;
+    }
+
+    public twitter4j.QueryResult createQueryResult(twitter4j.internal.http.HttpResponse, twitter4j.Query) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.Query $r2;
+        twitter4j.TwitterException $r3;
+        twitter4j.internal.json.QueryResultJSONImpl $r4;
+        twitter4j.conf.Configuration $r5;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.Query;
+
+        $r4 = new twitter4j.internal.json.QueryResultJSONImpl;
+
+        $r5 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+     label1:
+        specialinvoke $r4.<twitter4j.internal.json.QueryResultJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r5);
+
+     label2:
+        return $r4;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $i0 = virtualinvoke $r3.<twitter4j.TwitterException: int getStatusCode()>();
+
+        if 404 != $i0 goto label4;
+
+        $r4 = new twitter4j.internal.json.QueryResultJSONImpl;
+
+        specialinvoke $r4.<twitter4j.internal.json.QueryResultJSONImpl: void <init>(twitter4j.Query)>($r2);
+
+        return $r4;
+
+     label4:
+        throw $r3;
+
+        catch twitter4j.TwitterException from label1 to label2 with label3;
+    }
+
+    public java.util.Map createRateLimitStatuses(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        java.util.Map $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.RateLimitStatusJSONImpl: java.util.Map createRateLimitStatuses(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.RelatedResults createRelatedResults(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.RelatedResultsJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.RelatedResultsJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.RelatedResultsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.Relationship createRelationship(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.RelationshipJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.RelationshipJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.RelationshipJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.SavedSearch createSavedSearch(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.SavedSearchJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.SavedSearchJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createSavedSearchList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.SavedSearchJSONImpl: twitter4j.ResponseList createSavedSearchList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.SimilarPlaces createSimilarPlaces(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.SimilarPlaces $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.SimilarPlacesImpl: twitter4j.SimilarPlaces createSimilarPlaces(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.Status createStatus(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.StatusJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.StatusJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.StatusJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.Status createStatus(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        twitter4j.internal.json.StatusJSONImpl $r2;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = new twitter4j.internal.json.StatusJSONImpl;
+
+        specialinvoke $r2.<twitter4j.internal.json.StatusJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createStatusList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.StatusJSONImpl: twitter4j.ResponseList createStatusList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.Trends createTrends(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.TrendsJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.TrendsJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.TrendsJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.TwitterAPIConfiguration createTwitterAPIConfiguration(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.User createUser(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.json.UserJSONImpl $r2;
+        twitter4j.conf.Configuration $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = new twitter4j.internal.json.UserJSONImpl;
+
+        $r3 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r2.<twitter4j.internal.json.UserJSONImpl: void <init>(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r3);
+
+        return $r2;
+    }
+
+    public twitter4j.User createUser(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        twitter4j.internal.json.UserJSONImpl $r2;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = new twitter4j.internal.json.UserJSONImpl;
+
+        specialinvoke $r2.<twitter4j.internal.json.UserJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return $r2;
+    }
+
+    public twitter4j.ResponseList createUserList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.UserJSONImpl: twitter4j.ResponseList createUserList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public twitter4j.ResponseList createUserListFromJSONArray(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.internal.org.json.JSONArray $r3;
+        twitter4j.ResponseList $r4;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONArray asJSONArray()>();
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r4 = staticinvoke <twitter4j.internal.json.UserJSONImpl: twitter4j.ResponseList createUserList(twitter4j.internal.org.json.JSONArray,twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r3, $r1, $r2);
+
+        return $r4;
+    }
+
+    public twitter4j.ResponseList createUserListFromJSONArray_Users(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.internal.org.json.JSONObject $r3;
+        twitter4j.internal.org.json.JSONArray $r4;
+        twitter4j.conf.Configuration $r5;
+        twitter4j.ResponseList $r6;
+        twitter4j.TwitterException $r7;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+     label1:
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        $r4 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("users");
+
+        $r5 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r6 = staticinvoke <twitter4j.internal.json.UserJSONImpl: twitter4j.ResponseList createUserList(twitter4j.internal.org.json.JSONArray,twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r4, $r1, $r5);
+
+     label2:
+        return $r6;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r2);
+
+        throw $r7;
+
+        catch twitter4j.internal.org.json.JSONException from label1 to label2 with label3;
+    }
+
+    public twitter4j.ResponseList createUserListList(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r3 = staticinvoke <twitter4j.internal.json.UserListJSONImpl: twitter4j.ResponseList createUserListList(twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r1, $r2);
+
+        return $r3;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0, $r3;
+        java.lang.Object $r1;
+        boolean $z0;
+        twitter4j.conf.Configuration $r2, $r4;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r3 = (twitter4j.internal.json.z_T4JInternalJSONImplFactory) $r1;
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        if $r2 == null goto label4;
+
+        $r4 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r2 = $r3.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label5;
+
+     label3:
+        return 0;
+
+     label4:
+        $r4 = $r3.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        if $r4 == null goto label6;
+
+        goto label3;
+
+     label5:
+        return 1;
+
+     label6:
+        return 1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        twitter4j.conf.Configuration $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $i0 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r0;
+        java.lang.StringBuilder $r1;
+        twitter4j.conf.Configuration $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONImplFactory{conf=");
+
+        $r2 = $r0.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.conf.Configuration conf>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.z_T4JInternalJSONImplFactory: long serialVersionUID> = 5217622295050444866L;
+
+        return;
+    }
+}

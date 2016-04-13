@@ -1,0 +1,9 @@
+public interface  twitter4j.RelatedResults extends java.lang.Object implements twitter4j.TwitterResponse, java.io.Serializable
+{
+
+    public abstract twitter4j.ResponseList getTweetsFromUser();
+
+    public abstract twitter4j.ResponseList getTweetsWithConversation();
+
+    public abstract twitter4j.ResponseList getTweetsWithReply();
+}

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+        "-//Hibernate/Hibernate Mapping DTD//EN" 
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="info.jtrac.domain">
+
+    <class name="Item" table="items">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version"/>
+        <property name="type" column="type"/>
+        <many-to-one name="parent" column="parent_id"/>
+        <many-to-one name="space" column="space_id" not-null="true" index="idx_items_space_id"/>
+        <property name="sequenceNum" column="sequence_num" index="idx_items_sequence_num"/>
+        <property name="timeStamp" column="time_stamp"/>
+        <property name="plannedEffort" column="planned_effort"/>
+        <set name="children" order-by="id" cascade="all" inverse="true">
+            <key column="parent_id"/>
+            <one-to-many class="Item"/>
+        </set>         
+        <set name="history" order-by="id" cascade="all" inverse="true">
+            <key column="item_id"/>
+            <one-to-many class="History"/>
+        </set>        
+        <set name="itemUsers" cascade="all">
+            <key column="item_id"/>
+            <one-to-many class="ItemUser"/>
+        </set>
+        <set name="relatedItems" cascade="all" inverse="true">
+            <key column="item_id"/>
+            <one-to-many class="ItemItem"/>
+        </set>
+        <set name="relatingItems" inverse="true">
+            <key column="related_item_id"/>
+            <one-to-many class="ItemItem"/>
+        </set>        
+        <set name="itemTags" cascade="all" inverse="true">
+            <key column="item_id"/>
+            <one-to-many class="ItemTag"/>
+        </set>         
+        <set name="attachments" cascade="all" inverse="true">
+            <key column="item_id"/>
+            <one-to-many class="Attachment"/>
+        </set>                 
+        <!-- identical to History (except indexes) -->
+        <many-to-one name="loggedBy" column="logged_by" not-null="true" index="idx_items_logged_by"/>
+        <many-to-one name="assignedTo" column="assigned_to" index="idx_items_assigned_to"/>        
+        <property name="summary" column="summary"/>        
+        <property name="detail" column="detail" type="text"/>
+        <property name="status" column="status" index="idx_items_status"/>
+        <property name="severity" column="severity" index="idx_items_severity"/>
+        <property name="priority" column="priority"/>        
+        <property name="cusDbl01" column="cus_dbl_01"/>
+        <property name="cusDbl02" column="cus_dbl_02"/>
+        <property name="cusDbl03" column="cus_dbl_03"/>        
+        <property name="cusInt01" column="cus_int_01"/>
+        <property name="cusInt02" column="cus_int_02"/>
+        <property name="cusInt03" column="cus_int_03"/>
+        <property name="cusInt04" column="cus_int_04"/>
+        <property name="cusInt05" column="cus_int_05"/>
+        <property name="cusInt06" column="cus_int_06"/>
+        <property name="cusInt07" column="cus_int_07"/>
+        <property name="cusInt08" column="cus_int_08"/>
+        <property name="cusInt09" column="cus_int_09"/>
+        <property name="cusInt10" column="cus_int_10"/>
+        <property name="cusStr01" column="cus_str_01"/>
+        <property name="cusStr02" column="cus_str_02"/>
+        <property name="cusStr03" column="cus_str_03"/>
+        <property name="cusStr04" column="cus_str_04"/>
+        <property name="cusStr05" column="cus_str_05"/>
+        <property name="cusTim01" column="cus_tim_01"/>
+        <property name="cusTim02" column="cus_tim_02"/>
+        <property name="cusTim03" column="cus_tim_03"/>                          
+    </class>
+
+    <class name="ItemUser" table="item_users">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="user" column="user_id" not-null="true"/>
+        <property name="type" column="type"/>
+    </class>     
+
+    <class name="ItemItem" table="item_items">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="item" column="item_id" not-null="true"/>
+        <many-to-one name="relatedItem" column="related_item_id" not-null="true"/>
+        <property name="type" column="type"/>
+    </class>    
+    
+    <class name="ItemTag" table="item_tags">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="tag" column="tag_id" not-null="true"/>
+        <property name="type" column="type"/>
+    </class> 
+    
+    <class name="Tag" table="tags">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="type" column="type"/>
+        <property name="name" column="name" not-null="true" unique="true"/>
+        <property name="description" column="description" type="text"/>        
+    </class>
+    
+    <class name="History" table="history">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version"/>
+        <property name="type" column="type"/>
+        <many-to-one name="parent" column="item_id" not-null="true"/>
+        <property name="actualEffort" column="actual_effort"/>
+        <many-to-one name="attachment" column="attachment_id"/>
+        <property name="comment" column="comment" type="text"/>
+        <!-- identical to Item -->
+        <property name="timeStamp" column="time_stamp"/>
+        <many-to-one name="loggedBy" column="logged_by" not-null="true"/>
+        <many-to-one name="assignedTo" column="assigned_to"/>        
+        <property name="summary" column="summary"/>        
+        <property name="detail" column="detail" type="text"/>
+        <property name="status" column="status"/>
+        <property name="severity" column="severity"/>
+        <property name="priority" column="priority"/>        
+        <property name="cusDbl01" column="cus_dbl_01"/>
+        <property name="cusDbl02" column="cus_dbl_02"/>
+        <property name="cusDbl03" column="cus_dbl_03"/>        
+        <property name="cusInt01" column="cus_int_01"/>
+        <property name="cusInt02" column="cus_int_02"/>
+        <property name="cusInt03" column="cus_int_03"/>
+        <property name="cusInt04" column="cus_int_04"/>
+        <property name="cusInt05" column="cus_int_05"/>
+        <property name="cusInt06" column="cus_int_06"/>
+        <property name="cusInt07" column="cus_int_07"/>
+        <property name="cusInt08" column="cus_int_08"/>
+        <property name="cusInt09" column="cus_int_09"/>
+        <property name="cusInt10" column="cus_int_10"/>
+        <property name="cusStr01" column="cus_str_01"/>
+        <property name="cusStr02" column="cus_str_02"/>
+        <property name="cusStr03" column="cus_str_03"/>
+        <property name="cusStr04" column="cus_str_04"/>
+        <property name="cusStr05" column="cus_str_05"/>
+        <property name="cusTim01" column="cus_tim_01"/>
+        <property name="cusTim02" column="cus_tim_02"/>
+        <property name="cusTim03" column="cus_tim_03"/>          
+    </class>    
+    
+    <class name="User" table="users">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>        
+        <property name="type" column="type"/>         
+        <many-to-one name="parent" column="parent"/>
+        <property name="loginName" column="login_name" unique="true" not-null="true" index="idx_users_login_name" length="50"/>
+        <property name="name" column="name" length="50"/>
+        <property name="password" column="password"/>
+        <property name="email" column="email" length="50"/>
+        <property name="locale" column="locale" length="20"/>
+        <property name="locked" column="locked"/>
+        <many-to-one name="metadata" column="metadata_id"/>
+        <set name="userSpaceRoles" cascade="all" inverse="true">
+            <key column="user_id"/>
+            <one-to-many class="UserSpaceRole"/>
+        </set>      
+    </class>
+	
+    <class name="UserSpaceRole" table="user_space_roles">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="user" column="user_id"/>
+        <many-to-one name="space" column="space_id"/>
+        <property name="roleKey" column="role_key" not-null="true"/>
+    </class>    
+    
+    <class name="Space" table="spaces">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version"/>
+        <property name="type" column="type"/>
+        <property name="prefixCode" column="prefix_code" unique="true" length="10"/>
+        <property name="name" column="name" length="50"/>
+        <property name="description" column="description" type="text"/>
+        <property name="guestAllowed" column="guest_allowed"/>        
+        <one-to-one name="spaceSequence" cascade="all"/>
+        <many-to-one name="metadata" column="metadata_id" cascade="all"/>       
+    </class>
+    
+    <class name="SpaceSequence" table="space_sequence">
+        <id name="id" column="id">
+            <generator class="foreign"> 
+                <param name="property">space</param> 
+            </generator> 
+        </id>        
+        <property name="nextSeqNum" column="next_seq_num"/>
+        <one-to-one name="space" constrained="true"/>
+    </class>
+    
+    <class name="Metadata" table="metadata">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version"/>
+        <property name="type" column="type"/>         
+        <property name="name" column="name" length="50"/>
+        <property name="description" column="description" type="text"/>
+        <many-to-one name="parent" column="parent_id"/>
+        <property name="xmlString" column="xml_string" type="text"/>
+    </class>    
+    
+    <class name="Attachment" table="attachments">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="previous" column="previous_id"/>
+        <property name="fileName" column="file_name"/>
+        <property name="filePrefix" column="file_prefix"/>
+    </class>    
+    
+    <class name="Config" table="config">
+        <id name="param" column="param"/>                    
+        <property name="value" column="value"/>
+    </class>       
+    
+</hibernate-mapping>
+

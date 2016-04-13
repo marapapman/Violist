@@ -1,0 +1,47 @@
+<html>
+    <body>
+        <wicket:extend>
+            <div class="heading">Connect to Subversion Repository</div>
+            <form wicket:id="form">
+                <table class="jtrac">
+                    <tr>
+                        <td class="label">URL</td>
+                        <td><input wicket:id="url" size="35"/></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Login Name</td>
+                        <td><input wicket:id="loginName"/></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Password</td>
+                        <td><input type="password" wicket:id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td/>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </form>
+            <p/>
+            <table class="bdr-collapse" wicket:id="hide">
+                <tr valign="top">
+                    <td>
+                        <table class="jtrac">
+                            <tr>
+                                <th>User</th>
+                                <th>Commits</th>
+                            </tr>
+                            <tr wicket:id="users">	
+                                <td wicket:id="user"></td>		
+                                <td wicket:id="commits" align="right"></td>
+                            </tr>                            
+                        </table>
+                    </td>
+                    <td>            
+                        <img wicket:id="chart"/>
+                    </td>
+                </tr>
+            </table>            
+        </wicket:extend>
+    </body>
+</html>

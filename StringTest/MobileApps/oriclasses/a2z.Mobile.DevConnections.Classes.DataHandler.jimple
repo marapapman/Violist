@@ -1,0 +1,412 @@
+public class a2z.Mobile.DevConnections.Classes.DataHandler extends android.database.sqlite.SQLiteOpenHelper
+{
+    private static final java.lang.String APP_TAG;
+    private static java.lang.String DB_NAME;
+    private static java.lang.String DB_PATH;
+    private static android.content.Context myContext;
+    public int dbflag;
+    private android.database.sqlite.SQLiteDatabase myDatabase;
+
+    static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String APP_TAG> = "a2zapp";
+
+        <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME> = "chirpe_data.sqlite";
+
+        <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_PATH> = "/data/data/a2z.Mobile.DevConnections/databases/";
+
+        return;
+    }
+
+    public void <init>(android.content.Context)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        android.content.Context $r1;
+        java.lang.Exception $r2;
+        java.lang.String $r3;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+        android.database.sqlite.SQLiteDatabase $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r3 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        specialinvoke $r0.<android.database.sqlite.SQLiteOpenHelper: void <init>(android.content.Context,java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r1, $r3, null, 1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: int dbflag> = 0;
+
+        <a2z.Mobile.DevConnections.Classes.DataHandler: android.content.Context myContext> = $r1;
+
+        $r3 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $z0 = specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: boolean checkDatabase(java.lang.String)>($r3);
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase getWritableDatabase()>();
+
+        $r3 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: void copyDatabase(java.lang.String)>($r3);
+
+     label2:
+        $r4 = new java.lang.StringBuilder;
+
+        $r3 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_PATH>;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r3 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = staticinvoke <android.database.sqlite.SQLiteDatabase: android.database.sqlite.SQLiteDatabase openDatabase(java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r3, null, 0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase> = $r5;
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    private boolean checkDatabase(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1, $r5;
+        android.database.sqlite.SQLiteDatabase $r2;
+        android.database.sqlite.SQLiteException $r3;
+        java.lang.StringBuilder $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_PATH>;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r5 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        $r2 = staticinvoke <android.database.sqlite.SQLiteDatabase: android.database.sqlite.SQLiteDatabase openDatabase(java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int)>($r5, null, 1);
+
+     label2:
+        if $r2 == null goto label3;
+
+        virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: void close()>();
+
+     label3:
+        if $r2 == null goto label5;
+
+        return 1;
+
+     label4:
+        $r3 := @caughtexception;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" not available; Creating database");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("checkDatabase", $r5);
+
+        $r2 = null;
+
+        goto label2;
+
+     label5:
+        return 0;
+
+        catch android.database.sqlite.SQLiteException from label1 to label2 with label4;
+    }
+
+    private void copyDatabase(java.lang.String) throws java.io.IOException
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1;
+        byte[] $r2;
+        java.io.FileOutputStream $r3;
+        android.content.Context $r4;
+        android.content.res.AssetManager $r5;
+        java.io.InputStream $r6;
+        java.lang.StringBuilder $r7;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r4 = <a2z.Mobile.DevConnections.Classes.DataHandler: android.content.Context myContext>;
+
+        $r5 = virtualinvoke $r4.<android.content.Context: android.content.res.AssetManager getAssets()>();
+
+        $r1 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $r6 = virtualinvoke $r5.<android.content.res.AssetManager: java.io.InputStream open(java.lang.String)>($r1);
+
+        $r7 = new java.lang.StringBuilder;
+
+        $r1 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_PATH>;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r1 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = new java.io.FileOutputStream;
+
+        specialinvoke $r3.<java.io.FileOutputStream: void <init>(java.lang.String)>($r1);
+
+        $r2 = newarray (byte)[1024];
+
+     label1:
+        $i0 = virtualinvoke $r6.<java.io.InputStream: int read(byte[])>($r2);
+
+        if $i0 > 0 goto label2;
+
+        virtualinvoke $r3.<java.io.OutputStream: void flush()>();
+
+        virtualinvoke $r3.<java.io.OutputStream: void close()>();
+
+        virtualinvoke $r6.<java.io.InputStream: void close()>();
+
+        return;
+
+     label2:
+        virtualinvoke $r3.<java.io.OutputStream: void write(byte[],int,int)>($r2, 0, $i0);
+
+        goto label1;
+    }
+
+    public static void updateDatabase(java.io.InputStream) throws java.io.IOException
+    {
+        java.io.InputStream $r0;
+        byte[] $r1;
+        java.io.FileOutputStream $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        int $i0;
+
+        $r0 := @parameter0: java.io.InputStream;
+
+        $r3 = new java.lang.StringBuilder;
+
+        $r4 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_PATH>;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r4 = <a2z.Mobile.DevConnections.Classes.DataHandler: java.lang.String DB_NAME>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = new java.io.FileOutputStream;
+
+        specialinvoke $r2.<java.io.FileOutputStream: void <init>(java.lang.String)>($r4);
+
+        $r1 = newarray (byte)[1024];
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.io.InputStream: int read(byte[])>($r1);
+
+        if $i0 > 0 goto label2;
+
+        virtualinvoke $r2.<java.io.OutputStream: void flush()>();
+
+        virtualinvoke $r2.<java.io.OutputStream: void close()>();
+
+        return;
+
+     label2:
+        virtualinvoke $r2.<java.io.OutputStream: void write(byte[],int,int)>($r1, 0, $i0);
+
+        goto label1;
+    }
+
+    public void close()
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        android.database.sqlite.SQLiteDatabase $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        entermonitor $r0;
+
+     label1:
+        $r1 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        virtualinvoke $r1.<android.database.sqlite.SQLiteDatabase: void close()>();
+
+     label2:
+        specialinvoke $r0.<android.database.sqlite.SQLiteOpenHelper: void close()>();
+
+     label3:
+        exitmonitor $r0;
+
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    public void delete(java.lang.String, java.lang.String, java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1, $r2;
+        java.lang.String[] $r3;
+        android.database.sqlite.SQLiteDatabase $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String[];
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        virtualinvoke $r4.<android.database.sqlite.SQLiteDatabase: int delete(java.lang.String,java.lang.String,java.lang.String[])>($r1, $r2, $r3);
+
+        return;
+    }
+
+    public android.database.Cursor executeSql(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1;
+        android.database.sqlite.SQLiteDatabase $r2;
+        android.database.Cursor $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        $r3 = virtualinvoke $r2.<android.database.sqlite.SQLiteDatabase: android.database.Cursor rawQuery(java.lang.String,java.lang.String[])>($r1, null);
+
+        return $r3;
+    }
+
+    public void insert(java.lang.String, android.content.ContentValues)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1;
+        android.content.ContentValues $r2;
+        android.database.sqlite.SQLiteDatabase $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: android.content.ContentValues;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        virtualinvoke $r3.<android.database.sqlite.SQLiteDatabase: long insert(java.lang.String,java.lang.String,android.content.ContentValues)>($r1, null, $r2);
+
+        return;
+    }
+
+    public void onCreate(android.database.sqlite.SQLiteDatabase)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        android.database.sqlite.SQLiteDatabase $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: android.database.sqlite.SQLiteDatabase;
+
+        return;
+    }
+
+    public void onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        android.database.sqlite.SQLiteDatabase $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: android.database.sqlite.SQLiteDatabase;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        return;
+    }
+
+    public void update(java.lang.String, android.content.ContentValues, java.lang.String, java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1, $r3;
+        android.content.ContentValues $r2;
+        java.lang.String[] $r4;
+        android.database.sqlite.SQLiteDatabase $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: android.content.ContentValues;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.String[];
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.sqlite.SQLiteDatabase myDatabase>;
+
+        virtualinvoke $r5.<android.database.sqlite.SQLiteDatabase: int update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>($r1, $r2, $r3, $r4);
+
+        return;
+    }
+}

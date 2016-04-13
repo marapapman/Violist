@@ -1,0 +1,428 @@
+final class twitter4j.internal.json.IDsJSONImpl extends twitter4j.internal.json.TwitterResponseImpl implements twitter4j.IDs
+{
+    private static final long serialVersionUID;
+    private long[] ids;
+    private long nextCursor;
+    private long previousCursor;
+
+    void <init>(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>()>();
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor> = -1L;
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor> = -1L;
+
+        specialinvoke $r0.<twitter4j.internal.json.IDsJSONImpl: void init(java.lang.String)>($r1);
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        java.lang.String $r3;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>(twitter4j.internal.http.HttpResponse)>($r1);
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor> = -1L;
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor> = -1L;
+
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: java.lang.String asString()>();
+
+        specialinvoke $r0.<twitter4j.internal.json.IDsJSONImpl: void init(java.lang.String)>($r3);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r3);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void init(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        java.lang.String $r1;
+        int $i0, $i1;
+        twitter4j.internal.org.json.JSONObject $r2;
+        twitter4j.internal.org.json.JSONException $r3;
+        java.lang.NumberFormatException $r4, $r9;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONArray $r5;
+        long[] $r6;
+        long $l2;
+        twitter4j.TwitterException $r7;
+        java.lang.StringBuilder $r8;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+     label01:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("{");
+
+     label02:
+        if $z0 == 0 goto label16;
+
+     label03:
+        $r2 = new twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r2.<twitter4j.internal.org.json.JSONObject: void <init>(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("ids");
+
+        $i0 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label04:
+        $r6 = newarray (long)[$i0];
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids> = $r6;
+
+     label05:
+        $i0 = 0;
+
+     label06:
+        $i1 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label07:
+        if $i0 >= $i1 goto label14;
+
+        $r6 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+     label08:
+        $r1 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: java.lang.String getString(int)>($i0);
+
+        $l2 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r1);
+
+     label09:
+        $r6[$i0] = $l2;
+
+        $i0 = $i0 + 1;
+
+        goto label06;
+
+     label10:
+        $r4 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        $r8 = new java.lang.StringBuilder;
+
+     label11:
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Twitter API returned malformed response: ");
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.String,java.lang.Throwable)>($r1, $r4);
+
+     label12:
+        throw $r7;
+
+     label13:
+        $r3 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r3);
+
+        throw $r7;
+
+     label14:
+        $l2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("previous_cursor", $r2);
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor> = $l2;
+
+        $l2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("next_cursor", $r2);
+
+     label15:
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor> = $l2;
+
+        return;
+
+     label16:
+        $r5 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONArray: void <init>(java.lang.String)>($r1);
+
+        $i1 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label17:
+        $r6 = newarray (long)[$i1];
+
+        $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids> = $r6;
+
+     label18:
+        $i1 = 0;
+
+     label19:
+        $i0 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label20:
+        if $i1 >= $i0 goto label26;
+
+        $r6 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+     label21:
+        $r1 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: java.lang.String getString(int)>($i1);
+
+        $l2 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r1);
+
+     label22:
+        $r6[$i1] = $l2;
+
+        $i1 = $i1 + 1;
+
+        goto label19;
+
+     label23:
+        $r9 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        $r8 = new java.lang.StringBuilder;
+
+     label24:
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Twitter API returned malformed response: ");
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r1 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.String,java.lang.Throwable)>($r1, $r9);
+
+     label25:
+        throw $r7;
+
+     label26:
+        return;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label02 with label13;
+        catch twitter4j.internal.org.json.JSONException from label03 to label04 with label13;
+        catch twitter4j.internal.org.json.JSONException from label05 to label07 with label13;
+        catch java.lang.NumberFormatException from label08 to label09 with label10;
+        catch twitter4j.internal.org.json.JSONException from label08 to label09 with label13;
+        catch twitter4j.internal.org.json.JSONException from label11 to label12 with label13;
+        catch twitter4j.internal.org.json.JSONException from label14 to label15 with label13;
+        catch twitter4j.internal.org.json.JSONException from label16 to label17 with label13;
+        catch twitter4j.internal.org.json.JSONException from label18 to label20 with label13;
+        catch java.lang.NumberFormatException from label21 to label22 with label23;
+        catch twitter4j.internal.org.json.JSONException from label21 to label22 with label13;
+        catch twitter4j.internal.org.json.JSONException from label24 to label25 with label13;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        long[] $r2, $r4;
+        twitter4j.IDs $r3;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.IDs;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r3 = (twitter4j.IDs) $r1;
+
+        $r4 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+        $r2 = interfaceinvoke $r3.<twitter4j.IDs: long[] getIDs()>();
+
+        $z0 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($r4, $r2);
+
+        if $z0 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        return 1;
+    }
+
+    public long[] getIDs()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long[] r1;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+        return r1;
+    }
+
+    public long getNextCursor()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor>;
+
+        return l0;
+    }
+
+    public long getPreviousCursor()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor>;
+
+        return l0;
+    }
+
+    public boolean hasNext()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor>;
+
+        $b1 = 0L cmp $l0;
+
+        if $b1 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean hasPrevious()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long $l0;
+        byte $b1;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor>;
+
+        $b1 = 0L cmp $l0;
+
+        if $b1 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        long[] $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+        $i0 = staticinvoke <java.util.Arrays: int hashCode(long[])>($r1);
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.IDsJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        long[] $r2;
+        java.lang.String $r3;
+        long $l0;
+
+        $r0 := @this: twitter4j.internal.json.IDsJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("IDsJSONImpl{ids=");
+
+        $r2 = $r0.<twitter4j.internal.json.IDsJSONImpl: long[] ids>;
+
+        $r3 = staticinvoke <java.util.Arrays: java.lang.String toString(long[])>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", previousCursor=");
+
+        $l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long previousCursor>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", nextCursor=");
+
+        $l0 = $r0.<twitter4j.internal.json.IDsJSONImpl: long nextCursor>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.IDsJSONImpl: long serialVersionUID> = -6585026560164704953L;
+
+        return;
+    }
+}

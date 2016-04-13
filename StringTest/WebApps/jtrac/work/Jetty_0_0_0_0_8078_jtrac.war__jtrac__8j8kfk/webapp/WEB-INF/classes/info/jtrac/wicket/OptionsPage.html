@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <wicket:extend>
+            <div class="heading"><wicket:message key="options.optionsMenu"/></div>
+            <table class="jtrac">
+                <tr>
+                    <td class="menu-option">
+                        <div wicket:id="profile">
+                            <a href="#">
+                                <img src="resources/user.gif" class="nav-link"/><wicket:message key="options.editYourProfile"/>
+                            </a>
+                        </div>
+                        <div wicket:id="users">
+                            <a href="#">
+                                <img src="resources/users.gif" class="nav-link"/><wicket:message key="options.manageUsers"/>                                
+                            </a>
+                        </div>
+                        <div wicket:id="spaces">
+                            <a href="#">
+                                <img src="resources/spaces.gif" class="nav-link"/><wicket:message key="options.manageSpaces"/>
+                            </a>
+                        </div>
+                        <div wicket:id="settings">
+                            <a href="#">
+                                <img src="resources/settings.gif" class="nav-link"/><wicket:message key="options.manageSettings"/>
+                            </a>
+                        </div>
+                        <div wicket:id="indexes">
+                            <a href="#">
+                                <img src="resources/refresh.gif" class="nav-link"/><wicket:message key="options.rebuildIndexes"/>
+                            </a>
+                        </div>
+                        <div wicket:id="import">
+                            <a href="#">
+                                <wicket:message key="options.importFromExcel"/>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </wicket:extend>
+    </body>
+</html>

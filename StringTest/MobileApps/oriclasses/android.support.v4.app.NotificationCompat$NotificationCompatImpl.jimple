@@ -1,0 +1,5 @@
+interface  android.support.v4.app.NotificationCompat$NotificationCompatImpl extends java.lang.Object
+{
+
+    public abstract android.app.Notification build(android.support.v4.app.NotificationCompat$Builder);
+}

@@ -1,0 +1,393 @@
+public final class twitter4j.internal.http.BASE64Encoder extends java.lang.Object
+{
+    private static final char[] encodeTable;
+    private static final char last2byte;
+    private static final char last4byte;
+    private static final char last6byte;
+    private static final char lead2byte;
+    private static final char lead4byte;
+    private static final char lead6byte;
+
+    static void <clinit>()
+    {
+        int $i0;
+        char $c1;
+        char[] $r0;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("00000011", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char last2byte> = $c1;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("00001111", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char last4byte> = $c1;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("00111111", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char last6byte> = $c1;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("11111100", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char lead6byte> = $c1;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("11110000", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char lead4byte> = $c1;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>("11000000", 2);
+
+        $c1 = (char) $i0;
+
+        <twitter4j.internal.http.BASE64Encoder: char lead2byte> = $c1;
+
+        $r0 = newarray (char)[64];
+
+        $r0[0] = 65;
+
+        $r0[1] = 66;
+
+        $r0[2] = 67;
+
+        $r0[3] = 68;
+
+        $r0[4] = 69;
+
+        $r0[5] = 70;
+
+        $r0[6] = 71;
+
+        $r0[7] = 72;
+
+        $r0[8] = 73;
+
+        $r0[9] = 74;
+
+        $r0[10] = 75;
+
+        $r0[11] = 76;
+
+        $r0[12] = 77;
+
+        $r0[13] = 78;
+
+        $r0[14] = 79;
+
+        $r0[15] = 80;
+
+        $r0[16] = 81;
+
+        $r0[17] = 82;
+
+        $r0[18] = 83;
+
+        $r0[19] = 84;
+
+        $r0[20] = 85;
+
+        $r0[21] = 86;
+
+        $r0[22] = 87;
+
+        $r0[23] = 88;
+
+        $r0[24] = 89;
+
+        $r0[25] = 90;
+
+        $r0[26] = 97;
+
+        $r0[27] = 98;
+
+        $r0[28] = 99;
+
+        $r0[29] = 100;
+
+        $r0[30] = 101;
+
+        $r0[31] = 102;
+
+        $r0[32] = 103;
+
+        $r0[33] = 104;
+
+        $r0[34] = 105;
+
+        $r0[35] = 106;
+
+        $r0[36] = 107;
+
+        $r0[37] = 108;
+
+        $r0[38] = 109;
+
+        $r0[39] = 110;
+
+        $r0[40] = 111;
+
+        $r0[41] = 112;
+
+        $r0[42] = 113;
+
+        $r0[43] = 114;
+
+        $r0[44] = 115;
+
+        $r0[45] = 116;
+
+        $r0[46] = 117;
+
+        $r0[47] = 118;
+
+        $r0[48] = 119;
+
+        $r0[49] = 120;
+
+        $r0[50] = 121;
+
+        $r0[51] = 122;
+
+        $r0[52] = 48;
+
+        $r0[53] = 49;
+
+        $r0[54] = 50;
+
+        $r0[55] = 51;
+
+        $r0[56] = 52;
+
+        $r0[57] = 53;
+
+        $r0[58] = 54;
+
+        $r0[59] = 55;
+
+        $r0[60] = 56;
+
+        $r0[61] = 57;
+
+        $r0[62] = 43;
+
+        $r0[63] = 47;
+
+        <twitter4j.internal.http.BASE64Encoder: char[] encodeTable> = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        twitter4j.internal.http.BASE64Encoder $r0;
+
+        $r0 := @this: twitter4j.internal.http.BASE64Encoder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String encode(byte[])
+    {
+        byte[] $r0;
+        char $c0, $c4;
+        int $i1, $i2, $i3, $i6;
+        java.lang.StringBuilder $r1;
+        double $d0;
+        char[] $r2;
+        byte $b5;
+        java.lang.String $r3;
+
+        $r0 := @parameter0: byte[];
+
+        $r1 = new java.lang.StringBuilder;
+
+        $i2 = lengthof $r0;
+
+        $d0 = (double) $i2;
+
+        $d0 = $d0 * 1.34;
+
+        $i2 = (int) $d0;
+
+        $i2 = $i2 + 3;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(int)>($i2);
+
+        $i2 = 0;
+
+        $c0 = 0;
+
+        $i1 = 0;
+
+     label01:
+        $i3 = lengthof $r0;
+
+        if $i1 >= $i3 goto label09;
+
+        $i2 = $i2 % 8;
+
+     label02:
+        if $i2 >= 8 goto label08;
+
+        lookupswitch($i2)
+        {
+            case 0: goto label04;
+            case 1: goto label03;
+            case 2: goto label05;
+            case 3: goto label03;
+            case 4: goto label06;
+            case 5: goto label03;
+            case 6: goto label07;
+            default: goto label03;
+        };
+
+     label03:
+        $r2 = <twitter4j.internal.http.BASE64Encoder: char[] encodeTable>;
+
+        $c4 = $r2[$c0];
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c4);
+
+        $i2 = $i2 + 6;
+
+        goto label02;
+
+     label04:
+        $b5 = $r0[$i1];
+
+        $c0 = <twitter4j.internal.http.BASE64Encoder: char lead6byte>;
+
+        $i3 = $b5 & $c0;
+
+        $c4 = (char) $i3;
+
+        $c4 = $c4 >>> 2;
+
+        $c0 = (char) $c4;
+
+        goto label03;
+
+     label05:
+        $b5 = $r0[$i1];
+
+        $c4 = <twitter4j.internal.http.BASE64Encoder: char last6byte>;
+
+        $i3 = $b5 & $c4;
+
+        $c0 = (char) $i3;
+
+        goto label03;
+
+     label06:
+        $b5 = $r0[$i1];
+
+        $c4 = <twitter4j.internal.http.BASE64Encoder: char last4byte>;
+
+        $i3 = $b5 & $c4;
+
+        $c4 = (char) $i3;
+
+        $i3 = $c4 << 2;
+
+        $c0 = (char) $i3;
+
+        $i3 = $i1 + 1;
+
+        $i6 = lengthof $r0;
+
+        if $i3 >= $i6 goto label03;
+
+        $i6 = $i1 + 1;
+
+        $b5 = $r0[$i6];
+
+        $c4 = <twitter4j.internal.http.BASE64Encoder: char lead2byte>;
+
+        $i6 = $b5 & $c4;
+
+        $i6 = $i6 >>> 6;
+
+        $i6 = $i6 | $c0;
+
+        $c0 = (char) $i6;
+
+        goto label03;
+
+     label07:
+        $b5 = $r0[$i1];
+
+        $c4 = <twitter4j.internal.http.BASE64Encoder: char last2byte>;
+
+        $i6 = $b5 & $c4;
+
+        $c4 = (char) $i6;
+
+        $i6 = $c4 << 4;
+
+        $c0 = (char) $i6;
+
+        $i6 = $i1 + 1;
+
+        $i3 = lengthof $r0;
+
+        if $i6 >= $i3 goto label03;
+
+        $i6 = $i1 + 1;
+
+        $b5 = $r0[$i6];
+
+        $c4 = <twitter4j.internal.http.BASE64Encoder: char lead4byte>;
+
+        $i6 = $b5 & $c4;
+
+        $i6 = $i6 >>> 4;
+
+        $i6 = $i6 | $c0;
+
+        $c0 = (char) $i6;
+
+        goto label03;
+
+     label08:
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label09:
+        $i2 = virtualinvoke $r1.<java.lang.StringBuilder: int length()>();
+
+        $i6 = $i2 % 4;
+
+        if $i6 == 0 goto label11;
+
+        $i6 = virtualinvoke $r1.<java.lang.StringBuilder: int length()>();
+
+        $i6 = $i6 % 4;
+
+        $i6 = 4 - $i6;
+
+     label10:
+        if $i6 <= 0 goto label11;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $i6 = $i6 + -1;
+
+        goto label10;
+
+     label11:
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+}

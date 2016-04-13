@@ -1,0 +1,11 @@
+public interface  twitter4j.PagableResponseList extends java.lang.Object implements twitter4j.ResponseList, twitter4j.CursorSupport
+{
+
+    public abstract long getNextCursor();
+
+    public abstract long getPreviousCursor();
+
+    public abstract boolean hasNext();
+
+    public abstract boolean hasPrevious();
+}

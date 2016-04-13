@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <wicket:extend>
+            <div class="heading"><wicket:message key="config_list.configurationSettings"/></div>
+            <table class="jtrac">
+                <tr>
+                    <th><wicket:message key="config_list.parameter"/></th>
+                    <th><wicket:message key="config_list.value"/></th>
+                    <th><wicket:message key="config_list.edit"/></th>
+                    <th><wicket:message key="config_list.description"/></th>
+                </tr>
+                <tr wicket:id="configs">
+                    <td wicket:id="param"></td>
+                    <td wicket:id="value"></td>
+                    <td wicket:id="link" align="center"><a href="#"><img src="resources/edit.gif"/></a></td>
+                    <td wicket:id="description"></td>                   
+                </tr>
+            </table>
+        </wicket:extend>
+    </body>
+</html>

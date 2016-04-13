@@ -1,0 +1,121 @@
+public final class a2z.Mobile.DevConnections.R$layout extends java.lang.Object
+{
+    public static final int content_page;
+    public static final int datepickerdialog;
+    public static final int event_home;
+    public static final int event_info;
+    public static final int exhibitor_profile;
+    public static final int exhibtior_list_item;
+    public static final int floorplan;
+    public static final int generic_list;
+    public static final int horizontal_divider;
+    public static final int list_header;
+    public static final int login;
+    public static final int medialibrary_list_item;
+    public static final int my_note_item;
+    public static final int my_notes_activity;
+    public static final int my_notes_list_item;
+    public static final int navigation;
+    public static final int navigation_item;
+    public static final int new_profile;
+    public static final int note_input_dialog;
+    public static final int post_to_twitter_dialog_view;
+    public static final int rate_this_session;
+    public static final int searchdialog;
+    public static final int session_detail;
+    public static final int session_list_item;
+    public static final int session_table_row;
+    public static final int speaker_list_item;
+    public static final int speaker_profile;
+    public static final int splash;
+    public static final int twitter_feed;
+    public static final int twitter_feed_activity;
+    public static final int twitter_view_tweet_detail_activity;
+    public static final int video_gallery;
+    public static final int walkingmap_placeholder;
+    public static final int webview_activity;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$layout $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$layout;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$layout: int webview_activity> = 2130903073;
+
+        <a2z.Mobile.DevConnections.R$layout: int walkingmap_placeholder> = 2130903072;
+
+        <a2z.Mobile.DevConnections.R$layout: int video_gallery> = 2130903071;
+
+        <a2z.Mobile.DevConnections.R$layout: int twitter_view_tweet_detail_activity> = 2130903070;
+
+        <a2z.Mobile.DevConnections.R$layout: int twitter_feed_activity> = 2130903069;
+
+        <a2z.Mobile.DevConnections.R$layout: int twitter_feed> = 2130903068;
+
+        <a2z.Mobile.DevConnections.R$layout: int splash> = 2130903067;
+
+        <a2z.Mobile.DevConnections.R$layout: int speaker_profile> = 2130903066;
+
+        <a2z.Mobile.DevConnections.R$layout: int speaker_list_item> = 2130903065;
+
+        <a2z.Mobile.DevConnections.R$layout: int session_table_row> = 2130903064;
+
+        <a2z.Mobile.DevConnections.R$layout: int session_list_item> = 2130903063;
+
+        <a2z.Mobile.DevConnections.R$layout: int session_detail> = 2130903062;
+
+        <a2z.Mobile.DevConnections.R$layout: int searchdialog> = 2130903061;
+
+        <a2z.Mobile.DevConnections.R$layout: int rate_this_session> = 2130903060;
+
+        <a2z.Mobile.DevConnections.R$layout: int post_to_twitter_dialog_view> = 2130903059;
+
+        <a2z.Mobile.DevConnections.R$layout: int note_input_dialog> = 2130903058;
+
+        <a2z.Mobile.DevConnections.R$layout: int new_profile> = 2130903057;
+
+        <a2z.Mobile.DevConnections.R$layout: int navigation_item> = 2130903056;
+
+        <a2z.Mobile.DevConnections.R$layout: int navigation> = 2130903055;
+
+        <a2z.Mobile.DevConnections.R$layout: int my_notes_list_item> = 2130903054;
+
+        <a2z.Mobile.DevConnections.R$layout: int my_notes_activity> = 2130903053;
+
+        <a2z.Mobile.DevConnections.R$layout: int my_note_item> = 2130903052;
+
+        <a2z.Mobile.DevConnections.R$layout: int medialibrary_list_item> = 2130903051;
+
+        <a2z.Mobile.DevConnections.R$layout: int login> = 2130903050;
+
+        <a2z.Mobile.DevConnections.R$layout: int list_header> = 2130903049;
+
+        <a2z.Mobile.DevConnections.R$layout: int horizontal_divider> = 2130903048;
+
+        <a2z.Mobile.DevConnections.R$layout: int generic_list> = 2130903047;
+
+        <a2z.Mobile.DevConnections.R$layout: int floorplan> = 2130903046;
+
+        <a2z.Mobile.DevConnections.R$layout: int exhibtior_list_item> = 2130903045;
+
+        <a2z.Mobile.DevConnections.R$layout: int exhibitor_profile> = 2130903044;
+
+        <a2z.Mobile.DevConnections.R$layout: int event_info> = 2130903043;
+
+        <a2z.Mobile.DevConnections.R$layout: int event_home> = 2130903042;
+
+        <a2z.Mobile.DevConnections.R$layout: int datepickerdialog> = 2130903041;
+
+        <a2z.Mobile.DevConnections.R$layout: int content_page> = 2130903040;
+
+        return;
+    }
+}

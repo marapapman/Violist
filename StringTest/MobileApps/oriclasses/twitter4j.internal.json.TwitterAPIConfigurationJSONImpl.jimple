@@ -1,0 +1,548 @@
+class twitter4j.internal.json.TwitterAPIConfigurationJSONImpl extends twitter4j.internal.json.TwitterResponseImpl implements twitter4j.TwitterAPIConfiguration
+{
+    private static final long serialVersionUID;
+    private int charactersReservedPerMedia;
+    private int maxMediaPerUpload;
+    private java.lang.String[] nonUsernamePaths;
+    private int photoSizeLimit;
+    private java.util.Map photoSizes;
+    private int shortURLLength;
+    private int shortURLLengthHttps;
+
+    void <init>(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        int $i0, $i1;
+        twitter4j.internal.org.json.JSONException $r3;
+        twitter4j.internal.org.json.JSONObject $r4, $r6, $r7;
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r5;
+        java.util.HashMap $r8;
+        java.util.Map $r9;
+        java.lang.Integer $r10;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONArray $r11;
+        java.lang.String[] $r12;
+        java.lang.String $r13;
+        twitter4j.TwitterException $r14;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>(twitter4j.internal.http.HttpResponse)>($r1);
+
+     label01:
+        $r6 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("photo_size_limit", $r6);
+
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit> = $i0;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("short_url_length", $r6);
+
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength> = $i0;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("short_url_length_https", $r6);
+
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps> = $i0;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("characters_reserved_per_media", $r6);
+
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia> = $i0;
+
+        $r7 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("photo_sizes");
+
+        $r8 = new java.util.HashMap;
+
+        specialinvoke $r8.<java.util.HashMap: void <init>(int)>(4);
+
+     label02:
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes> = $r8;
+
+        $r9 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r10 = <twitter4j.MediaEntity$Size: java.lang.Integer LARGE>;
+
+     label03:
+        $r5 = new twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r4 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("large");
+
+        specialinvoke $r5.<twitter4j.internal.json.MediaEntityJSONImpl$Size: void <init>(twitter4j.internal.org.json.JSONObject)>($r4);
+
+        interfaceinvoke $r9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r5);
+
+        $z0 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("med");
+
+        if $z0 == 0 goto label16;
+
+        $r4 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("medium");
+
+     label04:
+        $r9 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r10 = <twitter4j.MediaEntity$Size: java.lang.Integer MEDIUM>;
+
+     label05:
+        $r5 = new twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        specialinvoke $r5.<twitter4j.internal.json.MediaEntityJSONImpl$Size: void <init>(twitter4j.internal.org.json.JSONObject)>($r4);
+
+        interfaceinvoke $r9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r5);
+
+     label06:
+        $r9 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r10 = <twitter4j.MediaEntity$Size: java.lang.Integer SMALL>;
+
+     label07:
+        $r5 = new twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r4 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("small");
+
+        specialinvoke $r5.<twitter4j.internal.json.MediaEntityJSONImpl$Size: void <init>(twitter4j.internal.org.json.JSONObject)>($r4);
+
+        interfaceinvoke $r9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r5);
+
+     label08:
+        $r9 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r10 = <twitter4j.MediaEntity$Size: java.lang.Integer THUMB>;
+
+     label09:
+        $r5 = new twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r7 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("thumb");
+
+        specialinvoke $r5.<twitter4j.internal.json.MediaEntityJSONImpl$Size: void <init>(twitter4j.internal.org.json.JSONObject)>($r7);
+
+        interfaceinvoke $r9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r10, $r5);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label10;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+        $r7 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r7);
+
+     label10:
+        $r11 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("non_username_paths");
+
+        $i0 = virtualinvoke $r11.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+     label11:
+        $r12 = newarray (java.lang.String)[$i0];
+
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths> = $r12;
+
+     label12:
+        $i0 = 0;
+
+     label13:
+        $i1 = virtualinvoke $r11.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label18;
+
+        $r12 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        $r13 = virtualinvoke $r11.<twitter4j.internal.org.json.JSONArray: java.lang.String getString(int)>($i0);
+
+     label14:
+        $r12[$i0] = $r13;
+
+        $i0 = $i0 + 1;
+
+     label15:
+        goto label13;
+
+     label16:
+        $r4 = virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("med");
+
+     label17:
+        goto label04;
+
+     label18:
+        $i1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("max_media_per_upload", $r6);
+
+     label19:
+        $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload> = $i1;
+
+        return;
+
+     label20:
+        $r3 := @caughtexception;
+
+        $r14 = new twitter4j.TwitterException;
+
+        specialinvoke $r14.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r3);
+
+        throw $r14;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label02 with label20;
+        catch twitter4j.internal.org.json.JSONException from label03 to label04 with label20;
+        catch twitter4j.internal.org.json.JSONException from label05 to label06 with label20;
+        catch twitter4j.internal.org.json.JSONException from label07 to label08 with label20;
+        catch twitter4j.internal.org.json.JSONException from label09 to label11 with label20;
+        catch twitter4j.internal.org.json.JSONException from label12 to label14 with label20;
+        catch twitter4j.internal.org.json.JSONException from label15 to label17 with label20;
+        catch twitter4j.internal.org.json.JSONException from label18 to label19 with label20;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        int $i0, $i1;
+        java.lang.String[] $r3, $r4;
+        java.util.Map $r5, $r6;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        $z0 = $r1 instanceof twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $r2 = (twitter4j.internal.json.TwitterAPIConfigurationJSONImpl) $r1;
+
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia>;
+
+        $i0 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia>;
+
+        if $i1 == $i0 goto label03;
+
+        return 0;
+
+     label03:
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload>;
+
+        $i0 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload>;
+
+        if $i1 == $i0 goto label04;
+
+        return 0;
+
+     label04:
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit>;
+
+        $i0 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit>;
+
+        if $i1 == $i0 goto label05;
+
+        return 0;
+
+     label05:
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength>;
+
+        $i0 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength>;
+
+        if $i1 == $i0 goto label06;
+
+        return 0;
+
+     label06:
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps>;
+
+        $i0 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps>;
+
+        if $i1 == $i0 goto label07;
+
+        return 0;
+
+     label07:
+        $r3 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        $r4 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        $z0 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($r3, $r4);
+
+        if $z0 != 0 goto label08;
+
+        return 0;
+
+     label08:
+        $r5 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        if $r5 == null goto label10;
+
+        $r5 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r6 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $z0 = interfaceinvoke $r5.<java.util.Map: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label11;
+
+     label09:
+        return 0;
+
+     label10:
+        $r6 = $r2.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        if $r6 == null goto label12;
+
+        goto label09;
+
+     label11:
+        return 1;
+
+     label12:
+        return 1;
+    }
+
+    public int getCharactersReservedPerMedia()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia>;
+
+        return i0;
+    }
+
+    public int getMaxMediaPerUpload()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload>;
+
+        return i0;
+    }
+
+    public java.lang.String[] getNonUsernamePaths()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        java.lang.String[] r1;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        return r1;
+    }
+
+    public int getPhotoSizeLimit()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit>;
+
+        return i0;
+    }
+
+    public java.util.Map getPhotoSizes()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        java.util.Map r1;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        return r1;
+    }
+
+    public int getShortURLLength()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength>;
+
+        return i0;
+    }
+
+    public int getShortURLLengthHttps()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps>;
+
+        return i0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        int $i0, $i1, $i2;
+        java.util.Map $r1;
+        java.lang.String[] $r2;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        $i1 = 0;
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit>;
+
+        $i0 = $i0 * 31;
+
+        $i2 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength>;
+
+        $i2 = $i0 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps>;
+
+        $i2 = $i2 + $i0;
+
+        $i2 = $i2 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia>;
+
+        $i2 = $i2 + $i0;
+
+        $i0 = $i2 * 31;
+
+        $r1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $i2 = interfaceinvoke $r1.<java.util.Map: int hashCode()>();
+
+     label1:
+        $i2 = $i0 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $r2 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        if $r2 == null goto label2;
+
+        $r2 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        $i1 = staticinvoke <java.util.Arrays: int hashCode(java.lang.Object[])>($r2);
+
+     label2:
+        $i2 = $i2 + $i1;
+
+        $i2 = $i2 * 31;
+
+        $i1 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload>;
+
+        $i2 = $i2 + $i1;
+
+        return $i2;
+
+     label3:
+        $i2 = 0;
+
+        goto label1;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.TwitterAPIConfigurationJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        int $i0;
+        java.util.Map $r2;
+        java.lang.String[] $r3;
+        java.util.List $r4;
+        java.lang.String $r5;
+
+        $r0 := @this: twitter4j.internal.json.TwitterAPIConfigurationJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("TwitterAPIConfigurationJSONImpl{photoSizeLimit=");
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int photoSizeLimit>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", shortURLLength=");
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLength>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", shortURLLengthHttps=");
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int shortURLLengthHttps>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", charactersReservedPerMedia=");
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int charactersReservedPerMedia>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", photoSizes=");
+
+        $r2 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.util.Map photoSizes>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", nonUsernamePaths=");
+
+        $r3 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        if $r3 != null goto label2;
+
+        $r4 = null;
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", maxMediaPerUpload=");
+
+        $i0 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: int maxMediaPerUpload>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+
+     label2:
+        $r3 = $r0.<twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: java.lang.String[] nonUsernamePaths>;
+
+        $r4 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r3);
+
+        goto label1;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.TwitterAPIConfigurationJSONImpl: long serialVersionUID> = 5786291660087491465L;
+
+        return;
+    }
+}

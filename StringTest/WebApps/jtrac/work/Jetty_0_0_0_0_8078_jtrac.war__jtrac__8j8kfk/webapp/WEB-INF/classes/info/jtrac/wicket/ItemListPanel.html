@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <wicket:panel>
+            <table class="jtrac" width="100%">
+                <tr>
+                    <td>
+                        <span wicket:id="count"><img src="resources/search.gif" class="nav-link"/><a href="#"><span wicket:id="count"></span> <span wicket:id="recordsFound"></span></a></span>&nbsp;                
+                        <span wicket:id="pagination" class="page-links">
+                            <span wicket:id="prevOn"><a href="#" wicket:id="prevOn"></a></span><span wicket:id="prevOff"></span>&nbsp;
+                            <span wicket:id="pages">
+                                <span wicket:id="pageOn"><a href="#" wicket:id="pageOn"></a></span><span wicket:id="pageOff"></span>&nbsp;
+                            </span><span wicket:id="nextOn"><a href="#" wicket:id="nextOn"></a></span><span wicket:id="nextOff"></span>                    
+                        </span>
+                    </td>
+                    <td wicket:id="export" align="right">
+                        <img src="resources/excel.gif" class="nav-link"/><a href="#"><wicket:message key="item_list.exportToExcel"/></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="jtrac jtrac-list" width="100%">
+                <tr class="sortable">
+                    <th wicket:id="headings"><span wicket:id="heading"><a href="#" wicket:id="heading"></a></span></th>                    
+                </tr>
+                <tr wicket:id="itemList">
+                    <td wicket:id="columns"><span wicket:id="column"></span></td>
+                </tr>
+            </table>
+        </wicket:panel>
+        <wicket:fragment wicket:id="refId"><a href="#" wicket:id="refId"><span wicket:id="refId"></span></a><span wicket:id="index"></span></wicket:fragment>
+        <wicket:fragment wicket:id="detail"><span wicket:id="attachment"></span><span wicket:id="detail"></span></wicket:fragment>
+    </body>
+</html>

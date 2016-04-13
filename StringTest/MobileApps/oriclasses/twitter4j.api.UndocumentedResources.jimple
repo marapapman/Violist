@@ -1,0 +1,5 @@
+public interface  twitter4j.api.UndocumentedResources extends java.lang.Object
+{
+
+    public abstract twitter4j.RelatedResults getRelatedResults(long) throws twitter4j.TwitterException;
+}

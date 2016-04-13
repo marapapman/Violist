@@ -1,0 +1,155 @@
+final class twitter4j.internal.logging.NullLogger extends twitter4j.internal.logging.Logger
+{
+
+    void <init>()
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        specialinvoke $r0.<twitter4j.internal.logging.Logger: void <init>()>();
+
+        return;
+    }
+
+    public void debug(java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    public void debug(java.lang.String, java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        return;
+    }
+
+    public void error(java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    public void error(java.lang.String, java.lang.Throwable)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Throwable;
+
+        return;
+    }
+
+    public void info(java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    public void info(java.lang.String, java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        return;
+    }
+
+    public boolean isDebugEnabled()
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        return 0;
+    }
+
+    public boolean isErrorEnabled()
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        return 0;
+    }
+
+    public boolean isInfoEnabled()
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        return 0;
+    }
+
+    public boolean isWarnEnabled()
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        return 0;
+    }
+
+    public void warn(java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    public void warn(java.lang.String, java.lang.String)
+    {
+        twitter4j.internal.logging.NullLogger $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: twitter4j.internal.logging.NullLogger;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        return;
+    }
+}

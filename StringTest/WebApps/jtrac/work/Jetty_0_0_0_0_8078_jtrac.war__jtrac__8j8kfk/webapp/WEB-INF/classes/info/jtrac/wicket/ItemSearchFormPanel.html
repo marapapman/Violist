@@ -1,0 +1,43 @@
+<html>
+    <body>        
+        <wicket:panel>            
+            <form wicket:id="form">
+                <span wicket:id="feedback"></span>
+                <table class="jtrac">
+                    <tr>
+                        <th><wicket:message key="item_search_form.resultsPerPage"/></th>
+                        <td><select wicket:id="pageSize"/></td>
+                        <td/>
+                        <th><wicket:message key="item_search_form.showHistory"/></th>                            
+                        <td>    
+                            <input type="checkbox" wicket:id="showHistory"/>                            
+                        </td>
+                        <td>
+                            <input type="submit" wicket:message="value:search" wicket:id="search"/>
+                        </td>
+                    </tr>
+                </table>                                               
+                <table class="jtrac">
+                    <tr class="alt">
+                        <td align="center"><wicket:message key="item_filter.showColumn"/></td>
+                        <td align="center"><wicket:message key="item_filter.expression"/></td>
+                        <td align="center">
+                            <a href="#" wicket:id="expandAll"><wicket:message key="item_filter.expandAll"/></a>
+                        </td>
+                    </tr>
+                    <tr valign="top" wicket:id="columns">
+                        <td class="label">
+                            <span wicket:id="columnName"></span>
+                            <input type="checkbox" wicket:id="visible"/>
+                        </td>                            
+                        <td class="alt"><select wicket:id="expression"/></td>
+                        <td wicket:id="fragParent"></td>
+                    </tr>                    
+                </table>
+            </form>
+            <wicket:fragment wicket:id="multiSelect"><span wicket:id="values"></span></wicket:fragment>            
+            <wicket:fragment wicket:id="textField"><input wicket:id="value"/> <input wicket:id="value2"/></wicket:fragment>            
+            <wicket:fragment wicket:id="dateField"><span wicket:id="value"></span> <span wicket:id="value2"></span></wicket:fragment>
+        </wicket:panel>
+    </body>
+</html>

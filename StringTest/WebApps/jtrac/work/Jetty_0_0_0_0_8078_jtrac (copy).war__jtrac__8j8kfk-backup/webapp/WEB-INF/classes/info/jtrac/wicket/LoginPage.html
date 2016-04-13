@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title wicket:id="title"></title>
+        <link rel="stylesheet" type="text/css" href="resources/jtrac.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>        
+    </head>
+    <body>
+        <table width="100%" class="jtrac alt">
+            <tr>
+                <td><a href="app"><wicket:message key="login.home"/></a></td>
+                <td align="right"></td>
+            </tr>
+        </table>             
+        <form wicket:id="form" class="content">
+            <div wicket:id="hide" style="margin-top:3.2em"></div>
+            <div wicket:id="feedback"></div>
+            <table class="jtrac">
+                <tr>
+                    <td class="label"><wicket:message key="login.loginName"/></td>
+                    <td colspan="2"><input wicket:id="loginName" size="35"/></td>
+                </tr>
+                <tr>
+                    <td class="label"><wicket:message key="login.password"/></td>
+                    <td><input type="password" wicket:id="password" size="20"/></td>
+                    <td align="right">
+                        <input type="submit" wicket:message="value:login.submit"/>                        
+                    </td>
+                </tr> 
+                <tr>
+                    <td/>
+                    <td colspan="2" align="right">
+                        <wicket:message key="login.rememberMe"/>
+                        <input type="checkbox" wicket:id="rememberMe"/>
+                    </td>
+                </tr>                                              
+            </table>
+        </form>
+        <div><br/></div>
+        <table width="100%" class="jtrac">
+            <tr class="alt">
+                <td align="right">
+                    <i>powered by <a href="http://jtrac.info" target="_blank">JTrac</a> <span wicket:id="version"></span></i>
+                </td>
+            </tr>
+        </table>            
+    </body>
+</html>

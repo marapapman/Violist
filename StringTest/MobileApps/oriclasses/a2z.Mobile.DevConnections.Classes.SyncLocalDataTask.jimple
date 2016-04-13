@@ -1,0 +1,130 @@
+public class a2z.Mobile.DevConnections.Classes.SyncLocalDataTask extends android.os.AsyncTask
+{
+    private android.content.Context _context;
+
+    public void <init>(android.content.Context)
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        android.content.Context $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: android.content.Context _context> = $r1;
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.String $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.String[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: java.lang.String doInBackground(java.lang.String[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.String doInBackground(java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.String[] $r1;
+        android.content.Context $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: android.content.Context _context>;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Exhibitor: void syncExpoPlan(android.content.Context)>($r2);
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: android.content.Context _context>;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Session: void syncItinerary(android.content.Context)>($r2);
+
+        return "complete";
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.String) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: void onPostExecute(java.lang.String)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        specialinvoke $r0.<android.os.AsyncTask: void onPreExecute()>();
+
+        return;
+    }
+
+    protected transient volatile void onProgressUpdate(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void[] $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r2 = (java.lang.Void[]) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.SyncLocalDataTask: void onProgressUpdate(java.lang.Void[])>($r2);
+
+        return;
+    }
+
+    protected transient void onProgressUpdate(java.lang.Void[])
+    {
+        a2z.Mobile.DevConnections.Classes.SyncLocalDataTask $r0;
+        java.lang.Void[] $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SyncLocalDataTask;
+
+        $r1 := @parameter0: java.lang.Void[];
+
+        specialinvoke $r0.<android.os.AsyncTask: void onProgressUpdate(java.lang.Object[])>($r1);
+
+        return;
+    }
+}

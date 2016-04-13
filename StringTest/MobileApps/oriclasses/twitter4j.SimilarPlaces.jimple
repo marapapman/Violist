@@ -1,0 +1,5 @@
+public interface  twitter4j.SimilarPlaces extends java.lang.Object implements twitter4j.ResponseList
+{
+
+    public abstract java.lang.String getToken();
+}

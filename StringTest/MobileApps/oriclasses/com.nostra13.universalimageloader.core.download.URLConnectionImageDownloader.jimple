@@ -1,0 +1,87 @@
+public class com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader extends com.nostra13.universalimageloader.core.download.ImageDownloader
+{
+    public static final int DEFAULT_HTTP_CONNECT_TIMEOUT;
+    public static final int DEFAULT_HTTP_READ_TIMEOUT;
+    private int connectTimeout;
+    private int readTimeout;
+
+    public void <init>()
+    {
+        com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader $r0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: void <init>(int,int)>(5000, 20000);
+
+        return;
+    }
+
+    public void <init>(int, int)
+    {
+        com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader $r0;
+        int $i0, $i1;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.core.download.ImageDownloader: void <init>()>();
+
+        $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int connectTimeout> = $i0;
+
+        $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int readTimeout> = $i1;
+
+        return;
+    }
+
+    public java.io.InputStream getStreamFromNetwork(java.net.URI) throws java.io.IOException
+    {
+        com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader $r0;
+        java.net.URI $r1;
+        java.io.BufferedInputStream $r2;
+        java.net.URL $r3;
+        java.net.URLConnection $r4;
+        int $i0;
+        com.nostra13.universalimageloader.core.assist.FlushedInputStream $r5;
+        java.io.InputStream $r6;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader;
+
+        $r1 := @parameter0: java.net.URI;
+
+        $r3 = virtualinvoke $r1.<java.net.URI: java.net.URL toURL()>();
+
+        $r4 = virtualinvoke $r3.<java.net.URL: java.net.URLConnection openConnection()>();
+
+        $i0 = $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int connectTimeout>;
+
+        virtualinvoke $r4.<java.net.URLConnection: void setConnectTimeout(int)>($i0);
+
+        $i0 = $r0.<com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int readTimeout>;
+
+        virtualinvoke $r4.<java.net.URLConnection: void setReadTimeout(int)>($i0);
+
+        $r5 = new com.nostra13.universalimageloader.core.assist.FlushedInputStream;
+
+        $r2 = new java.io.BufferedInputStream;
+
+        $r6 = virtualinvoke $r4.<java.net.URLConnection: java.io.InputStream getInputStream()>();
+
+        specialinvoke $r2.<java.io.BufferedInputStream: void <init>(java.io.InputStream,int)>($r6, 8192);
+
+        specialinvoke $r5.<com.nostra13.universalimageloader.core.assist.FlushedInputStream: void <init>(java.io.InputStream)>($r2);
+
+        return $r5;
+    }
+
+    public static void <clinit>()
+    {
+        <com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int DEFAULT_HTTP_READ_TIMEOUT> = 20000;
+
+        <com.nostra13.universalimageloader.core.download.URLConnectionImageDownloader: int DEFAULT_HTTP_CONNECT_TIMEOUT> = 5000;
+
+        return;
+    }
+}

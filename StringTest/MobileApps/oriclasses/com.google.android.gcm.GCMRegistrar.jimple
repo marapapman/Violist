@@ -1,0 +1,1186 @@
+public final class com.google.android.gcm.GCMRegistrar extends java.lang.Object
+{
+    private static final java.lang.String BACKOFF_MS;
+    private static final int DEFAULT_BACKOFF_MS;
+    public static final long DEFAULT_ON_SERVER_LIFESPAN_MS;
+    private static final java.lang.String GSF_PACKAGE;
+    private static final java.lang.String PREFERENCES;
+    private static final java.lang.String PROPERTY_APP_VERSION;
+    private static final java.lang.String PROPERTY_ON_SERVER;
+    private static final java.lang.String PROPERTY_ON_SERVER_EXPIRATION_TIME;
+    private static final java.lang.String PROPERTY_ON_SERVER_LIFESPAN;
+    private static final java.lang.String PROPERTY_REG_ID;
+    private static final java.lang.String TAG;
+    private static com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver;
+    private static java.lang.String sRetryReceiverClassName;
+
+    private void <init>()
+    {
+        com.google.android.gcm.GCMRegistrar $r0;
+        java.lang.UnsupportedOperationException $r1;
+
+        $r0 := @this: com.google.android.gcm.GCMRegistrar;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $r1;
+    }
+
+    public static void checkDevice(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager$NameNotFoundException $r1;
+        int $i0;
+        java.lang.StringBuilder $r2;
+        java.lang.UnsupportedOperationException $r3;
+        java.lang.String $r4;
+        android.content.pm.PackageManager $r5;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 8 goto label1;
+
+        $r3 = new java.lang.UnsupportedOperationException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Device must be at least API Level 8 (instead of ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>($r4);
+
+        throw $r3;
+
+     label1:
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.pm.PackageManager getPackageManager()>();
+
+     label2:
+        virtualinvoke $r5.<android.content.pm.PackageManager: android.content.pm.PackageInfo getPackageInfo(java.lang.String,int)>("com.google.android.gsf", 0);
+
+     label3:
+        return;
+
+     label4:
+        $r1 := @caughtexception;
+
+        $r3 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r3.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("Device does not have package com.google.android.gsf");
+
+        throw $r3;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label2 to label3 with label4;
+    }
+
+    public static void checkManifest(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.util.HashSet $r1;
+        android.content.pm.PackageManager$NameNotFoundException $r2, $r11;
+        int $i0, $i1;
+        android.content.pm.ActivityInfo $r3;
+        android.content.pm.ActivityInfo[] $r4;
+        java.lang.StringBuilder $r5;
+        android.content.pm.PackageManager $r6;
+        java.lang.String $r7, $r8;
+        android.content.pm.PackageInfo $r9;
+        java.lang.IllegalStateException $r10;
+        boolean $z0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r6 = virtualinvoke $r0.<android.content.Context: android.content.pm.PackageManager getPackageManager()>();
+
+        $r7 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".permission.C2D_MESSAGE");
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label01:
+        virtualinvoke $r6.<android.content.pm.PackageManager: android.content.pm.PermissionInfo getPermissionInfo(java.lang.String,int)>($r8, 4096);
+
+     label02:
+        $r9 = virtualinvoke $r6.<android.content.pm.PackageManager: android.content.pm.PackageInfo getPackageInfo(java.lang.String,int)>($r7, 2);
+
+     label03:
+        $r4 = $r9.<android.content.pm.PackageInfo: android.content.pm.ActivityInfo[] receivers>;
+
+        if $r4 == null goto label04;
+
+        $i1 = lengthof $r4;
+
+        if $i1 != 0 goto label07;
+
+     label04:
+        $r10 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No receiver for package ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r10;
+
+     label05:
+        $r2 := @caughtexception;
+
+        $r10 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Application does not define permission ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r10;
+
+     label06:
+        $r11 := @caughtexception;
+
+        $r10 = new java.lang.IllegalStateException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not get receivers for package ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r8);
+
+        throw $r10;
+
+     label07:
+        $z0 = staticinvoke <android.util.Log: boolean isLoggable(java.lang.String,int)>("GCMRegistrar", 2);
+
+        if $z0 == 0 goto label08;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("number of receivers for ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $i1 = lengthof $r4;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r8);
+
+     label08:
+        $r1 = new java.util.HashSet;
+
+        specialinvoke $r1.<java.util.HashSet: void <init>()>();
+
+        $i1 = lengthof $r4;
+
+        $i0 = 0;
+
+     label09:
+        if $i0 >= $i1 goto label11;
+
+        $r3 = $r4[$i0];
+
+        $r8 = "com.google.android.c2dm.permission.SEND";
+
+        $r7 = $r3.<android.content.pm.ActivityInfo: java.lang.String permission>;
+
+        $z0 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>($r7);
+
+        if $z0 == 0 goto label10;
+
+        $r8 = $r3.<android.content.pm.ActivityInfo: java.lang.String name>;
+
+        interfaceinvoke $r1.<java.util.Set: boolean add(java.lang.Object)>($r8);
+
+     label10:
+        $i0 = $i0 + 1;
+
+        goto label09;
+
+     label11:
+        $z0 = interfaceinvoke $r1.<java.util.Set: boolean isEmpty()>();
+
+        if $z0 == 0 goto label12;
+
+        $r10 = new java.lang.IllegalStateException;
+
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>(java.lang.String)>("No receiver allowed to receive com.google.android.c2dm.permission.SEND");
+
+        throw $r10;
+
+     label12:
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void checkReceiver(android.content.Context,java.util.Set,java.lang.String)>($r0, $r1, "com.google.android.c2dm.intent.REGISTRATION");
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void checkReceiver(android.content.Context,java.util.Set,java.lang.String)>($r0, $r1, "com.google.android.c2dm.intent.RECEIVE");
+
+        return;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label01 to label02 with label05;
+        catch android.content.pm.PackageManager$NameNotFoundException from label02 to label03 with label06;
+    }
+
+    private static void checkReceiver(android.content.Context, java.util.Set, java.lang.String)
+    {
+        android.content.Context $r0;
+        java.util.Set $r1;
+        java.lang.String $r2, $r6;
+        android.content.Intent $r3;
+        java.lang.StringBuilder $r4;
+        android.content.pm.PackageManager $r5;
+        java.util.List $r7;
+        boolean $z0;
+        java.lang.IllegalStateException $r8;
+        int $i0;
+        java.util.Iterator $r9;
+        java.lang.Object $r10;
+        android.content.pm.ResolveInfo $r11;
+        android.content.pm.ActivityInfo $r12;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.util.Set;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r5 = virtualinvoke $r0.<android.content.Context: android.content.pm.PackageManager getPackageManager()>();
+
+        $r6 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>(java.lang.String)>($r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent setPackage(java.lang.String)>($r6);
+
+        $r7 = virtualinvoke $r5.<android.content.pm.PackageManager: java.util.List queryBroadcastReceivers(android.content.Intent,int)>($r3, 32);
+
+        $z0 = interfaceinvoke $r7.<java.util.List: boolean isEmpty()>();
+
+        if $z0 == 0 goto label1;
+
+        $r8 = new java.lang.IllegalStateException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No receivers for action ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r6 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r8.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r6);
+
+        throw $r8;
+
+     label1:
+        $z0 = staticinvoke <android.util.Log: boolean isLoggable(java.lang.String,int)>("GCMRegistrar", 2);
+
+        if $z0 == 0 goto label2;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Found ");
+
+        $i0 = interfaceinvoke $r7.<java.util.List: int size()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" receivers for action ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r6 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r6);
+
+     label2:
+        $r9 = interfaceinvoke $r7.<java.util.List: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r9.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r10 = interfaceinvoke $r9.<java.util.Iterator: java.lang.Object next()>();
+
+        $r11 = (android.content.pm.ResolveInfo) $r10;
+
+        $r12 = $r11.<android.content.pm.ResolveInfo: android.content.pm.ActivityInfo activityInfo>;
+
+        $r2 = $r12.<android.content.pm.ActivityInfo: java.lang.String name>;
+
+        $z0 = interfaceinvoke $r1.<java.util.Set: boolean contains(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label3;
+
+        $r8 = new java.lang.IllegalStateException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Receiver ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not set with permission ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("com.google.android.c2dm.permission.SEND");
+
+        $r6 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r8.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r6);
+
+        throw $r8;
+
+     label4:
+        return;
+    }
+
+    static java.lang.String clearRegistrationId(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: java.lang.String setRegistrationId(android.content.Context,java.lang.String)>($r0, "");
+
+        return $r1;
+    }
+
+    private static int getAppVersion(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.pm.PackageManager$NameNotFoundException $r1;
+        android.content.pm.PackageManager $r2;
+        java.lang.String $r3;
+        android.content.pm.PackageInfo $r4;
+        java.lang.RuntimeException $r5;
+        java.lang.StringBuilder $r6;
+        int i0;
+
+        $r0 := @parameter0: android.content.Context;
+
+     label1:
+        $r2 = virtualinvoke $r0.<android.content.Context: android.content.pm.PackageManager getPackageManager()>();
+
+        $r3 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r4 = virtualinvoke $r2.<android.content.pm.PackageManager: android.content.pm.PackageInfo getPackageInfo(java.lang.String,int)>($r3, 0);
+
+     label2:
+        i0 = $r4.<android.content.pm.PackageInfo: int versionCode>;
+
+        return i0;
+
+     label3:
+        $r1 := @caughtexception;
+
+        $r5 = new java.lang.RuntimeException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Coult not get package name: ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r3 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.RuntimeException: void <init>(java.lang.String)>($r3);
+
+        throw $r5;
+
+        catch android.content.pm.PackageManager$NameNotFoundException from label1 to label2 with label3;
+    }
+
+    static int getBackoff(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.SharedPreferences $r1;
+        int $i0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $i0 = interfaceinvoke $r1.<android.content.SharedPreferences: int getInt(java.lang.String,int)>("backoff_ms", 3000);
+
+        return $i0;
+    }
+
+    static transient java.lang.String getFlatSenderIds(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        java.lang.StringBuilder $r1, $r2;
+        int $i0, $i1;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.String $r4;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        if $r0 == null goto label1;
+
+        $i0 = lengthof $r0;
+
+        if $i0 != 0 goto label2;
+
+     label1:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("No senderIds");
+
+        throw $r3;
+
+     label2:
+        $r1 = new java.lang.StringBuilder;
+
+        $r4 = $r0[0];
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $i0 = 1;
+
+     label3:
+        $i1 = lengthof $r0;
+
+        if $i0 >= $i1 goto label4;
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+        $r4 = $r0[$i0];
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label3;
+
+     label4:
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+
+    private static android.content.SharedPreferences getGCMPreferences(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.SharedPreferences $r1;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = virtualinvoke $r0.<android.content.Context: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>("com.google.android.gcm", 0);
+
+        return $r1;
+    }
+
+    public static long getRegisterOnServerLifespan(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.SharedPreferences $r1;
+        long $l0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $l0 = interfaceinvoke $r1.<android.content.SharedPreferences: long getLong(java.lang.String,long)>("onServerLifeSpan", 604800000L);
+
+        return $l0;
+    }
+
+    public static java.lang.String getRegistrationId(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.SharedPreferences $r1;
+        java.lang.String $r2;
+        int $i0, $i1;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $r2 = interfaceinvoke $r1.<android.content.SharedPreferences: java.lang.String getString(java.lang.String,java.lang.String)>("regId", "");
+
+        $i0 = interfaceinvoke $r1.<android.content.SharedPreferences: int getInt(java.lang.String,int)>("appVersion", -2147483648);
+
+        $i1 = staticinvoke <com.google.android.gcm.GCMRegistrar: int getAppVersion(android.content.Context)>($r0);
+
+        if $i0 == -2147483648 goto label1;
+
+        if $i0 == $i1 goto label2;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("App version changed from ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" to ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("; resetting registration id");
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r2);
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: java.lang.String clearRegistrationId(android.content.Context)>($r0);
+
+        return "";
+
+     label1:
+        return $r2;
+
+     label2:
+        return $r2;
+    }
+
+    static transient void internalRegister(android.content.Context, java.lang.String[])
+    {
+        android.content.Context $r0;
+        java.lang.String[] $r1;
+        android.content.Intent $r2, $r6;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4, $r5;
+        android.app.PendingIntent $r7;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.lang.String[];
+
+        $r4 = staticinvoke <com.google.android.gcm.GCMRegistrar: java.lang.String getFlatSenderIds(java.lang.String[])>($r1);
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Registering app ");
+
+        $r5 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" of senders ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r5);
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(java.lang.String)>("com.google.android.c2dm.intent.REGISTER");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setPackage(java.lang.String)>("com.google.android.gsf");
+
+        $r6 = new android.content.Intent;
+
+        specialinvoke $r6.<android.content.Intent: void <init>()>();
+
+        $r7 = staticinvoke <android.app.PendingIntent: android.app.PendingIntent getBroadcast(android.content.Context,int,android.content.Intent,int)>($r0, 0, $r6, 0);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)>("app", $r7);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("sender", $r4);
+
+        virtualinvoke $r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2);
+
+        return;
+    }
+
+    static void internalUnregister(android.content.Context)
+    {
+        android.content.Context $r0;
+        android.content.Intent $r1, $r4;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        android.app.PendingIntent $r5;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unregistering app ");
+
+        $r3 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r3);
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(java.lang.String)>("com.google.android.c2dm.intent.UNREGISTER");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent setPackage(java.lang.String)>("com.google.android.gsf");
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        $r5 = staticinvoke <android.app.PendingIntent: android.app.PendingIntent getBroadcast(android.content.Context,int,android.content.Intent,int)>($r0, 0, $r4, 0);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)>("app", $r5);
+
+        virtualinvoke $r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public static boolean isRegistered(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: java.lang.String getRegistrationId(android.content.Context)>($r0);
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 <= 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static boolean isRegisteredOnServer(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.StringBuilder $r1;
+        android.content.SharedPreferences $r2;
+        boolean $z0;
+        java.lang.String $r3;
+        long $l0, $l1;
+        byte $b2;
+        java.sql.Timestamp $r4;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r2 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $z0 = interfaceinvoke $r2.<android.content.SharedPreferences: boolean getBoolean(java.lang.String,boolean)>("onServer", 0);
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Is registered on server: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r3);
+
+        if $z0 == 0 goto label1;
+
+        $l0 = interfaceinvoke $r2.<android.content.SharedPreferences: long getLong(java.lang.String,long)>("onServerExpirationTime", -1L);
+
+        $l1 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 <= 0 goto label2;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("flag expired on: ");
+
+        $r4 = new java.sql.Timestamp;
+
+        specialinvoke $r4.<java.sql.Timestamp: void <init>(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r3);
+
+        return 0;
+
+     label1:
+        return $z0;
+
+     label2:
+        return $z0;
+    }
+
+    public static void onDestroy(android.content.Context)
+    {
+        android.content.Context $r0;
+        com.google.android.gcm.GCMBroadcastReceiver $r1;
+        java.lang.Throwable $r2;
+
+        $r0 := @parameter0: android.content.Context;
+
+        entermonitor class "com/google/android/gcm/GCMRegistrar";
+
+     label1:
+        $r1 = <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver>;
+
+        if $r1 == null goto label2;
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", "Unregistering receiver");
+
+        $r1 = <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver>;
+
+        virtualinvoke $r0.<android.content.Context: void unregisterReceiver(android.content.BroadcastReceiver)>($r1);
+
+        <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver> = null;
+
+     label2:
+        exitmonitor class "com/google/android/gcm/GCMRegistrar";
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        exitmonitor class "com/google/android/gcm/GCMRegistrar";
+
+        throw $r2;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public static transient void register(android.content.Context, java.lang.String[])
+    {
+        android.content.Context $r0;
+        java.lang.String[] $r1;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.lang.String[];
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void resetBackoff(android.content.Context)>($r0);
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void internalRegister(android.content.Context,java.lang.String[])>($r0, $r1);
+
+        return;
+    }
+
+    static void resetBackoff(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("resetting backoff for ");
+
+        $r2 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("GCMRegistrar", $r2);
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void setBackoff(android.content.Context,int)>($r0, 3000);
+
+        return;
+    }
+
+    static void setBackoff(android.content.Context, int)
+    {
+        android.content.Context $r0;
+        int $i0;
+        android.content.SharedPreferences $r1;
+        android.content.SharedPreferences$Editor $r2;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $i0 := @parameter1: int;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $r2 = interfaceinvoke $r1.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        interfaceinvoke $r2.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>("backoff_ms", $i0);
+
+        interfaceinvoke $r2.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return;
+    }
+
+    public static void setRegisterOnServerLifespan(android.content.Context, long)
+    {
+        android.content.Context $r0;
+        long $l0;
+        android.content.SharedPreferences $r1;
+        android.content.SharedPreferences$Editor $r2;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $l0 := @parameter1: long;
+
+        $r1 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $r2 = interfaceinvoke $r1.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        interfaceinvoke $r2.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putLong(java.lang.String,long)>("onServerLifeSpan", $l0);
+
+        interfaceinvoke $r2.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return;
+    }
+
+    public static void setRegisteredOnServer(android.content.Context, boolean)
+    {
+        android.content.Context $r0;
+        boolean $z0;
+        long $l0, $l1;
+        java.lang.StringBuilder $r1;
+        android.content.SharedPreferences $r2;
+        android.content.SharedPreferences$Editor $r3;
+        java.sql.Timestamp $r4;
+        java.lang.String $r5;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $r3 = interfaceinvoke $r2.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)>("onServer", $z0);
+
+        $l0 = staticinvoke <com.google.android.gcm.GCMRegistrar: long getRegisterOnServerLifespan(android.content.Context)>($r0);
+
+        $l1 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l0 = $l1 + $l0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Setting registeredOnServer status as ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" until ");
+
+        $r4 = new java.sql.Timestamp;
+
+        specialinvoke $r4.<java.sql.Timestamp: void <init>(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r5);
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putLong(java.lang.String,long)>("onServerExpirationTime", $l0);
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return;
+    }
+
+    static java.lang.String setRegistrationId(android.content.Context, java.lang.String)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1, $r3, $r5;
+        android.content.SharedPreferences $r2;
+        int $i0;
+        java.lang.StringBuilder $r4;
+        android.content.SharedPreferences$Editor $r6;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 = staticinvoke <com.google.android.gcm.GCMRegistrar: android.content.SharedPreferences getGCMPreferences(android.content.Context)>($r0);
+
+        $r3 = interfaceinvoke $r2.<android.content.SharedPreferences: java.lang.String getString(java.lang.String,java.lang.String)>("regId", "");
+
+        $i0 = staticinvoke <com.google.android.gcm.GCMRegistrar: int getAppVersion(android.content.Context)>($r0);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Saving regId on app version ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r5);
+
+        $r6 = interfaceinvoke $r2.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>("regId", $r1);
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>("appVersion", $i0);
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        return $r3;
+    }
+
+    static void setRetryBroadcastReceiver(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.Exception $r1;
+        android.content.IntentFilter $r2;
+        com.google.android.gcm.GCMBroadcastReceiver $r3;
+        java.lang.String $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.Class $r6;
+        java.lang.Object $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @parameter0: android.content.Context;
+
+        entermonitor class "com/google/android/gcm/GCMRegistrar";
+
+     label01:
+        $r3 = <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver>;
+
+        if $r3 != null goto label03;
+
+        $r4 = <com.google.android.gcm.GCMRegistrar: java.lang.String sRetryReceiverClassName>;
+
+        if $r4 != null goto label04;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("GCMRegistrar", "internal error: retry receiver class not set yet");
+
+        $r3 = new com.google.android.gcm.GCMBroadcastReceiver;
+
+        specialinvoke $r3.<com.google.android.gcm.GCMBroadcastReceiver: void <init>()>();
+
+        <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver> = $r3;
+
+     label02:
+        $r4 = virtualinvoke $r0.<android.content.Context: java.lang.String getPackageName()>();
+
+        $r2 = new android.content.IntentFilter;
+
+        specialinvoke $r2.<android.content.IntentFilter: void <init>(java.lang.String)>("com.google.android.gcm.intent.RETRY");
+
+        virtualinvoke $r2.<android.content.IntentFilter: void addCategory(java.lang.String)>($r4);
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".permission.C2D_MESSAGE");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", "Registering receiver");
+
+        $r3 = <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver>;
+
+        virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, $r2, $r4, null);
+
+     label03:
+        exitmonitor class "com/google/android/gcm/GCMRegistrar";
+
+        return;
+
+     label04:
+        $r4 = <com.google.android.gcm.GCMRegistrar: java.lang.String sRetryReceiverClassName>;
+
+     label05:
+        $r6 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r4);
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.Object newInstance()>();
+
+        $r3 = (com.google.android.gcm.GCMBroadcastReceiver) $r7;
+
+     label06:
+        <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver> = $r3;
+
+     label07:
+        goto label02;
+
+     label08:
+        $r1 := @caughtexception;
+
+     label09:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not create instance of ");
+
+        $r4 = <com.google.android.gcm.GCMRegistrar: java.lang.String sRetryReceiverClassName>;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(". Using ");
+
+        $r6 = class "com/google/android/gcm/GCMBroadcastReceiver";
+
+        $r4 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" directly.");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("GCMRegistrar", $r4);
+
+        $r3 = new com.google.android.gcm.GCMBroadcastReceiver;
+
+        specialinvoke $r3.<com.google.android.gcm.GCMBroadcastReceiver: void <init>()>();
+
+        <com.google.android.gcm.GCMRegistrar: com.google.android.gcm.GCMBroadcastReceiver sRetryReceiver> = $r3;
+
+     label10:
+        goto label02;
+
+     label11:
+        $r8 := @caughtexception;
+
+        exitmonitor class "com/google/android/gcm/GCMRegistrar";
+
+        throw $r8;
+
+        catch java.lang.Throwable from label01 to label03 with label11;
+        catch java.lang.Exception from label05 to label06 with label08;
+        catch java.lang.Throwable from label04 to label07 with label11;
+        catch java.lang.Throwable from label09 to label10 with label11;
+    }
+
+    static void setRetryReceiverClassName(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        java.lang.StringBuilder $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Setting the name of retry receiver class to ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("GCMRegistrar", $r2);
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String sRetryReceiverClassName> = $r0;
+
+        return;
+    }
+
+    public static void unregister(android.content.Context)
+    {
+        android.content.Context $r0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void resetBackoff(android.content.Context)>($r0);
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void internalUnregister(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.google.android.gcm.GCMRegistrar: java.lang.String TAG> = "GCMRegistrar";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PROPERTY_REG_ID> = "regId";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PROPERTY_ON_SERVER_LIFESPAN> = "onServerLifeSpan";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PROPERTY_ON_SERVER_EXPIRATION_TIME> = "onServerExpirationTime";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PROPERTY_ON_SERVER> = "onServer";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PROPERTY_APP_VERSION> = "appVersion";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String PREFERENCES> = "com.google.android.gcm";
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String GSF_PACKAGE> = "com.google.android.gsf";
+
+        <com.google.android.gcm.GCMRegistrar: long DEFAULT_ON_SERVER_LIFESPAN_MS> = 604800000L;
+
+        <com.google.android.gcm.GCMRegistrar: int DEFAULT_BACKOFF_MS> = 3000;
+
+        <com.google.android.gcm.GCMRegistrar: java.lang.String BACKOFF_MS> = "backoff_ms";
+
+        return;
+    }
+}

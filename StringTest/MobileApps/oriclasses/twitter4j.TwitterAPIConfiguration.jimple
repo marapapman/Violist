@@ -1,0 +1,17 @@
+public interface  twitter4j.TwitterAPIConfiguration extends java.lang.Object implements twitter4j.TwitterResponse, java.io.Serializable
+{
+
+    public abstract int getCharactersReservedPerMedia();
+
+    public abstract int getMaxMediaPerUpload();
+
+    public abstract java.lang.String[] getNonUsernamePaths();
+
+    public abstract int getPhotoSizeLimit();
+
+    public abstract java.util.Map getPhotoSizes();
+
+    public abstract int getShortURLLength();
+
+    public abstract int getShortURLLengthHttps();
+}

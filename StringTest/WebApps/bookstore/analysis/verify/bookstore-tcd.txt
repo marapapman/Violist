@@ -1,0 +1,293 @@
+<invocation name="CardTypes" target="CardTypesRecord.jsp" method="GET">
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="FormName" value="CardTypes" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="PK_card_type_id" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="CardTypes" target="CardTypesRecord.jsp" method="GET">
+	<arg name="FormName" value="CardTypes" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="PK_card_type_id" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="null" target="Login.jsp" method="POST">
+	<arg name="querystring" value="" type="STRING"/>
+	<arg name="FormAction" value="login" type="STRING"/>
+	<arg name="Login" value="" type="STRING"/>
+	<arg name="Password" value="" type="STRING"/>
+	<arg name="ret_page" value="" type="STRING"/>
+	<arg name="FormName" value="Login" type="STRING"/>
+</invocation>
+
+<invocation name="Members" target="MembersRecord.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="Trn_member_login" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="member_level" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="FormName" value="Members" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Members" target="MembersRecord.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="Trn_member_login" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="member_level" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="FormName" value="Members" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+</invocation>
+
+<invocation name="editorials" target="EditorialsRecord.jsp" method="GET">
+	<arg name="article_desc" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="article_title" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="FormName" value="editorials" type="STRING"/>
+	<arg name="PK_article_id" value="" type="STRING"/>
+	<arg name="article_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="editorials" target="EditorialsRecord.jsp" method="GET">
+	<arg name="article_desc" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="article_title" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="FormName" value="editorials" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="PK_article_id" value="" type="STRING"/>
+	<arg name="article_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Book" target="BookMaint.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="image_url" value="" type="STRING"/>
+	<arg name="is_recommended" value="1" type="STRING"/>
+	<arg name="Trn_category_id" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="FormName" value="Book" type="STRING"/>
+	<arg name="price" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="author" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="product_url" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Book" target="BookMaint.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="image_url" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="is_recommended" value="1" type="STRING"/>
+	<arg name="Trn_category_id" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="FormName" value="Book" type="STRING"/>
+	<arg name="price" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="author" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="product_url" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Form" target="MyInfo.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="FormName" value="Form" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Form" target="MyInfo.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="FormName" value="Form" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+
+<invocation name="editorial_categories" target="EditorialCatRecord.jsp" method="GET">
+	<arg name="editorial_cat_name" value="" type="STRING"/>
+	<arg name="FormName" value="editorial_categories" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="PK_editorial_cat_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="editorial_categories" target="EditorialCatRecord.jsp" method="GET">
+	<arg name="editorial_cat_name" value="" type="STRING"/>
+	<arg name="FormName" value="editorial_categories" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="PK_editorial_cat_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Rating" target="BookDetail.jsp" method="GET">
+	<arg name="rating" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormName" value="Rating" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+	<arg name="rating_count" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Order" target="BookDetail.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="FormName" value="Order" type="STRING"/>
+</invocation>
+
+<invocation name="Rating" target="BookDetail.jsp" method="GET">
+	<arg name="rating" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormName" value="Rating" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+	<arg name="rating_count" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Order" target="BookDetail.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="FormName" value="Order" type="STRING"/>
+</invocation>
+
+<invocation name="Reg" target="Registration.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="first_name" value="" type="STRING"/>
+	<arg name="member_password2" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="FormName" value="Reg" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Reg" target="Registration.jsp" method="GET">
+	<arg name="card_number" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="first_name" value="" type="STRING"/>
+	<arg name="member_password2" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="FormName" value="Reg" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+</invocation>
+
+<invocation name="Categories" target="CategoriesRecord.jsp" method="GET">
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="PK_category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormName" value="Categories" type="STRING"/>
+</invocation>
+
+<invocation name="Categories" target="CategoriesRecord.jsp" method="GET">
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="PK_category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="FormName" value="Categories" type="STRING"/>
+</invocation>
+
+<invocation name="ShoppingCartRecord" target="ShoppingCartRecord.jsp" method="GET">
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="FormName" value="ShoppingCartRecord" type="STRING"/>
+</invocation>
+
+<invocation name="ShoppingCartRecord" target="ShoppingCartRecord.jsp" method="GET">
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="FormName" value="ShoppingCartRecord" type="STRING"/>
+</invocation>
+
+<invocation name="Orders" target="OrdersRecord.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="Trn_member_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Orders" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+
+<invocation name="Orders" target="OrdersRecord.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="Trn_member_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Orders" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+</invocation>
+

@@ -1,0 +1,61 @@
+public class android.support.v4.view.MenuCompat extends java.lang.Object
+{
+    static final android.support.v4.view.MenuCompat$MenuVersionImpl IMPL;
+
+    static void <clinit>()
+    {
+        int $i0;
+        android.support.v4.view.MenuCompat$HoneycombMenuVersionImpl $r0;
+        android.support.v4.view.MenuCompat$BaseMenuVersionImpl $r1;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label1;
+
+        $r0 = new android.support.v4.view.MenuCompat$HoneycombMenuVersionImpl;
+
+        specialinvoke $r0.<android.support.v4.view.MenuCompat$HoneycombMenuVersionImpl: void <init>()>();
+
+        <android.support.v4.view.MenuCompat: android.support.v4.view.MenuCompat$MenuVersionImpl IMPL> = $r0;
+
+        return;
+
+     label1:
+        $r1 = new android.support.v4.view.MenuCompat$BaseMenuVersionImpl;
+
+        specialinvoke $r1.<android.support.v4.view.MenuCompat$BaseMenuVersionImpl: void <init>()>();
+
+        <android.support.v4.view.MenuCompat: android.support.v4.view.MenuCompat$MenuVersionImpl IMPL> = $r1;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        android.support.v4.view.MenuCompat $r0;
+
+        $r0 := @this: android.support.v4.view.MenuCompat;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean setShowAsAction(android.view.MenuItem, int)
+    {
+        android.view.MenuItem $r0;
+        int $i0;
+        android.support.v4.view.MenuCompat$MenuVersionImpl $r1;
+        boolean $z0;
+
+        $r0 := @parameter0: android.view.MenuItem;
+
+        $i0 := @parameter1: int;
+
+        $r1 = <android.support.v4.view.MenuCompat: android.support.v4.view.MenuCompat$MenuVersionImpl IMPL>;
+
+        $z0 = interfaceinvoke $r1.<android.support.v4.view.MenuCompat$MenuVersionImpl: boolean setShowAsAction(android.view.MenuItem,int)>($r0, $i0);
+
+        return $z0;
+    }
+}

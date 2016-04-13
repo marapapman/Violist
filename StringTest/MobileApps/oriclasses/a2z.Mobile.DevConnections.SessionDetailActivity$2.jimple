@@ -1,0 +1,127 @@
+class a2z.Mobile.DevConnections.SessionDetailActivity$2 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.SessionDetailActivity this$0;
+    private final a2z.Mobile.DevConnections.Classes.Handout val$handout;
+
+    void <init>(a2z.Mobile.DevConnections.SessionDetailActivity, a2z.Mobile.DevConnections.Classes.Handout)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r0;
+        a2z.Mobile.DevConnections.SessionDetailActivity $r1;
+        a2z.Mobile.DevConnections.Classes.Handout $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$2;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.Classes.Handout;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.Classes.Handout val$handout> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static a2z.Mobile.DevConnections.SessionDetailActivity access$0(a2z.Mobile.DevConnections.SessionDetailActivity$2)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r0;
+        a2z.Mobile.DevConnections.SessionDetailActivity r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity$2;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        return r1;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r0;
+        android.view.View $r1;
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r2;
+        a2z.Mobile.DevConnections.Classes.Handout $r3;
+        android.app.AlertDialog$Builder $r4, $r11;
+        a2z.Mobile.DevConnections.SessionDetailActivity$2$1 $r5;
+        java.lang.String $r6, $r8;
+        java.lang.StringBuilder $r7;
+        int $i0;
+        a2z.Mobile.DevConnections.SessionDetailActivity $r9;
+        android.content.Context $r10;
+        android.app.AlertDialog $r12;
+        java.lang.String[] $r13;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$2;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.Classes.Handout val$handout>;
+
+        $r6 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Handout: java.lang.String getHandoutURL()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.Classes.Handout val$handout>;
+
+        $r8 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.Handout: java.lang.String getHandoutTitle()>();
+
+        $r8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r8);
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>($r8);
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int lastIndexOf(java.lang.String)>(".");
+
+        $r8 = virtualinvoke $r6.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = new android.app.AlertDialog$Builder;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Context access$0(a2z.Mobile.DevConnections.SessionDetailActivity)>($r9);
+
+        specialinvoke $r4.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r10);
+
+        $r11 = virtualinvoke $r4.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>("Downloading file.  When ready, the file will launch in your device\'s PDF viewer.  If you have no PDF viewer installed, you can download Adobe Reader free from Google Play.");
+
+        $r11 = virtualinvoke $r11.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(1);
+
+        $r5 = new a2z.Mobile.DevConnections.SessionDetailActivity$2$1;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.SessionDetailActivity$2$1: void <init>(a2z.Mobile.DevConnections.SessionDetailActivity$2)>($r0);
+
+        virtualinvoke $r11.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("OK", $r5);
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r12 = virtualinvoke $r4.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: void access$2(a2z.Mobile.DevConnections.SessionDetailActivity,android.app.AlertDialog)>($r9, $r12);
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r12 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog access$1(a2z.Mobile.DevConnections.SessionDetailActivity)>($r9);
+
+        virtualinvoke $r12.<android.app.AlertDialog: void show()>();
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity this$0>;
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: android.content.Context access$0(a2z.Mobile.DevConnections.SessionDetailActivity)>($r9);
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: void <init>(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean)>($r10, $r8, $r6, $r8, 0);
+
+        $r13 = newarray (java.lang.String)[1];
+
+        $r13[0] = "";
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: android.os.AsyncTask execute(java.lang.Object[])>($r13);
+
+        return;
+    }
+}

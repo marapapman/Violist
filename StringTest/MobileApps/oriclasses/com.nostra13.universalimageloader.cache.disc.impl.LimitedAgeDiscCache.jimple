@@ -1,0 +1,192 @@
+public class com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache extends com.nostra13.universalimageloader.cache.disc.BaseDiscCache
+{
+    private final java.util.Map loadingDates;
+    private final long maxFileAge;
+
+    public void <init>(java.io.File, long)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache $r0;
+        java.io.File $r1;
+        long $l0;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $l0 := @parameter1: long;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.DefaultConfigurationFactory: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator createFileNameGenerator()>();
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,long)>($r1, $r2, $l0);
+
+        return;
+    }
+
+    public void <init>(java.io.File, com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator, long)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache $r0;
+        java.io.File $r1;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+        long $l0;
+        java.util.HashMap $r3;
+        java.util.Map $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $r2 := @parameter1: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
+
+        $l0 := @parameter2: long;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.BaseDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator)>($r1, $r2);
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<java.util.HashMap: void <init>()>();
+
+        $r4 = staticinvoke <java.util.Collections: java.util.Map synchronizedMap(java.util.Map)>($r3);
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.util.Map loadingDates> = $r4;
+
+        $l0 = 1000L * $l0;
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: long maxFileAge> = $l0;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: void readLoadingDates()>();
+
+        return;
+    }
+
+    private void readLoadingDates()
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache $r0;
+        java.io.File $r1;
+        int $i0, $i1;
+        java.io.File[] $r2;
+        java.util.Map $r3;
+        long $l2;
+        java.lang.Long $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache;
+
+        $r1 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.io.File getCacheDir()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.io.File[] listFiles()>();
+
+        $i1 = lengthof $r2;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1 = $r2[$i0];
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.util.Map loadingDates>;
+
+        $l2 = virtualinvoke $r1.<java.io.File: long lastModified()>();
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l2);
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public java.io.File get(java.lang.String)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache $r0;
+        java.lang.String $r1;
+        java.io.File $r2;
+        boolean $z0;
+        java.util.Map $r3;
+        java.lang.Object $r4;
+        java.lang.Long $r5;
+        long $l0, $l1;
+        byte $b2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.BaseDiscCache: java.io.File get(java.lang.String)>($r1);
+
+        $z0 = virtualinvoke $r2.<java.io.File: boolean exists()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.util.Map loadingDates>;
+
+        $r4 = interfaceinvoke $r3.<java.util.Map: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r5 = (java.lang.Long) $r4;
+
+        if $r5 != null goto label1;
+
+        $l0 = virtualinvoke $r2.<java.io.File: long lastModified()>();
+
+        $r5 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+     label1:
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l1 = virtualinvoke $r5.<java.lang.Long: long longValue()>();
+
+        $l1 = $l0 - $l1;
+
+        $l0 = $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: long maxFileAge>;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 <= 0 goto label3;
+
+        virtualinvoke $r2.<java.io.File: boolean delete()>();
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.util.Map loadingDates>;
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object remove(java.lang.Object)>($r2);
+
+        return $r2;
+
+     label2:
+        return $r2;
+
+     label3:
+        return $r2;
+    }
+
+    public void put(java.lang.String, java.io.File)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache $r0;
+        java.lang.String $r1;
+        java.io.File $r2;
+        java.util.Map $r3;
+        long $l0;
+        java.lang.Long $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.io.File;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        virtualinvoke $r2.<java.io.File: boolean setLastModified(long)>($l0);
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiscCache: java.util.Map loadingDates>;
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r4);
+
+        return;
+    }
+}

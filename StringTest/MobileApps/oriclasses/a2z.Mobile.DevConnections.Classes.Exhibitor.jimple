@@ -1,0 +1,3808 @@
+public class a2z.Mobile.DevConnections.Classes.Exhibitor extends java.lang.Object
+{
+    public static final java.lang.String SAVED_NOTE_COLUMN_NAME;
+    private java.lang.Integer _BoothID;
+    private java.lang.String _BoothLabel;
+    private java.lang.String _BoothLabels;
+    private java.lang.String _Category;
+    private java.lang.Integer _CoID;
+    private java.lang.String _Email;
+    private java.lang.String _ExhibitorName;
+    private java.lang.Boolean _IsFavorite;
+    public java.lang.Boolean _IsVisited;
+    private java.lang.String _LogoUrl;
+    private java.lang.Integer _MapID;
+    private java.lang.Integer _MapItBoothID;
+    private java.lang.String _Phone;
+    private java.lang.String _Profile;
+    private java.lang.String _SavedNote;
+    private java.lang.Integer _UpgradeLevel;
+    private java.lang.String _Url;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer $r1;
+        java.lang.Boolean $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r1;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _CoID> = $r1;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r1;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r1;
+
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r2;
+
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = "";
+
+        return;
+    }
+
+    public void <init>(java.lang.Integer)
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer $r1, $r6;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        java.lang.String $r3;
+        java.lang.StringBuilder $r4;
+        android.database.Cursor $r5;
+        boolean $z0;
+        int $i0, $i1;
+        android.text.Spanned $r7;
+        java.lang.Boolean $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r1 := @parameter0: java.lang.Integer;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("SELECT * FROM Booth WHERE BoothID=");
+
+        $r3 = virtualinvoke $r1.<java.lang.Integer: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r3);
+
+        if $r5 == null goto label14;
+
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label31;
+
+     label01:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r6;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("CoID");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _CoID> = $r6;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapItBoothID");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r6;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapID");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r6;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label19;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r7 = staticinvoke <android.text.Html: android.text.Spanned fromHtml(java.lang.String)>($r3);
+
+        $r3 = interfaceinvoke $r7.<android.text.Spanned: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r3;
+
+     label02:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label20;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r7 = staticinvoke <android.text.Html: android.text.Spanned fromHtml(java.lang.String)>($r3);
+
+        $r3 = interfaceinvoke $r7.<android.text.Spanned: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r3;
+
+     label03:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label21;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r3;
+
+     label04:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label22;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = $r3;
+
+     label05:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label23;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = $r3;
+
+     label06:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label24;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = $r3;
+
+     label07:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label25;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = $r3;
+
+     label08:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label26;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r7 = staticinvoke <android.text.Html: android.text.Spanned fromHtml(java.lang.String)>($r3);
+
+        $r3 = interfaceinvoke $r7.<android.text.Spanned: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = $r3;
+
+     label09:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label27;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r6;
+
+     label10:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label28;
+
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r8;
+
+     label11:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsVisitedOnDevice");
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label29;
+
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r8;
+
+     label12:
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        if $i0 == -1 goto label30;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r3 == null goto label30;
+
+        $i0 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = $r3;
+
+     label13:
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label01;
+
+     label14:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("SELECT * FROM ExhibitorCategory WHERE BoothID=");
+
+        $r3 = virtualinvoke $r1.<java.lang.Integer: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ORDER BY ProdCatName, SubProdCatName");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r3);
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        if $r5 == null goto label18;
+
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label18;
+
+     label15:
+        $i0 = virtualinvoke $r1.<java.lang.Integer: int intValue()>();
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ProdCatID");
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i1);
+
+        if $i0 == $i1 goto label33;
+
+        $i1 = virtualinvoke $r1.<java.lang.Integer: int intValue()>();
+
+        if $i1 != 0 goto label32;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category>;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ProdCatName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = $r3;
+
+     label16:
+        $r4 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category>;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SubProdCatName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = $r3;
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ProdCatID");
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getInt(int)>($i1);
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+     label17:
+        $z0 = interfaceinvoke $r5.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label15;
+
+     label18:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label19:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label02;
+
+     label20:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label03;
+
+     label21:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label04;
+
+     label22:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        goto label05;
+
+     label23:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        goto label06;
+
+     label24:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        goto label07;
+
+     label25:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        goto label08;
+
+     label26:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        goto label09;
+
+     label27:
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r6;
+
+        goto label10;
+
+     label28:
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r8;
+
+        goto label11;
+
+     label29:
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r8;
+
+        goto label12;
+
+     label30:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = "";
+
+        goto label13;
+
+     label31:
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r6;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _CoID> = $r6;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r6;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r6;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r6;
+
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r8;
+
+        $r8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r8;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = "";
+
+        goto label14;
+
+     label32:
+        $r4 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category>;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ProdCatName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = $r3;
+
+        goto label16;
+
+     label33:
+        $r4 = new java.lang.StringBuilder;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category>;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r3);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $i1 = interfaceinvoke $r5.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SubProdCatName");
+
+        $r3 = interfaceinvoke $r5.<android.database.Cursor: java.lang.String getString(int)>($i1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        $r3 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = $r3;
+
+        goto label17;
+    }
+
+    public static void DeleteMeeting(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label1:
+        $r3 = new java.lang.StringBuilder;
+
+     label2:
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("DELETE FROM Session WHERE SessionID = 0 AND Title = \'");
+
+        $r4 = $r0[0];
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' AND SessionDate = \'");
+
+        $r4 = $r0[1];
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' AND StartTime = \'");
+
+        $r4 = $r0[1];
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("SessionID = 0 AND Title LIKE \'%");
+
+        $r4 = $r0[0];
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' AND SessionDate LIKE \'%");
+
+        $r4 = $r0[1];
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\'");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void delete(java.lang.String,java.lang.String,java.lang.String[])>("Session", $r4, null);
+
+     label3:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label4:
+        $r1 := @caughtexception;
+
+     label5:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label7:
+        $r5 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r5;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public static void addToExpoPlan(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.content.ContentValues $r3;
+        int $i0, $i1;
+        java.lang.Integer $r4;
+        java.lang.String[] $r5, $r6;
+        java.lang.Throwable $r7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 = 0;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label01:
+        $r3 = new android.content.ContentValues;
+
+     label02:
+        specialinvoke $r3.<android.content.ContentValues: void <init>()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r3.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r4);
+
+        $r5 = virtualinvoke $r0.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+     label03:
+        $i1 = lengthof $r5;
+
+     label04:
+        if $i0 < $i1 goto label05;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label05:
+        $r0 = $r5[$i0];
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r6[0] = $r0;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r3, "BoothID=?", $r6);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label07:
+        $r1 := @caughtexception;
+
+     label08:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label09:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label10:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r7;
+
+        catch java.lang.Exception from label02 to label04 with label07;
+        catch java.lang.Throwable from label01 to label03 with label10;
+        catch java.lang.Exception from label05 to label06 with label07;
+        catch java.lang.Throwable from label05 to label06 with label10;
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    private static void addToExpoPlanOnServer(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1, $r8, $r9, $r10, $r13;
+        org.apache.http.impl.client.DefaultHttpClient $r2;
+        java.lang.Exception $r3, $r19;
+        org.apache.http.client.methods.HttpGet $r4;
+        android.database.Cursor $r5, $r11;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r6;
+        android.content.ContentValues $r7;
+        boolean $z0;
+        java.lang.StringBuilder $r12;
+        int $i0, $i1;
+        org.apache.http.HttpResponse $r14;
+        org.apache.http.StatusLine $r15;
+        java.lang.Integer $r16;
+        java.lang.String[] $r17, $r18;
+        java.lang.Throwable $r20;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r6 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r5 = null;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ServiceSessionID");
+
+        $r9 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "EventID");
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ContactID");
+
+        $r1 = "";
+
+     label01:
+        $r11 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT BoothID FROM Booth WHERE IsFavorite=0 AND IsFavoriteonDevice=1");
+
+     label02:
+        $r5 = $r11;
+
+     label03:
+        if $r11 == null goto label05;
+
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label05;
+
+     label04:
+        $r12 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $i0 = interfaceinvoke $r11.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $r1 = interfaceinvoke $r11.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r1 = $r13;
+
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label04;
+
+        $z0 = virtualinvoke $r13.<java.lang.String: boolean endsWith(java.lang.String)>(",");
+
+        if $z0 == 0 goto label05;
+
+        $i0 = virtualinvoke $r13.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r1 = virtualinvoke $r13.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+     label05:
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label06:
+        if $i0 <= 0 goto label13;
+
+     label07:
+        $r13 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r12 = new java.lang.StringBuilder;
+
+        $r13 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r13);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r13);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/addToExpoPlan/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r2.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r4 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r4.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r13);
+
+        $r14 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r4);
+
+        $r15 = interfaceinvoke $r14.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r15.<org.apache.http.StatusLine: int getStatusCode()>();
+
+     label08:
+        if $i0 != 200 goto label13;
+
+     label09:
+        $r7 = new android.content.ContentValues;
+
+        specialinvoke $r7.<android.content.ContentValues: void <init>()>();
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r7.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavorite", $r16);
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r7.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r16);
+
+        $r17 = virtualinvoke $r1.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+     label10:
+        $i0 = lengthof $r17;
+
+     label11:
+        $i1 = 0;
+
+     label12:
+        if $i1 < $i0 goto label14;
+
+     label13:
+        interfaceinvoke $r11.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label14:
+        $r1 = $r17[$i1];
+
+        $r18 = newarray (java.lang.String)[1];
+
+        $r18[0] = $r1;
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r7, "BoothID=?", $r18);
+
+     label15:
+        $i1 = $i1 + 1;
+
+        goto label12;
+
+     label16:
+        $r3 := @caughtexception;
+
+     label17:
+        virtualinvoke $r3.<java.lang.Exception: void printStackTrace()>();
+
+     label18:
+        goto label13;
+
+     label19:
+        $r19 := @caughtexception;
+
+     label20:
+        virtualinvoke $r19.<java.lang.Exception: void printStackTrace()>();
+
+     label21:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label22:
+        $r20 := @caughtexception;
+
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r20;
+
+        catch java.lang.Exception from label01 to label02 with label19;
+        catch java.lang.Exception from label03 to label06 with label19;
+        catch java.lang.Throwable from label01 to label02 with label22;
+        catch java.lang.Throwable from label03 to label06 with label22;
+        catch java.lang.Exception from label07 to label08 with label16;
+        catch java.lang.Exception from label09 to label11 with label16;
+        catch java.lang.Throwable from label07 to label10 with label22;
+        catch java.lang.Exception from label14 to label15 with label16;
+        catch java.lang.Throwable from label14 to label15 with label22;
+        catch java.lang.Exception from label17 to label18 with label19;
+        catch java.lang.Throwable from label17 to label18 with label22;
+        catch java.lang.Throwable from label20 to label21 with label22;
+    }
+
+    private static void downlodExpoPlanFromServer(android.content.Context)
+    {
+        android.content.Context $r0;
+        org.apache.http.impl.client.DefaultHttpClient $r1;
+        java.lang.Exception $r2;
+        org.apache.http.client.methods.HttpGet $r3;
+        int $i0, $i1;
+        org.json.JSONObject $r4;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r5;
+        android.content.ContentValues $r6;
+        java.lang.String $r7, $r8, $r9, $r10;
+        java.lang.StringBuilder $r11;
+        org.apache.http.HttpResponse $r12;
+        org.apache.http.StatusLine $r13;
+        org.apache.http.HttpEntity $r14;
+        org.json.JSONArray $r15;
+        java.lang.Integer $r16;
+        java.lang.String[] $r17;
+        java.lang.Throwable $r18;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r5 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ServiceSessionID");
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "EventID");
+
+        $r9 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ContactID");
+
+     label01:
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r11 = new java.lang.StringBuilder;
+
+        $r10 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r10);
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>($r10);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/getMyExpoPlan/");
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/0/1/null/null/null/0/null/0/null");
+
+        $r10 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r1 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r1.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r3 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r3.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r10);
+
+        $r12 = interfaceinvoke $r1.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3);
+
+        $r13 = interfaceinvoke $r12.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r13.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 != 200 goto label04;
+
+        $r14 = interfaceinvoke $r12.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r10 = staticinvoke <org.apache.http.util.EntityUtils: java.lang.String toString(org.apache.http.HttpEntity)>($r14);
+
+        $r10 = virtualinvoke $r10.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $r4 = new org.json.JSONObject;
+
+        specialinvoke $r4.<org.json.JSONObject: void <init>(java.lang.String)>($r10);
+
+        $r4 = virtualinvoke $r4.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("a2zRootNode");
+
+        $r4 = virtualinvoke $r4.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("Data");
+
+        $r15 = virtualinvoke $r4.<org.json.JSONObject: org.json.JSONArray getJSONArray(java.lang.String)>("Records");
+
+        $i0 = 0;
+
+     label02:
+        $i1 = virtualinvoke $r15.<org.json.JSONArray: int length()>();
+
+     label03:
+        if $i0 < $i1 goto label05;
+
+     label04:
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label05:
+        $r4 = virtualinvoke $r15.<org.json.JSONArray: org.json.JSONObject getJSONObject(int)>($i0);
+
+        $r6 = new android.content.ContentValues;
+
+        specialinvoke $r6.<android.content.ContentValues: void <init>()>();
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r6.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavorite", $r16);
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r6.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r16);
+
+        $r17 = newarray (java.lang.String)[1];
+
+        $r10 = virtualinvoke $r4.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("BoothID");
+
+        $r17[0] = $r10;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r6, "BoothID=?", $r17);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label02;
+
+     label07:
+        $r2 := @caughtexception;
+
+     label08:
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+     label09:
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label10:
+        $r18 := @caughtexception;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r18;
+
+        catch java.lang.Exception from label01 to label03 with label07;
+        catch java.lang.Throwable from label01 to label03 with label10;
+        catch java.lang.Exception from label05 to label06 with label07;
+        catch java.lang.Throwable from label05 to label06 with label10;
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    public static java.util.List getExhibitorListWithSavedNotes()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.util.ArrayList $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.database.Cursor $r3;
+        boolean $z0;
+        int $i0;
+        java.lang.Integer $r4;
+        java.lang.String $r5;
+        java.lang.Boolean $r6;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r3 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT * FROM Booth WHERE SavedNote NOT NULL AND SavedNote <> \'\' ORDER BY ExhibitorName");
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        if $r3 == null goto label13;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label13;
+
+     label01:
+        $r0 = new a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: void <init>()>();
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapItBoothID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label14;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r5;
+
+     label02:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label15;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r5;
+
+     label03:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label16;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r5;
+
+     label04:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label17;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = $r5;
+
+     label05:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label18;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = $r5;
+
+     label06:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label19;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = $r5;
+
+     label07:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label20;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = $r5;
+
+     label08:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label21;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = $r5;
+
+     label09:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label22;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r4;
+
+     label10:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label23;
+
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r6;
+
+     label11:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        if $i0 == -1 goto label24;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label24;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SavedNote");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = $r5;
+
+     label12:
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r0);
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label01;
+
+     label13:
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r1;
+
+     label14:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label02;
+
+     label15:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label03;
+
+     label16:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label04;
+
+     label17:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        goto label05;
+
+     label18:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        goto label06;
+
+     label19:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        goto label07;
+
+     label20:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        goto label08;
+
+     label21:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        goto label09;
+
+     label22:
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r4;
+
+        goto label10;
+
+     label23:
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r6;
+
+        goto label11;
+
+     label24:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = "";
+
+        goto label12;
+    }
+
+    public static java.util.ArrayList getExpoPlan()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.util.ArrayList $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.database.Cursor $r3;
+        boolean $z0;
+        int $i0;
+        java.lang.Integer $r4;
+        java.lang.String $r5;
+        java.lang.Boolean $r6;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r3 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT * FROM Booth WHERE IsFavoriteonDevice=1 OR IsVisitedOnDevice=1 OR IsVisited=1 ORDER BY ExhibitorName");
+
+        if $r3 == null goto label13;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label13;
+
+     label01:
+        $r0 = new a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: void <init>()>();
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapItBoothID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label14;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r5;
+
+     label02:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label15;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r5;
+
+     label03:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label16;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r5;
+
+     label04:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label17;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = $r5;
+
+     label05:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label18;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = $r5;
+
+     label06:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label19;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = $r5;
+
+     label07:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label20;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = $r5;
+
+     label08:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label21;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = $r5;
+
+     label09:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label22;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r4;
+
+     label10:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label23;
+
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r6;
+
+     label11:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsVisitedOnDevice");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label24;
+
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r6;
+
+     label12:
+        virtualinvoke $r1.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label01;
+
+     label13:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        return $r1;
+
+     label14:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label02;
+
+     label15:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label03;
+
+     label16:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label04;
+
+     label17:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        goto label05;
+
+     label18:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        goto label06;
+
+     label19:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        goto label07;
+
+     label20:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        goto label08;
+
+     label21:
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        goto label09;
+
+     label22:
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r4;
+
+        goto label10;
+
+     label23:
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r6;
+
+        goto label11;
+
+     label24:
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r6;
+
+        goto label12;
+    }
+
+    public static java.lang.String getExpoPlanBoothId()
+    {
+        java.lang.String $r0, $r5;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.database.Cursor $r3;
+        boolean $z0;
+        java.lang.StringBuilder $r4;
+        int $i0;
+        java.lang.Throwable $r6;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r0 = "";
+
+     label1:
+        $r3 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT BoothID FROM Booth WHERE IsFavoriteonDevice=1");
+
+        if $r3 == null goto label3;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r0);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0 = $r5;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label2;
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean endsWith(java.lang.String)>(",");
+
+        if $z0 == 0 goto label3;
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r0 = virtualinvoke $r5.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+     label3:
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+     label4:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r0;
+
+     label5:
+        $r1 := @caughtexception;
+
+     label6:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label7:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r0;
+
+     label8:
+        $r6 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r6;
+
+        catch java.lang.Exception from label1 to label4 with label5;
+        catch java.lang.Throwable from label1 to label4 with label8;
+        catch java.lang.Throwable from label6 to label7 with label8;
+    }
+
+    public static java.util.ArrayList getList(java.lang.String)
+    {
+        java.lang.String $r0, $r5, $r7;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r1;
+        int $i0, $i1, $i2;
+        java.util.ArrayList $r2;
+        android.database.Cursor $r3, $r8;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r4;
+        java.lang.StringBuilder $r6;
+        boolean $z0;
+        java.lang.Integer $r9;
+        java.lang.Boolean $r10;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r4 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r4.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r5 = "";
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i1 <= 0 goto label05;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("");
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" SELECT BoothID, ExhibitorName, BoothLabel, BoothLabels, IsFavoriteonDevice, IsVisitedOnDevice FROM Booth ");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("");
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" WHERE Exhibitorname LIKE \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" OR BoothLabels LIKE \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" OR Profile LIKE \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" OR Brands LIKE \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" OR BoothID IN (select BoothID from ExhibitorCategory WHERE ProdCatName like \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\' or subprodcatname like \'%");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%\')");
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = $r0;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label01:
+        $i1 = 1;
+
+        $r0 = "SELECT Count(*) FROM Booth";
+
+        if $r5 == "" goto label02;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r0 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("SELECT Count(*) FROM Booth");
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label02:
+        $r8 = virtualinvoke $r4.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r0);
+
+        $r3 = $r8;
+
+        if $r8 == null goto label03;
+
+        $z0 = interfaceinvoke $r8.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label03;
+
+        $i1 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Count(*)");
+
+        $i1 = interfaceinvoke $r8.<android.database.Cursor: int getInt(int)>($i1);
+
+        $i0 = $i1 % 500;
+
+        $i1 = $i1 - $i0;
+
+        $i1 = $i1 / 500;
+
+        if $i0 < 1 goto label03;
+
+        $i1 = $i1 + 1;
+
+     label03:
+        $i0 = 0;
+
+     label04:
+        if $i0 < $i1 goto label06;
+
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r4.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r2;
+
+     label05:
+        $r7 = "SELECT BoothID, ExhibitorName, BoothLabel, BoothLabels, IsFavoriteonDevice, IsVisitedOnDevice FROM Booth";
+
+        goto label01;
+
+     label06:
+        $r0 = $r7;
+
+        if $i0 <= 0 goto label08;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean endsWith(java.lang.String)>(")");
+
+        if $z0 == 0 goto label16;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" AND ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label07:
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" Boothid NOT IN (SELECT Boothid");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" FROM  Booth  ORDER BY ExhibitorName COLLATE NOCASE LIMIT ");
+
+        $i2 = 500 * $i0;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label08:
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  ORDER BY ExhibitorName COLLATE NOCASE LIMIT ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(500);
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = virtualinvoke $r4.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r5);
+
+        $r3 = $r8;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("current loop=");
+
+        $i2 = $i0 + 1;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", total loops=");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("booth", $r5);
+
+        if $r8 == null goto label15;
+
+        $z0 = interfaceinvoke $r8.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label15;
+
+     label09:
+        $r1 = new a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: void <init>()>();
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getInt(int)>($i2);
+
+        $r9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r9;
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r5 == null goto label17;
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r5;
+
+     label10:
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r5 == null goto label18;
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r5;
+
+     label11:
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r5 == null goto label19;
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r5 = interfaceinvoke $r8.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r5;
+
+     label12:
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getInt(int)>($i2);
+
+        if $i2 != 0 goto label20;
+
+        $r10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r10;
+
+     label13:
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsVisitedOnDevice");
+
+        $i2 = interfaceinvoke $r8.<android.database.Cursor: int getInt(int)>($i2);
+
+        if $i2 != 0 goto label21;
+
+        $r10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r10;
+
+     label14:
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r1);
+
+        $z0 = interfaceinvoke $r8.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label09;
+
+     label15:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label16:
+        $r6 = new java.lang.StringBuilder;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" WHERE ");
+
+        $r5 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label07;
+
+     label17:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label10;
+
+     label18:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label11;
+
+     label19:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label12;
+
+     label20:
+        $r10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r10;
+
+        goto label13;
+
+     label21:
+        $r10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited> = $r10;
+
+        goto label14;
+    }
+
+    public static java.util.ArrayList getListByProductCategory(java.lang.Integer)
+    {
+        java.lang.Integer $r0;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r1;
+        java.util.ArrayList $r2;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r3;
+        java.lang.String $r4;
+        java.lang.StringBuilder $r5;
+        android.database.Cursor $r6;
+        boolean $z0;
+        int $i0;
+        java.lang.Boolean $r7;
+
+        $r0 := @parameter0: java.lang.Integer;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r3 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("");
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" SELECT * FROM Booth ");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" WHERE BoothID IN (SELECT BoothID from ExhibitorCategory WHERE ProdCatID=");
+
+        $r4 = virtualinvoke $r0.<java.lang.Integer: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") ");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r4);
+
+        if $r6 == null goto label12;
+
+        $z0 = interfaceinvoke $r6.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label12;
+
+     label01:
+        $r1 = new a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: void <init>()>();
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapItBoothID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label13;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r4;
+
+     label02:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label14;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r4;
+
+     label03:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label15;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r4;
+
+     label04:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label16;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = $r4;
+
+     label05:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label17;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = $r4;
+
+     label06:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label18;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = $r4;
+
+     label07:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label19;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = $r4;
+
+     label08:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label20;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = $r4;
+
+     label09:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label21;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r0;
+
+     label10:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label22;
+
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+     label11:
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r1);
+
+        $z0 = interfaceinvoke $r6.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label01;
+
+     label12:
+        interfaceinvoke $r6.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r2;
+
+     label13:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label02;
+
+     label14:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label03;
+
+     label15:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label04;
+
+     label16:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        goto label05;
+
+     label17:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        goto label06;
+
+     label18:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        goto label07;
+
+     label19:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        goto label08;
+
+     label20:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        goto label09;
+
+     label21:
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r0;
+
+        goto label10;
+
+     label22:
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+        goto label11;
+    }
+
+    public static java.util.ArrayList getListBySubProductCategory(java.lang.Integer)
+    {
+        java.lang.Integer $r0;
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r1;
+        java.util.ArrayList $r2;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r3;
+        java.lang.String $r4;
+        java.lang.StringBuilder $r5;
+        android.database.Cursor $r6;
+        boolean $z0;
+        int $i0;
+        java.lang.Boolean $r7;
+
+        $r0 := @parameter0: java.lang.Integer;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r3 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("");
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" SELECT * FROM Booth ");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" WHERE BoothID IN (SELECT BoothID from ExhibitorCategory WHERE SubProdCatID=");
+
+        $r4 = virtualinvoke $r0.<java.lang.Integer: java.lang.String toString()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") ");
+
+        $r4 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>($r4);
+
+        if $r6 == null goto label12;
+
+        $z0 = interfaceinvoke $r6.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label12;
+
+     label01:
+        $r1 = new a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: void <init>()>();
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapItBoothID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("MapID");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID> = $r0;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label13;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ExhibitorName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = $r4;
+
+     label02:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label14;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = $r4;
+
+     label03:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label15;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothLabels");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = $r4;
+
+     label04:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label16;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = $r4;
+
+     label05:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label17;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("URL");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = $r4;
+
+     label06:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label18;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Email");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = $r4;
+
+     label07:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label19;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Phone");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = $r4;
+
+     label08:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label20;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Profile");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = $r4;
+
+     label09:
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $r4 = interfaceinvoke $r6.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r4 == null goto label21;
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("UpgradeLevel");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r0;
+
+     label10:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category> = "";
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getColumnIndex(java.lang.String)>("IsFavoriteonDevice");
+
+        $i0 = interfaceinvoke $r6.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label22;
+
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+     label11:
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r1);
+
+        $z0 = interfaceinvoke $r6.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label01;
+
+     label12:
+        interfaceinvoke $r6.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r2;
+
+     label13:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName> = "";
+
+        goto label02;
+
+     label14:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel> = "";
+
+        goto label03;
+
+     label15:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels> = "";
+
+        goto label04;
+
+     label16:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl> = "";
+
+        goto label05;
+
+     label17:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url> = "";
+
+        goto label06;
+
+     label18:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email> = "";
+
+        goto label07;
+
+     label19:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone> = "";
+
+        goto label08;
+
+     label20:
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile> = "";
+
+        goto label09;
+
+     label21:
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel> = $r0;
+
+        goto label10;
+
+     label22:
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r1.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+        goto label11;
+    }
+
+    public static void removeAllFromExpoPlan()
+    {
+        java.lang.Exception $r0;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r1;
+        android.content.ContentValues $r2;
+        java.lang.Integer $r3;
+        java.lang.Throwable $r4;
+
+        $r1 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label1:
+        $r2 = new android.content.ContentValues;
+
+     label2:
+        specialinvoke $r2.<android.content.ContentValues: void <init>()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavorite", $r3);
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r3);
+
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r2, null, null);
+
+     label3:
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label4:
+        $r0 := @caughtexception;
+
+     label5:
+        virtualinvoke $r0.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r4;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    private static void removeFromExpoPlanOnServer(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.String $r1, $r8, $r9, $r10, $r13;
+        org.apache.http.impl.client.DefaultHttpClient $r2;
+        java.lang.Exception $r3, $r19;
+        org.apache.http.client.methods.HttpGet $r4;
+        android.database.Cursor $r5, $r11;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r6;
+        android.content.ContentValues $r7;
+        boolean $z0;
+        java.lang.StringBuilder $r12;
+        int $i0, $i1;
+        org.apache.http.HttpResponse $r14;
+        org.apache.http.StatusLine $r15;
+        java.lang.Integer $r16;
+        java.lang.String[] $r17, $r18;
+        java.lang.Throwable $r20, $r21;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r6 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r5 = null;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ServiceSessionID");
+
+        $r9 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "EventID");
+
+        $r10 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ContactID");
+
+        $r1 = "";
+
+     label01:
+        $r11 = virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT BoothID FROM Booth WHERE IsFavorite=1 AND IsFavoriteonDevice=0");
+
+     label02:
+        $r5 = $r11;
+
+     label03:
+        if $r11 == null goto label06;
+
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label05;
+
+     label04:
+        $r12 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r1);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $i0 = interfaceinvoke $r11.<android.database.Cursor: int getColumnIndex(java.lang.String)>("BoothID");
+
+        $r1 = interfaceinvoke $r11.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r1 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = interfaceinvoke $r11.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label04;
+
+     label05:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean endsWith(java.lang.String)>(",");
+
+        if $z0 == 0 goto label06;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+     label06:
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+     label07:
+        if $i0 <= 0 goto label15;
+
+     label08:
+        $r13 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "a2zExpoServiceUrl");
+
+        $r12 = new java.lang.StringBuilder;
+
+        $r13 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r13);
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>(java.lang.String)>($r13);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/removeFromExpoPlan/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r12 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r2.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r4 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r4.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r13);
+
+        $r14 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r4);
+
+        $r15 = interfaceinvoke $r14.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r15.<org.apache.http.StatusLine: int getStatusCode()>();
+
+     label09:
+        if $i0 != 200 goto label14;
+
+     label10:
+        $r7 = new android.content.ContentValues;
+
+        specialinvoke $r7.<android.content.ContentValues: void <init>()>();
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r7.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavorite", $r16);
+
+        $r16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r7.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r16);
+
+        $r17 = virtualinvoke $r1.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+     label11:
+        $i0 = lengthof $r17;
+
+     label12:
+        $i1 = 0;
+
+     label13:
+        if $i1 < $i0 goto label16;
+
+     label14:
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+     label15:
+        interfaceinvoke $r11.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label16:
+        $r1 = $r17[$i1];
+
+        $r18 = newarray (java.lang.String)[1];
+
+        $r18[0] = $r1;
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r7, "BoothID=?", $r18);
+
+     label17:
+        $i1 = $i1 + 1;
+
+        goto label13;
+
+     label18:
+        $r3 := @caughtexception;
+
+     label19:
+        virtualinvoke $r3.<java.lang.Exception: void printStackTrace()>();
+
+     label20:
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+     label21:
+        goto label15;
+
+     label22:
+        $r19 := @caughtexception;
+
+     label23:
+        virtualinvoke $r19.<java.lang.Exception: void printStackTrace()>();
+
+     label24:
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label25:
+        $r20 := @caughtexception;
+
+     label26:
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r20;
+
+     label27:
+        $r21 := @caughtexception;
+
+        interfaceinvoke $r5.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r6.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r21;
+
+        catch java.lang.Exception from label01 to label02 with label22;
+        catch java.lang.Exception from label03 to label07 with label22;
+        catch java.lang.Throwable from label01 to label02 with label27;
+        catch java.lang.Throwable from label03 to label07 with label27;
+        catch java.lang.Exception from label08 to label09 with label18;
+        catch java.lang.Exception from label10 to label12 with label18;
+        catch java.lang.Throwable from label08 to label11 with label25;
+        catch java.lang.Exception from label14 to label15 with label22;
+        catch java.lang.Throwable from label14 to label15 with label27;
+        catch java.lang.Exception from label16 to label17 with label18;
+        catch java.lang.Throwable from label16 to label17 with label25;
+        catch java.lang.Throwable from label19 to label20 with label25;
+        catch java.lang.Exception from label20 to label21 with label22;
+        catch java.lang.Throwable from label20 to label21 with label27;
+        catch java.lang.Throwable from label23 to label24 with label27;
+        catch java.lang.Exception from label26 to label27 with label22;
+        catch java.lang.Throwable from label26 to label27 with label27;
+    }
+
+    public static void syncExpoPlan(android.content.Context)
+    {
+        android.content.Context $r0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Exhibitor: void addToExpoPlanOnServer(android.content.Context)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Exhibitor: void removeFromExpoPlanOnServer(android.content.Context)>($r0);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Exhibitor: void downlodExpoPlanFromServer(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public static void unVisitBooth(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.content.ContentValues $r3;
+        int $i0, $i1;
+        java.lang.Integer $r4;
+        java.lang.String[] $r5, $r6;
+        java.lang.Throwable $r7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 = 0;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label01:
+        $r3 = new android.content.ContentValues;
+
+     label02:
+        specialinvoke $r3.<android.content.ContentValues: void <init>()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r3.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsVisitedOnDevice", $r4);
+
+        $r5 = virtualinvoke $r0.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+     label03:
+        $i1 = lengthof $r5;
+
+     label04:
+        if $i0 < $i1 goto label05;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label05:
+        $r0 = $r5[$i0];
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r6[0] = $r0;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r3, "BoothID=?", $r6);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label07:
+        $r1 := @caughtexception;
+
+     label08:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label09:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label10:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r7;
+
+        catch java.lang.Exception from label02 to label04 with label07;
+        catch java.lang.Throwable from label01 to label03 with label10;
+        catch java.lang.Exception from label05 to label06 with label07;
+        catch java.lang.Throwable from label05 to label06 with label10;
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    public static void visitBooth(java.lang.String)
+    {
+        java.lang.String $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.content.ContentValues $r3;
+        int $i0, $i1;
+        java.lang.Integer $r4;
+        java.lang.String[] $r5, $r6;
+        java.lang.Throwable $r7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 = 0;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label01:
+        $r3 = new android.content.ContentValues;
+
+     label02:
+        specialinvoke $r3.<android.content.ContentValues: void <init>()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r3.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsVisitedOnDevice", $r4);
+
+        $r5 = virtualinvoke $r0.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+     label03:
+        $i1 = lengthof $r5;
+
+     label04:
+        if $i0 < $i1 goto label05;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label05:
+        $r0 = $r5[$i0];
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r6[0] = $r0;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r3, "BoothID=?", $r6);
+
+     label06:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label07:
+        $r1 := @caughtexception;
+
+     label08:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label09:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label10:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r7;
+
+        catch java.lang.Exception from label02 to label04 with label07;
+        catch java.lang.Throwable from label01 to label03 with label10;
+        catch java.lang.Exception from label05 to label06 with label07;
+        catch java.lang.Throwable from label05 to label06 with label10;
+        catch java.lang.Throwable from label08 to label09 with label10;
+    }
+
+    public java.lang.Integer BoothID()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID>;
+
+        return r1;
+    }
+
+    public java.lang.String BoothLabel()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabel>;
+
+        return r1;
+    }
+
+    public java.lang.String BoothLabels()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _BoothLabels>;
+
+        return r1;
+    }
+
+    public java.lang.String Category()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Category>;
+
+        return r1;
+    }
+
+    public java.lang.Integer CoID()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _CoID>;
+
+        return r1;
+    }
+
+    public java.lang.String Email()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Email>;
+
+        return r1;
+    }
+
+    public java.lang.String ExhibitorName()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _ExhibitorName>;
+
+        return r1;
+    }
+
+    public java.lang.Boolean IsFavorite()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Boolean r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite>;
+
+        return r1;
+    }
+
+    public java.lang.Boolean IsVisited()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Boolean r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsVisited>;
+
+        return r1;
+    }
+
+    public java.lang.String LogoUrl()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _LogoUrl>;
+
+        return r1;
+    }
+
+    public java.lang.Integer MapID()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapID>;
+
+        return r1;
+    }
+
+    public java.lang.Integer MapItBoothID()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _MapItBoothID>;
+
+        return r1;
+    }
+
+    public java.lang.String Phone()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Phone>;
+
+        return r1;
+    }
+
+    public java.lang.String Profile()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Profile>;
+
+        return r1;
+    }
+
+    public java.lang.String SavedNote()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote>;
+
+        return r1;
+    }
+
+    public void SetSavedNote(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = $r1;
+
+        return;
+    }
+
+    public java.lang.Integer UpgradeLevel()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _UpgradeLevel>;
+
+        return r1;
+    }
+
+    public java.lang.String Url()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _Url>;
+
+        return r1;
+    }
+
+    public void addMeetingToExpoPlan(java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String[] $r1;
+        java.lang.Exception $r2;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r3;
+        android.content.ContentValues $r4;
+        java.lang.Integer $r5;
+        java.lang.StringBuilder $r6, $r8;
+        java.lang.String $r7;
+        java.lang.Throwable $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r3 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label01:
+        $r4 = new android.content.ContentValues;
+
+     label02:
+        specialinvoke $r4.<android.content.ContentValues: void <init>()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("SessionID", $r5);
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r7 = $r1[0];
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n\n");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Notes:");
+
+        $r7 = $r1[5];
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("Description", $r7);
+
+        $r6 = new java.lang.StringBuilder;
+
+     label03:
+        $r7 = $r1[1];
+
+     label04:
+        if $r7 == "" goto label08;
+
+     label05:
+        $r8 = new java.lang.StringBuilder;
+
+        $r7 = $r1[1];
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (Booth ");
+
+        $r7 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label06:
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r7 = $r1[2];
+
+        $r8 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r7 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("Title", $r7);
+
+        $r7 = $r1[3];
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("SessionDate", $r7);
+
+        $r7 = $r1[4];
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("StartTime", $r7);
+
+        $r7 = $r1[5];
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("SavedNote", $r7);
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("SessionType", "Meeting");
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void insert(java.lang.String,android.content.ContentValues)>("Session", $r4);
+
+     label07:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label08:
+        $r7 = "Meeting with Exhibitor (Booth ";
+
+        goto label06;
+
+     label09:
+        $r2 := @caughtexception;
+
+     label10:
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+     label11:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label12:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r9;
+
+        catch java.lang.Exception from label02 to label04 with label09;
+        catch java.lang.Exception from label05 to label07 with label09;
+        catch java.lang.Throwable from label01 to label03 with label12;
+        catch java.lang.Throwable from label04 to label07 with label12;
+        catch java.lang.Throwable from label10 to label11 with label12;
+    }
+
+    public void addToExpoPlan()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.content.ContentValues $r3;
+        java.lang.Integer $r4;
+        java.lang.String[] $r5;
+        java.lang.String $r6;
+        java.lang.Boolean $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label1:
+        $r3 = new android.content.ContentValues;
+
+     label2:
+        specialinvoke $r3.<android.content.ContentValues: void <init>()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke $r3.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r4);
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID>;
+
+        $r6 = virtualinvoke $r4.<java.lang.Integer: java.lang.String toString()>();
+
+        $r5[0] = $r6;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r3, "BoothID=?", $r5);
+
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+     label3:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label4:
+        $r1 := @caughtexception;
+
+     label5:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label7:
+        $r8 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r8;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public void deleteNote(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r1 := @parameter0: java.lang.String;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: void saveNote(java.lang.String)>("");
+
+        return;
+    }
+
+    public void removeFromExpoPlan()
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.Exception $r1;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r2;
+        android.content.ContentValues $r3;
+        java.lang.Integer $r4;
+        java.lang.String[] $r5;
+        java.lang.String $r6;
+        java.lang.Boolean $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r2 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label1:
+        $r3 = new android.content.ContentValues;
+
+     label2:
+        specialinvoke $r3.<android.content.ContentValues: void <init>()>();
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r3.<android.content.ContentValues: void put(java.lang.String,java.lang.Integer)>("IsFavoriteOnDevice", $r4);
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID>;
+
+        $r6 = virtualinvoke $r4.<java.lang.Integer: java.lang.String toString()>();
+
+        $r5[0] = $r6;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r3, "BoothID=?", $r5);
+
+        $r7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Boolean _IsFavorite> = $r7;
+
+     label3:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label4:
+        $r1 := @caughtexception;
+
+     label5:
+        virtualinvoke $r1.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label7:
+        $r8 := @caughtexception;
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r8;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public void saveNote(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.Exhibitor $r0;
+        java.lang.String $r1, $r6;
+        java.lang.Exception $r2;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r3;
+        android.content.ContentValues $r4;
+        java.lang.Integer $r5;
+        java.lang.String[] $r7;
+        java.lang.Throwable $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.Exhibitor;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+     label1:
+        $r4 = new android.content.ContentValues;
+
+     label2:
+        specialinvoke $r4.<android.content.ContentValues: void <init>()>();
+
+        virtualinvoke $r4.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("SavedNote", $r1);
+
+        $r7 = newarray (java.lang.String)[1];
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.Integer _BoothID>;
+
+        $r6 = virtualinvoke $r5.<java.lang.Integer: java.lang.String toString()>();
+
+        $r7[0] = $r6;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])>("Booth", $r4, "BoothID=?", $r7);
+
+        $r0.<a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String _SavedNote> = $r1;
+
+     label3:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+     label5:
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return;
+
+     label7:
+        $r8 := @caughtexception;
+
+        virtualinvoke $r3.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        throw $r8;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Throwable from label1 to label3 with label7;
+        catch java.lang.Throwable from label5 to label6 with label7;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.Classes.Exhibitor: java.lang.String SAVED_NOTE_COLUMN_NAME> = "SavedNote";
+
+        return;
+    }
+}

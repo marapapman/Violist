@@ -1,0 +1,444 @@
+final class twitter4j.internal.json.SavedSearchJSONImpl extends twitter4j.internal.json.TwitterResponseImpl implements twitter4j.SavedSearch
+{
+    private static final long serialVersionUID;
+    private java.util.Date createdAt;
+    private int id;
+    private java.lang.String name;
+    private int position;
+    private java.lang.String query;
+
+    void <init>(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONObject $r3;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter1: twitter4j.conf.Configuration;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>(twitter4j.internal.http.HttpResponse)>($r1);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+     label1:
+        $r3 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONObject asJSONObject()>();
+
+        specialinvoke $r0.<twitter4j.internal.json.SavedSearchJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r3);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label2;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r3);
+
+        return;
+
+     label2:
+        return;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.TwitterResponseImpl: void <init>()>();
+
+        specialinvoke $r0.<twitter4j.internal.json.SavedSearchJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return;
+    }
+
+    static twitter4j.ResponseList createSavedSearchList(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpResponse $r0;
+        twitter4j.conf.Configuration $r1;
+        int $i0, $i1;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.internal.json.SavedSearchJSONImpl $r3;
+        twitter4j.internal.json.ResponseListImpl $r4;
+        java.lang.StringBuilder $r5;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONArray $r6;
+        twitter4j.internal.org.json.JSONObject $r7;
+        twitter4j.TwitterException $r8;
+        java.lang.String $r9;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r1 := @parameter1: twitter4j.conf.Configuration;
+
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+     label1:
+        $r6 = virtualinvoke $r0.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONArray asJSONArray()>();
+
+        $r4 = new twitter4j.internal.json.ResponseListImpl;
+
+     label2:
+        $i0 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        specialinvoke $r4.<twitter4j.internal.json.ResponseListImpl: void <init>(int,twitter4j.internal.http.HttpResponse)>($i0, $r0);
+
+        $i0 = 0;
+
+     label3:
+        $i1 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label6;
+
+        $r7 = virtualinvoke $r6.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        $r3 = new twitter4j.internal.json.SavedSearchJSONImpl;
+
+        specialinvoke $r3.<twitter4j.internal.json.SavedSearchJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r7);
+
+        interfaceinvoke $r4.<twitter4j.ResponseList: boolean add(java.lang.Object)>($r3);
+
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label4;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r3, $r7);
+
+     label4:
+        $i0 = $i0 + 1;
+
+     label5:
+        goto label3;
+
+     label6:
+        $z0 = interfaceinvoke $r1.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label9;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+     label7:
+        return $r4;
+
+     label8:
+        $r2 := @caughtexception;
+
+        $r8 = new twitter4j.TwitterException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONException: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $r9 = virtualinvoke $r0.<twitter4j.internal.http.HttpResponse: java.lang.String asString()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r9 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r8.<twitter4j.TwitterException: void <init>(java.lang.String,java.lang.Throwable)>($r9, $r2);
+
+        throw $r8;
+
+     label9:
+        return $r4;
+
+        catch twitter4j.internal.org.json.JSONException from label2 to label4 with label8;
+        catch twitter4j.internal.org.json.JSONException from label5 to label7 with label8;
+    }
+
+    private void init(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        java.util.Date $r2;
+        java.lang.String $r3;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.util.Date getDate(java.lang.String,twitter4j.internal.org.json.JSONObject,java.lang.String)>("created_at", $r1, "EEE MMM dd HH:mm:ss z yyyy");
+
+        $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.util.Date createdAt> = $r2;
+
+        $r3 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getUnescapedString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("query", $r1);
+
+        $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String query> = $r3;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("position", $r1);
+
+        $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int position> = $i0;
+
+        $r3 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getUnescapedString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("name", $r1);
+
+        $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String name> = $r3;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("id", $r1);
+
+        $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id> = $i0;
+
+        return;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.lang.Object $r1;
+        int $i0;
+        twitter4j.SavedSearch $r2;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (twitter4j.SavedSearch) $r1;
+
+        $i0 = virtualinvoke $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int compareTo(twitter4j.SavedSearch)>($r2);
+
+        return $i0;
+    }
+
+    public int compareTo(twitter4j.SavedSearch)
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        twitter4j.SavedSearch $r1;
+        int $i0, $i1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: twitter4j.SavedSearch;
+
+        $i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id>;
+
+        $i1 = interfaceinvoke $r1.<twitter4j.SavedSearch: int getId()>();
+
+        $i1 = $i0 - $i1;
+
+        return $i1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        int $i0, $i1;
+        twitter4j.SavedSearch $r2;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.SavedSearch;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (twitter4j.SavedSearch) $r1;
+
+        $i1 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id>;
+
+        $i0 = interfaceinvoke $r2.<twitter4j.SavedSearch: int getId()>();
+
+        if $i1 == $i0 goto label3;
+
+        return 0;
+
+     label3:
+        return 1;
+    }
+
+    public java.util.Date getCreatedAt()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.util.Date r1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.util.Date createdAt>;
+
+        return r1;
+    }
+
+    public int getId()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id>;
+
+        return i0;
+    }
+
+    public java.lang.String getName()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String name>;
+
+        return r1;
+    }
+
+    public int getPosition()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int position>;
+
+        return i0;
+    }
+
+    public java.lang.String getQuery()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String query>;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.util.Date $r1;
+        java.lang.String $r2;
+        int $i0, $i1;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.util.Date createdAt>;
+
+        $i0 = virtualinvoke $r1.<java.util.Date: int hashCode()>();
+
+        $i0 = $i0 * 31;
+
+        $r2 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String query>;
+
+        $i1 = virtualinvoke $r2.<java.lang.String: int hashCode()>();
+
+        $i1 = $i0 + $i1;
+
+        $i1 = $i1 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int position>;
+
+        $i1 = $i1 + $i0;
+
+        $i1 = $i1 * 31;
+
+        $r2 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String name>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int hashCode()>();
+
+        $i1 = $i1 + $i0;
+
+        $i1 = $i1 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id>;
+
+        $i1 = $i1 + $i0;
+
+        return $i1;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.SavedSearchJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        java.util.Date $r2;
+        java.lang.String $r3;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.SavedSearchJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("SavedSearchJSONImpl{createdAt=");
+
+        $r2 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.util.Date createdAt>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", query=\'");
+
+        $r3 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String query>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", position=");
+
+        $i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int position>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", name=\'");
+
+        $r3 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", id=");
+
+        $i0 = $r0.<twitter4j.internal.json.SavedSearchJSONImpl: int id>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.SavedSearchJSONImpl: long serialVersionUID> = 3083819860391598212L;
+
+        return;
+    }
+}

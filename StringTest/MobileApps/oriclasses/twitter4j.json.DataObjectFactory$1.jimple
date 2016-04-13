@@ -1,0 +1,40 @@
+final class twitter4j.json.DataObjectFactory$1 extends java.lang.ThreadLocal
+{
+
+    void <init>()
+    {
+        twitter4j.json.DataObjectFactory$1 $r0;
+
+        $r0 := @this: twitter4j.json.DataObjectFactory$1;
+
+        specialinvoke $r0.<java.lang.ThreadLocal: void <init>()>();
+
+        return;
+    }
+
+    protected volatile java.lang.Object initialValue()
+    {
+        twitter4j.json.DataObjectFactory$1 $r0;
+        java.util.Map $r1;
+
+        $r0 := @this: twitter4j.json.DataObjectFactory$1;
+
+        $r1 = virtualinvoke $r0.<twitter4j.json.DataObjectFactory$1: java.util.Map initialValue()>();
+
+        return $r1;
+    }
+
+    protected java.util.Map initialValue()
+    {
+        twitter4j.json.DataObjectFactory$1 $r0;
+        java.util.HashMap $r1;
+
+        $r0 := @this: twitter4j.json.DataObjectFactory$1;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        return $r1;
+    }
+}

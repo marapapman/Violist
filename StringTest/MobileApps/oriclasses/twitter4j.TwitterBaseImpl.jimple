@@ -1,0 +1,1332 @@
+abstract class twitter4j.TwitterBaseImpl extends java.lang.Object implements twitter4j.TwitterBase, java.io.Serializable, twitter4j.auth.OAuthSupport, twitter4j.internal.http.HttpResponseListener
+{
+    private static final long serialVersionUID;
+    protected twitter4j.auth.Authorization auth;
+    protected twitter4j.conf.Configuration conf;
+    protected twitter4j.internal.json.z_T4JInternalFactory factory;
+    protected transient twitter4j.internal.http.HttpClientWrapper http;
+    protected transient long id;
+    private java.util.List rateLimitStatusListeners;
+    protected transient java.lang.String screenName;
+
+    void <init>(twitter4j.conf.Configuration, twitter4j.auth.Authorization)
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.conf.Configuration $r1;
+        twitter4j.auth.Authorization $r2;
+        java.util.ArrayList $r3;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.conf.Configuration;
+
+        $r2 := @parameter1: twitter4j.auth.Authorization;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = null;
+
+        $r0.<twitter4j.TwitterBaseImpl: long id> = 0L;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>(int)>(0);
+
+        $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners> = $r3;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf> = $r1;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r2;
+
+        specialinvoke $r0.<twitter4j.TwitterBaseImpl: void init()>();
+
+        return;
+    }
+
+    private twitter4j.auth.OAuthSupport getOAuth()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization $r1;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        twitter4j.auth.OAuthSupport $r3;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r1 instanceof twitter4j.auth.OAuthSupport;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("OAuth consumer key/secret combination not supplied");
+
+        throw $r2;
+
+     label1:
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r3 = (twitter4j.auth.OAuthSupport) $r1;
+
+        return $r3;
+    }
+
+    private void init()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.OAuthAuthorization $r1;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.conf.Configuration $r3;
+        java.lang.String $r4, $r5;
+        twitter4j.auth.AccessToken $r6;
+        twitter4j.internal.http.HttpClientWrapper $r7;
+        twitter4j.auth.NullAuthorization $r8;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        if $r2 != null goto label2;
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r4 = interfaceinvoke $r3.<twitter4j.conf.Configuration: java.lang.String getOAuthConsumerKey()>();
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r5 = interfaceinvoke $r3.<twitter4j.conf.Configuration: java.lang.String getOAuthConsumerSecret()>();
+
+        if $r4 == null goto label3;
+
+        if $r5 == null goto label3;
+
+        $r1 = new twitter4j.auth.OAuthAuthorization;
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r1.<twitter4j.auth.OAuthAuthorization: void <init>(twitter4j.conf.Configuration)>($r3);
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r5 = interfaceinvoke $r3.<twitter4j.conf.Configuration: java.lang.String getOAuthAccessToken()>();
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r4 = interfaceinvoke $r3.<twitter4j.conf.Configuration: java.lang.String getOAuthAccessTokenSecret()>();
+
+        if $r5 == null goto label1;
+
+        if $r4 == null goto label1;
+
+        $r6 = new twitter4j.auth.AccessToken;
+
+        specialinvoke $r6.<twitter4j.auth.AccessToken: void <init>(java.lang.String,java.lang.String)>($r5, $r4);
+
+        virtualinvoke $r1.<twitter4j.auth.OAuthAuthorization: void setOAuthAccessToken(twitter4j.auth.AccessToken)>($r6);
+
+     label1:
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r1;
+
+     label2:
+        $r7 = new twitter4j.internal.http.HttpClientWrapper;
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r7.<twitter4j.internal.http.HttpClientWrapper: void <init>(twitter4j.internal.http.HttpClientWrapperConfiguration)>($r3);
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http> = $r7;
+
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        virtualinvoke $r7.<twitter4j.internal.http.HttpClientWrapper: void setHttpResponseListener(twitter4j.internal.http.HttpResponseListener)>($r0);
+
+        virtualinvoke $r0.<twitter4j.TwitterBaseImpl: void setFactory()>();
+
+        return;
+
+     label3:
+        $r8 = staticinvoke <twitter4j.auth.NullAuthorization: twitter4j.auth.NullAuthorization getInstance()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r8;
+
+        goto label2;
+    }
+
+    private void readObject(java.io.ObjectInputStream) throws java.io.IOException, java.lang.ClassNotFoundException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.io.ObjectInputStream $r1;
+        twitter4j.conf.Configuration $r2;
+        java.lang.Object $r3;
+        twitter4j.auth.Authorization $r4;
+        java.util.List $r5;
+        twitter4j.internal.http.HttpClientWrapper $r6;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.io.ObjectInputStream;
+
+        virtualinvoke $r1.<java.io.ObjectInputStream: java.io.ObjectInputStream$GetField readFields()>();
+
+        $r3 = virtualinvoke $r1.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        $r2 = (twitter4j.conf.Configuration) $r3;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf> = $r2;
+
+        $r3 = virtualinvoke $r1.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        $r4 = (twitter4j.auth.Authorization) $r3;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r4;
+
+        $r3 = virtualinvoke $r1.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        $r5 = (java.util.List) $r3;
+
+        $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners> = $r5;
+
+        $r6 = new twitter4j.internal.http.HttpClientWrapper;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r6.<twitter4j.internal.http.HttpClientWrapper: void <init>(twitter4j.internal.http.HttpClientWrapperConfiguration)>($r2);
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http> = $r6;
+
+        $r6 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        virtualinvoke $r6.<twitter4j.internal.http.HttpClientWrapper: void setHttpResponseListener(twitter4j.internal.http.HttpResponseListener)>($r0);
+
+        virtualinvoke $r0.<twitter4j.TwitterBaseImpl: void setFactory()>();
+
+        return;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.io.ObjectOutputStream $r1;
+        java.util.ArrayList $r2;
+        twitter4j.conf.Configuration $r3;
+        java.util.Iterator $r4;
+        twitter4j.auth.Authorization $r5;
+        java.util.List $r6;
+        boolean $z0;
+        java.lang.Object $r7;
+        twitter4j.RateLimitStatusListener $r8;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.io.ObjectOutputStream;
+
+        virtualinvoke $r1.<java.io.ObjectOutputStream: java.io.ObjectOutputStream$PutField putFields()>();
+
+        virtualinvoke $r1.<java.io.ObjectOutputStream: void writeFields()>();
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        virtualinvoke $r1.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($r3);
+
+        $r5 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        virtualinvoke $r1.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($r5);
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>(int)>(0);
+
+        $r6 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $r4 = interfaceinvoke $r6.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r7 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (twitter4j.RateLimitStatusListener) $r7;
+
+        $z0 = $r8 instanceof java.io.Serializable;
+
+        if $z0 == 0 goto label1;
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r8);
+
+        goto label1;
+
+     label2:
+        virtualinvoke $r1.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($r2);
+
+        return;
+    }
+
+    public void addRateLimitStatusListener(twitter4j.RateLimitStatusListener)
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.RateLimitStatusListener $r1;
+        java.util.List $r2;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.RateLimitStatusListener;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    protected final void ensureAuthorizationEnabled()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization $r1;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = interfaceinvoke $r1.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Authentication credentials are missing. See http://twitter4j.org/configuration.html for the detail.");
+
+        throw $r2;
+
+     label1:
+        return;
+    }
+
+    protected final void ensureOAuthEnabled()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization $r1;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r1 instanceof twitter4j.auth.OAuthAuthorization;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("OAuth required. Authentication credentials are missing. See http://twitter4j.org/configuration.html for the detail.");
+
+        throw $r2;
+
+     label1:
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.TwitterBaseImpl $r0, $r3;
+        java.lang.Object $r1;
+        boolean $z0;
+        twitter4j.auth.Authorization $r2, $r4;
+        twitter4j.conf.Configuration $r5, $r6;
+        twitter4j.internal.http.HttpClientWrapper $r7, $r8;
+        java.util.List $r9, $r10;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        $z0 = $r1 instanceof twitter4j.TwitterBaseImpl;
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $r3 = (twitter4j.TwitterBaseImpl) $r1;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        if $r2 == null goto label04;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r2 = $r3.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label05;
+
+     label03:
+        return 0;
+
+     label04:
+        $r4 = $r3.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        if $r4 != null goto label03;
+
+     label05:
+        $r5 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r6 = $r3.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $z0 = virtualinvoke $r5.<java.lang.Object: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label06;
+
+        return 0;
+
+     label06:
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        if $r7 == null goto label08;
+
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        $r8 = $r3.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        $z0 = virtualinvoke $r7.<twitter4j.internal.http.HttpClientWrapper: boolean equals(java.lang.Object)>($r8);
+
+        if $z0 != 0 goto label09;
+
+     label07:
+        return 0;
+
+     label08:
+        $r8 = $r3.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        if $r8 != null goto label07;
+
+     label09:
+        $r9 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $r10 = $r3.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $z0 = interfaceinvoke $r9.<java.util.List: boolean equals(java.lang.Object)>($r10);
+
+        if $z0 != 0 goto label10;
+
+        return 0;
+
+     label10:
+        return 1;
+    }
+
+    protected twitter4j.User fillInIDAndScreenName() throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.internal.json.z_T4JInternalFactory $r1;
+        twitter4j.internal.http.HttpClientWrapper $r2;
+        java.lang.StringBuilder $r3;
+        twitter4j.conf.Configuration $r4;
+        java.lang.String $r5;
+        twitter4j.auth.Authorization $r6;
+        twitter4j.internal.http.HttpResponse $r7;
+        twitter4j.User $r8;
+        long $l0;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        virtualinvoke $r0.<twitter4j.TwitterBaseImpl: void ensureAuthorizationEnabled()>();
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.json.z_T4JInternalFactory factory>;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r5 = interfaceinvoke $r4.<twitter4j.conf.Configuration: java.lang.String getRestBaseURL()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("account/verify_credentials.json");
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r7 = virtualinvoke $r2.<twitter4j.internal.http.HttpClientWrapper: twitter4j.internal.http.HttpResponse get(java.lang.String,twitter4j.auth.Authorization)>($r5, $r6);
+
+        $r8 = interfaceinvoke $r1.<twitter4j.internal.json.z_T4JInternalFactory: twitter4j.User createUser(twitter4j.internal.http.HttpResponse)>($r7);
+
+        $r5 = interfaceinvoke $r8.<twitter4j.User: java.lang.String getScreenName()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = $r5;
+
+        $l0 = interfaceinvoke $r8.<twitter4j.User: long getId()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: long id> = $l0;
+
+        return $r8;
+    }
+
+    public final twitter4j.auth.Authorization getAuthorization()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization r1;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        return r1;
+    }
+
+    public twitter4j.conf.Configuration getConfiguration()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.conf.Configuration r1;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        return r1;
+    }
+
+    public long getId() throws twitter4j.TwitterException, java.lang.IllegalStateException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization $r1;
+        long $l0;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        byte $b1;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = interfaceinvoke $r1.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Neither user ID/password combination nor OAuth consumer key/secret combination supplied");
+
+        throw $r2;
+
+     label1:
+        $l0 = $r0.<twitter4j.TwitterBaseImpl: long id>;
+
+        $b1 = 0L cmp $l0;
+
+        if $b1 != 0 goto label2;
+
+        virtualinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.User fillInIDAndScreenName()>();
+
+     label2:
+        $l0 = $r0.<twitter4j.TwitterBaseImpl: long id>;
+
+        return $l0;
+    }
+
+    public twitter4j.auth.AccessToken getOAuthAccessToken() throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.AccessToken $r1;
+        boolean $z0;
+        twitter4j.auth.Authorization $r2;
+        twitter4j.auth.BasicAuthorization $r3;
+        twitter4j.conf.Configuration $r4;
+        twitter4j.auth.OAuthAuthorization $r5;
+        java.lang.String $r6, $r7;
+        long $l0;
+        java.lang.IllegalStateException $r8;
+        java.lang.Throwable $r9;
+        twitter4j.internal.http.XAuthAuthorization $r10;
+        twitter4j.auth.OAuthSupport $r11;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = virtualinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization getAuthorization()>();
+
+        $z0 = $r2 instanceof twitter4j.auth.BasicAuthorization;
+
+        if $z0 == 0 goto label6;
+
+        $r3 = (twitter4j.auth.BasicAuthorization) $r2;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r2 = staticinvoke <twitter4j.auth.AuthorizationFactory: twitter4j.auth.Authorization getInstance(twitter4j.conf.Configuration)>($r4);
+
+        $z0 = $r2 instanceof twitter4j.auth.OAuthAuthorization;
+
+        if $z0 == 0 goto label4;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r2;
+
+        $r5 = (twitter4j.auth.OAuthAuthorization) $r2;
+
+        $r6 = virtualinvoke $r3.<twitter4j.auth.BasicAuthorization: java.lang.String getUserId()>();
+
+        $r7 = virtualinvoke $r3.<twitter4j.auth.BasicAuthorization: java.lang.String getPassword()>();
+
+        $r1 = virtualinvoke $r5.<twitter4j.auth.OAuthAuthorization: twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String,java.lang.String)>($r6, $r7);
+
+     label2:
+        $r7 = virtualinvoke $r1.<twitter4j.auth.AccessToken: java.lang.String getScreenName()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = $r7;
+
+        $l0 = virtualinvoke $r1.<twitter4j.auth.AccessToken: long getUserId()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: long id> = $l0;
+
+     label3:
+        exitmonitor $r0;
+
+        return $r1;
+
+     label4:
+        $r8 = new java.lang.IllegalStateException;
+
+        specialinvoke $r8.<java.lang.IllegalStateException: void <init>(java.lang.String)>("consumer key / secret combination not supplied.");
+
+        throw $r8;
+
+     label5:
+        $r9 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r9;
+
+     label6:
+        $z0 = $r2 instanceof twitter4j.internal.http.XAuthAuthorization;
+
+        if $z0 == 0 goto label8;
+
+        $r10 = (twitter4j.internal.http.XAuthAuthorization) $r2;
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r10;
+
+        $r5 = new twitter4j.auth.OAuthAuthorization;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r5.<twitter4j.auth.OAuthAuthorization: void <init>(twitter4j.conf.Configuration)>($r4);
+
+        $r7 = virtualinvoke $r10.<twitter4j.internal.http.XAuthAuthorization: java.lang.String getConsumerKey()>();
+
+        $r6 = virtualinvoke $r10.<twitter4j.internal.http.XAuthAuthorization: java.lang.String getConsumerSecret()>();
+
+        virtualinvoke $r5.<twitter4j.auth.OAuthAuthorization: void setOAuthConsumer(java.lang.String,java.lang.String)>($r7, $r6);
+
+        $r7 = virtualinvoke $r10.<twitter4j.internal.http.XAuthAuthorization: java.lang.String getUserId()>();
+
+        $r6 = virtualinvoke $r10.<twitter4j.internal.http.XAuthAuthorization: java.lang.String getPassword()>();
+
+        $r1 = virtualinvoke $r5.<twitter4j.auth.OAuthAuthorization: twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String,java.lang.String)>($r7, $r6);
+
+     label7:
+        goto label2;
+
+     label8:
+        $r11 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r1 = interfaceinvoke $r11.<twitter4j.auth.OAuthSupport: twitter4j.auth.AccessToken getOAuthAccessToken()>();
+
+     label9:
+        goto label2;
+
+        catch java.lang.Throwable from label1 to label3 with label5;
+        catch java.lang.Throwable from label4 to label5 with label5;
+        catch java.lang.Throwable from label6 to label7 with label5;
+        catch java.lang.Throwable from label7 to label9 with label5;
+    }
+
+    public twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.String $r1;
+        twitter4j.auth.OAuthSupport $r2;
+        twitter4j.auth.AccessToken $r3;
+        java.lang.Throwable $r4;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r3 = interfaceinvoke $r2.<twitter4j.auth.OAuthSupport: twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<twitter4j.auth.AccessToken: java.lang.String getScreenName()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = $r1;
+
+     label2:
+        exitmonitor $r0;
+
+        return $r3;
+
+     label3:
+        $r4 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r4;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String, java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.String $r1, $r2;
+        twitter4j.auth.OAuthSupport $r3;
+        twitter4j.auth.AccessToken $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        entermonitor $r0;
+
+     label1:
+        $r3 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r4 = interfaceinvoke $r3.<twitter4j.auth.OAuthSupport: twitter4j.auth.AccessToken getOAuthAccessToken(java.lang.String,java.lang.String)>($r1, $r2);
+
+     label2:
+        exitmonitor $r0;
+
+        return $r4;
+
+     label3:
+        $r5 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public twitter4j.auth.AccessToken getOAuthAccessToken(twitter4j.auth.RequestToken) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.RequestToken $r1;
+        twitter4j.auth.OAuthSupport $r2;
+        twitter4j.auth.AccessToken $r3;
+        java.lang.String $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.auth.RequestToken;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r3 = interfaceinvoke $r2.<twitter4j.auth.OAuthSupport: twitter4j.auth.AccessToken getOAuthAccessToken(twitter4j.auth.RequestToken)>($r1);
+
+        $r4 = virtualinvoke $r3.<twitter4j.auth.AccessToken: java.lang.String getScreenName()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = $r4;
+
+     label2:
+        exitmonitor $r0;
+
+        return $r3;
+
+     label3:
+        $r5 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public twitter4j.auth.AccessToken getOAuthAccessToken(twitter4j.auth.RequestToken, java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.RequestToken $r1;
+        java.lang.String $r2;
+        twitter4j.auth.OAuthSupport $r3;
+        twitter4j.auth.AccessToken $r4;
+        java.lang.Throwable $r5;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.auth.RequestToken;
+
+        $r2 := @parameter1: java.lang.String;
+
+        entermonitor $r0;
+
+     label1:
+        $r3 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r4 = interfaceinvoke $r3.<twitter4j.auth.OAuthSupport: twitter4j.auth.AccessToken getOAuthAccessToken(twitter4j.auth.RequestToken,java.lang.String)>($r1, $r2);
+
+     label2:
+        exitmonitor $r0;
+
+        return $r4;
+
+     label3:
+        $r5 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r5;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public twitter4j.auth.RequestToken getOAuthRequestToken() throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.RequestToken $r1;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = virtualinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.RequestToken getOAuthRequestToken(java.lang.String)>(null);
+
+        return $r1;
+    }
+
+    public twitter4j.auth.RequestToken getOAuthRequestToken(java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.String $r1;
+        twitter4j.auth.OAuthSupport $r2;
+        twitter4j.auth.RequestToken $r3;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r3 = interfaceinvoke $r2.<twitter4j.auth.OAuthSupport: twitter4j.auth.RequestToken getOAuthRequestToken(java.lang.String)>($r1);
+
+        return $r3;
+    }
+
+    public twitter4j.auth.RequestToken getOAuthRequestToken(java.lang.String, java.lang.String) throws twitter4j.TwitterException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.String $r1, $r2;
+        twitter4j.auth.OAuthSupport $r3;
+        twitter4j.auth.RequestToken $r4;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        $r4 = interfaceinvoke $r3.<twitter4j.auth.OAuthSupport: twitter4j.auth.RequestToken getOAuthRequestToken(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return $r4;
+    }
+
+    public java.lang.String getScreenName() throws twitter4j.TwitterException, java.lang.IllegalStateException
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.Authorization $r1;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        java.lang.String $r3;
+        twitter4j.auth.BasicAuthorization $r4;
+        int $i0;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = interfaceinvoke $r1.<twitter4j.auth.Authorization: boolean isEnabled()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Neither user ID/password combination nor OAuth consumer key/secret combination supplied");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName>;
+
+        if $r3 != null goto label3;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r1 instanceof twitter4j.auth.BasicAuthorization;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r4 = (twitter4j.auth.BasicAuthorization) $r1;
+
+        $r3 = virtualinvoke $r4.<twitter4j.auth.BasicAuthorization: java.lang.String getUserId()>();
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = $r3;
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName>;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(java.lang.String)>("@");
+
+        if -1 == $i0 goto label2;
+
+        $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName> = null;
+
+     label2:
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName>;
+
+        if $r3 != null goto label3;
+
+        virtualinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.User fillInIDAndScreenName()>();
+
+     label3:
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: java.lang.String screenName>;
+
+        return $r3;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.conf.Configuration $r1;
+        int $i0, $i1, $i2;
+        twitter4j.internal.http.HttpClientWrapper $r2;
+        java.util.List $r3;
+        twitter4j.auth.Authorization $r4;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $i0 = 0;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $i1 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        $i1 = $i1 * 31;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        if $r2 == null goto label3;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        $i2 = virtualinvoke $r2.<twitter4j.internal.http.HttpClientWrapper: int hashCode()>();
+
+     label1:
+        $i2 = $i1 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $i1 = interfaceinvoke $r3.<java.util.List: int hashCode()>();
+
+        $i2 = $i2 + $i1;
+
+        $i2 = $i2 * 31;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        if $r4 == null goto label2;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $i0 = virtualinvoke $r4.<java.lang.Object: int hashCode()>();
+
+     label2:
+        $i2 = $i2 + $i0;
+
+        return $i2;
+
+     label3:
+        $i2 = 0;
+
+        goto label1;
+    }
+
+    public void httpResponseReceived(twitter4j.internal.http.HttpResponseEvent)
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.internal.http.HttpResponseEvent $r1;
+        twitter4j.RateLimitStatus $r2;
+        int $i0;
+        twitter4j.RateLimitStatusEvent $r3;
+        java.util.List $r4;
+        twitter4j.internal.http.HttpResponse $r5;
+        twitter4j.TwitterException $r6;
+        boolean $z0;
+        java.util.Iterator $r7;
+        java.lang.Object $r8;
+        twitter4j.RateLimitStatusListener $r9;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponseEvent;
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $i0 = interfaceinvoke $r4.<java.util.List: int size()>();
+
+        if $i0 == 0 goto label07;
+
+        $r5 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponseEvent: twitter4j.internal.http.HttpResponse getResponse()>();
+
+        $r6 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponseEvent: twitter4j.TwitterException getTwitterException()>();
+
+        if $r6 == null goto label04;
+
+        $r2 = virtualinvoke $r6.<twitter4j.TwitterException: twitter4j.RateLimitStatus getRateLimitStatus()>();
+
+        $i0 = virtualinvoke $r6.<twitter4j.TwitterException: int getStatusCode()>();
+
+     label01:
+        if $r2 == null goto label08;
+
+        $r3 = new twitter4j.RateLimitStatusEvent;
+
+        $z0 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponseEvent: boolean isAuthenticated()>();
+
+        specialinvoke $r3.<twitter4j.RateLimitStatusEvent: void <init>(java.lang.Object,twitter4j.RateLimitStatus,boolean)>($r0, $r2, $z0);
+
+        if $i0 == 420 goto label02;
+
+        if $i0 != 503 goto label05;
+
+     label02:
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $r7 = interfaceinvoke $r4.<java.util.List: java.util.Iterator iterator()>();
+
+     label03:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label09;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (twitter4j.RateLimitStatusListener) $r8;
+
+        interfaceinvoke $r9.<twitter4j.RateLimitStatusListener: void onRateLimitStatus(twitter4j.RateLimitStatusEvent)>($r3);
+
+        interfaceinvoke $r9.<twitter4j.RateLimitStatusListener: void onRateLimitReached(twitter4j.RateLimitStatusEvent)>($r3);
+
+        goto label03;
+
+     label04:
+        $r2 = staticinvoke <twitter4j.internal.json.z_T4JInternalJSONImplFactory: twitter4j.RateLimitStatus createRateLimitStatusFromResponseHeader(twitter4j.internal.http.HttpResponse)>($r5);
+
+        $i0 = virtualinvoke $r5.<twitter4j.internal.http.HttpResponse: int getStatusCode()>();
+
+        goto label01;
+
+     label05:
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $r7 = interfaceinvoke $r4.<java.util.List: java.util.Iterator iterator()>();
+
+     label06:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label10;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (twitter4j.RateLimitStatusListener) $r8;
+
+        interfaceinvoke $r9.<twitter4j.RateLimitStatusListener: void onRateLimitStatus(twitter4j.RateLimitStatusEvent)>($r3);
+
+        goto label06;
+
+     label07:
+        return;
+
+     label08:
+        return;
+
+     label09:
+        return;
+
+     label10:
+        return;
+    }
+
+    protected void setFactory()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.internal.json.z_T4JInternalJSONImplFactory $r1;
+        twitter4j.conf.Configuration $r2;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = new twitter4j.internal.json.z_T4JInternalJSONImplFactory;
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r1.<twitter4j.internal.json.z_T4JInternalJSONImplFactory: void <init>(twitter4j.conf.Configuration)>($r2);
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.json.z_T4JInternalFactory factory> = $r1;
+
+        return;
+    }
+
+    public void setOAuthAccessToken(twitter4j.auth.AccessToken)
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.auth.AccessToken $r1;
+        twitter4j.auth.OAuthSupport $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: twitter4j.auth.AccessToken;
+
+        entermonitor $r0;
+
+     label1:
+        $r2 = specialinvoke $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.OAuthSupport getOAuth()>();
+
+        interfaceinvoke $r2.<twitter4j.auth.OAuthSupport: void setOAuthAccessToken(twitter4j.auth.AccessToken)>($r1);
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public void setOAuthConsumer(java.lang.String, java.lang.String)
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.String $r1, $r2;
+        twitter4j.auth.OAuthAuthorization $r3;
+        twitter4j.internal.http.XAuthAuthorization $r4;
+        java.lang.NullPointerException $r5;
+        java.lang.Throwable $r6;
+        twitter4j.auth.Authorization $r7;
+        boolean $z0;
+        twitter4j.conf.Configuration $r8;
+        twitter4j.auth.BasicAuthorization $r9;
+        java.lang.IllegalStateException $r10;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        entermonitor $r0;
+
+        if $r1 != null goto label03;
+
+     label01:
+        $r5 = new java.lang.NullPointerException;
+
+        specialinvoke $r5.<java.lang.NullPointerException: void <init>(java.lang.String)>("consumer key is null");
+
+        throw $r5;
+
+     label02:
+        $r6 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r6;
+
+     label03:
+        if $r2 != null goto label05;
+
+     label04:
+        $r5 = new java.lang.NullPointerException;
+
+        specialinvoke $r5.<java.lang.NullPointerException: void <init>(java.lang.String)>("consumer secret is null");
+
+        throw $r5;
+
+     label05:
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r7 instanceof twitter4j.auth.NullAuthorization;
+
+        if $z0 == 0 goto label07;
+
+        $r3 = new twitter4j.auth.OAuthAuthorization;
+
+        $r8 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        specialinvoke $r3.<twitter4j.auth.OAuthAuthorization: void <init>(twitter4j.conf.Configuration)>($r8);
+
+        virtualinvoke $r3.<twitter4j.auth.OAuthAuthorization: void setOAuthConsumer(java.lang.String,java.lang.String)>($r1, $r2);
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r3;
+
+     label06:
+        exitmonitor $r0;
+
+        return;
+
+     label07:
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r7 instanceof twitter4j.auth.BasicAuthorization;
+
+        if $z0 == 0 goto label09;
+
+        $r4 = new twitter4j.internal.http.XAuthAuthorization;
+
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r9 = (twitter4j.auth.BasicAuthorization) $r7;
+
+        specialinvoke $r4.<twitter4j.internal.http.XAuthAuthorization: void <init>(twitter4j.auth.BasicAuthorization)>($r9);
+
+        virtualinvoke $r4.<twitter4j.internal.http.XAuthAuthorization: void setOAuthConsumer(java.lang.String,java.lang.String)>($r1, $r2);
+
+        $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth> = $r4;
+
+     label08:
+        goto label06;
+
+     label09:
+        $r7 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $z0 = $r7 instanceof twitter4j.auth.OAuthAuthorization;
+
+        if $z0 == 0 goto label06;
+
+        $r10 = new java.lang.IllegalStateException;
+
+        specialinvoke $r10.<java.lang.IllegalStateException: void <init>(java.lang.String)>("consumer key/secret pair already set.");
+
+        throw $r10;
+
+     label10:
+        nop;
+
+        catch java.lang.Throwable from label01 to label02 with label02;
+        catch java.lang.Throwable from label04 to label06 with label02;
+        catch java.lang.Throwable from label07 to label08 with label02;
+        catch java.lang.Throwable from label09 to label10 with label02;
+    }
+
+    public void shutdown()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        twitter4j.internal.http.HttpClientWrapper $r1;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        virtualinvoke $r1.<twitter4j.internal.http.HttpClientWrapper: void shutdown()>();
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.TwitterBaseImpl $r0;
+        java.lang.StringBuilder $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.internal.http.HttpClientWrapper $r3;
+        java.util.List $r4;
+        twitter4j.auth.Authorization $r5;
+        java.lang.String $r6;
+
+        $r0 := @this: twitter4j.TwitterBaseImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("TwitterBase{conf=");
+
+        $r2 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.conf.Configuration conf>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", http=");
+
+        $r3 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.internal.http.HttpClientWrapper http>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", rateLimitStatusListeners=");
+
+        $r4 = $r0.<twitter4j.TwitterBaseImpl: java.util.List rateLimitStatusListeners>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", auth=");
+
+        $r5 = $r0.<twitter4j.TwitterBaseImpl: twitter4j.auth.Authorization auth>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r6;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.TwitterBaseImpl: long serialVersionUID> = -3812176145960812140L;
+
+        return;
+    }
+}

@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="space_allocate.usersAllocatedToSpace"/>:
+                    <span wicket:id="label"></span>                    
+                </div>
+                <table class="jtrac">
+                    <tr>                        
+                        <th><wicket:message key="space_allocate.fullName"/></th>
+                        <th><wicket:message key="space_allocate.loginName"/></th>
+                        <th><wicket:message key="space_allocate.role"/></th>
+                        <th><wicket:message key="space_allocate.remove"/></th>
+                    </tr>
+                    <tr wicket:id="usrs">                        
+                        <td wicket:id="name"></td>
+                        <td wicket:id="loginName"><a href="#" wicket:id="loginName"></a></td>                        
+                        <td wicket:id="roleKey"></td>
+                        <td align="center"><input type="image" wicket:id="deallocate" src="../resources/delete.gif"/></td>
+                    </tr>
+                </table>
+                <p/>
+                <div class="heading">
+                    <wicket:message key="space_allocate.allocateUser"/>
+                    [ <a href="#" wicket:id="createNewUser"><wicket:message key="space_allocate.createNewUser"/></a> ]
+                </div>
+                <table class="jtrac">
+                    <tr>
+                        <th><wicket:message key="space_allocate.user"/></th>
+                        <td>
+                            <select wicket:id="user"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><wicket:message key="space_allocate.role"/></th>
+                        <td>
+                            <select wicket:id="roleKey"/>
+                            <input type="submit" wicket:id="allocate" wicket:message="value:space_allocate.allocate"/>                            
+                        </td>        
+                    </tr>
+                </table>                
+                <p/>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

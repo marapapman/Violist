@@ -1,0 +1,160 @@
+public final class a2z.Mobile.DevConnections.R$string extends java.lang.Object
+{
+    public static final int DBGUID;
+    public static final int EventInfo;
+    public static final int FacebookUrl;
+    public static final int GCMSenderID;
+    public static final int LocalInfoTitle;
+    public static final int LocalInfoUrl;
+    public static final int NavigationIconUrl;
+    public static final int PostToTwitterHashtag;
+    public static final int PublicSiteUrl;
+    public static final int SponsorPageTitle;
+    public static final int SponsorUrl;
+    public static final int TrackingServiceUrl;
+    public static final int TwitterTitle;
+    public static final int TwitterUrl;
+    public static final int a2zExpoServiceUrl;
+    public static final int a2z_twitter_access_token;
+    public static final int a2z_twitter_access_token_secret;
+    public static final int a2z_twitter_consumer_key;
+    public static final int a2z_twitter_consumer_secret;
+    public static final int add_fav_label;
+    public static final int analytics_db;
+    public static final int app_name;
+    public static final int booth_visited;
+    public static final int cancel_label;
+    public static final int chirpe_event_ID;
+    public static final int clientMapScaleModifier;
+    public static final int data_db;
+    public static final int db_path;
+    public static final int event_ID;
+    public static final int exhib_email_subject;
+    public static final int exhib_meeting_email_subject;
+    public static final int exhib_meeting_label;
+    public static final int exhibitor_search_label;
+    public static final int meeting_request_email_body_1;
+    public static final int meeting_request_email_notes_label;
+    public static final int meeting_request_email_subject_1;
+    public static final int my_notes_exhibitor_notes_label;
+    public static final int my_notes_personal_notes_label;
+    public static final int my_notes_session_notes_label;
+    public static final int note_input_dialog_title;
+    public static final int rate_this_session;
+    public static final int rate_this_session_url;
+    public static final int remove_fav_label;
+    public static final int send_label;
+    public static final int session_details_handouts_label;
+    public static final int set_date;
+    public static final int tweet_label;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$string $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$string;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$string: int tweet_label> = 2131165215;
+
+        <a2z.Mobile.DevConnections.R$string: int set_date> = 2131165223;
+
+        <a2z.Mobile.DevConnections.R$string: int session_details_handouts_label> = 2131165211;
+
+        <a2z.Mobile.DevConnections.R$string: int send_label> = 2131165216;
+
+        <a2z.Mobile.DevConnections.R$string: int remove_fav_label> = 2131165222;
+
+        <a2z.Mobile.DevConnections.R$string: int rate_this_session_url> = 2131165192;
+
+        <a2z.Mobile.DevConnections.R$string: int rate_this_session> = 2131165210;
+
+        <a2z.Mobile.DevConnections.R$string: int note_input_dialog_title> = 2131165209;
+
+        <a2z.Mobile.DevConnections.R$string: int my_notes_session_notes_label> = 2131165212;
+
+        <a2z.Mobile.DevConnections.R$string: int my_notes_personal_notes_label> = 2131165214;
+
+        <a2z.Mobile.DevConnections.R$string: int my_notes_exhibitor_notes_label> = 2131165213;
+
+        <a2z.Mobile.DevConnections.R$string: int meeting_request_email_subject_1> = 2131165224;
+
+        <a2z.Mobile.DevConnections.R$string: int meeting_request_email_notes_label> = 2131165226;
+
+        <a2z.Mobile.DevConnections.R$string: int meeting_request_email_body_1> = 2131165225;
+
+        <a2z.Mobile.DevConnections.R$string: int exhibitor_search_label> = 2131165201;
+
+        <a2z.Mobile.DevConnections.R$string: int exhib_meeting_label> = 2131165220;
+
+        <a2z.Mobile.DevConnections.R$string: int exhib_meeting_email_subject> = 2131165219;
+
+        <a2z.Mobile.DevConnections.R$string: int exhib_email_subject> = 2131165218;
+
+        <a2z.Mobile.DevConnections.R$string: int event_ID> = 2131165185;
+
+        <a2z.Mobile.DevConnections.R$string: int db_path> = 2131165204;
+
+        <a2z.Mobile.DevConnections.R$string: int data_db> = 2131165206;
+
+        <a2z.Mobile.DevConnections.R$string: int clientMapScaleModifier> = 2131165199;
+
+        <a2z.Mobile.DevConnections.R$string: int chirpe_event_ID> = 2131165186;
+
+        <a2z.Mobile.DevConnections.R$string: int cancel_label> = 2131165217;
+
+        <a2z.Mobile.DevConnections.R$string: int booth_visited> = 2131165208;
+
+        <a2z.Mobile.DevConnections.R$string: int app_name> = 2131165184;
+
+        <a2z.Mobile.DevConnections.R$string: int analytics_db> = 2131165207;
+
+        <a2z.Mobile.DevConnections.R$string: int add_fav_label> = 2131165221;
+
+        <a2z.Mobile.DevConnections.R$string: int a2z_twitter_consumer_secret> = 2131165228;
+
+        <a2z.Mobile.DevConnections.R$string: int a2z_twitter_consumer_key> = 2131165227;
+
+        <a2z.Mobile.DevConnections.R$string: int a2z_twitter_access_token_secret> = 2131165230;
+
+        <a2z.Mobile.DevConnections.R$string: int a2z_twitter_access_token> = 2131165229;
+
+        <a2z.Mobile.DevConnections.R$string: int a2zExpoServiceUrl> = 2131165202;
+
+        <a2z.Mobile.DevConnections.R$string: int TwitterUrl> = 2131165187;
+
+        <a2z.Mobile.DevConnections.R$string: int TwitterTitle> = 2131165188;
+
+        <a2z.Mobile.DevConnections.R$string: int TrackingServiceUrl> = 2131165203;
+
+        <a2z.Mobile.DevConnections.R$string: int SponsorUrl> = 2131165195;
+
+        <a2z.Mobile.DevConnections.R$string: int SponsorPageTitle> = 2131165196;
+
+        <a2z.Mobile.DevConnections.R$string: int PublicSiteUrl> = 2131165191;
+
+        <a2z.Mobile.DevConnections.R$string: int PostToTwitterHashtag> = 2131165189;
+
+        <a2z.Mobile.DevConnections.R$string: int NavigationIconUrl> = 2131165200;
+
+        <a2z.Mobile.DevConnections.R$string: int LocalInfoUrl> = 2131165193;
+
+        <a2z.Mobile.DevConnections.R$string: int LocalInfoTitle> = 2131165194;
+
+        <a2z.Mobile.DevConnections.R$string: int GCMSenderID> = 2131165205;
+
+        <a2z.Mobile.DevConnections.R$string: int FacebookUrl> = 2131165197;
+
+        <a2z.Mobile.DevConnections.R$string: int EventInfo> = 2131165198;
+
+        <a2z.Mobile.DevConnections.R$string: int DBGUID> = 2131165190;
+
+        return;
+    }
+}

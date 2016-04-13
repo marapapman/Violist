@@ -1,0 +1,157 @@
+public class a2z.Mobile.DevConnections.SpeakerListActivity extends android.app.ListActivity
+{
+    java.lang.String keyword;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.SpeakerListActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SpeakerListActivity;
+
+        specialinvoke $r0.<android.app.ListActivity: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: java.lang.String keyword> = "";
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.SpeakerListActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter $r3;
+        android.content.Intent $r4;
+        java.lang.String $r5, $r6;
+        boolean $z0;
+        java.util.ArrayList $r7;
+        android.view.Window $r8;
+        android.view.View $r9;
+        java.lang.StringBuilder $r10;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SpeakerListActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.ListActivity: void onCreate(android.os.Bundle)>($r1);
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r4.<android.content.Intent: android.os.Bundle getExtras()>();
+
+     label1:
+        $r5 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Speaker List", $r5, null);
+
+     label2:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: void setTitle(java.lang.CharSequence)>("Speakers");
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: android.content.Intent getIntent()>();
+
+        $r5 = virtualinvoke $r4.<android.content.Intent: java.lang.String getAction()>();
+
+        $r6 = "android.intent.action.SEARCH";
+
+        $z0 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z0 == 0 goto label3;
+
+        $r6 = virtualinvoke $r4.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("query");
+
+        $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: java.lang.String keyword> = $r6;
+
+     label3:
+        $r3 = new a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: java.lang.String keyword>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.Classes.Speaker: java.util.ArrayList getList(java.lang.String)>($r6);
+
+        specialinvoke $r3.<a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter: void <init>(android.content.Context,int,java.util.ArrayList)>($r0, 2130903047, $r7);
+
+        $r3.<a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter: java.lang.String referrer> = "SpeakerList";
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: void setListAdapter(android.widget.ListAdapter)>($r3);
+
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: android.view.Window getWindow()>();
+
+        $r9 = virtualinvoke $r8.<android.view.Window: android.view.View getDecorView()>();
+
+        $r9 = virtualinvoke $r9.<android.view.View: android.view.View findViewById(int)>(16908290);
+
+        virtualinvoke $r9.<android.view.View: void setBackgroundResource(int)>(2130837506);
+
+        return;
+
+     label4:
+        $r2 := @caughtexception;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in referral to ");
+
+        $r6 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: java.lang.String getLocalClassName()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r6, null, null);
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label4;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.SpeakerListActivity $r0;
+        android.view.Menu $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SpeakerListActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.ListActivity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        return 1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.SpeakerListActivity $r0;
+        android.view.MenuItem $r1;
+        android.content.Intent $r2;
+        java.lang.CharSequence $r3;
+        boolean $z0;
+        android.content.Context $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SpeakerListActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "SpeakerList");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.SpeakerListActivity: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+     label1:
+        return 1;
+    }
+}

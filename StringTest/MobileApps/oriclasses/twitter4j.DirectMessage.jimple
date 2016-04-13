@@ -1,0 +1,21 @@
+public interface  twitter4j.DirectMessage extends java.lang.Object implements twitter4j.TwitterResponse, twitter4j.EntitySupport, java.io.Serializable
+{
+
+    public abstract java.util.Date getCreatedAt();
+
+    public abstract long getId();
+
+    public abstract twitter4j.User getRecipient();
+
+    public abstract long getRecipientId();
+
+    public abstract java.lang.String getRecipientScreenName();
+
+    public abstract twitter4j.User getSender();
+
+    public abstract long getSenderId();
+
+    public abstract java.lang.String getSenderScreenName();
+
+    public abstract java.lang.String getText();
+}

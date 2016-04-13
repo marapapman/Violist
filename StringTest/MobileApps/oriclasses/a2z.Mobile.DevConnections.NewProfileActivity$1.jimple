@@ -1,0 +1,100 @@
+class a2z.Mobile.DevConnections.NewProfileActivity$1 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.NewProfileActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.NewProfileActivity)
+    {
+        a2z.Mobile.DevConnections.NewProfileActivity$1 $r0;
+        a2z.Mobile.DevConnections.NewProfileActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NewProfileActivity$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.NewProfileActivity;
+
+        $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.NewProfileActivity$1 $r0;
+        android.view.View $r1;
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r2;
+        a2z.Mobile.DevConnections.NewProfileActivity $r3;
+        android.widget.TextView $r4, $r5, $r6, $r7;
+        java.lang.CharSequence $r8;
+        java.lang.String $r9;
+        java.lang.Void[] $r10;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NewProfileActivity$1;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.NewProfileActivity: android.view.View findViewById(int)>(2131230793);
+
+        $r4 = (android.widget.TextView) $r1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.NewProfileActivity: android.view.View findViewById(int)>(2131230794);
+
+        $r5 = (android.widget.TextView) $r1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.NewProfileActivity: android.view.View findViewById(int)>(2131230795);
+
+        $r6 = (android.widget.TextView) $r1;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0>;
+
+        $r1 = virtualinvoke $r3.<a2z.Mobile.DevConnections.NewProfileActivity: android.view.View findViewById(int)>(2131230796);
+
+        $r7 = (android.widget.TextView) $r1;
+
+        $r2 = new a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: void <init>()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NewProfileActivity$1: a2z.Mobile.DevConnections.NewProfileActivity this$0>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context> = $r3;
+
+        $r8 = virtualinvoke $r4.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r9 = interfaceinvoke $r8.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String firstName> = $r9;
+
+        $r8 = virtualinvoke $r5.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r9 = interfaceinvoke $r8.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String lastName> = $r9;
+
+        $r8 = virtualinvoke $r6.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r9 = interfaceinvoke $r8.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String email> = $r9;
+
+        $r8 = virtualinvoke $r7.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r9 = interfaceinvoke $r8.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String password> = $r9;
+
+        $r10 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.os.AsyncTask execute(java.lang.Object[])>($r10);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Login", "Login", "NewProfile");
+
+        return;
+    }
+}

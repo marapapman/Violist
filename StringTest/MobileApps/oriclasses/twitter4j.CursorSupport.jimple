@@ -1,0 +1,19 @@
+public interface  twitter4j.CursorSupport extends java.lang.Object
+{
+    public static final long START;
+
+    public abstract long getNextCursor();
+
+    public abstract long getPreviousCursor();
+
+    public abstract boolean hasNext();
+
+    public abstract boolean hasPrevious();
+
+    public static void <clinit>()
+    {
+        <twitter4j.CursorSupport: long START> = -1L;
+
+        return;
+    }
+}

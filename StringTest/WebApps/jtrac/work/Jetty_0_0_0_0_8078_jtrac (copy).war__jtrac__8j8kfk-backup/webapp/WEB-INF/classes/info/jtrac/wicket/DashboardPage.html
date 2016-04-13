@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <wicket:extend>            
+            <span wicket:id="message"><wicket:message key="dashboard.noSpaces"/></span>
+            <table class="jtrac" wicket:id="table">
+                <tr>
+                    <th><wicket:message key="dashboard.space"/></th>
+                    <th colspan="2"><wicket:message key="dashboard.action"/></th>
+                    <th colspan="2"><wicket:message key="dashboard.status"/></th>                    
+                    <th wicket:id="hideLogged"><wicket:message key="dashboard.loggedByMe"/></th>
+                    <th wicket:id="hideAssigned"><wicket:message key="dashboard.assignedToMe"/></th>
+                    <th style="width:4.5em"><wicket:message key="dashboard.all"/></th>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <span wicket:id="dashboardRows">
+                    <tbody wicket:id="dashboardRow"></tbody>
+                    <tr><td>&nbsp;</td></tr>
+                </span>
+                <tr wicket:id="total" class="nav-table">
+                    <th colspan="2"/>
+                    <td class="icon">
+                        <a href="#" wicket:id="search">
+                            <img src="resources/search.gif" wicket:message="title:dashboard.search"/>                            
+                        </a>            
+                    </td>
+                    <th colspan="2"/>
+                    <td wicket:id="loggedByMe"><a href="#" wicket:id="loggedByMe"></a></td>
+                    <td wicket:id="assignedToMe"><a href="#" wicket:id="assignedToMe"></a></td>
+                    <td wicket:id="total" class="selected"><a href="#" wicket:id="total"></a></td>
+                </tr> 
+            </table>            
+        </wicket:extend>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title wicket:id="title"></title>
+        <link rel="stylesheet" type="text/css" href="resources/jtrac.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    </head>
+    <body>
+        <table width="100%" class="jtrac alt">
+            <tr>
+                <td><a href="app"><wicket:message key="logout.home"/></a></td>
+                <td align="right"></td>
+            </tr>
+        </table> 
+        <div style="padding-bottom:2em"></div>
+        <table class="jtrac">
+            <tr>
+                <td class="info"><wicket:message key="logout.message"/></td>
+            </tr>
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td class="info" align="center"><a href="app/login"><wicket:message key="logout.login"/></a></td>
+            </tr>
+        </table>
+        <div style="padding-bottom:2em"></div>
+        <table width="100%" class="jtrac">
+            <tr class="alt">
+                <td align="right">
+                    <i>powered by <a href="http://jtrac.info" target="_blank">JTrac</a> <span wicket:id="version"></span></i>
+                </td>
+            </tr>
+        </table>            
+    </body>
+</html>

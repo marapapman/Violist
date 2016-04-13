@@ -1,0 +1,293 @@
+public class a2z.Mobile.DevConnections.Controllers.NewProfileController extends android.os.AsyncTask
+{
+    public java.lang.String contactID;
+    public java.lang.String contactName;
+    public android.content.Context context;
+    public java.lang.String email;
+    public java.lang.String firstName;
+    public java.lang.String lastName;
+    public java.lang.String password;
+    private android.app.ProgressDialog progressDialog;
+    java.lang.String response;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context> = null;
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String firstName> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String lastName> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String email> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String password> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String contactID> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String contactName> = "";
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String response> = "";
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void $r2;
+        java.lang.Void[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.Void[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.Void doInBackground(java.lang.Void[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.Void[])
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+        java.lang.Void[] $r1;
+        java.lang.Exception $r2, $r13;
+        org.apache.http.client.methods.HttpGet $r3;
+        org.apache.http.impl.client.DefaultHttpClient $r4;
+        org.json.JSONObject $r5;
+        android.content.Context $r6;
+        java.lang.String $r7, $r8;
+        java.lang.StringBuilder $r9;
+        org.apache.http.HttpResponse $r10;
+        org.apache.http.StatusLine $r11;
+        int $i0;
+        org.apache.http.HttpEntity $r12;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        $r1 := @parameter0: java.lang.Void[];
+
+     label1:
+        $r6 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r6, "a2zExpoServiceUrl");
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context>;
+
+        $r8 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r6, "ServiceSessionID");
+
+     label2:
+        $r9 = new java.lang.StringBuilder;
+
+     label3:
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/CreateContact/");
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String email>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String password>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String firstName>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String lastName>;
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r4.<org.apache.http.impl.client.DefaultHttpClient: void <init>()>();
+
+        $r3 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r3.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>($r8);
+
+        $r10 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3);
+
+        $r11 = interfaceinvoke $r10.<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()>();
+
+        $i0 = interfaceinvoke $r11.<org.apache.http.StatusLine: int getStatusCode()>();
+
+        if $i0 != 200 goto label4;
+
+        $r12 = interfaceinvoke $r10.<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()>();
+
+        $r8 = staticinvoke <org.apache.http.util.EntityUtils: java.lang.String toString(org.apache.http.HttpEntity)>($r12);
+
+        $r8 = virtualinvoke $r8.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $r5 = new org.json.JSONObject;
+
+        specialinvoke $r5.<org.json.JSONObject: void <init>(java.lang.String)>($r8);
+
+        $r5 = virtualinvoke $r5.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("a2zRootNode");
+
+        $r5 = virtualinvoke $r5.<org.json.JSONObject: org.json.JSONObject getJSONObject(java.lang.String)>("Data");
+
+        $r8 = virtualinvoke $r5.<org.json.JSONObject: java.lang.String getString(java.lang.String)>("Records");
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String response> = $r8;
+
+     label4:
+        return null;
+
+     label5:
+        $r2 := @caughtexception;
+
+     label6:
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("LoginActivity", "Error loading JSON in LoginNewProfileCont (1)", $r2);
+
+     label7:
+        goto label4;
+
+     label8:
+        $r13 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("LoginActivity", "Error loading JSON in LoginNewProfileCont (2)", $r13);
+
+        goto label4;
+
+        catch java.lang.Exception from label1 to label2 with label8;
+        catch java.lang.Exception from label3 to label4 with label5;
+        catch java.lang.Exception from label6 to label7 with label8;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+        java.lang.Object $r1;
+        java.lang.Void $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Void) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: void onPostExecute(java.lang.Void)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+        java.lang.Void $r1;
+        a2z.Mobile.DevConnections.Controllers.LoginController $r2;
+        android.app.ProgressDialog $r3;
+        android.content.Context $r4;
+        android.app.AlertDialog $r5;
+        android.app.AlertDialog$Builder $r6;
+        java.lang.String $r7;
+        int $i0;
+        a2z.Mobile.DevConnections.Controllers.NewProfileController$1 $r8;
+        java.lang.Void[] $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.app.ProgressDialog progressDialog>;
+
+        virtualinvoke $r3.<android.app.ProgressDialog: void dismiss()>();
+
+        $r6 = new android.app.AlertDialog$Builder;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context>;
+
+        specialinvoke $r6.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r4);
+
+        $r5 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String response>;
+
+        $i0 = virtualinvoke $r7.<java.lang.String: int compareTo(java.lang.String)>("0");
+
+        if $i0 != 0 goto label2;
+
+        virtualinvoke $r5.<android.app.AlertDialog: void setTitle(java.lang.CharSequence)>("Signup Failed");
+
+        virtualinvoke $r5.<android.app.AlertDialog: void setMessage(java.lang.CharSequence)>("Email address is already in use");
+
+        $r8 = new a2z.Mobile.DevConnections.Controllers.NewProfileController$1;
+
+        specialinvoke $r8.<a2z.Mobile.DevConnections.Controllers.NewProfileController$1: void <init>(a2z.Mobile.DevConnections.Controllers.NewProfileController)>($r0);
+
+        virtualinvoke $r5.<android.app.AlertDialog: void setButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("OK", $r8);
+
+     label1:
+        virtualinvoke $r5.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label2:
+        $r2 = new a2z.Mobile.DevConnections.Controllers.LoginController;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: void <init>()>();
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.content.Context context> = $r4;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String ecode> = null;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String email>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String email> = $r7;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: java.lang.String password>;
+
+        $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: java.lang.String password> = $r7;
+
+        $r9 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r2.<a2z.Mobile.DevConnections.Controllers.LoginController: android.os.AsyncTask execute(java.lang.Object[])>($r9);
+
+        goto label1;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.Controllers.NewProfileController $r0;
+        android.content.Context $r1;
+        android.app.ProgressDialog $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Controllers.NewProfileController;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.content.Context context>;
+
+        $r2 = staticinvoke <android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>($r1, "", "Signing in", 1);
+
+        $r0.<a2z.Mobile.DevConnections.Controllers.NewProfileController: android.app.ProgressDialog progressDialog> = $r2;
+
+        return;
+    }
+}

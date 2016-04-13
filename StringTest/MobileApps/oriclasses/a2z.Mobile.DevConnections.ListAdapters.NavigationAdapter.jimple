@@ -1,0 +1,349 @@
+public class a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter extends android.widget.BaseAdapter
+{
+    private static java.util.ArrayList navigationList;
+    private android.app.Activity context;
+    public android.view.LayoutInflater inflater;
+
+    public void <init>(android.app.Activity, java.util.ArrayList)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r0;
+        android.app.Activity $r1;
+        java.util.ArrayList $r2;
+        java.lang.Object $r3;
+        android.view.LayoutInflater $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $r1 := @parameter0: android.app.Activity;
+
+        $r2 := @parameter1: java.util.ArrayList;
+
+        specialinvoke $r0.<android.widget.BaseAdapter: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: android.app.Activity context> = null;
+
+        <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: android.app.Activity context> = $r1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: android.app.Activity context>;
+
+        $r3 = virtualinvoke $r1.<android.app.Activity: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r4 = (android.view.LayoutInflater) $r3;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: android.view.LayoutInflater inflater> = $r4;
+
+        return;
+    }
+
+    public static java.util.ArrayList getList()
+    {
+        a2z.Mobile.DevConnections.Classes.DataHandler $r0;
+        java.lang.String $r1, $r2, $r7;
+        android.content.Context $r3;
+        android.database.Cursor $r4;
+        java.util.ArrayList $r5;
+        boolean $z0;
+        int $i0, $i1, $i2;
+        java.lang.StringBuilder $r6;
+        a2z.Mobile.DevConnections.Classes.Navigation $r8;
+        java.lang.Integer $r9;
+
+        $r0 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT * FROM Navigation WHERE IsVisible = 1 ORDER BY SortOrder");
+
+        $r1 = "";
+
+        $r5 = new java.util.ArrayList;
+
+        specialinvoke $r5.<java.util.ArrayList: void <init>()>();
+
+        <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList> = $r5;
+
+        if $r4 == null goto label6;
+
+        $z0 = interfaceinvoke $r4.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label6;
+
+     label1:
+        $i0 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r2 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r2 == null goto label7;
+
+        $i0 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("ImageName");
+
+        $r2 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r1 = $r2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r3 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r7 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r3, "NavigationIconURL");
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r7);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r7);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".png");
+
+        virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $i0 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SortOrder");
+
+        $i0 = interfaceinvoke $r4.<android.database.Cursor: int getInt(int)>($i0);
+
+        $i1 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("NavID");
+
+        $i1 = interfaceinvoke $r4.<android.database.Cursor: int getInt(int)>($i1);
+
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Name");
+
+        $r7 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r7 == null goto label8;
+
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("Name");
+
+        $r2 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+     label3:
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("AndroidScreenName");
+
+        $r7 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r7 == null goto label4;
+
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("AndroidScreenName");
+
+        interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+     label4:
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("AdditionalInfo");
+
+        $r7 = interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+        if $r7 == null goto label5;
+
+        $i2 = interfaceinvoke $r4.<android.database.Cursor: int getColumnIndex(java.lang.String)>("AdditionalInfo");
+
+        interfaceinvoke $r4.<android.database.Cursor: java.lang.String getString(int)>($i2);
+
+     label5:
+        $r7 = virtualinvoke $r1.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("-", "_");
+
+        $r7 = virtualinvoke $r7.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i2 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: int getResourceID(java.lang.String)>($r7);
+
+        $r5 = <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList>;
+
+        $r8 = new a2z.Mobile.DevConnections.Classes.Navigation;
+
+        $r9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        specialinvoke $r8.<a2z.Mobile.DevConnections.Classes.Navigation: void <init>(java.lang.Integer,java.lang.String,int,int)>($r9, $r2, $i2, $i0);
+
+        virtualinvoke $r5.<java.util.ArrayList: boolean add(java.lang.Object)>($r8);
+
+        $z0 = interfaceinvoke $r4.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label1;
+
+     label6:
+        interfaceinvoke $r4.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        $r5 = <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList>;
+
+        return $r5;
+
+     label7:
+        goto label2;
+
+     label8:
+        $r2 = "";
+
+        goto label3;
+    }
+
+    public int getCount()
+    {
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r0;
+        java.util.ArrayList $r1;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $r1 = <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList>;
+
+        $i0 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        return $i0;
+    }
+
+    public java.lang.Object getItem(int)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r0;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $i0 := @parameter0: int;
+
+        return null;
+    }
+
+    public long getItemId(int)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r0;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $i0 := @parameter0: int;
+
+        return 0L;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r0;
+        int $i0;
+        android.view.View $r1, $r5;
+        android.view.ViewGroup $r2;
+        android.graphics.Bitmap $r3;
+        java.io.File $r4;
+        android.app.Activity $r6;
+        java.lang.Object $r7;
+        android.view.LayoutInflater $r8;
+        java.util.ArrayList $r9;
+        a2z.Mobile.DevConnections.Classes.Navigation $r10;
+        android.widget.ImageView $r11;
+        android.widget.TextView $r12;
+        java.lang.String $r13;
+        java.lang.StringBuilder $r14;
+        boolean $z0;
+        android.content.Context $r15;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.View;
+
+        $r2 := @parameter2: android.view.ViewGroup;
+
+        $r5 = $r1;
+
+        if $r1 != null goto label1;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: android.app.Activity context>;
+
+        $r7 = virtualinvoke $r6.<android.app.Activity: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r8 = (android.view.LayoutInflater) $r7;
+
+        $r5 = virtualinvoke $r8.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903056, null);
+
+     label1:
+        $r9 = <a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: java.util.ArrayList navigationList>;
+
+        $r7 = virtualinvoke $r9.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r10 = (a2z.Mobile.DevConnections.Classes.Navigation) $r7;
+
+        if $r10 == null goto label6;
+
+        $r1 = virtualinvoke $r5.<android.view.View: android.view.View findViewById(int)>(2131230791);
+
+        $r11 = (android.widget.ImageView) $r1;
+
+        $r1 = virtualinvoke $r5.<android.view.View: android.view.View findViewById(int)>(2131230792);
+
+        $r12 = (android.widget.TextView) $r1;
+
+        $i0 = virtualinvoke $r10.<a2z.Mobile.DevConnections.Classes.Navigation: int Image()>();
+
+        if $i0 == 0 goto label3;
+
+        $i0 = virtualinvoke $r10.<a2z.Mobile.DevConnections.Classes.Navigation: int Image()>();
+
+        virtualinvoke $r11.<android.widget.ImageView: void setImageResource(int)>($i0);
+
+     label2:
+        $r13 = virtualinvoke $r10.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String Name()>();
+
+        virtualinvoke $r12.<android.widget.TextView: void setText(java.lang.CharSequence)>($r13);
+
+        return $r5;
+
+     label3:
+        $r4 = new java.io.File;
+
+        $r14 = new java.lang.StringBuilder;
+
+        specialinvoke $r14.<java.lang.StringBuilder: void <init>(java.lang.String)>("/mnt/sdcard/a2z/images/");
+
+        $r13 = virtualinvoke $r10.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String ImageName()>();
+
+        $r14 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r13);
+
+        $r14 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".bmp");
+
+        $r13 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.io.File: void <init>(java.lang.String)>($r13);
+
+        $z0 = virtualinvoke $r4.<java.io.File: boolean exists()>();
+
+        if $z0 == 0 goto label5;
+
+        $r13 = virtualinvoke $r4.<java.io.File: java.lang.String getAbsolutePath()>();
+
+        $r3 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeFile(java.lang.String)>($r13);
+
+     label4:
+        virtualinvoke $r11.<android.widget.ImageView: void setImageBitmap(android.graphics.Bitmap)>($r3);
+
+        goto label2;
+
+     label5:
+        $r14 = new java.lang.StringBuilder;
+
+        $r15 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r13 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r15, "NavigationIconURL");
+
+        $r13 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r13);
+
+        specialinvoke $r14.<java.lang.StringBuilder: void <init>(java.lang.String)>($r13);
+
+        $r13 = virtualinvoke $r10.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String ImageName()>();
+
+        $r14 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r13);
+
+        $r14 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".png");
+
+        $r13 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r3 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: android.graphics.Bitmap getBitmapFromURL(java.lang.String)>($r13);
+
+        goto label4;
+
+     label6:
+        return $r5;
+    }
+}

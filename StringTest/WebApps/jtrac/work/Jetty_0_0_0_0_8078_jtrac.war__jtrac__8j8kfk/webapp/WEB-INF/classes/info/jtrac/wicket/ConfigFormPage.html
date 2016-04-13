@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div wicket:id="heading" class="heading"></div>
+                <table class="jtrac">
+                    <tr>
+                        <td wicket:id="param" class="label"></td>        
+                        <td>                            
+                            <input wicket:id="value"/>
+                            <input type="submit" wicket:message="value:submit"/>                            
+                        </td>
+                    </tr>    
+                </table>
+                <p/>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+public interface  twitter4j.AccountTotals extends java.lang.Object implements twitter4j.TwitterResponse, java.io.Serializable
+{
+
+    public abstract int getFavorites();
+
+    public abstract int getFollowers();
+
+    public abstract int getFriends();
+
+    public abstract int getUpdates();
+}

@@ -1,0 +1,375 @@
+final class twitter4j.internal.json.CategoryJSONImpl extends java.lang.Object implements twitter4j.Category, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private java.lang.String name;
+    private int size;
+    private java.lang.String slug;
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        virtualinvoke $r0.<twitter4j.internal.json.CategoryJSONImpl: void init(twitter4j.internal.org.json.JSONObject)>($r1);
+
+        return;
+    }
+
+    static twitter4j.ResponseList createCategoriesList(twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.http.HttpResponse $r0;
+        twitter4j.conf.Configuration $r1;
+        twitter4j.internal.org.json.JSONArray $r2;
+        twitter4j.ResponseList $r3;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r1 := @parameter1: twitter4j.conf.Configuration;
+
+        $r2 = virtualinvoke $r0.<twitter4j.internal.http.HttpResponse: twitter4j.internal.org.json.JSONArray asJSONArray()>();
+
+        $r3 = staticinvoke <twitter4j.internal.json.CategoryJSONImpl: twitter4j.ResponseList createCategoriesList(twitter4j.internal.org.json.JSONArray,twitter4j.internal.http.HttpResponse,twitter4j.conf.Configuration)>($r2, $r0, $r1);
+
+        return $r3;
+    }
+
+    static twitter4j.ResponseList createCategoriesList(twitter4j.internal.org.json.JSONArray, twitter4j.internal.http.HttpResponse, twitter4j.conf.Configuration) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.org.json.JSONArray $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.conf.Configuration $r2;
+        twitter4j.internal.json.ResponseListImpl $r3;
+        twitter4j.internal.json.CategoryJSONImpl $r4;
+        int $i0, $i1;
+        twitter4j.internal.org.json.JSONException $r5;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONObject $r6;
+        twitter4j.TwitterException $r7;
+
+        $r0 := @parameter0: twitter4j.internal.org.json.JSONArray;
+
+        $r1 := @parameter1: twitter4j.internal.http.HttpResponse;
+
+        $r2 := @parameter2: twitter4j.conf.Configuration;
+
+     label1:
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label2;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: void clearThreadLocalMap()>();
+
+     label2:
+        $r3 = new twitter4j.internal.json.ResponseListImpl;
+
+        $i0 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        specialinvoke $r3.<twitter4j.internal.json.ResponseListImpl: void <init>(int,twitter4j.internal.http.HttpResponse)>($i0, $r1);
+
+        $i0 = 0;
+
+     label3:
+        $i1 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 >= $i1 goto label6;
+
+        $r6 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONObject getJSONObject(int)>($i0);
+
+        $r4 = new twitter4j.internal.json.CategoryJSONImpl;
+
+        specialinvoke $r4.<twitter4j.internal.json.CategoryJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject)>($r6);
+
+        interfaceinvoke $r3.<twitter4j.ResponseList: boolean add(java.lang.Object)>($r4);
+
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label4;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+     label4:
+        $i0 = $i0 + 1;
+
+     label5:
+        goto label3;
+
+     label6:
+        $z0 = interfaceinvoke $r2.<twitter4j.conf.Configuration: boolean isJSONStoreEnabled()>();
+
+        if $z0 == 0 goto label9;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r3, $r0);
+
+     label7:
+        return $r3;
+
+     label8:
+        $r5 := @caughtexception;
+
+        $r7 = new twitter4j.TwitterException;
+
+        specialinvoke $r7.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r5);
+
+        throw $r7;
+
+     label9:
+        return $r3;
+
+        catch twitter4j.internal.org.json.JSONException from label1 to label4 with label8;
+        catch twitter4j.internal.org.json.JSONException from label5 to label7 with label8;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.Class $r2, $r3;
+        int $i0, $i1;
+        java.lang.String $r5, $r6;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        if $r1 == null goto label02;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label03;
+
+     label02:
+        return 0;
+
+     label03:
+        $r4 = (twitter4j.internal.json.CategoryJSONImpl) $r1;
+
+        $i0 = $r0.<twitter4j.internal.json.CategoryJSONImpl: int size>;
+
+        $i1 = $r4.<twitter4j.internal.json.CategoryJSONImpl: int size>;
+
+        if $i0 == $i1 goto label04;
+
+        return 0;
+
+     label04:
+        $r5 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        if $r5 == null goto label06;
+
+        $r5 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        $r6 = $r4.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label07;
+
+     label05:
+        return 0;
+
+     label06:
+        $r6 = $r4.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        if $r6 != null goto label05;
+
+     label07:
+        $r6 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        if $r6 == null goto label09;
+
+        $r6 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        $r5 = $r4.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        $z0 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z0 != 0 goto label10;
+
+     label08:
+        return 0;
+
+     label09:
+        $r6 = $r4.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        if $r6 == null goto label11;
+
+        goto label08;
+
+     label10:
+        return 1;
+
+     label11:
+        return 1;
+    }
+
+    public java.lang.String getName()
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        return r1;
+    }
+
+    public int getSize()
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        i0 = $r0.<twitter4j.internal.json.CategoryJSONImpl: int size>;
+
+        return i0;
+    }
+
+    public java.lang.String getSlug()
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        $i1 = 0;
+
+        $r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label1:
+        $i0 = $i0 * 31;
+
+        $r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label2:
+        $i1 = $i0 + $i1;
+
+        $i1 = $i1 * 31;
+
+        $i0 = $r0.<twitter4j.internal.json.CategoryJSONImpl: int size>;
+
+        $i1 = $i1 + $i0;
+
+        return $i1;
+
+     label3:
+        $i0 = 0;
+
+        goto label1;
+    }
+
+    void init(twitter4j.internal.org.json.JSONObject) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        java.lang.String $r2;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("name");
+
+        $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name> = $r2;
+
+        $r2 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("slug");
+
+        $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug> = $r2;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int getInt(java.lang.String,twitter4j.internal.org.json.JSONObject)>("size", $r1);
+
+        $r0.<twitter4j.internal.json.CategoryJSONImpl: int size> = $i0;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.CategoryJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.CategoryJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("CategoryJSONImpl{name=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", slug=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.CategoryJSONImpl: java.lang.String slug>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", size=");
+
+        $i0 = $r0.<twitter4j.internal.json.CategoryJSONImpl: int size>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.CategoryJSONImpl: long serialVersionUID> = -6703617743623288566L;
+
+        return;
+    }
+}

@@ -1,0 +1,62 @@
+<wicket:panel>
+    <span wicket:id="feedback"></span>
+    <form wicket:id="form">
+        <table class="bdr-collapse" width="100%">
+            <tr valign="top">
+                <td>
+                    <table class="jtrac">
+                        <span wicket:id="fields"></span>
+                        <tr>
+                            <td class="label"><wicket:message key="item_view_form.newStatus"/></td>
+                            <td><select wicket:id="status"/></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><wicket:message key="item_view_form.assignTo"/></td>
+                            <td>
+                                <div wicket:id="border">
+                                    <select wicket:id="assignedTo"></select>
+                                    <span wicket:id="hide">
+                                        <select><option><wicket:message key="item_view_form.chooseStatus"/></option></select>
+                                    </span>
+                                </div>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <wicket:message key="item_view_form.comment"/>
+                                <font color="red">*</font>
+                            </td>
+                            <td><textarea wicket:id="comment" rows="6" cols="70"></textarea></td>
+                        </tr>                        
+                        <tr>    
+                            <td/>   
+                            <td>
+                                <input type="submit" wicket:message="value:submit"/>                                
+                                <input type="checkbox" wicket:id="sendNotifications"/>
+                                <wicket:message key="item_view_form.sendNotifications"/>                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td align="right">
+                    <table class="jtrac">
+                        <tr>
+                            <th align="center"><wicket:message key="item_view_form.notifyByEmail"/></th>
+                        </tr>
+                        <tr>
+                            <td wicket:id="itemUsers"></td>
+                        </tr>
+                        <tr>
+                            <th align="center"><wicket:message key="item_view_form.attachment"/></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input wicket:id="file" size="15" type="file"/>
+                            </td>
+                        </tr>
+                    </table>                            
+                </td>
+            </tr>                            
+        </table>
+    </form>    
+</wicket:panel>

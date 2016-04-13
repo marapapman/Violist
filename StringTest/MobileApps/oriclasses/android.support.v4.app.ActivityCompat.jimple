@@ -1,0 +1,33 @@
+public class android.support.v4.app.ActivityCompat extends android.support.v4.content.ContextCompat
+{
+
+    public void <init>()
+    {
+        android.support.v4.app.ActivityCompat $r0;
+
+        $r0 := @this: android.support.v4.app.ActivityCompat;
+
+        specialinvoke $r0.<android.support.v4.content.ContextCompat: void <init>()>();
+
+        return;
+    }
+
+    public static boolean invalidateOptionsMenu(android.app.Activity)
+    {
+        android.app.Activity $r0;
+        int $i0;
+
+        $r0 := @parameter0: android.app.Activity;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label1;
+
+        staticinvoke <android.support.v4.app.ActivityCompatHoneycomb: void invalidateOptionsMenu(android.app.Activity)>($r0);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

@@ -1,0 +1,46 @@
+class a2z.Mobile.DevConnections.SessionDetailActivity$2$1 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final a2z.Mobile.DevConnections.SessionDetailActivity$2 this$1;
+
+    void <init>(a2z.Mobile.DevConnections.SessionDetailActivity$2)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$2$1 $r0;
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$2$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.SessionDetailActivity$2;
+
+        $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2$1: a2z.Mobile.DevConnections.SessionDetailActivity$2 this$1> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        a2z.Mobile.DevConnections.SessionDetailActivity$2$1 $r0;
+        android.content.DialogInterface $r1;
+        int $i0;
+        a2z.Mobile.DevConnections.SessionDetailActivity$2 $r2;
+        a2z.Mobile.DevConnections.SessionDetailActivity $r3;
+        android.app.AlertDialog $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.SessionDetailActivity$2$1;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.SessionDetailActivity$2$1: a2z.Mobile.DevConnections.SessionDetailActivity$2 this$1>;
+
+        $r3 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity$2: a2z.Mobile.DevConnections.SessionDetailActivity access$0(a2z.Mobile.DevConnections.SessionDetailActivity$2)>($r2);
+
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.SessionDetailActivity: android.app.AlertDialog access$1(a2z.Mobile.DevConnections.SessionDetailActivity)>($r3);
+
+        virtualinvoke $r4.<android.app.AlertDialog: void dismiss()>();
+
+        return;
+    }
+}

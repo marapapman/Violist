@@ -1,0 +1,137 @@
+public final class com.nostra13.universalimageloader.core.ImageLoaderConfiguration extends java.lang.Object
+{
+    final com.nostra13.universalimageloader.core.DisplayImageOptions defaultDisplayImageOptions;
+    final com.nostra13.universalimageloader.cache.disc.DiscCacheAware discCache;
+    final java.util.concurrent.ThreadFactory displayImageThreadFactory;
+    final com.nostra13.universalimageloader.core.download.ImageDownloader downloader;
+    final boolean handleOutOfMemory;
+    final android.graphics.Bitmap$CompressFormat imageCompressFormatForDiscCache;
+    final int imageQualityForDiscCache;
+    final boolean loggingEnabled;
+    final int maxImageHeightForDiscCache;
+    final int maxImageHeightForMemoryCache;
+    final int maxImageWidthForDiscCache;
+    final int maxImageWidthForMemoryCache;
+    final com.nostra13.universalimageloader.cache.memory.MemoryCacheAware memoryCache;
+    final com.nostra13.universalimageloader.core.assist.QueueProcessingType tasksProcessingType;
+    final int threadPoolSize;
+
+    private void <init>(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)
+    {
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration $r0;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder $r1;
+        int $i0;
+        android.graphics.Bitmap$CompressFormat $r2;
+        boolean $z0;
+        com.nostra13.universalimageloader.cache.disc.DiscCacheAware $r3;
+        com.nostra13.universalimageloader.cache.memory.MemoryCacheAware $r4;
+        com.nostra13.universalimageloader.core.DisplayImageOptions $r5;
+        com.nostra13.universalimageloader.core.download.ImageDownloader $r6;
+        com.nostra13.universalimageloader.core.assist.QueueProcessingType $r7;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1 $r8;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+        $r1 := @parameter0: com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$000(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int maxImageWidthForMemoryCache> = $i0;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$100(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int maxImageHeightForMemoryCache> = $i0;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$200(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int maxImageWidthForDiscCache> = $i0;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$300(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int maxImageHeightForDiscCache> = $i0;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: android.graphics.Bitmap$CompressFormat access$400(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: android.graphics.Bitmap$CompressFormat imageCompressFormatForDiscCache> = $r2;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$500(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int imageQualityForDiscCache> = $i0;
+
+        $i0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: int access$600(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: int threadPoolSize> = $i0;
+
+        $z0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: boolean access$700(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: boolean handleOutOfMemory> = $z0;
+
+        $r3 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.cache.disc.DiscCacheAware access$800(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: com.nostra13.universalimageloader.cache.disc.DiscCacheAware discCache> = $r3;
+
+        $r4 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.cache.memory.MemoryCacheAware access$900(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: com.nostra13.universalimageloader.cache.memory.MemoryCacheAware memoryCache> = $r4;
+
+        $r5 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.core.DisplayImageOptions access$1000(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: com.nostra13.universalimageloader.core.DisplayImageOptions defaultDisplayImageOptions> = $r5;
+
+        $z0 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: boolean access$1100(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: boolean loggingEnabled> = $z0;
+
+        $r6 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.core.download.ImageDownloader access$1200(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: com.nostra13.universalimageloader.core.download.ImageDownloader downloader> = $r6;
+
+        $r7 = staticinvoke <com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.core.assist.QueueProcessingType access$1300(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: com.nostra13.universalimageloader.core.assist.QueueProcessingType tasksProcessingType> = $r7;
+
+        $r8 = new com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1;
+
+        specialinvoke $r8.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1: void <init>(com.nostra13.universalimageloader.core.ImageLoaderConfiguration,com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r0, $r1);
+
+        $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: java.util.concurrent.ThreadFactory displayImageThreadFactory> = $r8;
+
+        return;
+    }
+
+    void <init>(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder, com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1)
+    {
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration $r0;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder $r1;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1 $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+        $r1 := @parameter0: com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder;
+
+        $r2 := @parameter1: com.nostra13.universalimageloader.core.ImageLoaderConfiguration$1;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration: void <init>(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder)>($r1);
+
+        return;
+    }
+
+    public static com.nostra13.universalimageloader.core.ImageLoaderConfiguration createDefault(android.content.Context)
+    {
+        android.content.Context $r0;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder $r1;
+        com.nostra13.universalimageloader.core.ImageLoaderConfiguration $r2;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = new com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder;
+
+        specialinvoke $r1.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: void <init>(android.content.Context)>($r0);
+
+        $r2 = virtualinvoke $r1.<com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder: com.nostra13.universalimageloader.core.ImageLoaderConfiguration build()>();
+
+        return $r2;
+    }
+}

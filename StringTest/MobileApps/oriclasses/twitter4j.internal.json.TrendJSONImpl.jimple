@@ -1,0 +1,295 @@
+final class twitter4j.internal.json.TrendJSONImpl extends java.lang.Object implements twitter4j.Trend, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private java.lang.String name;
+    private java.lang.String query;
+    private java.lang.String url;
+
+    void <init>(twitter4j.internal.org.json.JSONObject)
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.TrendJSONImpl: void <init>(twitter4j.internal.org.json.JSONObject,boolean)>($r1, 0);
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject, boolean)
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1;
+        boolean $z0;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $z0 := @parameter1: boolean;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url> = null;
+
+        $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query> = null;
+
+        $r2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getRawString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("name", $r1);
+
+        $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String name> = $r2;
+
+        $r2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getRawString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("url", $r1);
+
+        $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url> = $r2;
+
+        $r2 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: java.lang.String getRawString(java.lang.String,twitter4j.internal.org.json.JSONObject)>("query", $r1);
+
+        $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query> = $r2;
+
+        if $z0 == 0 goto label1;
+
+        staticinvoke <twitter4j.internal.json.DataObjectFactoryUtil: java.lang.Object registerJSONObject(java.lang.Object,java.lang.Object)>($r0, $r1);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.String $r2, $r4;
+        twitter4j.Trend $r3;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        $z0 = $r1 instanceof twitter4j.Trend;
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $r3 = (twitter4j.Trend) $r1;
+
+        $r4 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String name>;
+
+        $r2 = interfaceinvoke $r3.<twitter4j.Trend: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label03;
+
+        return 0;
+
+     label03:
+        $r4 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        if $r4 == null goto label05;
+
+        $r4 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        $r2 = interfaceinvoke $r3.<twitter4j.Trend: java.lang.String getQuery()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label06;
+
+     label04:
+        return 0;
+
+     label05:
+        $r4 = interfaceinvoke $r3.<twitter4j.Trend: java.lang.String getQuery()>();
+
+        if $r4 != null goto label04;
+
+     label06:
+        $r4 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        if $r4 == null goto label08;
+
+        $r4 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        $r2 = interfaceinvoke $r3.<twitter4j.Trend: java.lang.String getURL()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label09;
+
+     label07:
+        return 0;
+
+     label08:
+        $r4 = interfaceinvoke $r3.<twitter4j.Trend: java.lang.String getURL()>();
+
+        if $r4 == null goto label10;
+
+        goto label07;
+
+     label09:
+        return 1;
+
+     label10:
+        return 1;
+    }
+
+    public java.lang.String getName()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String name>;
+
+        return r1;
+    }
+
+    public java.lang.String getQuery()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        return r1;
+    }
+
+    public java.lang.String getURL()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        return r1;
+    }
+
+    public java.lang.String getUrl()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $r1 = virtualinvoke $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String getURL()>();
+
+        return $r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.String $r1;
+        int $i0, $i1, $i2;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $i0 = 0;
+
+        $r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String name>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $i1 = $i1 * 31;
+
+        $r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label1:
+        $i2 = $i1 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label2:
+        $i2 = $i2 + $i0;
+
+        return $i2;
+
+     label3:
+        $i2 = 0;
+
+        goto label1;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.TrendJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.internal.json.TrendJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("TrendJSONImpl{name=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", url=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String url>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", query=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.TrendJSONImpl: java.lang.String query>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.TrendJSONImpl: long serialVersionUID> = 1925956704460743946L;
+
+        return;
+    }
+}

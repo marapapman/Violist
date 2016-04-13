@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- application context / root Spring IoC container config for JTrac -->
+
+<beans>
+
+    <!-- custom Configurer that extends the spring PropertyPlaceholderConfigurer -->
+    <bean class="info.jtrac.config.JtracConfigurer"/>        
+
+    <!-- this Acegi helper finds its way into our root Spring context 
+         because JtracImpl depends on it -->
+    <bean id="passwordEncoder" class="org.acegisecurity.providers.encoding.Md5PasswordEncoder"/>
+
+    <!-- i18n message source -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+       <property name="basename" value="messages"/>
+    </bean>    
+    
+    <!-- the business service tier / facade is behind an AOP interceptor (see "target" property)
+         only the update operations require transactions across multiple dao update operations -->
+    <bean id="jtrac" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>        
+        <property name="target">            
+            <bean class="info.jtrac.JtracImpl" init-method="init">
+                <property name="dao" ref="dao"/>
+                <property name="passwordEncoder" ref="passwordEncoder"/>
+                <property name="indexer" ref="indexer"/>
+                <property name="indexSearcher" ref="indexSearcher"/>
+                <property name="messageSource" ref="messageSource"/>
+                <property name="localeList" value="${jtrac.locales}"/>
+                <property name="releaseVersion" value="${jtrac.version}"/>
+                <property name="releaseTimestamp" value="${jtrac.timestamp}"/>
+                <property name="jtracHome" value="${jtrac.home}"/>
+            </bean>
+        </property>        
+        <property name="transactionAttributes">
+            <props>                
+                <prop key="store*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>                
+                <prop key="bulkUpdate*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_SUPPORTS,readOnly</prop>
+            </props>
+        </property>        
+    </bean>   
+    
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+     
+    <!-- custom factory bean that uses spring single connection data source if embedded
+         HSQLDB is being used, else Apache DBCP with connection pooling -->
+    <bean id="dataSource" class="info.jtrac.config.DataSourceFactoryBean">
+        <property name="driverClassName" value="${database.driver}"/>
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+        <property name="validationQuery" value="${database.validationQuery}"/>
+        <property name="dataSourceJndiName" value="${database.datasource.jndiname}"/>
+    </bean>	    
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources" value="jtrac.hbm.xml"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>        
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>     
+            </props>
+        </property>
+        <property name="eventListeners">
+            <map>
+                <entry key="merge">
+                    <bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- Hibernate DAO implementation.  Transactions (AOP) have been applied at the service layer not here -->
+    <bean id="dao" class="info.jtrac.hibernate.HibernateJtracDao" init-method="createSchema">
+        <property name="hibernateTemplate">
+            <bean class="org.springframework.orm.hibernate3.HibernateTemplate">
+                <property name="sessionFactory" ref="sessionFactory"/>
+                <property name="flushMode">
+                    <bean id="org.springframework.orm.hibernate3.HibernateAccessor.FLUSH_COMMIT"
+                        class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"/>                    
+                </property>
+            </bean>
+        </property>        
+        <!-- <property name="sessionFactory" ref="sessionFactory"/> -->
+        <property name="schemaHelper">
+            <bean class="info.jtrac.hibernate.SchemaHelper">                
+                <property name="mappingResources" value="jtrac.hbm.xml"/>
+                <property name="driverClassName" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
+                <property name="hibernateDialect" value="${hibernate.dialect}"/>   
+                <property name="dataSourceJndiName" value="${database.datasource.jndiname}"/>
+            </bean>                
+        </property>
+    </bean>    
+    
+</beans>
+
+

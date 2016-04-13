@@ -1,0 +1,37 @@
+final class twitter4j.internal.logging.JULLoggerFactory extends twitter4j.internal.logging.LoggerFactory
+{
+
+    void <init>()
+    {
+        twitter4j.internal.logging.JULLoggerFactory $r0;
+
+        $r0 := @this: twitter4j.internal.logging.JULLoggerFactory;
+
+        specialinvoke $r0.<twitter4j.internal.logging.LoggerFactory: void <init>()>();
+
+        return;
+    }
+
+    public twitter4j.internal.logging.Logger getLogger(java.lang.Class)
+    {
+        twitter4j.internal.logging.JULLoggerFactory $r0;
+        java.lang.Class $r1;
+        twitter4j.internal.logging.JULLogger $r2;
+        java.lang.String $r3;
+        java.util.logging.Logger $r4;
+
+        $r0 := @this: twitter4j.internal.logging.JULLoggerFactory;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = new twitter4j.internal.logging.JULLogger;
+
+        $r3 = virtualinvoke $r1.<java.lang.Class: java.lang.String getName()>();
+
+        $r4 = staticinvoke <java.util.logging.Logger: java.util.logging.Logger getLogger(java.lang.String)>($r3);
+
+        specialinvoke $r2.<twitter4j.internal.logging.JULLogger: void <init>(java.util.logging.Logger)>($r4);
+
+        return $r2;
+    }
+}

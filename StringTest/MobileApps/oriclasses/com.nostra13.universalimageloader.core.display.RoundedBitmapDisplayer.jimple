@@ -1,0 +1,132 @@
+public class com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer extends java.lang.Object implements com.nostra13.universalimageloader.core.display.BitmapDisplayer
+{
+    private int roundPixels;
+
+    public void <init>(int)
+    {
+        com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer $r0;
+        int $i0;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer: int roundPixels> = $i0;
+
+        return;
+    }
+
+    private android.graphics.Bitmap getRoundedCornerBitmap(android.graphics.Bitmap)
+    {
+        com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer $r0;
+        android.graphics.Bitmap $r1, $r7;
+        android.graphics.Canvas $r2;
+        android.graphics.Paint $r3;
+        android.graphics.Rect $r4;
+        android.graphics.RectF $r5;
+        android.graphics.Bitmap$Config $r6;
+        int $i0, $i1;
+        float $f0, $f1;
+        android.graphics.PorterDuffXfermode $r8;
+        android.graphics.PorterDuff$Mode $r9;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+        $r1 := @parameter0: android.graphics.Bitmap;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $i1 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $r6 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config ARGB_8888>;
+
+        $r7 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createBitmap(int,int,android.graphics.Bitmap$Config)>($i0, $i1, $r6);
+
+        $r2 = new android.graphics.Canvas;
+
+        specialinvoke $r2.<android.graphics.Canvas: void <init>(android.graphics.Bitmap)>($r7);
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r4 = new android.graphics.Rect;
+
+        $i1 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $i0 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        specialinvoke $r4.<android.graphics.Rect: void <init>(int,int,int,int)>(0, 0, $i1, $i0);
+
+        $r5 = new android.graphics.RectF;
+
+        specialinvoke $r5.<android.graphics.RectF: void <init>(android.graphics.Rect)>($r4);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        virtualinvoke $r2.<android.graphics.Canvas: void drawARGB(int,int,int,int)>(0, 0, 0, 0);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>(-1);
+
+        $i1 = $r0.<com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer: int roundPixels>;
+
+        $f0 = (float) $i1;
+
+        $i1 = $r0.<com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer: int roundPixels>;
+
+        $f1 = (float) $i1;
+
+        virtualinvoke $r2.<android.graphics.Canvas: void drawRoundRect(android.graphics.RectF,float,float,android.graphics.Paint)>($r5, $f0, $f1, $r3);
+
+        $r8 = new android.graphics.PorterDuffXfermode;
+
+        $r9 = <android.graphics.PorterDuff$Mode: android.graphics.PorterDuff$Mode SRC_IN>;
+
+        specialinvoke $r8.<android.graphics.PorterDuffXfermode: void <init>(android.graphics.PorterDuff$Mode)>($r9);
+
+        virtualinvoke $r3.<android.graphics.Paint: android.graphics.Xfermode setXfermode(android.graphics.Xfermode)>($r8);
+
+        virtualinvoke $r2.<android.graphics.Canvas: void drawBitmap(android.graphics.Bitmap,android.graphics.Rect,android.graphics.Rect,android.graphics.Paint)>($r1, $r4, $r4, $r3);
+
+        return $r7;
+    }
+
+    public android.graphics.Bitmap display(android.graphics.Bitmap, android.widget.ImageView)
+    {
+        com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer $r0;
+        android.graphics.Bitmap $r1, $r4;
+        android.widget.ImageView $r2;
+        java.lang.OutOfMemoryError $r3;
+        java.lang.Object[] $r5;
+
+        $r0 := @this: com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+        $r1 := @parameter0: android.graphics.Bitmap;
+
+        $r2 := @parameter1: android.widget.ImageView;
+
+     label1:
+        $r4 = specialinvoke $r0.<com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer: android.graphics.Bitmap getRoundedCornerBitmap(android.graphics.Bitmap)>($r1);
+
+     label2:
+        $r1 = $r4;
+
+     label3:
+        virtualinvoke $r2.<android.widget.ImageView: void setImageBitmap(android.graphics.Bitmap)>($r1);
+
+        return $r1;
+
+     label4:
+        $r3 := @caughtexception;
+
+        $r5 = newarray (java.lang.Object)[0];
+
+        staticinvoke <com.nostra13.universalimageloader.utils.L: void e(java.lang.Throwable,java.lang.String,java.lang.Object[])>($r3, "Can\'t create bitmap with rounded corners. Not enough memory.", $r5);
+
+        goto label3;
+
+        catch java.lang.OutOfMemoryError from label1 to label2 with label4;
+    }
+}

@@ -1,0 +1,43 @@
+public final class a2z.Mobile.DevConnections.R$color extends java.lang.Object
+{
+    public static final int black;
+    public static final int checkbox_bg_color;
+    public static final int gray;
+    public static final int light_gray;
+    public static final int main_text_color;
+    public static final int subtext_color;
+    public static final int twitter_individual_tweet_item_color;
+    public static final int white;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$color $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$color;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$color: int white> = 2131034116;
+
+        <a2z.Mobile.DevConnections.R$color: int twitter_individual_tweet_item_color> = 2131034114;
+
+        <a2z.Mobile.DevConnections.R$color: int subtext_color> = 2131034118;
+
+        <a2z.Mobile.DevConnections.R$color: int main_text_color> = 2131034117;
+
+        <a2z.Mobile.DevConnections.R$color: int light_gray> = 2131034113;
+
+        <a2z.Mobile.DevConnections.R$color: int gray> = 2131034112;
+
+        <a2z.Mobile.DevConnections.R$color: int checkbox_bg_color> = 2131034119;
+
+        <a2z.Mobile.DevConnections.R$color: int black> = 2131034115;
+
+        return;
+    }
+}

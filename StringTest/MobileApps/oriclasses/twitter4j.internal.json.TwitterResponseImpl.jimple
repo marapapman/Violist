@@ -1,0 +1,78 @@
+abstract class twitter4j.internal.json.TwitterResponseImpl extends java.lang.Object implements twitter4j.TwitterResponse, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private transient int accessLevel;
+    private transient twitter4j.RateLimitStatus rateLimitStatus;
+
+    public void <init>()
+    {
+        twitter4j.internal.json.TwitterResponseImpl $r0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterResponseImpl;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.json.TwitterResponseImpl: twitter4j.RateLimitStatus rateLimitStatus> = null;
+
+        $r0.<twitter4j.internal.json.TwitterResponseImpl: int accessLevel> = 0;
+
+        return;
+    }
+
+    public void <init>(twitter4j.internal.http.HttpResponse)
+    {
+        twitter4j.internal.json.TwitterResponseImpl $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        twitter4j.RateLimitStatus $r2;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterResponseImpl;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.json.TwitterResponseImpl: twitter4j.RateLimitStatus rateLimitStatus> = null;
+
+        $r2 = staticinvoke <twitter4j.internal.json.RateLimitStatusJSONImpl: twitter4j.RateLimitStatus createFromResponseHeader(twitter4j.internal.http.HttpResponse)>($r1);
+
+        $r0.<twitter4j.internal.json.TwitterResponseImpl: twitter4j.RateLimitStatus rateLimitStatus> = $r2;
+
+        $i0 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: int toAccessLevel(twitter4j.internal.http.HttpResponse)>($r1);
+
+        $r0.<twitter4j.internal.json.TwitterResponseImpl: int accessLevel> = $i0;
+
+        return;
+    }
+
+    public int getAccessLevel()
+    {
+        twitter4j.internal.json.TwitterResponseImpl $r0;
+        int i0;
+
+        $r0 := @this: twitter4j.internal.json.TwitterResponseImpl;
+
+        i0 = $r0.<twitter4j.internal.json.TwitterResponseImpl: int accessLevel>;
+
+        return i0;
+    }
+
+    public twitter4j.RateLimitStatus getRateLimitStatus()
+    {
+        twitter4j.internal.json.TwitterResponseImpl $r0;
+        twitter4j.RateLimitStatus r1;
+
+        $r0 := @this: twitter4j.internal.json.TwitterResponseImpl;
+
+        r1 = $r0.<twitter4j.internal.json.TwitterResponseImpl: twitter4j.RateLimitStatus rateLimitStatus>;
+
+        return r1;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.TwitterResponseImpl: long serialVersionUID> = -7284708239736552059L;
+
+        return;
+    }
+}

@@ -1,0 +1,157 @@
+public class a2z.Mobile.DevConnections.BuzzListActivity extends android.app.ListActivity
+{
+    private java.util.ArrayList buzzList;
+    public android.content.Context context;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity $r0;
+        java.util.ArrayList $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        specialinvoke $r0.<android.app.ListActivity: void <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.BuzzListActivity: java.util.ArrayList buzzList> = $r1;
+
+        return;
+    }
+
+    static java.util.ArrayList access$0(a2z.Mobile.DevConnections.BuzzListActivity)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.BuzzListActivity: java.util.ArrayList buzzList>;
+
+        return r1;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2;
+        android.content.Intent $r3;
+        java.lang.String $r4;
+        a2z.Mobile.DevConnections.BuzzListActivity$MyTask $r5;
+        java.lang.Void[] $r6;
+        android.view.Window $r7;
+        android.view.View $r8;
+        java.lang.StringBuilder $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.ListActivity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: void setTitle(java.lang.CharSequence)>("Buzz");
+
+        $r0.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Context context> = $r0;
+
+        $r3 = virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r3.<android.content.Intent: android.os.Bundle getExtras()>();
+
+     label1:
+        $r4 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("BuzzList", $r4, null);
+
+     label2:
+        $r5 = new a2z.Mobile.DevConnections.BuzzListActivity$MyTask;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: void <init>(a2z.Mobile.DevConnections.BuzzListActivity,a2z.Mobile.DevConnections.BuzzListActivity$MyTask)>($r0, null);
+
+        $r6 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.BuzzListActivity$MyTask: android.os.AsyncTask execute(java.lang.Object[])>($r6);
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: android.view.Window getWindow()>();
+
+        $r8 = virtualinvoke $r7.<android.view.Window: android.view.View getDecorView()>();
+
+        $r8 = virtualinvoke $r8.<android.view.View: android.view.View findViewById(int)>(16908290);
+
+        virtualinvoke $r8.<android.view.View: void setBackgroundResource(int)>(2130837506);
+
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in referral to ");
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: java.lang.String getLocalClassName()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r4 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r4, null, null);
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity $r0;
+        android.view.Menu $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.ListActivity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        return 1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.BuzzListActivity $r0;
+        android.view.MenuItem $r1;
+        android.content.Intent $r2;
+        java.lang.CharSequence $r3;
+        boolean $z0;
+        android.content.Context $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.BuzzListActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r3 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        $r4 = virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "BuzzList");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.BuzzListActivity: void startActivityForResult(android.content.Intent,int)>($r2, 0);
+
+     label1:
+        return 1;
+    }
+}

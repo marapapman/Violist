@@ -1,0 +1,67 @@
+<wicket:panel>    
+    <table class="jtrac jtrac-view" width="100%">
+        <tr class="alt" valign="top">
+            <td class="label"><wicket:message key="item_view.id"/></td>
+            <td wicket:id="refId"></td>
+            <td class="label">
+                <wicket:message key="item_view.relatedItems"/>
+                <a href="#" wicket:id="relate" wicket:message="title:item_view_form.addRelatedItem"><img src="resources/add.gif"/></a>                
+            </td>
+            <td colspan="3">
+                <span wicket:id="relatedItems">
+                    <span wicket:id="message"></span>
+                    <span wicket:id="link"><a href="#" wicket:id="refId"></a></span>
+                    <a href="#" wicket:id="remove" wicket:message="title:item_view.remove"><img src="resources/remove.gif"/></a>                                       
+                    <br/>
+                </span>                
+                <span wicket:id="relatingItems">                    
+                    <span wicket:id="link"><a href="#" wicket:id="refId"></a></span>
+                    <span wicket:id="message"></span>
+                    <a href="#" wicket:id="remove" wicket:message="title:item_view.remove"><img src="resources/remove.gif"/></a>                    
+                    <br/>
+                </span>                
+            </td>
+        </tr>
+        <tr>
+            <td class="label" width="15%"><wicket:message key="item_view.status"/></td>
+            <td wicket:id="status"></td>
+            <td class="label"><wicket:message key="item_view.loggedBy"/></td>
+            <td wicket:id="loggedBy"></td>
+            <td class="label"><wicket:message key="item_view.assignedTo"/></td>
+            <td wicket:id="assignedTo" width="15%"></td>
+        </tr>
+        <tr class="alt">
+            <td class="label"><wicket:message key="item_view.summary"/></td>
+            <td wicket:id="summary" colspan="5"></td>
+        </tr>
+        <tr>
+            <td class="label" valign="top"><wicket:message key="item_view.detail"/></td>
+            <td wicket:id="detail" colspan="5"></td>
+        </tr>         
+        <tr wicket:id="fields">
+            <td class="label" wicket:id="label"></td>
+            <td wicket:id="value" colspan="5"></td>
+        </tr>
+    </table>        
+    
+    <br/><div class="space-below">&nbsp;<b><wicket:message key="item_view.history"/></b></div>
+    
+    <table class="jtrac jtrac-view" width="100%">
+        <tr>
+            <th><wicket:message key="item_view.loggedBy"/></th>
+            <th><wicket:message key="item_view.status"/></th>
+            <th><wicket:message key="item_view.assignedTo"/></th>
+            <th><wicket:message key="item_view.comment"/></th>
+            <th><wicket:message key="item_view.timeStamp"/></th>
+            <th wicket:id="labels"><span wicket:id="label"></span></th>
+        </tr>
+        <tr wicket:id="history" valign="top">
+            <td wicket:id="loggedBy"></td>
+            <td wicket:id="status"></td>
+            <td wicket:id="assignedTo"></td>
+            <td wicket:id="comment"><span wicket:id="attachment" style="padding-right:0.5em"></span><span wicket:id="comment"></span></td>
+            <td wicket:id="timeStamp"></td>
+            <td wicket:id="fields"><span wicket:id="field"></span></td>
+        </tr>
+    </table>
+</wicket:panel>

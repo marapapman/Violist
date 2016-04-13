@@ -1,0 +1,16 @@
+class a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter$SpeakerViewHolder extends java.lang.Object
+{
+    public android.widget.TextView mSpeakerTextView;
+    public android.widget.ImageView mSpeakerThumbnail;
+
+    void <init>()
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter$SpeakerViewHolder $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SpeakerListAdapter$SpeakerViewHolder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

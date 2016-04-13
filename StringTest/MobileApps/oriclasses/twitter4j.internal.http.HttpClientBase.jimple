@@ -1,0 +1,175 @@
+public abstract class twitter4j.internal.http.HttpClientBase extends java.lang.Object implements twitter4j.internal.http.HttpClient, java.io.Serializable
+{
+    private static final twitter4j.internal.logging.Logger logger;
+    private static final long serialVersionUID;
+    protected final twitter4j.internal.http.HttpClientConfiguration CONF;
+
+    static void <clinit>()
+    {
+        twitter4j.internal.logging.Logger $r0;
+
+        <twitter4j.internal.http.HttpClientBase: long serialVersionUID> = 6944924907755685265L;
+
+        $r0 = staticinvoke <twitter4j.internal.logging.Logger: twitter4j.internal.logging.Logger getLogger(java.lang.Class)>(class "twitter4j/internal/http/HttpClientBase");
+
+        <twitter4j.internal.http.HttpClientBase: twitter4j.internal.logging.Logger logger> = $r0;
+
+        return;
+    }
+
+    public void <init>(twitter4j.internal.http.HttpClientConfiguration)
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+        twitter4j.internal.http.HttpClientConfiguration $r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpClientConfiguration;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF> = $r1;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.http.HttpClientBase $r0, $r3;
+        java.lang.Object $r1;
+        boolean $z0;
+        twitter4j.internal.http.HttpClientConfiguration $r2, $r4;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.internal.http.HttpClientBase;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r3 = (twitter4j.internal.http.HttpClientBase) $r1;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $r2 = $r3.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        return 1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+        twitter4j.internal.http.HttpClientConfiguration $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $i0 = virtualinvoke $r1.<java.lang.Object: int hashCode()>();
+
+        return $i0;
+    }
+
+    protected boolean isProxyConfigured()
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+        twitter4j.internal.http.HttpClientConfiguration $r1;
+        java.lang.String $r2;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $r2 = interfaceinvoke $r1.<twitter4j.internal.http.HttpClientConfiguration: java.lang.String getHttpProxyHost()>();
+
+        if $r2 == null goto label1;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $r2 = interfaceinvoke $r1.<twitter4j.internal.http.HttpClientConfiguration: java.lang.String getHttpProxyHost()>();
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void shutdown()
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+        java.lang.StringBuilder $r1;
+        twitter4j.internal.http.HttpClientConfiguration $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("HttpClientBase{CONF=");
+
+        $r2 = $r0.<twitter4j.internal.http.HttpClientBase: twitter4j.internal.http.HttpClientConfiguration CONF>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public void write(java.io.DataOutputStream, java.lang.String) throws java.io.IOException
+    {
+        twitter4j.internal.http.HttpClientBase $r0;
+        java.io.DataOutputStream $r1;
+        java.lang.String $r2;
+        twitter4j.internal.logging.Logger $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpClientBase;
+
+        $r1 := @parameter0: java.io.DataOutputStream;
+
+        $r2 := @parameter1: java.lang.String;
+
+        virtualinvoke $r1.<java.io.DataOutputStream: void writeBytes(java.lang.String)>($r2);
+
+        $r3 = <twitter4j.internal.http.HttpClientBase: twitter4j.internal.logging.Logger logger>;
+
+        virtualinvoke $r3.<twitter4j.internal.logging.Logger: void debug(java.lang.String)>($r2);
+
+        return;
+    }
+}

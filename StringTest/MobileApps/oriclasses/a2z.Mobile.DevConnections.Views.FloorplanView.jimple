@@ -1,0 +1,902 @@
+public class a2z.Mobile.DevConnections.Views.FloorplanView extends android.widget.ImageView
+{
+    static final int CLICK;
+    static final int DRAG;
+    static final int NONE;
+    static final int ZOOM;
+    float bmHeight;
+    float bmWidth;
+    public java.util.ArrayList boothList;
+    android.graphics.Bitmap booth_data;
+    float bottom;
+    android.graphics.Canvas canvas;
+    android.content.Context context;
+    boolean dragEvent;
+    float height;
+    float initialScale;
+    android.graphics.PointF last;
+    float[] m;
+    private a2z.Mobile.DevConnections.Classes.Map mMap;
+    android.graphics.Point mMapItPin;
+    android.view.ScaleGestureDetector mScaleDetector;
+    private int mapID;
+    a2z.Mobile.DevConnections.Classes.Booth mapItBooth;
+    android.graphics.Matrix matrix;
+    float maxScale;
+    float minScale;
+    int mode;
+    float origHeight;
+    float origWidth;
+    float redundantXSpace;
+    float redundantYSpace;
+    float right;
+    float saveScale;
+    android.graphics.PointF start;
+    float width;
+    boolean zoomEvent;
+
+    public void <init>(android.content.Context)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        android.content.Context $r1;
+        android.graphics.Matrix $r2;
+        android.graphics.PointF $r3;
+        android.view.ScaleGestureDetector $r4;
+        a2z.Mobile.DevConnections.Views.FloorplanView$ScaleListener $r5;
+        float[] $r6;
+        android.widget.ImageView$ScaleType $r7;
+        a2z.Mobile.DevConnections.Views.FloorplanView$1 $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<android.widget.ImageView: void <init>(android.content.Context)>($r1);
+
+        $r2 = new android.graphics.Matrix;
+
+        specialinvoke $r2.<android.graphics.Matrix: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: int mode> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: boolean dragEvent> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: boolean zoomEvent> = 0;
+
+        $r3 = new android.graphics.PointF;
+
+        specialinvoke $r3.<android.graphics.PointF: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.PointF last> = $r3;
+
+        $r3 = new android.graphics.PointF;
+
+        specialinvoke $r3.<android.graphics.PointF: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.PointF start> = $r3;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float minScale> = 1.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float maxScale> = 3.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale> = 0.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth> = null;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Point mMapItPin> = null;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale> = 1.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Bitmap booth_data> = null;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Canvas canvas> = null;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: int mapID> = 1;
+
+        specialinvoke $r0.<android.widget.ImageView: void setClickable(boolean)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.content.Context context> = $r1;
+
+        $r4 = new android.view.ScaleGestureDetector;
+
+        $r5 = new a2z.Mobile.DevConnections.Views.FloorplanView$ScaleListener;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView$ScaleListener: void <init>(a2z.Mobile.DevConnections.Views.FloorplanView)>($r0);
+
+        specialinvoke $r4.<android.view.ScaleGestureDetector: void <init>(android.content.Context,android.view.ScaleGestureDetector$OnScaleGestureListener)>($r1, $r5);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.view.ScaleGestureDetector mScaleDetector> = $r4;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        virtualinvoke $r2.<android.graphics.Matrix: void setTranslate(float,float)>(1.0F, 1.0F);
+
+        $r6 = newarray (float)[9];
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float[] m> = $r6;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void setImageMatrix(android.graphics.Matrix)>($r2);
+
+        $r7 = <android.widget.ImageView$ScaleType: android.widget.ImageView$ScaleType MATRIX>;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void setScaleType(android.widget.ImageView$ScaleType)>($r7);
+
+        $r8 = new a2z.Mobile.DevConnections.Views.FloorplanView$1;
+
+        specialinvoke $r8.<a2z.Mobile.DevConnections.Views.FloorplanView$1: void <init>(a2z.Mobile.DevConnections.Views.FloorplanView)>($r0);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void setOnTouchListener(android.view.View$OnTouchListener)>($r8);
+
+        return;
+    }
+
+    static int access$0(a2z.Mobile.DevConnections.Views.FloorplanView)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        int i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: int mapID>;
+
+        return i0;
+    }
+
+    private void drawFloorplanText()
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        android.graphics.Paint $r1;
+        android.graphics.RectF $r2;
+        float $f0, $f1, $f2, $f3;
+        java.util.Iterator $r3;
+        android.graphics.Paint$Style $r4;
+        java.util.ArrayList $r5;
+        boolean $z0;
+        java.lang.Object $r6;
+        a2z.Mobile.DevConnections.Classes.Booth $r7;
+        java.lang.Float $r8;
+        java.lang.String $r9;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 = new android.graphics.Paint;
+
+        specialinvoke $r1.<android.graphics.Paint: void <init>()>();
+
+        virtualinvoke $r1.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>(-12303292);
+
+        $r4 = <android.graphics.Paint$Style: android.graphics.Paint$Style STROKE>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setStyle(android.graphics.Paint$Style)>($r4);
+
+        $f0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale>;
+
+        $f0 = 16.0F / $f0;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setTextSize(float)>($f0);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: java.util.ArrayList boothList>;
+
+        $r3 = virtualinvoke $r5.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return;
+
+     label2:
+        $r6 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (a2z.Mobile.DevConnections.Classes.Booth) $r6;
+
+        $r2 = new android.graphics.RectF;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f0 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 + 2.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f1 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 - 2.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f2 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f2 = $f2 - 2.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f3 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 + 12.0F;
+
+        specialinvoke $r2.<android.graphics.RectF: void <init>(float,float,float,float)>($f0, $f1, $f2, $f3);
+
+        $r9 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String BoothLabel()>();
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void drawText(java.lang.CharSequence,android.graphics.RectF,android.graphics.Paint)>($r9, $r2, $r1);
+
+        $r9 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        $i0 = virtualinvoke $r9.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i0 == 0 goto label1;
+
+        $r9 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        $i0 = virtualinvoke $r9.<java.lang.String: int compareTo(java.lang.String)>("RESERVED");
+
+        if $i0 == 0 goto label1;
+
+        $r2 = new android.graphics.RectF;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f3 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 + 2.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f2 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f2 = $f2 + 12.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f1 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 - 2.0F;
+
+        $r8 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r8.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 - 15.0F;
+
+        specialinvoke $r2.<android.graphics.RectF: void <init>(float,float,float,float)>($f3, $f2, $f1, $f0);
+
+        $r9 = virtualinvoke $r7.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void drawText(java.lang.CharSequence,android.graphics.RectF,android.graphics.Paint)>($r9, $r2, $r1);
+
+        goto label1;
+    }
+
+    private void drawText(java.lang.CharSequence, android.graphics.RectF, android.graphics.Paint)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        java.lang.CharSequence $r1;
+        android.graphics.RectF $r2;
+        android.graphics.Paint $r3;
+        int $i0, $i1, $i2, $i3, $i5, $i6, $i9;
+        float $f0, $f1, $f2, $f3;
+        byte $b4, $b7;
+        char $c8;
+        boolean $z0;
+        android.graphics.Canvas $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 := @parameter0: java.lang.CharSequence;
+
+        $r2 := @parameter1: android.graphics.RectF;
+
+        $r3 := @parameter2: android.graphics.Paint;
+
+        $i0 = 0;
+
+        $i5 = interfaceinvoke $r1.<java.lang.CharSequence: int length()>();
+
+        $i3 = $i5 + -1;
+
+        $f0 = $r2.<android.graphics.RectF: float left>;
+
+        $f1 = $r2.<android.graphics.RectF: float top>;
+
+        $f2 = virtualinvoke $r2.<android.graphics.RectF: float width()>();
+
+        $b4 = $f2 cmpg 30.0F;
+
+        if $b4 >= 0 goto label01;
+
+        return;
+
+     label01:
+        $i6 = virtualinvoke $r3.<android.graphics.Paint: int getFontMetricsInt(android.graphics.Paint$FontMetricsInt)>(null);
+
+     label02:
+        if $i0 >= $i3 goto label15;
+
+        $i5 = $i3 - $i0;
+
+        $i1 = $i5 + 1;
+
+        $i2 = $i1;
+
+        $b4 = 0;
+
+     label03:
+        if $i2 <= 0 goto label04;
+
+        $i5 = $i0 + $i2;
+
+        $f3 = virtualinvoke $r3.<android.graphics.Paint: float measureText(java.lang.CharSequence,int,int)>($r1, $i0, $i5);
+
+        $b7 = $f3 cmpl $f2;
+
+        if $b7 > 0 goto label11;
+
+     label04:
+        $i5 = $i2;
+
+        if $i2 >= $i1 goto label06;
+
+     label05:
+        if $i2 <= 0 goto label06;
+
+        $i1 = $i0 + $i2;
+
+        $i1 = $i1 + -1;
+
+        $c8 = interfaceinvoke $r1.<java.lang.CharSequence: char charAt(int)>($i1);
+
+        $z0 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>($c8);
+
+        if $z0 == 0 goto label12;
+
+     label06:
+        $i1 = 0;
+
+     label07:
+        if $i1 < $i2 goto label13;
+
+     label08:
+        if $i2 >= 1 goto label09;
+
+        if $b4 != 0 goto label09;
+
+        $i2 = $i5;
+
+     label09:
+        if $i2 <= 0 goto label10;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Canvas canvas>;
+
+        $i1 = $i0 + $i2;
+
+        virtualinvoke $r4.<android.graphics.Canvas: void drawText(java.lang.CharSequence,int,int,float,float,android.graphics.Paint)>($r1, $i0, $i1, $f0, $f1, $r3);
+
+     label10:
+        $i5 = $i2 + $b4;
+
+        $i0 = $i0 + $i5;
+
+        $f3 = (float) $i6;
+
+        $f1 = $f1 + $f3;
+
+        $i5 = $i2 + $b4;
+
+        if $i5 >= 1 goto label02;
+
+        return;
+
+     label11:
+        $i2 = $i2 + -1;
+
+        goto label03;
+
+     label12:
+        $i2 = $i2 + -1;
+
+        goto label05;
+
+     label13:
+        $i9 = $i0 + $i1;
+
+        $c8 = interfaceinvoke $r1.<java.lang.CharSequence: char charAt(int)>($i9);
+
+        if $c8 != 10 goto label14;
+
+        $i2 = $i1;
+
+        $b4 = 1;
+
+        goto label08;
+
+     label14:
+        $i1 = $i1 + 1;
+
+        goto label07;
+
+     label15:
+        return;
+    }
+
+    public int getExpectedHeight()
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        a2z.Mobile.DevConnections.Classes.Map $r1;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Map mMap>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Map mMap>;
+
+        $i0 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Map: int getMaph()>();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public int getExpectedWidth()
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        a2z.Mobile.DevConnections.Classes.Map $r1;
+        int $i0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Map mMap>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Map mMap>;
+
+        $i0 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Map: int getMapw()>();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        int $i0, $i1;
+        float $f0, $f1, $f2;
+        a2z.Mobile.DevConnections.Classes.Booth $r1;
+        byte $b2;
+        android.graphics.Matrix $r2;
+        java.lang.Float $r3;
+        android.graphics.Point $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        specialinvoke $r0.<android.widget.ImageView: void onMeasure(int,int)>($i0, $i1);
+
+        $i0 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i0);
+
+        $f1 = (float) $i0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width> = $f1;
+
+        $i1 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i1);
+
+        $f1 = (float) $i1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height> = $f1;
+
+        $f0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmWidth>;
+
+        $f0 = $f0 / $f1;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmHeight>;
+
+        $f1 = $f1 / $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale>;
+
+        $b2 = $f2 cmpl 0.0F;
+
+        if $b2 <= 0 goto label3;
+
+        $f0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale>;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale>;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale> = $f2;
+
+     label1:
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        virtualinvoke $r2.<android.graphics.Matrix: void setScale(float,float)>($f0, $f0);
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void setImageMatrix(android.graphics.Matrix)>($r2);
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        if $r1 == null goto label4;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f1 = virtualinvoke $r3.<java.lang.Float: float floatValue()>();
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f0 = virtualinvoke $r3.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 + $f0;
+
+        $f2 = $f2 - $f1;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f1 = virtualinvoke $r3.<java.lang.Float: float floatValue()>();
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r3.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 + $f0;
+
+        $f2 = $f2 - $f1;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace> = $f2;
+
+     label2:
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace>;
+
+        virtualinvoke $r2.<android.graphics.Matrix: boolean postTranslate(float,float)>($f2, $f1);
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace>;
+
+        $f1 = $f1 * 2.0F;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float origWidth> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace>;
+
+        $f1 = $f1 * 2.0F;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float origHeight> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale>;
+
+        $f2 = $f2 * $f1;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $f2 = $f2 - $f1;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace>;
+
+        $f1 = $f1 * 2.0F;
+
+        $f0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale>;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float right> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale>;
+
+        $f2 = $f2 * $f1;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $f2 = $f2 - $f1;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace>;
+
+        $f1 = $f1 * 2.0F;
+
+        $f0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale>;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bottom> = $f2;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Matrix matrix>;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: void setImageMatrix(android.graphics.Matrix)>($r2);
+
+        return;
+
+     label3:
+        $f0 = staticinvoke <java.lang.Math: float min(float,float)>($f0, $f1);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float saveScale> = 1.0F;
+
+        goto label1;
+
+     label4:
+        $r4 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Point mMapItPin>;
+
+        if $r4 == null goto label5;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Point mMapItPin>;
+
+        $i1 = $r4.<android.graphics.Point: int y>;
+
+        $f1 = (float) $i1;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Point mMapItPin>;
+
+        $i1 = $r4.<android.graphics.Point: int x>;
+
+        $f1 = (float) $i1;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace>;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace>;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace> = $f2;
+
+        goto label2;
+
+     label5:
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float height>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmHeight>;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float width>;
+
+        $f1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmWidth>;
+
+        $f1 = $f1 * $f0;
+
+        $f2 = $f2 - $f1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace>;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantYSpace> = $f2;
+
+        $f2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace>;
+
+        $f2 = $f2 / 2.0F;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float redundantXSpace> = $f2;
+
+        goto label2;
+    }
+
+    public void setImageBitmap(android.graphics.Bitmap)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        android.graphics.Bitmap $r1;
+        int $i0;
+        float $f0;
+        android.graphics.Canvas $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r1 := @parameter0: android.graphics.Bitmap;
+
+        specialinvoke $r0.<android.widget.ImageView: void setImageBitmap(android.graphics.Bitmap)>($r1);
+
+        $i0 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $f0 = (float) $i0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmWidth> = $f0;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $f0 = (float) $i0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float bmHeight> = $f0;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Bitmap booth_data> = $r1;
+
+        $r2 = new android.graphics.Canvas;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Bitmap booth_data>;
+
+        specialinvoke $r2.<android.graphics.Canvas: void <init>(android.graphics.Bitmap)>($r1);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Canvas canvas> = $r2;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Canvas canvas>;
+
+        virtualinvoke $r2.<android.graphics.Canvas: int save()>();
+
+        return;
+    }
+
+    public void setMapId(int)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        int $i0;
+        a2z.Mobile.DevConnections.Classes.Map $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $i0 := @parameter0: int;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: int mapID> = $i0;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: int mapID>;
+
+        $r1 = staticinvoke <a2z.Mobile.DevConnections.Classes.Map: a2z.Mobile.DevConnections.Classes.Map getMapByMapId(int)>($i0);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Map mMap> = $r1;
+
+        return;
+    }
+
+    public void setMapPinZoom(float, float, float)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        float $f0, $f1, $f2;
+        android.graphics.Point $r1;
+        int $i0, $i1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $f0 := @parameter0: float;
+
+        $f1 := @parameter1: float;
+
+        $f2 := @parameter2: float;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale> = $f0;
+
+        $r1 = new android.graphics.Point;
+
+        $i0 = (int) $f1;
+
+        $i1 = (int) $f2;
+
+        specialinvoke $r1.<android.graphics.Point: void <init>(int,int)>($i0, $i1);
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: android.graphics.Point mMapItPin> = $r1;
+
+        return;
+    }
+
+    public void setMaxZoom(float)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        float $f0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $f0 := @parameter0: float;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float maxScale> = $f0;
+
+        return;
+    }
+
+    public void setZoom(float, a2z.Mobile.DevConnections.Classes.Booth)
+    {
+        a2z.Mobile.DevConnections.Views.FloorplanView $r0;
+        float $f0;
+        a2z.Mobile.DevConnections.Classes.Booth $r1, $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $f0 := @parameter0: float;
+
+        $r1 := @parameter1: a2z.Mobile.DevConnections.Classes.Booth;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: float initialScale> = $f0;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        if $r2 == null goto label1;
+
+        $r0.<a2z.Mobile.DevConnections.Views.FloorplanView: a2z.Mobile.DevConnections.Classes.Booth mapItBooth> = $r1;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.Views.FloorplanView: int ZOOM> = 2;
+
+        <a2z.Mobile.DevConnections.Views.FloorplanView: int NONE> = 0;
+
+        <a2z.Mobile.DevConnections.Views.FloorplanView: int DRAG> = 1;
+
+        <a2z.Mobile.DevConnections.Views.FloorplanView: int CLICK> = 3;
+
+        return;
+    }
+}

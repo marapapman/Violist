@@ -1,0 +1,80 @@
+class a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter this$0;
+    private final a2z.Mobile.DevConnections.Classes.SessionDate val$sessiondate;
+
+    void <init>(a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter, a2z.Mobile.DevConnections.Classes.SessionDate)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1 $r0;
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter $r1;
+        a2z.Mobile.DevConnections.Classes.SessionDate $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter this$0> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.Classes.SessionDate val$sessiondate> = $r2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1 $r0;
+        android.view.View $r1;
+        android.content.Intent $r2;
+        a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter $r3;
+        android.content.Context $r4;
+        a2z.Mobile.DevConnections.Classes.SessionDate $r5;
+        java.lang.Integer $r6;
+        java.lang.String $r7;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 = new android.content.Intent;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter this$0>;
+
+        $r4 = virtualinvoke $r3.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: android.content.Context getContext()>();
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r4, class "a2z/Mobile/DevConnections/SessionListActivity");
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.Classes.SessionDate val$sessiondate>;
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer SessionDateID()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.io.Serializable)>("SessionDateID", $r6);
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.Classes.SessionDate val$sessiondate>;
+
+        $r7 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.String Name()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("SessionDate", $r7);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("TrackID", -1);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("TrackName", "");
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter this$0>;
+
+        $r7 = $r3.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: java.lang.String referrer>;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", $r7);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter$1: a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter this$0>;
+
+        $r4 = virtualinvoke $r3.<a2z.Mobile.DevConnections.ListAdapters.SessionDateListAdapter: android.content.Context getContext()>();
+
+        virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>($r2);
+
+        return;
+    }
+}

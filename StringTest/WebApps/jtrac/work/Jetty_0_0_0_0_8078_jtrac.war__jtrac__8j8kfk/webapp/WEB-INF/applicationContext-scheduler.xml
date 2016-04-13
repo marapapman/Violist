@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- Spring JDK Timer support configuration as Spring context -->
+
+<beans>
+    
+    <bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+        <property name="scheduledTimerTasks">
+            <list>
+                <ref local="pollingTimer"/>
+                <ref local="hourlyTimer"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="hourlyTimer" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <!-- wait 60 seconds before starting repeated execution -->
+        <property name="delay" value="60000"/>
+        <!-- run every 60 * 60 seconds -->
+        <property name="period" value="3600000"/>
+        <property name="timerTask"><ref local="hourlyTask"/></property>
+    </bean>	
+
+    <bean id="pollingTimer" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <!-- wait 60 seconds before starting repeated execution -->
+        <property name="delay" value="60000"/>
+        <!-- run every 5 * 60 seconds -->
+        <property name="period" value="300000"/>
+        <property name="timerTask"><ref local="pollingTask"/></property>
+    </bean>	
+
+    <bean id="hourlyTask" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+        <property name="targetObject" ref="jtrac"/>
+        <property name="targetMethod" value="executeHourlyTask"/>
+    </bean>
+
+    <bean id="pollingTask" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+        <property name="targetObject" ref="jtrac"/>
+        <property name="targetMethod" value="executePollingTask"/>
+    </bean>
+           
+</beans>
+
+

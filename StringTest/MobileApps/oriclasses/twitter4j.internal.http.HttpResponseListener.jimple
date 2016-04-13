@@ -1,0 +1,5 @@
+public interface  twitter4j.internal.http.HttpResponseListener extends java.lang.Object
+{
+
+    public abstract void httpResponseReceived(twitter4j.internal.http.HttpResponseEvent);
+}

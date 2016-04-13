@@ -1,0 +1,471 @@
+<xml>
+<component name="org.apache.jsp.CardTypesRecord_jsp">
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="787" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="org.apache.jsp.CardTypesRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="787" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="791" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="CardTypesGrid.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="CardTypesGrid.jsp" type="http" ci="" code="307" linenumber="587" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="791" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="791" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="CardTypesRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.CardTypesRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="787" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="787" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="791" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="787" />
+<edge source="org.apache.jsp.CardTypesRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="791" />
+</component>
+<component name="org.apache.jsp.MembersGrid_jsp">
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="793" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="799" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="793" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="799" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="793" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="MembersGrid.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="org.apache.jsp.MembersGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="MembersInfo.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.MembersGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="799" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="793" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="MembersRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="799" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="793" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="MembersGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="799" />
+</component>
+<component name="org.apache.jsp.MembersInfo_jsp">
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="MembersInfo.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.MembersInfo_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="OrdersRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="938" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="938" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="932" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="938" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="938" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="MembersRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="932" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="932" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="AdminMenu.jsp" type="http" ci="" code="307" linenumber="536" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="932" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="org.apache.jsp.MembersInfo_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="938" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="932" />
+<edge source="org.apache.jsp.MembersInfo_jsp" destination="MembersInfo.jsp" type="GET" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.CategoriesGrid_jsp">
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="732" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="732" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="736" />
+<edge source="User" destination="org.apache.jsp.CategoriesGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="732" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="CategoriesRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="736" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="736" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="736" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="org.apache.jsp.CategoriesGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="736" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="732" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="732" />
+<edge source="org.apache.jsp.CategoriesGrid_jsp" destination="CategoriesGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.OrdersGrid_jsp">
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="833" />
+<edge source="User" destination="org.apache.jsp.OrdersGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="833" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="827" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="833" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="OrdersRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="org.apache.jsp.OrdersGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="OrdersGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="827" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="833" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="827" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="827" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="OrdersGrid.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="833" />
+<edge source="org.apache.jsp.OrdersGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="827" />
+</component>
+<component name="org.apache.jsp.Login_jsp">
+<edge source="User" destination="org.apache.jsp.Login_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.Login_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="669" />
+<edge source="org.apache.jsp.Login_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="665" />
+<edge source="org.apache.jsp.Login_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="665" />
+<edge source="org.apache.jsp.Login_jsp" destination="org.apache.jsp.Login_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Login_jsp" destination="Login.jsp" type="POST" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Login_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="669" />
+<edge source="org.apache.jsp.Login_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="669" />
+<edge source="org.apache.jsp.Login_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="525" />
+<edge source="org.apache.jsp.Login_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="669" />
+<edge source="org.apache.jsp.Login_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="665" />
+<edge source="org.apache.jsp.Login_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="665" />
+<edge source="org.apache.jsp.Login_jsp" destination="*" type="http" ci="" code="307" linenumber="515" />
+<edge source="org.apache.jsp.Login_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="669" />
+<edge source="org.apache.jsp.Login_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="665" />
+</component>
+<component name="org.apache.jsp.CardTypesGrid_jsp">
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="690" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="686" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="686" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="CardTypesRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="686" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="690" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="686" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="CardTypesGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="org.apache.jsp.CardTypesGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="690" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="User" destination="org.apache.jsp.CardTypesGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="686" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="690" />
+<edge source="org.apache.jsp.CardTypesGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="690" />
+</component>
+<component name="org.apache.jsp.ShoppingCart_jsp">
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="992" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="992" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="org.apache.jsp.ShoppingCart_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="992" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1000" />
+<edge source="User" destination="org.apache.jsp.ShoppingCart_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="AdminMenu.jsp" type="http" ci="" code="307" linenumber="761" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="992" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1000" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1000" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="ShoppingCartRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1000" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="ShoppingCart.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="MyInfo.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1000" />
+<edge source="org.apache.jsp.ShoppingCart_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="992" />
+</component>
+<component name="org.apache.jsp.MembersRecord_jsp">
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="org.apache.jsp.MembersRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.MembersRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="MembersRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="967" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="967" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="MembersGrid.jsp" type="http" ci="" code="307" linenumber="674" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="967" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="MembersGrid.jsp" type="http" ci="" code="307" linenumber="508" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="963" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="963" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="963" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="963" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="963" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="967" />
+<edge source="org.apache.jsp.MembersRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="967" />
+</component>
+<component name="org.apache.jsp.EditorialCatGrid_jsp">
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="782" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="789" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="782" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="789" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="782" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="782" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="EditorialCatGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="EditorialCatRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.EditorialCatGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="782" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="org.apache.jsp.EditorialCatGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="789" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="789" />
+<edge source="org.apache.jsp.EditorialCatGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="789" />
+</component>
+<component name="org.apache.jsp.EditorialsRecord_jsp">
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="838" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="834" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="838" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="EditorialsGrid.jsp" type="http" ci="" code="307" linenumber="608" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="org.apache.jsp.EditorialsRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="834" />
+<edge source="User" destination="org.apache.jsp.EditorialsRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="838" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="834" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="838" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="EditorialsGrid.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="838" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="834" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="834" />
+<edge source="org.apache.jsp.EditorialsRecord_jsp" destination="EditorialsRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.AdminBooks_jsp">
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="841" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="BookMaint.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="AdminBooks.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="org.apache.jsp.AdminBooks_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="841" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="835" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="841" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="835" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="AdminBooks.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.AdminBooks_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="841" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="835" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="835" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="841" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.AdminBooks_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="835" />
+</component>
+<component name="org.apache.jsp.BookMaint_jsp">
+<edge source="org.apache.jsp.BookMaint_jsp" destination="AdminBooks.jsp" type="http" ci="" code="307" linenumber="508" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="BookMaint.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="AdminBooks.jsp" type="http" ci="" code="307" linenumber="636" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="908" />
+<edge source="User" destination="org.apache.jsp.BookMaint_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="912" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="908" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="908" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="908" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="912" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="912" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="912" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="908" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="org.apache.jsp.BookMaint_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.BookMaint_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="912" />
+</component>
+<component name="org.apache.jsp.Default_jsp">
+<edge source="org.apache.jsp.Default_jsp" destination="Books.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="1254" />
+<edge source="org.apache.jsp.Default_jsp" destination="BookDetail.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1272" />
+<edge source="org.apache.jsp.Default_jsp" destination="org.apache.jsp.Default_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1272" />
+<edge source="org.apache.jsp.Default_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="1254" />
+<edge source="org.apache.jsp.Default_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="1254" />
+<edge source="org.apache.jsp.Default_jsp" destination="AdvSearch.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1272" />
+<edge source="org.apache.jsp.Default_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="1254" />
+<edge source="org.apache.jsp.Default_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="1254" />
+<edge source="org.apache.jsp.Default_jsp" destination="Books.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1272" />
+<edge source="org.apache.jsp.Default_jsp" destination="org.apache.jsp.Default_jsp" type="IMG" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Default_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1272" />
+<edge source="User" destination="org.apache.jsp.Default_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.Default_jsp" destination="Default.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.MyInfo_jsp">
+<edge source="User" destination="org.apache.jsp.MyInfo_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="884" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="888" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="611" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="884" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="884" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="org.apache.jsp.MyInfo_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="884" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="888" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="888" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="888" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="884" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="888" />
+<edge source="org.apache.jsp.MyInfo_jsp" destination="MyInfo.jsp" type="GET" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.EditorialsGrid_jsp">
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="752" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="748" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="org.apache.jsp.EditorialsGrid_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="752" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="EditorialsGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="748" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="752" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="748" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="752" />
+<edge source="User" destination="org.apache.jsp.EditorialsGrid_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="748" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="748" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="752" />
+<edge source="org.apache.jsp.EditorialsGrid_jsp" destination="EditorialsRecord.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.Books_jsp">
+<edge source="org.apache.jsp.Books_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="1022" />
+<edge source="org.apache.jsp.Books_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1032" />
+<edge source="org.apache.jsp.Books_jsp" destination="org.apache.jsp.Books_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Books_jsp" destination="BookDetail.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.Books_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.Books_jsp" destination="org.apache.jsp.Books_jsp" type="IMG" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Books_jsp" destination="AdvSearch.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Books_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="1022" />
+<edge source="org.apache.jsp.Books_jsp" destination="Books.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Books_jsp" destination="Books.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Books_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1032" />
+<edge source="org.apache.jsp.Books_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1032" />
+<edge source="org.apache.jsp.Books_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1032" />
+<edge source="org.apache.jsp.Books_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="1022" />
+<edge source="org.apache.jsp.Books_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="1022" />
+<edge source="org.apache.jsp.Books_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="1022" />
+<edge source="org.apache.jsp.Books_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1032" />
+</component>
+<component name="org.apache.jsp.AdminMenu_jsp">
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="587" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="EditorialCatGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="CardTypesGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="591" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="org.apache.jsp.AdminMenu_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="587" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="MembersGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="587" />
+<edge source="User" destination="org.apache.jsp.AdminMenu_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="CategoriesGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="591" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="591" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="591" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="587" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="587" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="AdminBooks.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="EditorialsGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="591" />
+<edge source="org.apache.jsp.AdminMenu_jsp" destination="OrdersGrid.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.EditorialCatRecord_jsp">
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="788" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="EditorialCatRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="788" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="EditorialCatGrid.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="org.apache.jsp.EditorialCatRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="EditorialCatGrid.jsp" type="http" ci="" code="307" linenumber="584" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="784" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="784" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="788" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="788" />
+<edge source="User" destination="org.apache.jsp.EditorialCatRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="784" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="784" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="784" />
+<edge source="org.apache.jsp.EditorialCatRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="788" />
+</component>
+<component name="org.apache.jsp.BookDetail_jsp">
+<edge source="org.apache.jsp.BookDetail_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="1283" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1291" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1291" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="org.apache.jsp.BookDetail_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="1283" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1291" />
+<edge source="User" destination="org.apache.jsp.BookDetail_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="BookDetail.jsp" type="http" ci="" code="307" linenumber="1033" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1291" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="1283" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="1283" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="1291" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="BookDetail.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="806" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="1283" />
+<edge source="org.apache.jsp.BookDetail_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="539" />
+</component>
+<component name="org.apache.jsp.Registration_jsp">
+<edge source="org.apache.jsp.Registration_jsp" destination="Default.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="902" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="902" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="906" />
+<edge source="org.apache.jsp.Registration_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="906" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="902" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="906" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Registration.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Registration_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="906" />
+<edge source="org.apache.jsp.Registration_jsp" destination="org.apache.jsp.Registration_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="906" />
+<edge source="org.apache.jsp.Registration_jsp" destination="Default.jsp" type="http" ci="" code="307" linenumber="638" />
+<edge source="org.apache.jsp.Registration_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="902" />
+<edge source="org.apache.jsp.Registration_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="902" />
+<edge source="User" destination="org.apache.jsp.Registration_jsp" type="DE" ci="" code="0" linenumber="0" />
+</component>
+<component name="org.apache.jsp.Header_jsp">
+<edge source="org.apache.jsp.Header_jsp" destination="Registration.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Header_jsp" destination="Login.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.Header_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.Header_jsp" destination="AdminMenu.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Header_jsp" destination="Default.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Header_jsp" destination="ShoppingCart.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.CategoriesRecord_jsp">
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="CategoriesRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="792" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="792" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="796" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="org.apache.jsp.CategoriesRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="796" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="792" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="CategoriesGrid.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="796" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="796" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="792" />
+<edge source="User" destination="org.apache.jsp.CategoriesRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="792" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="CategoriesGrid.jsp" type="http" ci="" code="307" linenumber="587" />
+<edge source="org.apache.jsp.CategoriesRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="796" />
+</component>
+<component name="org.apache.jsp.AdvSearch_jsp">
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="617" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="617" />
+<edge source="User" destination="org.apache.jsp.AdvSearch_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="org.apache.jsp.AdvSearch_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="617" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="617" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Books.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="613" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="613" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="617" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="613" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="613" />
+<edge source="org.apache.jsp.AdvSearch_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="613" />
+</component>
+<component name="org.apache.jsp.ShoppingCartRecord_jsp">
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="811" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="807" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="811" />
+<edge source="User" destination="org.apache.jsp.ShoppingCartRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="807" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="811" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="506" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="807" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="811" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="ShoppingCart.jsp" type="http" ci="" code="307" linenumber="590" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="org.apache.jsp.ShoppingCartRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="807" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="ShoppingCartRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="807" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="811" />
+<edge source="org.apache.jsp.ShoppingCartRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+</component>
+<component name="org.apache.jsp.Footer_jsp">
+<edge source="org.apache.jsp.Footer_jsp" destination="ShoppingCart.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Footer_jsp" destination="AdminMenu.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="User" destination="org.apache.jsp.Footer_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.Footer_jsp" destination="Default.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Footer_jsp" destination="Login.jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.Footer_jsp" destination="Registration.jsp" type="A" ci="" code="0" linenumber="-1" />
+</component>
+<component name="org.apache.jsp.OrdersRecord_jsp">
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Login.jsp" type="http" ci="" code="307" linenumber="458" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Default.jsp" type="A" ci="Header.jsp" code="0" linenumber="852" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Login.jsp" type="A" ci="Footer.jsp" code="0" linenumber="856" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="OrdersGrid.jsp" type="http" ci="" code="307" linenumber="615" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="OrdersGrid.jsp" type="http" ci="" code="307" linenumber="509" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Header.jsp" code="0" linenumber="852" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Registration.jsp" type="A" ci="Header.jsp" code="0" linenumber="852" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Footer.jsp" code="0" linenumber="856" />
+<edge source="User" destination="org.apache.jsp.OrdersRecord_jsp" type="DE" ci="" code="0" linenumber="0" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="org.apache.jsp.OrdersRecord_jsp" type="A" ci="" code="0" linenumber="-1" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Login.jsp" type="A" ci="Header.jsp" code="0" linenumber="852" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="AdminMenu.jsp" type="A" ci="Footer.jsp" code="0" linenumber="856" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Default.jsp" type="A" ci="Footer.jsp" code="0" linenumber="856" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="Registration.jsp" type="A" ci="Footer.jsp" code="0" linenumber="856" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="ShoppingCart.jsp" type="A" ci="Header.jsp" code="0" linenumber="852" />
+<edge source="org.apache.jsp.OrdersRecord_jsp" destination="OrdersRecord.jsp" type="GET" ci="" code="0" linenumber="-1" />
+</component>
+</xml>

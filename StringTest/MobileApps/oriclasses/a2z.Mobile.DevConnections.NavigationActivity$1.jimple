@@ -1,0 +1,44 @@
+class a2z.Mobile.DevConnections.NavigationActivity$1 extends java.util.TimerTask
+{
+    final a2z.Mobile.DevConnections.NavigationActivity this$0;
+
+    void <init>(a2z.Mobile.DevConnections.NavigationActivity)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity$1 $r0;
+        a2z.Mobile.DevConnections.NavigationActivity $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity$1;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r0.<a2z.Mobile.DevConnections.NavigationActivity$1: a2z.Mobile.DevConnections.NavigationActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.util.TimerTask: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity$1 $r0;
+        a2z.Mobile.DevConnections.Controllers.AnalyticsController $r1;
+        android.content.Context $r2;
+        java.lang.Void[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity$1;
+
+        $r1 = new a2z.Mobile.DevConnections.Controllers.AnalyticsController;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Controllers.AnalyticsController: void <init>()>();
+
+        $r2 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r1.<a2z.Mobile.DevConnections.Controllers.AnalyticsController: android.content.Context context> = $r2;
+
+        $r3 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Controllers.AnalyticsController: android.os.AsyncTask execute(java.lang.Object[])>($r3);
+
+        return;
+    }
+}

@@ -1,0 +1,15 @@
+public interface  twitter4j.TwitterBase extends java.lang.Object
+{
+
+    public abstract void addRateLimitStatusListener(twitter4j.RateLimitStatusListener);
+
+    public abstract twitter4j.auth.Authorization getAuthorization();
+
+    public abstract twitter4j.conf.Configuration getConfiguration();
+
+    public abstract long getId() throws twitter4j.TwitterException, java.lang.IllegalStateException;
+
+    public abstract java.lang.String getScreenName() throws twitter4j.TwitterException, java.lang.IllegalStateException;
+
+    public abstract void shutdown();
+}

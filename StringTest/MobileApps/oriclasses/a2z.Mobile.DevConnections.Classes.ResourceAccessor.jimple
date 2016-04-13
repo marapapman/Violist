@@ -1,0 +1,15 @@
+public class a2z.Mobile.DevConnections.Classes.ResourceAccessor extends java.lang.Object
+{
+    public static android.content.res.Resources res;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.ResourceAccessor $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.ResourceAccessor;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

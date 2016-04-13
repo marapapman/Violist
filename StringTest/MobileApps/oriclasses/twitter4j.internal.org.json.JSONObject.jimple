@@ -1,0 +1,2696 @@
+public class twitter4j.internal.org.json.JSONObject extends java.lang.Object
+{
+    public static final java.lang.Object NULL;
+    private java.util.Map map;
+
+    static void <clinit>()
+    {
+        twitter4j.internal.org.json.JSONObject$Null $r0;
+
+        $r0 = new twitter4j.internal.org.json.JSONObject$Null;
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject$Null: void <init>(twitter4j.internal.org.json.JSONObject$1)>(null);
+
+        <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.util.HashMap $r1;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map> = $r1;
+
+        return;
+    }
+
+    public void <init>(java.lang.Object)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.Object $r1;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void populateMap(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public void <init>(java.lang.Object, java.lang.String[])
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.Object $r1, $r6;
+        java.lang.String[] $r2;
+        int $i0, $i1;
+        java.lang.String $r3;
+        java.lang.Class $r4;
+        java.lang.reflect.Field $r5;
+        java.lang.Exception $r7;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.String[];
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        $r4 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r2;
+
+        if $i0 >= $i1 goto label4;
+
+        $r3 = $r2[$i0];
+
+     label2:
+        $r5 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Field getField(java.lang.String)>($r3);
+
+        $r6 = virtualinvoke $r5.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($r1);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject putOpt(java.lang.String,java.lang.Object)>($r3, $r6);
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        return;
+
+     label5:
+        $r7 := @caughtexception;
+
+        goto label3;
+
+        catch java.lang.Exception from label2 to label3 with label5;
+    }
+
+    public void <init>(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        twitter4j.internal.org.json.JSONTokener $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.internal.org.json.JSONTokener;
+
+        specialinvoke $r2.<twitter4j.internal.org.json.JSONTokener: void <init>(java.lang.String)>($r1);
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>(twitter4j.internal.org.json.JSONTokener)>($r2);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.util.Locale) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0, $r3, $r4;
+        java.lang.String $r1, $r12;
+        java.util.Locale $r2;
+        int $i0, $i1;
+        java.lang.Thread $r5;
+        java.lang.ClassLoader $r6;
+        java.util.ResourceBundle $r7;
+        java.util.Enumeration $r8;
+        boolean $z0;
+        java.lang.Object $r9, $r11;
+        java.lang.String[] $r10;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.util.Locale;
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        $r5 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        $r7 = staticinvoke <java.util.ResourceBundle: java.util.ResourceBundle getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader)>($r1, $r2, $r6);
+
+        $r8 = virtualinvoke $r7.<java.util.ResourceBundle: java.util.Enumeration getKeys()>();
+
+     label1:
+        $z0 = interfaceinvoke $r8.<java.util.Enumeration: boolean hasMoreElements()>();
+
+        if $z0 == 0 goto label7;
+
+        $r9 = interfaceinvoke $r8.<java.util.Enumeration: java.lang.Object nextElement()>();
+
+        $z0 = $r9 instanceof java.lang.String;
+
+        if $z0 == 0 goto label1;
+
+        $r1 = (java.lang.String) $r9;
+
+        $r10 = virtualinvoke $r1.<java.lang.String: java.lang.String[] split(java.lang.String)>("\\.");
+
+        $i1 = lengthof $r10;
+
+        $i1 = $i1 + -1;
+
+        $r4 = $r0;
+
+        $i0 = 0;
+
+     label2:
+        if $i0 >= $i1 goto label6;
+
+        $r1 = $r10[$i0];
+
+        $r11 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r1);
+
+        $z0 = $r11 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z0 == 0 goto label5;
+
+        $r3 = (twitter4j.internal.org.json.JSONObject) $r11;
+
+     label3:
+        if $r3 != null goto label4;
+
+        $r3 = new twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        virtualinvoke $r4.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r3);
+
+     label4:
+        $r4 = $r3;
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label5:
+        $r3 = null;
+
+        goto label3;
+
+     label6:
+        $r1 = $r10[$i1];
+
+        $r12 = (java.lang.String) $r9;
+
+        $r12 = virtualinvoke $r7.<java.util.ResourceBundle: java.lang.String getString(java.lang.String)>($r12);
+
+        virtualinvoke $r4.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r12);
+
+        goto label1;
+
+     label7:
+        return;
+    }
+
+    public void <init>(java.util.Map)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.util.Map $r1;
+        java.util.HashMap $r2;
+        java.util.Set $r3;
+        java.util.Iterator $r4;
+        boolean $z0;
+        java.lang.Object $r5, $r7;
+        java.util.Map$Entry $r6;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.util.Map;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map> = $r2;
+
+        if $r1 == null goto label2;
+
+        $r3 = interfaceinvoke $r1.<java.util.Map: java.util.Set entrySet()>();
+
+        $r4 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (java.util.Map$Entry) $r5;
+
+        $r5 = interfaceinvoke $r6.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        if $r5 == null goto label1;
+
+        $r1 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r7 = interfaceinvoke $r6.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r5 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.Object wrap(java.lang.Object)>($r5);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r7, $r5);
+
+        goto label1;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    public void <init>(twitter4j.internal.org.json.JSONObject, java.lang.String[])
+    {
+        twitter4j.internal.org.json.JSONObject $r0, $r1;
+        java.lang.String[] $r2;
+        int $i0, $i1;
+        java.lang.String $r3, $r5;
+        java.lang.Object $r4;
+        java.lang.Exception $r6;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        $r2 := @parameter1: java.lang.String[];
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r2;
+
+        if $i0 >= $i1 goto label4;
+
+     label2:
+        $r5 = $r2[$i0];
+
+        $r3 = $r2[$i0];
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r3);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject putOnce(java.lang.String,java.lang.Object)>($r5, $r4);
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        return;
+
+     label5:
+        $r6 := @caughtexception;
+
+        goto label3;
+
+        catch java.lang.Exception from label2 to label3 with label5;
+    }
+
+    public void <init>(twitter4j.internal.org.json.JSONTokener) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        twitter4j.internal.org.json.JSONTokener $r1;
+        char $c0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        twitter4j.internal.org.json.JSONException $r4;
+        java.lang.Object $r5;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONTokener;
+
+        specialinvoke $r0.<twitter4j.internal.org.json.JSONObject: void <init>()>();
+
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        if $c0 == 123 goto label2;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("A JSONObject text must begin with \'{\' found:");
+
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c0);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: twitter4j.internal.org.json.JSONException syntaxError(java.lang.String)>($r3);
+
+        throw $r4;
+
+     label1:
+        virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: void back()>();
+
+     label2:
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        lookupswitch($c0)
+        {
+            case 0: goto label6;
+            case 125: goto label9;
+            default: goto label3;
+        };
+
+     label3:
+        virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: void back()>();
+
+        $r5 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: java.lang.Object nextValue()>();
+
+        $r3 = virtualinvoke $r5.<java.lang.Object: java.lang.String toString()>();
+
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        if $c0 != 61 goto label7;
+
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char next()>();
+
+        if $c0 == 62 goto label4;
+
+        virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: void back()>();
+
+     label4:
+        $r5 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: java.lang.Object nextValue()>();
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject putOnce(java.lang.String,java.lang.Object)>($r3, $r5);
+
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        lookupswitch($c0)
+        {
+            case 44: goto label8;
+            case 59: goto label8;
+            case 125: goto label9;
+            default: goto label5;
+        };
+
+     label5:
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: twitter4j.internal.org.json.JSONException syntaxError(java.lang.String)>("Expected a \',\' or \'}\'");
+
+        throw $r4;
+
+     label6:
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: twitter4j.internal.org.json.JSONException syntaxError(java.lang.String)>("A JSONObject text must end with \'}\'");
+
+        throw $r4;
+
+     label7:
+        if $c0 == 58 goto label4;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: twitter4j.internal.org.json.JSONException syntaxError(java.lang.String)>("Expected a \':\' after a key");
+
+        throw $r4;
+
+     label8:
+        $c0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONTokener: char nextClean()>();
+
+        if $c0 != 125 goto label1;
+
+     label9:
+        return;
+    }
+
+    public static java.lang.String numberToString(java.lang.Number) throws twitter4j.internal.org.json.JSONException
+    {
+        java.lang.Number $r0;
+        java.lang.String $r1, $r3;
+        twitter4j.internal.org.json.JSONException $r2;
+        int $i0;
+        boolean $z0;
+
+        $r0 := @parameter0: java.lang.Number;
+
+        if $r0 != null goto label1;
+
+        $r2 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r2.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>("Null pointer");
+
+        throw $r2;
+
+     label1:
+        staticinvoke <twitter4j.internal.org.json.JSONObject: void testValidity(java.lang.Object)>($r0);
+
+        $r3 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $r1 = $r3;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(46);
+
+        if $i0 <= 0 goto label4;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(101);
+
+        if $i0 >= 0 goto label5;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(int)>(69);
+
+        if $i0 >= 0 goto label6;
+
+     label2:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean endsWith(java.lang.String)>("0");
+
+        if $z0 == 0 goto label3;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        goto label2;
+
+     label3:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean endsWith(java.lang.String)>(".");
+
+        if $z0 == 0 goto label7;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        $i0 = $i0 + -1;
+
+        $r3 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+        return $r3;
+
+     label4:
+        return $r3;
+
+     label5:
+        return $r3;
+
+     label6:
+        return $r3;
+
+     label7:
+        return $r1;
+    }
+
+    private void populateMap(java.lang.Object)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.Object $r1, $r9;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.String $r2, $r7;
+        java.lang.reflect.Method $r3;
+        java.lang.reflect.Method[] $r4;
+        java.lang.Class $r5;
+        java.lang.ClassLoader $r6;
+        char $c2;
+        java.lang.Class[] $r8;
+        java.util.Map $r10;
+        java.lang.StringBuilder $r11;
+        java.lang.Exception $r12;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = 0;
+
+        $r5 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        if $r6 == null goto label01;
+
+        $z0 = 1;
+
+     label01:
+        if $z0 == 0 goto label09;
+
+        $r4 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method[] getMethods()>();
+
+     label02:
+        $i0 = 0;
+
+     label03:
+        $i1 = lengthof $r4;
+
+        if $i0 >= $i1 goto label18;
+
+     label04:
+        $r3 = $r4[$i0];
+
+        $i1 = virtualinvoke $r3.<java.lang.reflect.Method: int getModifiers()>();
+
+        $z0 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($i1);
+
+        if $z0 == 0 goto label08;
+
+        $r7 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $r2 = "";
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean startsWith(java.lang.String)>("get");
+
+        if $z0 == 0 goto label13;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>("getClass");
+
+        if $z0 != 0 goto label05;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>("getDeclaringClass");
+
+        if $z0 == 0 goto label10;
+
+     label05:
+        $r2 = "";
+
+     label06:
+        $i1 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i1 <= 0 goto label08;
+
+        $c2 = virtualinvoke $r2.<java.lang.String: char charAt(int)>(0);
+
+        $z0 = staticinvoke <java.lang.Character: boolean isUpperCase(char)>($c2);
+
+        if $z0 == 0 goto label08;
+
+        $r8 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $i1 = lengthof $r8;
+
+        if $i1 != 0 goto label08;
+
+        $i1 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i1 != 1 goto label16;
+
+        $r2 = virtualinvoke $r2.<java.lang.String: java.lang.String toLowerCase()>();
+
+     label07:
+        $r9 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r1, null);
+
+        if $r9 == null goto label08;
+
+        $r10 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r9 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.Object wrap(java.lang.Object)>($r9);
+
+        interfaceinvoke $r10.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r9);
+
+     label08:
+        $i0 = $i0 + 1;
+
+        goto label03;
+
+     label09:
+        $r4 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        goto label02;
+
+     label10:
+        $r7 = virtualinvoke $r7.<java.lang.String: java.lang.String substring(int)>(3);
+
+     label11:
+        $r2 = $r7;
+
+     label12:
+        goto label06;
+
+     label13:
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean startsWith(java.lang.String)>("is");
+
+        if $z0 == 0 goto label06;
+
+        $r7 = virtualinvoke $r7.<java.lang.String: java.lang.String substring(int)>(2);
+
+     label14:
+        $r2 = $r7;
+
+     label15:
+        goto label06;
+
+     label16:
+        $c2 = virtualinvoke $r2.<java.lang.String: char charAt(int)>(1);
+
+        $z0 = staticinvoke <java.lang.Character: boolean isUpperCase(char)>($c2);
+
+        if $z0 != 0 goto label07;
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int,int)>(0, 1);
+
+        $r7 = virtualinvoke $r7.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r2.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label17:
+        $r2 = $r7;
+
+        goto label07;
+
+     label18:
+        return;
+
+     label19:
+        $r12 := @caughtexception;
+
+        goto label08;
+
+        catch java.lang.Exception from label04 to label08 with label19;
+        catch java.lang.Exception from label10 to label11 with label19;
+        catch java.lang.Exception from label12 to label14 with label19;
+        catch java.lang.Exception from label15 to label17 with label19;
+    }
+
+    public static java.lang.String quote(java.lang.String)
+    {
+        java.lang.String $r0, $r3;
+        char $c0, $c1, $c4;
+        int $i2, $i3, $i5;
+        java.lang.StringBuilder $r1, $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        if $r0 == null goto label01;
+
+        $i2 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i2 != 0 goto label02;
+
+     label01:
+        return "\"\"";
+
+     label02:
+        $c1 = 0;
+
+        $i3 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        $r1 = new java.lang.StringBuilder;
+
+        $i2 = $i3 + 4;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(int)>($i2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(34);
+
+        $i2 = 0;
+
+     label03:
+        if $i2 >= $i3 goto label17;
+
+        $c0 = $c1;
+
+        $c4 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i2);
+
+        $c1 = $c4;
+
+        lookupswitch($c4)
+        {
+            case 8: goto label11;
+            case 9: goto label12;
+            case 10: goto label13;
+            case 12: goto label14;
+            case 13: goto label15;
+            case 34: goto label08;
+            case 47: goto label09;
+            case 92: goto label08;
+            default: goto label04;
+        };
+
+     label04:
+        if $c4 < 32 goto label06;
+
+        if $c4 < 128 goto label05;
+
+        if $c4 < 160 goto label06;
+
+     label05:
+        if $c4 < 8192 goto label16;
+
+        if $c4 >= 8448 goto label16;
+
+     label06:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("000");
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($c4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u");
+
+        $i5 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        $i5 = $i5 + -4;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i5);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+     label07:
+        $i2 = $i2 + 1;
+
+        goto label03;
+
+     label08:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(92);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c4);
+
+        goto label07;
+
+     label09:
+        if $c0 != 60 goto label10;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(92);
+
+     label10:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c4);
+
+        goto label07;
+
+     label11:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\b");
+
+        goto label07;
+
+     label12:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\t");
+
+        goto label07;
+
+     label13:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\n");
+
+        goto label07;
+
+     label14:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\f");
+
+        goto label07;
+
+     label15:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\r");
+
+        goto label07;
+
+     label16:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c4);
+
+        goto label07;
+
+     label17:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(34);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r3;
+    }
+
+    public static java.lang.Object stringToValue(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        java.lang.Long $r1;
+        boolean $z0;
+        char $c0;
+        int $i1;
+        java.lang.Integer $r3;
+        java.lang.Exception $r4, $r6;
+        java.lang.Double $r5;
+        long $l2, $l3;
+        byte $b4;
+        java.lang.Boolean r7;
+        java.lang.Object r8;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label01;
+
+        return $r0;
+
+     label01:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("true");
+
+        if $z0 == 0 goto label02;
+
+        r7 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return r7;
+
+     label02:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("false");
+
+        if $z0 == 0 goto label03;
+
+        r7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return r7;
+
+     label03:
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("null");
+
+        if $z0 == 0 goto label04;
+
+        r8 = <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL>;
+
+        return r8;
+
+     label04:
+        $c0 = virtualinvoke $r0.<java.lang.String: char charAt(int)>(0);
+
+        if $c0 < 48 goto label05;
+
+        if $c0 <= 57 goto label06;
+
+     label05:
+        if $c0 == 46 goto label06;
+
+        if $c0 == 45 goto label06;
+
+        if $c0 != 43 goto label19;
+
+     label06:
+        if $c0 != 48 goto label10;
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i1 <= 2 goto label10;
+
+        $c0 = virtualinvoke $r0.<java.lang.String: char charAt(int)>(1);
+
+        if $c0 == 120 goto label07;
+
+        $c0 = virtualinvoke $r0.<java.lang.String: char charAt(int)>(1);
+
+        if $c0 != 88 goto label10;
+
+     label07:
+        $r2 = virtualinvoke $r0.<java.lang.String: java.lang.String substring(int)>(2);
+
+        $i1 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>($r2, 16);
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+     label08:
+        return $r3;
+
+     label09:
+        $r4 := @caughtexception;
+
+     label10:
+        $i1 = virtualinvoke $r0.<java.lang.String: int indexOf(int)>(46);
+
+        if $i1 > -1 goto label11;
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int indexOf(int)>(101);
+
+        if $i1 > -1 goto label11;
+
+        $i1 = virtualinvoke $r0.<java.lang.String: int indexOf(int)>(69);
+
+        if $i1 <= -1 goto label13;
+
+     label11:
+        $r5 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>($r0);
+
+     label12:
+        return $r5;
+
+     label13:
+        $r1 = new java.lang.Long;
+
+        specialinvoke $r1.<java.lang.Long: void <init>(java.lang.String)>($r0);
+
+        $l2 = virtualinvoke $r1.<java.lang.Long: long longValue()>();
+
+        $i1 = virtualinvoke $r1.<java.lang.Long: int intValue()>();
+
+     label14:
+        $l3 = (long) $i1;
+
+        $b4 = $l2 cmp $l3;
+
+     label15:
+        if $b4 != 0 goto label17;
+
+        $i1 = virtualinvoke $r1.<java.lang.Long: int intValue()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+     label16:
+        return $r3;
+
+     label17:
+        return $r1;
+
+     label18:
+        $r6 := @caughtexception;
+
+        return $r0;
+
+     label19:
+        return $r0;
+
+        catch java.lang.Exception from label07 to label08 with label09;
+        catch java.lang.Exception from label10 to label12 with label18;
+        catch java.lang.Exception from label13 to label14 with label18;
+        catch java.lang.Exception from label15 to label16 with label18;
+    }
+
+    public static void testValidity(java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        java.lang.Object $r0;
+        boolean $z0;
+        java.lang.Double $r1;
+        twitter4j.internal.org.json.JSONException $r2;
+        java.lang.Float $r3;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 == null goto label4;
+
+        $z0 = $r0 instanceof java.lang.Double;
+
+        if $z0 == 0 goto label2;
+
+        $r1 = (java.lang.Double) $r0;
+
+        $z0 = virtualinvoke $r1.<java.lang.Double: boolean isInfinite()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = (java.lang.Double) $r0;
+
+        $z0 = virtualinvoke $r1.<java.lang.Double: boolean isNaN()>();
+
+        if $z0 == 0 goto label5;
+
+     label1:
+        $r2 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r2.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>("JSON does not allow non-finite numbers.");
+
+        throw $r2;
+
+     label2:
+        $z0 = $r0 instanceof java.lang.Float;
+
+        if $z0 == 0 goto label6;
+
+        $r3 = (java.lang.Float) $r0;
+
+        $z0 = virtualinvoke $r3.<java.lang.Float: boolean isInfinite()>();
+
+        if $z0 != 0 goto label3;
+
+        $r3 = (java.lang.Float) $r0;
+
+        $z0 = virtualinvoke $r3.<java.lang.Float: boolean isNaN()>();
+
+        if $z0 == 0 goto label7;
+
+     label3:
+        $r2 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r2.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>("JSON does not allow non-finite numbers.");
+
+        throw $r2;
+
+     label4:
+        return;
+
+     label5:
+        return;
+
+     label6:
+        return;
+
+     label7:
+        return;
+    }
+
+    public static java.lang.String valueToString(java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        java.lang.Object $r0;
+        boolean $z0;
+        java.lang.Number $r1;
+        java.lang.String $r2;
+        twitter4j.internal.org.json.JSONObject $r3;
+        java.util.Map $r4;
+        twitter4j.internal.org.json.JSONArray $r5;
+        java.util.Collection $r6;
+        java.lang.Class $r7;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 == null goto label1;
+
+        $z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>(null);
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return "null";
+
+     label2:
+        $z0 = $r0 instanceof java.lang.Number;
+
+        if $z0 == 0 goto label3;
+
+        $r1 = (java.lang.Number) $r0;
+
+        $r2 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String numberToString(java.lang.Number)>($r1);
+
+        return $r2;
+
+     label3:
+        $z0 = $r0 instanceof java.lang.Boolean;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONArray;
+
+        if $z0 == 0 goto label5;
+
+     label4:
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        return $r2;
+
+     label5:
+        $z0 = $r0 instanceof java.util.Map;
+
+        if $z0 == 0 goto label6;
+
+        $r3 = new twitter4j.internal.org.json.JSONObject;
+
+        $r4 = (java.util.Map) $r0;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONObject: void <init>(java.util.Map)>($r4);
+
+        $r2 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONObject: java.lang.String toString()>();
+
+        return $r2;
+
+     label6:
+        $z0 = $r0 instanceof java.util.Collection;
+
+        if $z0 == 0 goto label7;
+
+        $r5 = new twitter4j.internal.org.json.JSONArray;
+
+        $r6 = (java.util.Collection) $r0;
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONArray: void <init>(java.util.Collection)>($r6);
+
+        $r2 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: java.lang.String toString()>();
+
+        return $r2;
+
+     label7:
+        $r7 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label8;
+
+        $r5 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONArray: void <init>(java.lang.Object)>($r0);
+
+        $r2 = virtualinvoke $r5.<twitter4j.internal.org.json.JSONArray: java.lang.String toString()>();
+
+        return $r2;
+
+     label8:
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $r2 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r2);
+
+        return $r2;
+    }
+
+    static java.lang.String valueToString(java.lang.Object, int, int) throws twitter4j.internal.org.json.JSONException
+    {
+        java.lang.Object $r0;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.Number $r1;
+        java.lang.String $r2;
+        twitter4j.internal.org.json.JSONObject $r3;
+        twitter4j.internal.org.json.JSONArray $r4;
+        java.util.Map $r5;
+        java.util.Collection $r6;
+        java.lang.Class $r7;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        if $r0 == null goto label1;
+
+        $z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>(null);
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return "null";
+
+     label2:
+        $z0 = $r0 instanceof java.lang.Number;
+
+        if $z0 == 0 goto label3;
+
+        $r1 = (java.lang.Number) $r0;
+
+        $r2 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String numberToString(java.lang.Number)>($r1);
+
+        return $r2;
+
+     label3:
+        $z0 = $r0 instanceof java.lang.Boolean;
+
+        if $z0 == 0 goto label4;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        return $r2;
+
+     label4:
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z0 == 0 goto label5;
+
+        $r3 = (twitter4j.internal.org.json.JSONObject) $r0;
+
+        $r2 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONObject: java.lang.String toString(int,int)>($i0, $i1);
+
+        return $r2;
+
+     label5:
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONArray;
+
+        if $z0 == 0 goto label6;
+
+        $r4 = (twitter4j.internal.org.json.JSONArray) $r0;
+
+        $r2 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: java.lang.String toString(int,int)>($i0, $i1);
+
+        return $r2;
+
+     label6:
+        $z0 = $r0 instanceof java.util.Map;
+
+        if $z0 == 0 goto label7;
+
+        $r3 = new twitter4j.internal.org.json.JSONObject;
+
+        $r5 = (java.util.Map) $r0;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONObject: void <init>(java.util.Map)>($r5);
+
+        $r2 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONObject: java.lang.String toString(int,int)>($i0, $i1);
+
+        return $r2;
+
+     label7:
+        $z0 = $r0 instanceof java.util.Collection;
+
+        if $z0 == 0 goto label8;
+
+        $r4 = new twitter4j.internal.org.json.JSONArray;
+
+        $r6 = (java.util.Collection) $r0;
+
+        specialinvoke $r4.<twitter4j.internal.org.json.JSONArray: void <init>(java.util.Collection)>($r6);
+
+        $r2 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: java.lang.String toString(int,int)>($i0, $i1);
+
+        return $r2;
+
+     label8:
+        $r7 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label9;
+
+        $r4 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r4.<twitter4j.internal.org.json.JSONArray: void <init>(java.lang.Object)>($r0);
+
+        $r2 = virtualinvoke $r4.<twitter4j.internal.org.json.JSONArray: java.lang.String toString(int,int)>($i0, $i1);
+
+        return $r2;
+
+     label9:
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $r2 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r2);
+
+        return $r2;
+    }
+
+    public static java.lang.Object wrap(java.lang.Object)
+    {
+        java.lang.Object $r0, $r3;
+        java.lang.Exception $r1;
+        java.lang.String $r2;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONArray $r4;
+        java.util.Collection $r5;
+        java.lang.Class $r6;
+        twitter4j.internal.org.json.JSONObject $r7;
+        java.util.Map $r8;
+        java.lang.Package $r9;
+        java.lang.ClassLoader $r10;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        if $r0 != null goto label01;
+
+        $r3 = <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL>;
+
+        return $r3;
+
+     label01:
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z0 != 0 goto label22;
+
+        $z0 = $r0 instanceof twitter4j.internal.org.json.JSONArray;
+
+        if $z0 != 0 goto label23;
+
+        $r3 = <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL>;
+
+     label02:
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>($r0);
+
+     label03:
+        if $z0 != 0 goto label24;
+
+        $z0 = $r0 instanceof java.lang.Byte;
+
+        if $z0 != 0 goto label25;
+
+        $z0 = $r0 instanceof java.lang.Character;
+
+        if $z0 != 0 goto label26;
+
+        $z0 = $r0 instanceof java.lang.Short;
+
+        if $z0 != 0 goto label27;
+
+        $z0 = $r0 instanceof java.lang.Integer;
+
+        if $z0 != 0 goto label28;
+
+        $z0 = $r0 instanceof java.lang.Long;
+
+        if $z0 != 0 goto label29;
+
+        $z0 = $r0 instanceof java.lang.Boolean;
+
+        if $z0 != 0 goto label30;
+
+        $z0 = $r0 instanceof java.lang.Float;
+
+        if $z0 != 0 goto label31;
+
+        $z0 = $r0 instanceof java.lang.Double;
+
+        if $z0 != 0 goto label32;
+
+        $z0 = $r0 instanceof java.lang.String;
+
+        if $z0 != 0 goto label33;
+
+        $z0 = $r0 instanceof java.util.Collection;
+
+     label04:
+        if $z0 == 0 goto label06;
+
+        $r4 = new twitter4j.internal.org.json.JSONArray;
+
+        $r5 = (java.util.Collection) $r0;
+
+        specialinvoke $r4.<twitter4j.internal.org.json.JSONArray: void <init>(java.util.Collection)>($r5);
+
+     label05:
+        return $r4;
+
+     label06:
+        $r6 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isArray()>();
+
+     label07:
+        if $z0 == 0 goto label10;
+
+     label08:
+        $r4 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r4.<twitter4j.internal.org.json.JSONArray: void <init>(java.lang.Object)>($r0);
+
+     label09:
+        return $r4;
+
+     label10:
+        $z0 = $r0 instanceof java.util.Map;
+
+     label11:
+        if $z0 == 0 goto label13;
+
+        $r7 = new twitter4j.internal.org.json.JSONObject;
+
+        $r8 = (java.util.Map) $r0;
+
+        specialinvoke $r7.<twitter4j.internal.org.json.JSONObject: void <init>(java.util.Map)>($r8);
+
+     label12:
+        return $r7;
+
+     label13:
+        $r6 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r9 = virtualinvoke $r6.<java.lang.Class: java.lang.Package getPackage()>();
+
+        if $r9 == null goto label17;
+
+        $r2 = virtualinvoke $r9.<java.lang.Package: java.lang.String getName()>();
+
+     label14:
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean startsWith(java.lang.String)>("java.");
+
+        if $z0 != 0 goto label15;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean startsWith(java.lang.String)>("javax.");
+
+        if $z0 != 0 goto label15;
+
+        $r6 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r10 = virtualinvoke $r6.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        if $r10 != null goto label19;
+
+     label15:
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+     label16:
+        return $r2;
+
+     label17:
+        $r2 = "";
+
+     label18:
+        goto label14;
+
+     label19:
+        $r7 = new twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r7.<twitter4j.internal.org.json.JSONObject: void <init>(java.lang.Object)>($r0);
+
+     label20:
+        return $r7;
+
+     label21:
+        $r1 := @caughtexception;
+
+        return null;
+
+     label22:
+        return $r0;
+
+     label23:
+        return $r0;
+
+     label24:
+        return $r0;
+
+     label25:
+        return $r0;
+
+     label26:
+        return $r0;
+
+     label27:
+        return $r0;
+
+     label28:
+        return $r0;
+
+     label29:
+        return $r0;
+
+     label30:
+        return $r0;
+
+     label31:
+        return $r0;
+
+     label32:
+        return $r0;
+
+     label33:
+        return $r0;
+
+        catch java.lang.Exception from label02 to label03 with label21;
+        catch java.lang.Exception from label04 to label05 with label21;
+        catch java.lang.Exception from label06 to label07 with label21;
+        catch java.lang.Exception from label08 to label09 with label21;
+        catch java.lang.Exception from label11 to label12 with label21;
+        catch java.lang.Exception from label13 to label16 with label21;
+        catch java.lang.Exception from label18 to label20 with label21;
+    }
+
+    public twitter4j.internal.org.json.JSONObject append(java.lang.String, java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r5;
+        twitter4j.internal.org.json.JSONArray $r3;
+        java.lang.StringBuilder $r4;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONException $r6;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        staticinvoke <twitter4j.internal.org.json.JSONObject: void testValidity(java.lang.Object)>($r2);
+
+        $r5 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r1);
+
+        if $r5 != null goto label1;
+
+        $r3 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONArray: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONArray put(java.lang.Object)>($r2);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r3);
+
+        return $r0;
+
+     label1:
+        $z0 = $r5 instanceof twitter4j.internal.org.json.JSONArray;
+
+        if $z0 == 0 goto label2;
+
+        $r3 = (twitter4j.internal.org.json.JSONArray) $r5;
+
+        $r3 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONArray put(java.lang.Object)>($r2);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r3);
+
+        return $r0;
+
+     label2:
+        $r6 = new twitter4j.internal.org.json.JSONException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not a JSONArray.");
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r1);
+
+        throw $r6;
+    }
+
+    public java.lang.Object get(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        twitter4j.internal.org.json.JSONException $r3;
+        java.lang.Object $r4;
+        java.lang.StringBuilder $r5;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        $r3 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>("Null key.");
+
+        throw $r3;
+
+     label1:
+        $r4 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r1);
+
+        if $r4 != null goto label2;
+
+        $r3 = new twitter4j.internal.org.json.JSONException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r1 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] not found.");
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r1);
+
+        throw $r3;
+
+     label2:
+        return $r4;
+    }
+
+    public boolean getBoolean(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1, $r4;
+        java.lang.Boolean $r2;
+        java.lang.Object $r3;
+        boolean $z0;
+        twitter4j.internal.org.json.JSONException $r5;
+        java.lang.StringBuilder $r6;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $r2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label1;
+
+        $z0 = $r3 instanceof java.lang.String;
+
+        if $z0 == 0 goto label2;
+
+        $r4 = (java.lang.String) $r3;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("false");
+
+        if $z0 == 0 goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        $r2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $z0 = virtualinvoke $r3.<java.lang.Object: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label3;
+
+        $z0 = $r3 instanceof java.lang.String;
+
+        if $z0 == 0 goto label4;
+
+        $r4 = (java.lang.String) $r3;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("true");
+
+        if $z0 == 0 goto label4;
+
+     label3:
+        return 1;
+
+     label4:
+        $r5 = new twitter4j.internal.org.json.JSONException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r4 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not a Boolean.");
+
+        $r4 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r4);
+
+        throw $r5;
+    }
+
+    public int getInt(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1, $r6;
+        java.lang.Exception $r2;
+        boolean $z0;
+        java.lang.StringBuilder $r3;
+        java.lang.Object $r4;
+        java.lang.Number $r5;
+        int $i0;
+        twitter4j.internal.org.json.JSONException $r7;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r4 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $z0 = $r4 instanceof java.lang.Number;
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $r5 = (java.lang.Number) $r4;
+
+        $i0 = virtualinvoke $r5.<java.lang.Number: int intValue()>();
+
+     label2:
+        return $i0;
+
+     label3:
+        $r6 = (java.lang.String) $r4;
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+     label4:
+        return $i0;
+
+     label5:
+        $r2 := @caughtexception;
+
+        $r7 = new twitter4j.internal.org.json.JSONException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r6 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not an int.");
+
+        $r6 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r6);
+
+        throw $r7;
+
+        catch java.lang.Exception from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r3;
+        twitter4j.internal.org.json.JSONArray $r4;
+        twitter4j.internal.org.json.JSONException $r5;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $z0 = $r3 instanceof twitter4j.internal.org.json.JSONArray;
+
+        if $z0 == 0 goto label1;
+
+        $r4 = (twitter4j.internal.org.json.JSONArray) $r3;
+
+        return $r4;
+
+     label1:
+        $r5 = new twitter4j.internal.org.json.JSONException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r1 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not a JSONArray.");
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r1);
+
+        throw $r5;
+    }
+
+    public twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r3;
+        twitter4j.internal.org.json.JSONException $r4;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $z0 = $r3 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z0 == 0 goto label1;
+
+        $r0 = (twitter4j.internal.org.json.JSONObject) $r3;
+
+        return $r0;
+
+     label1:
+        $r4 = new twitter4j.internal.org.json.JSONException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r1 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not a JSONObject.");
+
+        $r1 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r1);
+
+        throw $r4;
+    }
+
+    public long getLong(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1, $r6;
+        java.lang.Exception $r2;
+        boolean $z0;
+        java.lang.StringBuilder $r3;
+        java.lang.Object $r4;
+        java.lang.Number $r5;
+        long $l0;
+        twitter4j.internal.org.json.JSONException $r7;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r4 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $z0 = $r4 instanceof java.lang.Number;
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $r5 = (java.lang.Number) $r4;
+
+        $l0 = virtualinvoke $r5.<java.lang.Number: long longValue()>();
+
+     label2:
+        return $l0;
+
+     label3:
+        $r6 = (java.lang.String) $r4;
+
+        $l0 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r6);
+
+     label4:
+        return $l0;
+
+     label5:
+        $r2 := @caughtexception;
+
+        $r7 = new twitter4j.internal.org.json.JSONException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JSONObject[");
+
+        $r6 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] is not a long.");
+
+        $r6 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r6);
+
+        throw $r7;
+
+        catch java.lang.Exception from label1 to label2 with label5;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public java.lang.String getString(java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r3;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object get(java.lang.String)>($r1);
+
+        $r2 = <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL>;
+
+        if $r3 != $r2 goto label1;
+
+        return null;
+
+     label1:
+        $r1 = virtualinvoke $r3.<java.lang.Object: java.lang.String toString()>();
+
+        return $r1;
+    }
+
+    public boolean has(java.lang.String)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.util.Map $r2;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $z0 = interfaceinvoke $r2.<java.util.Map: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isNull(java.lang.String)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r3;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = <twitter4j.internal.org.json.JSONObject: java.lang.Object NULL>;
+
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r1);
+
+        $z0 = virtualinvoke $r2.<java.lang.Object: boolean equals(java.lang.Object)>($r3);
+
+        return $z0;
+    }
+
+    public java.util.Iterator keys()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.util.Map $r1;
+        java.util.Set $r2;
+        java.util.Iterator $r3;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r2 = interfaceinvoke $r1.<java.util.Map: java.util.Set keySet()>();
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+        return $r3;
+    }
+
+    public int length()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.util.Map $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $i0 = interfaceinvoke $r1.<java.util.Map: int size()>();
+
+        return $i0;
+    }
+
+    public twitter4j.internal.org.json.JSONArray names()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        twitter4j.internal.org.json.JSONArray $r1;
+        java.util.Iterator $r2;
+        boolean $z0;
+        java.lang.Object $r3;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r1.<twitter4j.internal.org.json.JSONArray: void <init>()>();
+
+        $r2 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.util.Iterator keys()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke $r1.<twitter4j.internal.org.json.JSONArray: twitter4j.internal.org.json.JSONArray put(java.lang.Object)>($r3);
+
+        goto label1;
+
+     label2:
+        $i0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONArray: int length()>();
+
+        if $i0 != 0 goto label3;
+
+        return null;
+
+     label3:
+        return $r1;
+    }
+
+    public java.lang.Object opt(java.lang.String)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        java.util.Map $r3;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 != null goto label1;
+
+        return null;
+
+     label1:
+        $r3 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r2 = interfaceinvoke $r3.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        return $r2;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, double) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        double $d0;
+        java.lang.Double $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $d0 := @parameter1: double;
+
+        $r2 = new java.lang.Double;
+
+        specialinvoke $r2.<java.lang.Double: void <init>(double)>($d0);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, int) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        int $i0;
+        java.lang.Integer $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 = new java.lang.Integer;
+
+        specialinvoke $r2.<java.lang.Integer: void <init>(int)>($i0);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, long) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        long $l0;
+        java.lang.Long $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $l0 := @parameter1: long;
+
+        $r2 = new java.lang.Long;
+
+        specialinvoke $r2.<java.lang.Long: void <init>(long)>($l0);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        twitter4j.internal.org.json.JSONException $r3;
+        java.util.Map $r4;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r1 != null goto label1;
+
+        $r3 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>("Null key.");
+
+        throw $r3;
+
+     label1:
+        if $r2 == null goto label2;
+
+        staticinvoke <twitter4j.internal.org.json.JSONObject: void testValidity(java.lang.Object)>($r2);
+
+        $r4 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+
+     label2:
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object remove(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, java.util.Collection) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.util.Collection $r2;
+        twitter4j.internal.org.json.JSONArray $r3;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.util.Collection;
+
+        $r3 = new twitter4j.internal.org.json.JSONArray;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONArray: void <init>(java.util.Collection)>($r2);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r3);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, java.util.Map) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0, $r3;
+        java.lang.String $r1;
+        java.util.Map $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.util.Map;
+
+        $r3 = new twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r3.<twitter4j.internal.org.json.JSONObject: void <init>(java.util.Map)>($r2);
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r3);
+
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject put(java.lang.String, boolean) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        boolean $z0;
+        java.lang.Boolean $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+     label1:
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+
+     label2:
+        $r2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        goto label1;
+    }
+
+    public twitter4j.internal.org.json.JSONObject putOnce(java.lang.String, java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r4;
+        java.lang.StringBuilder $r3;
+        twitter4j.internal.org.json.JSONException $r5;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r1 == null goto label2;
+
+        if $r2 == null goto label3;
+
+        $r4 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.Object opt(java.lang.String)>($r1);
+
+        if $r4 == null goto label1;
+
+        $r5 = new twitter4j.internal.org.json.JSONException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Duplicate key \"");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.String)>($r1);
+
+        throw $r5;
+
+     label1:
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+
+     label2:
+        return $r0;
+
+     label3:
+        return $r0;
+    }
+
+    public twitter4j.internal.org.json.JSONObject putOpt(java.lang.String, java.lang.Object) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        if $r1 == null goto label1;
+
+        if $r2 == null goto label2;
+
+        virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject put(java.lang.String,java.lang.Object)>($r1, $r2);
+
+        return $r0;
+
+     label1:
+        return $r0;
+
+     label2:
+        return $r0;
+    }
+
+    public java.lang.Object remove(java.lang.String)
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.String $r1;
+        java.util.Map $r2;
+        java.lang.Object $r3;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Map: java.lang.Object remove(java.lang.Object)>($r1);
+
+        return $r3;
+    }
+
+    public java.util.Iterator sortedKeys()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.util.TreeSet $r1;
+        java.util.Map $r2;
+        java.util.Set $r3;
+        java.util.Iterator $r4;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 = new java.util.TreeSet;
+
+        $r2 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Map: java.util.Set keySet()>();
+
+        specialinvoke $r1.<java.util.TreeSet: void <init>(java.util.Collection)>($r3);
+
+        $r4 = virtualinvoke $r1.<java.util.TreeSet: java.util.Iterator iterator()>();
+
+        return $r4;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        java.lang.Exception $r1;
+        java.lang.StringBuilder $r2;
+        java.util.Iterator $r3;
+        boolean $z0;
+        int $i0;
+        java.lang.Object $r4;
+        java.lang.String $r5;
+        java.util.Map $r6;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+     label1:
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.util.Iterator keys()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("{");
+
+     label2:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $i0 = virtualinvoke $r2.<java.lang.StringBuilder: int length()>();
+
+        if $i0 <= 1 goto label3;
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+     label3:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Object: java.lang.String toString()>();
+
+        $r5 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r5);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(58);
+
+        $r6 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r4 = interfaceinvoke $r6.<java.util.Map: java.lang.Object get(java.lang.Object)>($r4);
+
+        $r5 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String valueToString(java.lang.Object)>($r4);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        goto label2;
+
+     label4:
+        $r1 := @caughtexception;
+
+        return null;
+
+     label5:
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label6:
+        return $r5;
+
+        catch java.lang.Exception from label1 to label4 with label4;
+        catch java.lang.Exception from label5 to label6 with label4;
+    }
+
+    public java.lang.String toString(int) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        int $i0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $i0 := @parameter0: int;
+
+        $r1 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.lang.String toString(int,int)>($i0, 0);
+
+        return $r1;
+    }
+
+    java.lang.String toString(int, int) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0;
+        int $i0, $i1, $i2, $i3;
+        java.lang.StringBuilder $r1;
+        java.util.Iterator $r2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        java.util.Map $r5;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: int length()>();
+
+        if $i2 != 0 goto label1;
+
+        return "{}";
+
+     label1:
+        $r2 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.util.Iterator sortedKeys()>();
+
+        $i3 = $i1 + $i0;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("{");
+
+        if $i2 != 1 goto label4;
+
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.Object: java.lang.String toString()>();
+
+        $r4 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r5 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r3 = interfaceinvoke $r5.<java.util.Map: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r4 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String valueToString(java.lang.Object,int,int)>($r3, $i0, $i1);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+     label2:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+
+     label3:
+        $r4 = virtualinvoke $r3.<java.lang.Object: java.lang.String toString()>();
+
+        $r4 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r5 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r3 = interfaceinvoke $r5.<java.util.Map: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r4 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String valueToString(java.lang.Object,int,int)>($r3, $i0, $i3);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+     label4:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label8;
+
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $i2 = virtualinvoke $r1.<java.lang.StringBuilder: int length()>();
+
+        if $i2 <= 1 goto label7;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",\n");
+
+     label5:
+        $i2 = 0;
+
+     label6:
+        if $i2 >= $i3 goto label3;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+        $i2 = $i2 + 1;
+
+        goto label6;
+
+     label7:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(10);
+
+        goto label5;
+
+     label8:
+        $i3 = virtualinvoke $r1.<java.lang.StringBuilder: int length()>();
+
+        if $i3 <= 1 goto label2;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(10);
+
+        $i3 = 0;
+
+     label9:
+        if $i3 >= $i1 goto label2;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+        $i3 = $i3 + 1;
+
+        goto label9;
+    }
+
+    public java.io.Writer write(java.io.Writer) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.org.json.JSONObject $r0, $r7;
+        java.io.Writer $r1;
+        boolean $z0, $z1;
+        java.io.IOException $r2;
+        java.util.Iterator $r3;
+        java.lang.Object $r4;
+        java.lang.String $r5;
+        java.util.Map $r6;
+        twitter4j.internal.org.json.JSONArray $r8;
+        twitter4j.internal.org.json.JSONException $r9;
+
+        $r0 := @this: twitter4j.internal.org.json.JSONObject;
+
+        $r1 := @parameter0: java.io.Writer;
+
+        $z0 = 0;
+
+     label01:
+        $r3 = virtualinvoke $r0.<twitter4j.internal.org.json.JSONObject: java.util.Iterator keys()>();
+
+        virtualinvoke $r1.<java.io.Writer: void write(int)>(123);
+
+     label02:
+        $z1 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label14;
+
+        if $z0 == 0 goto label03;
+
+        virtualinvoke $r1.<java.io.Writer: void write(int)>(44);
+
+     label03:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = virtualinvoke $r4.<java.lang.Object: java.lang.String toString()>();
+
+        $r5 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String quote(java.lang.String)>($r5);
+
+        virtualinvoke $r1.<java.io.Writer: void write(java.lang.String)>($r5);
+
+        virtualinvoke $r1.<java.io.Writer: void write(int)>(58);
+
+        $r6 = $r0.<twitter4j.internal.org.json.JSONObject: java.util.Map map>;
+
+        $r4 = interfaceinvoke $r6.<java.util.Map: java.lang.Object get(java.lang.Object)>($r4);
+
+     label04:
+        $z1 = $r4 instanceof twitter4j.internal.org.json.JSONObject;
+
+        if $z1 == 0 goto label08;
+
+     label05:
+        $r7 = (twitter4j.internal.org.json.JSONObject) $r4;
+
+        virtualinvoke $r7.<twitter4j.internal.org.json.JSONObject: java.io.Writer write(java.io.Writer)>($r1);
+
+     label06:
+        $z0 = 1;
+
+     label07:
+        goto label02;
+
+     label08:
+        $z1 = $r4 instanceof twitter4j.internal.org.json.JSONArray;
+
+     label09:
+        if $z1 == 0 goto label12;
+
+        $r8 = (twitter4j.internal.org.json.JSONArray) $r4;
+
+        virtualinvoke $r8.<twitter4j.internal.org.json.JSONArray: java.io.Writer write(java.io.Writer)>($r1);
+
+     label10:
+        goto label06;
+
+     label11:
+        $r2 := @caughtexception;
+
+        $r9 = new twitter4j.internal.org.json.JSONException;
+
+        specialinvoke $r9.<twitter4j.internal.org.json.JSONException: void <init>(java.lang.Throwable)>($r2);
+
+        throw $r9;
+
+     label12:
+        $r5 = staticinvoke <twitter4j.internal.org.json.JSONObject: java.lang.String valueToString(java.lang.Object)>($r4);
+
+        virtualinvoke $r1.<java.io.Writer: void write(java.lang.String)>($r5);
+
+     label13:
+        goto label06;
+
+     label14:
+        virtualinvoke $r1.<java.io.Writer: void write(int)>(125);
+
+     label15:
+        return $r1;
+
+        catch java.io.IOException from label01 to label04 with label11;
+        catch java.io.IOException from label05 to label06 with label11;
+        catch java.io.IOException from label07 to label08 with label11;
+        catch java.io.IOException from label09 to label10 with label11;
+        catch java.io.IOException from label12 to label13 with label11;
+        catch java.io.IOException from label14 to label15 with label11;
+    }
+}

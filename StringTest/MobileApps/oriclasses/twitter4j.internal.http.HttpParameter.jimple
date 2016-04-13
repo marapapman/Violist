@@ -1,0 +1,1029 @@
+public final class twitter4j.internal.http.HttpParameter extends java.lang.Object implements java.lang.Comparable, java.io.Serializable
+{
+    private static final java.lang.String GIF;
+    private static final java.lang.String JPEG;
+    private static final java.lang.String OCTET;
+    private static final java.lang.String PNG;
+    private static final long serialVersionUID;
+    private java.io.File file;
+    private java.io.InputStream fileBody;
+    private java.lang.String name;
+    private java.lang.String value;
+
+    public void <init>(java.lang.String, double)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        double $d0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $d0 := @parameter1: double;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>($d0);
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = $r1;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, int)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = $r1;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, long)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        long $l0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $l0 := @parameter1: long;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>($l0);
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = $r1;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.io.File)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        java.io.File $r2;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.io.File;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = $r2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = $r2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String, java.io.InputStream)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1, $r2;
+        java.io.InputStream $r3;
+        java.io.File $r4;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.io.InputStream;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r4 = new java.io.File;
+
+        specialinvoke $r4.<java.io.File: void <init>(java.lang.String)>($r2);
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = $r4;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = $r3;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, boolean)
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.File file> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody> = null;
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name> = $r1;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(boolean)>($z0);
+
+        $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value> = $r1;
+
+        return;
+    }
+
+    static boolean containsFile(java.util.List)
+    {
+        java.util.List $r0;
+        java.util.Iterator $r1;
+        boolean $z0;
+        java.lang.Object $r2;
+        twitter4j.internal.http.HttpParameter $r3;
+
+        $r0 := @parameter0: java.util.List;
+
+        $r1 = interfaceinvoke $r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = interfaceinvoke $r1.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (twitter4j.internal.http.HttpParameter) $r2;
+
+        $z0 = virtualinvoke $r3.<twitter4j.internal.http.HttpParameter: boolean isFile()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public static boolean containsFile(twitter4j.internal.http.HttpParameter[])
+    {
+        twitter4j.internal.http.HttpParameter[] $r0;
+        boolean $z0, $z1;
+        int $i0, $i1;
+        twitter4j.internal.http.HttpParameter $r1;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpParameter[];
+
+        $z0 = 0;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $i1 = lengthof $r0;
+
+        $i0 = 0;
+
+     label2:
+        if $i0 >= $i1 goto label3;
+
+        $r1 = $r0[$i0];
+
+        $z1 = virtualinvoke $r1.<twitter4j.internal.http.HttpParameter: boolean isFile()>();
+
+        if $z1 == 0 goto label4;
+
+        $z0 = 1;
+
+     label3:
+        return $z0;
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label2;
+    }
+
+    public static java.lang.String encode(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        java.lang.StringBuilder $r1;
+        int $i0, $i1, $i3;
+        char $c2, $c4;
+        java.io.UnsupportedEncodingException $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = null;
+
+     label01:
+        $r0 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String,java.lang.String)>($r0, "UTF-8");
+
+     label02:
+        $r2 = $r0;
+
+     label03:
+        $r1 = new java.lang.StringBuilder;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(int)>($i0);
+
+        $i0 = 0;
+
+     label04:
+        $i1 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i0 >= $i1 goto label09;
+
+        $c2 = virtualinvoke $r2.<java.lang.String: char charAt(int)>($i0);
+
+        if $c2 != 42 goto label06;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%2A");
+
+     label05:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label06:
+        if $c2 != 43 goto label07;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("%20");
+
+        goto label05;
+
+     label07:
+        if $c2 != 37 goto label08;
+
+        $i1 = $i0 + 1;
+
+        $i3 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        if $i1 >= $i3 goto label08;
+
+        $i3 = $i0 + 1;
+
+        $c4 = virtualinvoke $r2.<java.lang.String: char charAt(int)>($i3);
+
+        if $c4 != 55 goto label08;
+
+        $i3 = $i0 + 2;
+
+        $c4 = virtualinvoke $r2.<java.lang.String: char charAt(int)>($i3);
+
+        if $c4 != 69 goto label08;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(126);
+
+        $i0 = $i0 + 2;
+
+        goto label05;
+
+     label08:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c2);
+
+        goto label05;
+
+     label09:
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label10:
+        $r3 := @caughtexception;
+
+        goto label03;
+
+        catch java.io.UnsupportedEncodingException from label01 to label02 with label10;
+    }
+
+    public static java.lang.String encodeParameters(twitter4j.internal.http.HttpParameter[])
+    {
+        twitter4j.internal.http.HttpParameter[] $r0;
+        java.lang.StringBuilder $r1, $r5;
+        int $i0, $i1;
+        boolean $z0;
+        twitter4j.internal.http.HttpParameter $r2;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.String $r4;
+
+        $r0 := @parameter0: twitter4j.internal.http.HttpParameter[];
+
+        if $r0 != null goto label1;
+
+        return "";
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $i0 = 0;
+
+     label2:
+        $i1 = lengthof $r0;
+
+        if $i0 >= $i1 goto label5;
+
+        $r2 = $r0[$i0];
+
+        $z0 = virtualinvoke $r2.<twitter4j.internal.http.HttpParameter: boolean isFile()>();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("parameter [");
+
+        $r2 = $r0[$i0];
+
+        $r4 = $r2.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]should be text");
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r4);
+
+        throw $r3;
+
+     label3:
+        if $i0 == 0 goto label4;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&");
+
+     label4:
+        $r2 = $r0[$i0];
+
+        $r4 = $r2.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $r4 = staticinvoke <twitter4j.internal.http.HttpParameter: java.lang.String encode(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $r2 = $r0[$i0];
+
+        $r4 = $r2.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $r4 = staticinvoke <twitter4j.internal.http.HttpParameter: java.lang.String encode(java.lang.String)>($r4);
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label5:
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+
+    public static twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String, int)
+    {
+        java.lang.String $r0, $r1;
+        int $i0;
+        twitter4j.internal.http.HttpParameter[] $r2;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        $r2 = staticinvoke <twitter4j.internal.http.HttpParameter: twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String,java.lang.String)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public static twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String, int, java.lang.String, int)
+    {
+        java.lang.String $r0, $r1, $r2, $r3;
+        int $i0, $i1;
+        twitter4j.internal.http.HttpParameter[] $r4;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 := @parameter2: java.lang.String;
+
+        $i1 := @parameter3: int;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i1);
+
+        $r4 = staticinvoke <twitter4j.internal.http.HttpParameter: twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r0, $r2, $r1, $r3);
+
+        return $r4;
+    }
+
+    public static twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        twitter4j.internal.http.HttpParameter $r2;
+        twitter4j.internal.http.HttpParameter[] $r3;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r3 = newarray (twitter4j.internal.http.HttpParameter)[1];
+
+        $r2 = new twitter4j.internal.http.HttpParameter;
+
+        specialinvoke $r2.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>($r0, $r1);
+
+        $r3[0] = $r2;
+
+        return $r3;
+    }
+
+    public static twitter4j.internal.http.HttpParameter[] getParameterArray(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r2, $r3;
+        twitter4j.internal.http.HttpParameter $r4;
+        twitter4j.internal.http.HttpParameter[] $r5;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String;
+
+        $r5 = newarray (twitter4j.internal.http.HttpParameter)[2];
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>($r0, $r1);
+
+        $r5[0] = $r4;
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>($r2, $r3);
+
+        $r5[1] = $r4;
+
+        return $r5;
+    }
+
+    public int compareTo(java.lang.Object)
+    {
+        twitter4j.internal.http.HttpParameter $r0, $r4;
+        java.lang.Object $r1;
+        java.lang.String $r2, $r3;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r4 = (twitter4j.internal.http.HttpParameter) $r1;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $r3 = $r4.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int compareTo(java.lang.String)>($r3);
+
+        if $i0 != 0 goto label1;
+
+        $r3 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $r2 = $r4.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int compareTo(java.lang.String)>($r2);
+
+        return $i0;
+
+     label1:
+        return $i0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.http.HttpParameter $r0, $r3;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.io.File $r2, $r4;
+        java.io.InputStream $r5, $r6;
+        java.lang.String $r7, $r8;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        $z0 = $r1 instanceof twitter4j.internal.http.HttpParameter;
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $r3 = (twitter4j.internal.http.HttpParameter) $r1;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        if $r2 == null goto label04;
+
+        $r4 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        $r2 = $r3.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        $z0 = virtualinvoke $r4.<java.io.File: boolean equals(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label05;
+
+     label03:
+        return 0;
+
+     label04:
+        $r4 = $r3.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        if $r4 != null goto label03;
+
+     label05:
+        $r5 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        if $r5 == null goto label07;
+
+        $r5 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        $r6 = $r3.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        $z0 = virtualinvoke $r5.<java.lang.Object: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label08;
+
+     label06:
+        return 0;
+
+     label07:
+        $r6 = $r3.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        if $r6 != null goto label06;
+
+     label08:
+        $r7 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $r8 = $r3.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>($r8);
+
+        if $z0 != 0 goto label09;
+
+        return 0;
+
+     label09:
+        $r8 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        if $r8 == null goto label11;
+
+        $r8 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $r7 = $r3.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $z0 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>($r7);
+
+        if $z0 != 0 goto label12;
+
+     label10:
+        return 0;
+
+     label11:
+        $r8 = $r3.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        if $r8 == null goto label13;
+
+        goto label10;
+
+     label12:
+        return 1;
+
+     label13:
+        return 1;
+    }
+
+    public java.lang.String getContentType()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        boolean $z0;
+        java.lang.IllegalStateException $r1;
+        java.io.File $r2;
+        java.lang.String $r3, $r4;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $z0 = virtualinvoke $r0.<twitter4j.internal.http.HttpParameter: boolean isFile()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<java.lang.IllegalStateException: void <init>(java.lang.String)>("not a file");
+
+        throw $r1;
+
+     label1:
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        $r3 = virtualinvoke $r2.<java.io.File: java.lang.String getName()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int lastIndexOf(java.lang.String)>(".");
+
+        if -1 != $i0 goto label2;
+
+        return "application/octet-stream";
+
+     label2:
+        $i0 = virtualinvoke $r3.<java.lang.String: int lastIndexOf(java.lang.String)>(".");
+
+        $i0 = $i0 + 1;
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String substring(int)>($i0);
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 != 3 goto label6;
+
+        $r4 = "gif";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label3;
+
+        return "image/gif";
+
+     label3:
+        $r4 = "png";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label4;
+
+        return "image/png";
+
+     label4:
+        $r4 = "jpg";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label5;
+
+        return "image/jpeg";
+
+     label5:
+        return "application/octet-stream";
+
+     label6:
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 != 4 goto label8;
+
+        $r4 = "jpeg";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label7;
+
+        return "image/jpeg";
+
+     label7:
+        return "application/octet-stream";
+
+     label8:
+        return "application/octet-stream";
+    }
+
+    public java.io.File getFile()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.io.File r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        r1 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        return r1;
+    }
+
+    public java.io.InputStream getFileBody()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.io.InputStream r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        r1 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        return r1;
+    }
+
+    public java.lang.String getName()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        r1 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        return r1;
+    }
+
+    public java.lang.String getValue()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        r1 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        return r1;
+    }
+
+    public boolean hasFileBody()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.io.InputStream $r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.String $r1;
+        int $i0, $i1, $i2;
+        java.io.File $r2;
+        java.io.InputStream $r3;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $i0 = 0;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+        $i1 = $i1 * 31;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        if $r1 == null goto label4;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label1:
+        $i2 = $i1 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        if $r2 == null goto label5;
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        $i1 = virtualinvoke $r2.<java.io.File: int hashCode()>();
+
+     label2:
+        $i2 = $i2 + $i1;
+
+        $i2 = $i2 * 31;
+
+        $r3 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        if $r3 == null goto label3;
+
+        $r3 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        $i0 = virtualinvoke $r3.<java.lang.Object: int hashCode()>();
+
+     label3:
+        $i2 = $i2 + $i0;
+
+        return $i2;
+
+     label4:
+        $i2 = 0;
+
+        goto label1;
+
+     label5:
+        $i1 = 0;
+
+        goto label2;
+    }
+
+    public boolean isFile()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.io.File $r1;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        if $r1 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.http.HttpParameter $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        java.io.File $r3;
+        java.io.InputStream $r4;
+
+        $r0 := @this: twitter4j.internal.http.HttpParameter;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("PostParameter{name=\'");
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", value=\'");
+
+        $r2 = $r0.<twitter4j.internal.http.HttpParameter: java.lang.String value>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", file=");
+
+        $r3 = $r0.<twitter4j.internal.http.HttpParameter: java.io.File file>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", fileBody=");
+
+        $r4 = $r0.<twitter4j.internal.http.HttpParameter: java.io.InputStream fileBody>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.http.HttpParameter: long serialVersionUID> = -8708108746980739212L;
+
+        <twitter4j.internal.http.HttpParameter: java.lang.String PNG> = "image/png";
+
+        <twitter4j.internal.http.HttpParameter: java.lang.String OCTET> = "application/octet-stream";
+
+        <twitter4j.internal.http.HttpParameter: java.lang.String JPEG> = "image/jpeg";
+
+        <twitter4j.internal.http.HttpParameter: java.lang.String GIF> = "image/gif";
+
+        return;
+    }
+}

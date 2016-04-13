@@ -1,0 +1,212 @@
+public class twitter4j.GeoLocation extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    protected double latitude;
+    protected double longitude;
+
+    void <init>()
+    {
+        twitter4j.GeoLocation $r0;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(double, double)
+    {
+        twitter4j.GeoLocation $r0;
+        double $d0, $d1;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        $d0 := @parameter0: double;
+
+        $d1 := @parameter1: double;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.GeoLocation: double latitude> = $d0;
+
+        $r0.<twitter4j.GeoLocation: double longitude> = $d1;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.GeoLocation $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        double $d0, $d1;
+        int $i0;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.GeoLocation;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (twitter4j.GeoLocation) $r1;
+
+        $d1 = virtualinvoke $r2.<twitter4j.GeoLocation: double getLatitude()>();
+
+        $d0 = $r0.<twitter4j.GeoLocation: double latitude>;
+
+        $i0 = staticinvoke <java.lang.Double: int compare(double,double)>($d1, $d0);
+
+        if $i0 == 0 goto label3;
+
+        return 0;
+
+     label3:
+        $d1 = virtualinvoke $r2.<twitter4j.GeoLocation: double getLongitude()>();
+
+        $d0 = $r0.<twitter4j.GeoLocation: double longitude>;
+
+        $i0 = staticinvoke <java.lang.Double: int compare(double,double)>($d1, $d0);
+
+        if $i0 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public double getLatitude()
+    {
+        twitter4j.GeoLocation $r0;
+        double d0;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        d0 = $r0.<twitter4j.GeoLocation: double latitude>;
+
+        return d0;
+    }
+
+    public double getLongitude()
+    {
+        twitter4j.GeoLocation $r0;
+        double d0;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        d0 = $r0.<twitter4j.GeoLocation: double longitude>;
+
+        return d0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.GeoLocation $r0;
+        int $i0, $i4;
+        long $l1, $l3;
+        double $d0;
+        byte $b2;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        $d0 = $r0.<twitter4j.GeoLocation: double latitude>;
+
+        $b2 = $d0 cmpl 0.0;
+
+        if $b2 == 0 goto label3;
+
+        $d0 = $r0.<twitter4j.GeoLocation: double latitude>;
+
+        $l1 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($d0);
+
+     label1:
+        $l3 = $l1 >>> 32;
+
+        $l3 = $l3 ^ $l1;
+
+        $i0 = (int) $l3;
+
+        $d0 = $r0.<twitter4j.GeoLocation: double longitude>;
+
+        $b2 = $d0 cmpl 0.0;
+
+        if $b2 == 0 goto label4;
+
+        $d0 = $r0.<twitter4j.GeoLocation: double longitude>;
+
+        $l3 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($d0);
+
+     label2:
+        $i0 = $i0 * 31;
+
+        $l1 = $l3 >>> 32;
+
+        $l3 = $l1 ^ $l3;
+
+        $i4 = (int) $l3;
+
+        $i4 = $i0 + $i4;
+
+        return $i4;
+
+     label3:
+        $l1 = 0L;
+
+        goto label1;
+
+     label4:
+        $l3 = 0L;
+
+        goto label2;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.GeoLocation $r0;
+        java.lang.StringBuilder $r1;
+        double $d0;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.GeoLocation;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("GeoLocation{latitude=");
+
+        $d0 = $r0.<twitter4j.GeoLocation: double latitude>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(double)>($d0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", longitude=");
+
+        $d0 = $r0.<twitter4j.GeoLocation: double longitude>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(double)>($d0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.GeoLocation: long serialVersionUID> = -4847567157651889935L;
+
+        return;
+    }
+}

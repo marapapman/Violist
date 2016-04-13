@@ -1,0 +1,157 @@
+public class a2z.Mobile.DevConnections.Classes.SessionDate extends java.lang.Object
+{
+    private java.lang.String _Name;
+    private java.lang.Integer _SessionCount;
+    private java.lang.Integer _SessionDateID;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Classes.SessionDate $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.util.ArrayList getList()
+    {
+        java.util.ArrayList $r0;
+        a2z.Mobile.DevConnections.Classes.DataHandler $r1;
+        a2z.Mobile.DevConnections.Classes.SessionDate $r2;
+        android.database.Cursor $r3;
+        boolean $z0;
+        int $i0;
+        java.lang.Integer $r4;
+        java.lang.String $r5;
+
+        $r1 = new a2z.Mobile.DevConnections.Classes.DataHandler;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void <init>(android.content.Context)>(null);
+
+        $r3 = virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: android.database.Cursor executeSql(java.lang.String)>("SELECT DISTINCT SessionID, DateSortID, SessionDate, Count(1) AS [SessionCount] FROM Session GROUP BY DateSortID, SessionDate ORDER BY DateSortID");
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        if $r3 == null goto label3;
+
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToFirst()>();
+
+        if $z0 == 0 goto label3;
+
+     label1:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        if $i0 != 0 goto label4;
+
+     label2:
+        $z0 = interfaceinvoke $r3.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label1;
+
+     label3:
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        virtualinvoke $r1.<a2z.Mobile.DevConnections.Classes.DataHandler: void close()>();
+
+        return $r0;
+
+     label4:
+        $r2 = new a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: void <init>()>();
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("DateSortID");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer _SessionDateID> = $r4;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionDate");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label7;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionDate");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.String _Name> = $r5;
+
+     label5:
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionCount");
+
+        $r5 = interfaceinvoke $r3.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        if $r5 == null goto label8;
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getColumnIndex(java.lang.String)>("SessionCount");
+
+        $i0 = interfaceinvoke $r3.<android.database.Cursor: int getInt(int)>($i0);
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer _SessionCount> = $r4;
+
+     label6:
+        virtualinvoke $r0.<java.util.ArrayList: boolean add(java.lang.Object)>($r2);
+
+        goto label2;
+
+     label7:
+        $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.String _Name> = "";
+
+        goto label5;
+
+     label8:
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r2.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer _SessionCount> = $r4;
+
+        goto label6;
+    }
+
+    public java.lang.String Name()
+    {
+        a2z.Mobile.DevConnections.Classes.SessionDate $r0;
+        java.lang.String r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.String _Name>;
+
+        return r1;
+    }
+
+    public java.lang.Integer SessionCount()
+    {
+        a2z.Mobile.DevConnections.Classes.SessionDate $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer _SessionCount>;
+
+        return r1;
+    }
+
+    public java.lang.Integer SessionDateID()
+    {
+        a2z.Mobile.DevConnections.Classes.SessionDate $r0;
+        java.lang.Integer r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.SessionDate;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.Classes.SessionDate: java.lang.Integer _SessionDateID>;
+
+        return r1;
+    }
+}

@@ -1,0 +1,126 @@
+public class a2z.Mobile.DevConnections.Utils.MemUtils extends java.lang.Object
+{
+    public static int MEGABYTE;
+
+    static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.Utils.MemUtils: int MEGABYTE> = 1000000;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.Utils.MemUtils $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Utils.MemUtils;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static long FreeMemory()
+    {
+        long $l0, $l1;
+
+        $l0 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: long getMaxMemory()>();
+
+        $l1 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: long getNativeHeapAllocatedSize()>();
+
+        $l1 = $l0 - $l1;
+
+        return $l1;
+    }
+
+    public static long getBitmapMemoryAllocationSize(long, long, android.graphics.Bitmap$Config)
+    {
+        long $l0, $l1;
+        android.graphics.Bitmap$Config $r0, $r1;
+        byte $b2;
+
+        $l0 := @parameter0: long;
+
+        $l1 := @parameter1: long;
+
+        $r0 := @parameter2: android.graphics.Bitmap$Config;
+
+        $r1 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config RGB_565>;
+
+        if $r0 != $r1 goto label2;
+
+        $b2 = 2;
+
+     label1:
+        $l0 = $l0 * $l1;
+
+        $l1 = (long) $b2;
+
+        $l1 = $l0 * $l1;
+
+        return $l1;
+
+     label2:
+        $b2 = 4;
+
+        goto label1;
+    }
+
+    public static long getMaxMemory()
+    {
+        java.lang.Runtime $r0;
+        long $l0;
+
+        $r0 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $l0 = virtualinvoke $r0.<java.lang.Runtime: long maxMemory()>();
+
+        return $l0;
+    }
+
+    public static int getMemoryClass(android.content.Context)
+    {
+        android.content.Context $r0;
+        java.lang.Object $r1;
+        android.app.ActivityManager $r2;
+        int $i0;
+
+        $r0 := @parameter0: android.content.Context;
+
+        $r1 = virtualinvoke $r0.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("activity");
+
+        $r2 = (android.app.ActivityManager) $r1;
+
+        if $r2 == null goto label1;
+
+        $i0 = virtualinvoke $r2.<android.app.ActivityManager: int getMemoryClass()>();
+
+        return $i0;
+
+     label1:
+        return 8;
+    }
+
+    public static long getNativeHeapAllocatedSize()
+    {
+        long $l0;
+
+        $l0 = staticinvoke <android.os.Debug: long getNativeHeapAllocatedSize()>();
+
+        return $l0;
+    }
+
+    public static boolean isHoneycombOrAbove()
+    {
+        int $i0;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 >= 11 goto label1;
+
+        return 0;
+
+     label1:
+        return 1;
+    }
+}

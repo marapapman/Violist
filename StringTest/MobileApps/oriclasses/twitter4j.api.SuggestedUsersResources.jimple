@@ -1,0 +1,9 @@
+public interface  twitter4j.api.SuggestedUsersResources extends java.lang.Object
+{
+
+    public abstract twitter4j.ResponseList getMemberSuggestions(java.lang.String) throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getSuggestedUserCategories() throws twitter4j.TwitterException;
+
+    public abstract twitter4j.ResponseList getUserSuggestions(java.lang.String) throws twitter4j.TwitterException;
+}

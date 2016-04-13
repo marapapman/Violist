@@ -1,0 +1,9 @@
+public interface  twitter4j.HashtagEntity extends java.lang.Object implements java.io.Serializable
+{
+
+    public abstract int getEnd();
+
+    public abstract int getStart();
+
+    public abstract java.lang.String getText();
+}

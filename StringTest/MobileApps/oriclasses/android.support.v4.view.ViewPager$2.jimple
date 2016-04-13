@@ -1,0 +1,38 @@
+final class android.support.v4.view.ViewPager$2 extends java.lang.Object implements android.view.animation.Interpolator
+{
+
+    void <init>()
+    {
+        android.support.v4.view.ViewPager$2 $r0;
+
+        $r0 := @this: android.support.v4.view.ViewPager$2;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public float getInterpolation(float)
+    {
+        android.support.v4.view.ViewPager$2 $r0;
+        float $f0, $f1;
+
+        $r0 := @this: android.support.v4.view.ViewPager$2;
+
+        $f0 := @parameter0: float;
+
+        $f1 = $f0 - 1.0F;
+
+        $f0 = $f1 * $f1;
+
+        $f0 = $f0 * $f1;
+
+        $f0 = $f0 * $f1;
+
+        $f1 = $f0 * $f1;
+
+        $f1 = $f1 + 1.0F;
+
+        return $f1;
+    }
+}

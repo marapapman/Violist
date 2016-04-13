@@ -1,0 +1,346 @@
+public abstract class com.nostra13.universalimageloader.cache.disc.LimitedDiscCache extends com.nostra13.universalimageloader.cache.disc.BaseDiscCache
+{
+    private int cacheSize;
+    private final java.util.Map lastUsageDates;
+    private int sizeLimit;
+
+    public void <init>(java.io.File, int)
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.io.File $r1;
+        int $i0;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $i0 := @parameter1: int;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.DefaultConfigurationFactory: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator createFileNameGenerator()>();
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,int)>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(java.io.File, com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator, int)
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.io.File $r1;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+        int $i0;
+        java.util.Map $r3;
+        java.util.HashMap $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $r2 := @parameter1: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
+
+        $i0 := @parameter2: int;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.BaseDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator)>($r1, $r2);
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize> = 0;
+
+        $r4 = new java.util.HashMap;
+
+        specialinvoke $r4.<java.util.HashMap: void <init>()>();
+
+        $r3 = staticinvoke <java.util.Collections: java.util.Map synchronizedMap(java.util.Map)>($r4);
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates> = $r3;
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int sizeLimit> = $i0;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: void calculateCacheSizeAndFillUsageMap()>();
+
+        return;
+    }
+
+    private void calculateCacheSizeAndFillUsageMap()
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.io.File $r1;
+        int $i0, $i1, $i2, $i3;
+        java.io.File[] $r2;
+        java.util.Map $r3;
+        long $l4;
+        java.lang.Long $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $i2 = 0;
+
+        $r1 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.io.File getCacheDir()>();
+
+        $r2 = virtualinvoke $r1.<java.io.File: java.io.File[] listFiles()>();
+
+        $i1 = lengthof $r2;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1 = $r2[$i0];
+
+        $i3 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int getSize(java.io.File)>($r1);
+
+        $i2 = $i2 + $i3;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        $l4 = virtualinvoke $r1.<java.io.File: long lastModified()>();
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l4);
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize> = $i2;
+
+        return;
+    }
+
+    private int removeNext()
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.io.File $r1;
+        java.lang.Long $r2, $r8;
+        java.util.Map $r3;
+        boolean $z0;
+        java.util.Set $r4;
+        java.util.Iterator $r5;
+        java.lang.Object $r6;
+        java.util.Map$Entry $r7;
+        long $l0, $l1;
+        byte $b2;
+        int $i3;
+        java.lang.Throwable $r9;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        $z0 = interfaceinvoke $r3.<java.util.Map: boolean isEmpty()>();
+
+        if $z0 == 0 goto label01;
+
+        return 0;
+
+     label01:
+        $r2 = null;
+
+        $r1 = null;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        $r4 = interfaceinvoke $r3.<java.util.Map: java.util.Set entrySet()>();
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        entermonitor $r3;
+
+     label02:
+        $r5 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label03:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label09;
+
+        $r6 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r7 = (java.util.Map$Entry) $r6;
+
+        if $r1 != null goto label05;
+
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r1 = (java.io.File) $r6;
+
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r2 = (java.lang.Long) $r6;
+
+     label04:
+        goto label03;
+
+     label05:
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r8 = (java.lang.Long) $r6;
+
+        $l0 = virtualinvoke $r8.<java.lang.Long: long longValue()>();
+
+        $l1 = virtualinvoke $r2.<java.lang.Long: long longValue()>();
+
+     label06:
+        $b2 = $l0 cmp $l1;
+
+     label07:
+        if $b2 >= 0 goto label03;
+
+        $r2 = $r8;
+
+        $r6 = interfaceinvoke $r7.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r1 = (java.io.File) $r6;
+
+     label08:
+        goto label03;
+
+     label09:
+        exitmonitor $r3;
+
+     label10:
+        $i3 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int getSize(java.io.File)>($r1);
+
+        $z0 = virtualinvoke $r1.<java.io.File: boolean delete()>();
+
+        if $z0 == 0 goto label14;
+
+        $r3 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        interfaceinvoke $r3.<java.util.Map: java.lang.Object remove(java.lang.Object)>($r1);
+
+        return $i3;
+
+     label11:
+        $r9 := @caughtexception;
+
+     label12:
+        exitmonitor $r3;
+
+     label13:
+        throw $r9;
+
+     label14:
+        return $i3;
+
+        catch java.lang.Throwable from label02 to label04 with label11;
+        catch java.lang.Throwable from label04 to label06 with label11;
+        catch java.lang.Throwable from label07 to label08 with label11;
+        catch java.lang.Throwable from label08 to label10 with label11;
+        catch java.lang.Throwable from label12 to label13 with label11;
+    }
+
+    public void clear()
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.util.Map $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r1 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        interfaceinvoke $r1.<java.util.Map: void clear()>();
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize> = 0;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.BaseDiscCache: void clear()>();
+
+        return;
+    }
+
+    public java.io.File get(java.lang.String)
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.lang.String $r1;
+        java.io.File $r2;
+        long $l0;
+        java.lang.Long $r3;
+        java.util.Map $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.BaseDiscCache: java.io.File get(java.lang.String)>($r1);
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        $l0 = virtualinvoke $r3.<java.lang.Long: long longValue()>();
+
+        virtualinvoke $r2.<java.io.File: boolean setLastModified(long)>($l0);
+
+        $r4 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r3);
+
+        return $r2;
+    }
+
+    protected abstract int getSize(java.io.File);
+
+    public void put(java.lang.String, java.io.File)
+    {
+        com.nostra13.universalimageloader.cache.disc.LimitedDiscCache $r0;
+        java.lang.String $r1;
+        java.io.File $r2;
+        int $i0, $i1, $i2;
+        long $l3;
+        java.lang.Long $r3;
+        java.util.Map $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.io.File;
+
+        $i1 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int getSize(java.io.File)>($r2);
+
+     label1:
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize>;
+
+        $i2 = $i0 + $i1;
+
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int sizeLimit>;
+
+        if $i2 <= $i0 goto label2;
+
+        $i2 = specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int removeNext()>();
+
+        if $i2 != 0 goto label3;
+
+     label2:
+        $i2 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize>;
+
+        $i2 = $i2 + $i1;
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize> = $i2;
+
+        $l3 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r3 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l3);
+
+        $l3 = virtualinvoke $r3.<java.lang.Long: long longValue()>();
+
+        virtualinvoke $r2.<java.io.File: boolean setLastModified(long)>($l3);
+
+        $r4 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: java.util.Map lastUsageDates>;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r3);
+
+        return;
+
+     label3:
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize>;
+
+        $i2 = $i0 - $i2;
+
+        $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: int cacheSize> = $i2;
+
+        goto label1;
+    }
+}

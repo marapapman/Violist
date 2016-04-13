@@ -1,0 +1,16 @@
+public abstract class twitter4j.internal.logging.LoggerFactory extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        twitter4j.internal.logging.LoggerFactory $r0;
+
+        $r0 := @this: twitter4j.internal.logging.LoggerFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract twitter4j.internal.logging.Logger getLogger(java.lang.Class);
+}

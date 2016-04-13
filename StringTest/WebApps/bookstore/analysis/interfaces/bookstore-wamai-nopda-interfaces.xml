@@ -1,0 +1,1118 @@
+<xml>
+<component name="org.apache.jsp.MembersGrid_jsp">
+	<interface method="POST|GET" target="MembersGrid.jsp">
+		<parameter name="FormMembers_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormMembers_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormMembers_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersGrid.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.CardTypesRecord_jsp">
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CardTypesRecord.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.MembersInfo_jsp">
+	<interface method="POST|GET" target="MembersInfo.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersInfo.jsp">
+	</interface>
+	<interface method="POST|GET" target="MembersInfo.jsp">
+		<parameter name="FormOrders_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormOrders_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersInfo.jsp">
+		<parameter name="FormOrders_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormOrders_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.CategoriesGrid_jsp">
+	<interface method="POST|GET" target="CategoriesGrid.jsp">
+	</interface>
+	<interface method="POST|GET" target="CategoriesGrid.jsp">
+		<parameter name="FormCategories_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormCategories_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormCategories_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.OrdersGrid_jsp">
+	<interface method="POST|GET" target="OrdersGrid.jsp">
+		<parameter name="FormOrders_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormOrders_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormOrders_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersGrid.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.Login_jsp">
+	<interface method="POST|GET" target="Login.jsp">
+		<parameter name="Login" type="STRING" values="[]" lines="[]" />
+		<parameter name="querystring" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="ret_page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Login.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Login.jsp">
+		<parameter name="Login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Login.jsp">
+		<parameter name="Login" type="STRING" values="[]" lines="[]" />
+		<parameter name="querystring" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Password" type="STRING" values="[]" lines="[]" />
+		<parameter name="ret_page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Login.jsp">
+		<parameter name="querystring" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="ret_page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.CardTypesGrid_jsp">
+	<interface method="POST|GET" target="CardTypesGrid.jsp">
+	</interface>
+	<interface method="POST|GET" target="CardTypesGrid.jsp">
+		<parameter name="FormCardTypes_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormCardTypes_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.ShoppingCart_jsp">
+	<interface method="POST|GET" target="ShoppingCart.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCart.jsp">
+	</interface>
+	<interface method="POST|GET" target="ShoppingCart.jsp">
+		<parameter name="Trn_UserID" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCart.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCart.jsp">
+		<parameter name="Trn_UserID" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.MembersRecord_jsp">
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_level" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_level" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_level" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_level" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MembersRecord.jsp">
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.EditorialCatGrid_jsp">
+	<interface method="POST|GET" target="EditorialCatGrid.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Formeditorial_categories_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="Formeditorial_categories_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="Formeditorial_categories_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatGrid.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.EditorialsRecord_jsp">
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="PK_article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_title" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_desc" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="PK_article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="article_title" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_desc" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="PK_article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_title" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_desc" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsRecord.jsp">
+		<parameter name="PK_article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_title" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="article_desc" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.AdminBooks_jsp">
+	<interface method="POST|GET" target="AdminBooks.jsp">
+		<parameter name="FormItems_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="is_recommended" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormItems_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormItems_Page" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="AdminBooks.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.BookMaint_jsp">
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="price" type="STRING" values="[]" lines="[]" />
+		<parameter name="image_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="is_recommended" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="product_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="product_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="price" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="image_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="is_recommended" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="price" type="STRING" values="[]" lines="[]" />
+		<parameter name="image_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="is_recommended" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="product_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="price" type="STRING" values="[]" lines="[]" />
+		<parameter name="image_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="is_recommended" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="product_url" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookMaint.jsp">
+		<parameter name="Trn_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.Default_jsp">
+	<interface method="POST|GET" target="Default.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormRecommended_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormRecommended_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormRecommended_Sorted" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.MyInfo_jsp">
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="MyInfo.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="notes" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.EditorialsGrid_jsp">
+	<interface method="POST|GET" target="EditorialsGrid.jsp">
+		<parameter name="Formeditorials_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Formeditorials_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="Formeditorials_Sorting" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialsGrid.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.Books_jsp">
+	<interface method="POST|GET" target="Books.jsp">
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="pricemax" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormResults_Page" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormResults_Sorting" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormResults_Sorted" type="STRING" values="[]" lines="[]" />
+		<parameter name="pricemin" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.AdminMenu_jsp">
+	<interface method="POST|GET" target="AdminMenu.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="AdminMenu.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.EditorialCatRecord_jsp">
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_editorial_cat_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="editorial_cat_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_editorial_cat_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="editorial_cat_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_editorial_cat_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="editorial_cat_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="editorial_cat_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="editorial_cat_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="EditorialCatRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_editorial_cat_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.BookDetail_jsp">
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+	</interface>
+	<interface method="POST|GET" target="BookDetail.jsp">
+		<parameter name="PK_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating_count" type="STRING" values="[]" lines="[]" />
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="rating" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.Registration_jsp">
+	<interface method="POST|GET" target="Registration.jsp">
+		<parameter name="first_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password2" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Registration.jsp">
+		<parameter name="first_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password2" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Registration.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Registration.jsp">
+		<parameter name="phone" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_number" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_login" type="STRING" values="[]" lines="[]" />
+		<parameter name="card_type_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="first_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="address" type="STRING" values="[]" lines="[]" />
+		<parameter name="email" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="last_name" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password2" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="Registration.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_password2" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.Header_jsp">
+	<interface method="POST|GET" target="Header.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.CategoriesRecord_jsp">
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="CategoriesRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.AdvSearch_jsp">
+	<interface method="POST|GET" target="AdvSearch.jsp">
+		<parameter name="author" type="STRING" values="[]" lines="[]" />
+		<parameter name="pricemax" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="name" type="STRING" values="[]" lines="[]" />
+		<parameter name="category_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="pricemin" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.ShoppingCartRecord_jsp">
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="ShoppingCartRecord.jsp">
+	</interface>
+</component>
+<component name="org.apache.jsp.Footer_jsp">
+	<interface method="POST|GET" target="Footer.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+<component name="org.apache.jsp.OrdersRecord_jsp">
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="quantity" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="order_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="Trn_item_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+		<parameter name="member_id" type="STRING" values="[]" lines="[]" />
+		<parameter name="PK_order_id" type="STRING" values="[]" lines="[]" />
+	</interface>
+	<interface method="POST|GET" target="OrdersRecord.jsp">
+		<parameter name="FormAction" type="STRING" values="[]" lines="[]" />
+		<parameter name="FormName" type="STRING" values="[]" lines="[]" />
+	</interface>
+</component>
+</xml>

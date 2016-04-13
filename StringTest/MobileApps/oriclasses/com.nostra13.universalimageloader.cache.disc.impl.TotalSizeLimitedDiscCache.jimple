@@ -1,0 +1,87 @@
+public class com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache extends com.nostra13.universalimageloader.cache.disc.LimitedDiscCache
+{
+    private static final int MIN_NORMAL_CACHE_SIZE;
+    private static final int MIN_NORMAL_CACHE_SIZE_IN_MB;
+
+    public void <init>(java.io.File, int)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache $r0;
+        java.io.File $r1;
+        int $i0;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $i0 := @parameter1: int;
+
+        $r2 = staticinvoke <com.nostra13.universalimageloader.core.DefaultConfigurationFactory: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator createFileNameGenerator()>();
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,int)>($r1, $r2, $i0);
+
+        return;
+    }
+
+    public void <init>(java.io.File, com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator, int)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache $r0;
+        java.io.File $r1;
+        com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator $r2;
+        int $i0;
+        java.lang.Integer $r3;
+        java.lang.Object[] $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $r2 := @parameter1: com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
+
+        $i0 := @parameter2: int;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.disc.LimitedDiscCache: void <init>(java.io.File,com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator,int)>($r1, $r2, $i0);
+
+        if $i0 >= 8388608 goto label1;
+
+        $r4 = newarray (java.lang.Object)[1];
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $r4[0] = $r3;
+
+        staticinvoke <com.nostra13.universalimageloader.utils.L: void w(java.lang.String,java.lang.Object[])>("You set too small disc cache size (less than %1$d Mb)", $r4);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    protected int getSize(java.io.File)
+    {
+        com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache $r0;
+        java.io.File $r1;
+        long $l0;
+        int $i1;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache;
+
+        $r1 := @parameter0: java.io.File;
+
+        $l0 = virtualinvoke $r1.<java.io.File: long length()>();
+
+        $i1 = (int) $l0;
+
+        return $i1;
+    }
+
+    public static void <clinit>()
+    {
+        <com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache: int MIN_NORMAL_CACHE_SIZE_IN_MB> = 8;
+
+        <com.nostra13.universalimageloader.cache.disc.impl.TotalSizeLimitedDiscCache: int MIN_NORMAL_CACHE_SIZE> = 8388608;
+
+        return;
+    }
+}

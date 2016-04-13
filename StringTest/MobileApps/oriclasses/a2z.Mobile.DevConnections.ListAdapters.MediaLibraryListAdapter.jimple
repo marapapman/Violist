@@ -1,0 +1,685 @@
+public class a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter extends android.widget.ArrayAdapter
+{
+    public static final long DAY_MILLIS;
+    public static final long HOUR_MILLIS;
+    public static final long MINUTE_MILLIS;
+    public static final long MONTH_MILLIS;
+    public static final long SECOND_MILLIS;
+    public static final long YEAR_MILLIS;
+    private java.util.ArrayList _objMediaLibraryList;
+    private a2z.Mobile.DevConnections.A2zApplication mApp;
+    private java.util.ArrayList mFilteredMediaLibraryList;
+    private com.nostra13.universalimageloader.core.ImageLoader mImageLoader;
+    private java.text.SimpleDateFormat mSimpleDateFormat;
+    java.util.Comparator mTimestampComparator;
+    private a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter mVideoAdapterFilter;
+    public boolean netConxn;
+    public java.lang.String referrer;
+    android.widget.TextView txtVideoTitle;
+    android.widget.ImageButton videoImgBtn;
+
+    public void <init>(android.content.Context, int, java.util.ArrayList)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        android.content.Context $r1;
+        int $i0;
+        java.util.ArrayList $r2, $r3;
+        a2z.Mobile.DevConnections.A2zApplication $r4;
+        com.nostra13.universalimageloader.core.ImageLoader $r5;
+        java.text.SimpleDateFormat $r6;
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$1 $r7;
+        java.util.Comparator $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.util.ArrayList;
+
+        specialinvoke $r0.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r1, $i0, $r2);
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList _objMediaLibraryList> = $r3;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList mFilteredMediaLibraryList> = $r3;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList _objMediaLibraryList>;
+
+        virtualinvoke $r3.<java.util.ArrayList: boolean addAll(java.util.Collection)>($r2);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList mFilteredMediaLibraryList>;
+
+        virtualinvoke $r3.<java.util.ArrayList: boolean addAll(java.util.Collection)>($r2);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.lang.String referrer> = "";
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: boolean netConxn> = 1;
+
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.A2zApplication mApp> = $r4;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        $r5 = virtualinvoke $r4.<a2z.Mobile.DevConnections.A2zApplication: com.nostra13.universalimageloader.core.ImageLoader getImageLoader()>();
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: com.nostra13.universalimageloader.core.ImageLoader mImageLoader> = $r5;
+
+        $r6 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r6.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("yyyy-MM-dd HH:mm:ss");
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.text.SimpleDateFormat mSimpleDateFormat> = $r6;
+
+        $r7 = new a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$1;
+
+        specialinvoke $r7.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$1: void <init>(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter)>($r0);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.Comparator mTimestampComparator> = $r7;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList _objMediaLibraryList>;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.Comparator mTimestampComparator>;
+
+        staticinvoke <java.util.Collections: void sort(java.util.List,java.util.Comparator)>($r3, $r8);
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList mFilteredMediaLibraryList>;
+
+        $r8 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.Comparator mTimestampComparator>;
+
+        staticinvoke <java.util.Collections: void sort(java.util.List,java.util.Comparator)>($r3, $r8);
+
+        return;
+    }
+
+    static java.util.ArrayList access$0(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList _objMediaLibraryList>;
+
+        return r1;
+    }
+
+    static java.util.ArrayList access$1(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList mFilteredMediaLibraryList>;
+
+        return r1;
+    }
+
+    static java.text.SimpleDateFormat access$2(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.text.SimpleDateFormat r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.text.SimpleDateFormat mSimpleDateFormat>;
+
+        return r1;
+    }
+
+    static a2z.Mobile.DevConnections.A2zApplication access$3(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        a2z.Mobile.DevConnections.A2zApplication r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        return r1;
+    }
+
+    private java.lang.String getTimeAgo(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.lang.String $r1;
+        java.util.Date $r2, $r5;
+        int $i0;
+        long $l1, $l2;
+        java.text.SimpleDateFormat $r3;
+        java.text.ParsePosition $r4;
+        byte $b3;
+        java.lang.StringBuilder $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.text.SimpleDateFormat mSimpleDateFormat>;
+
+        $r4 = new java.text.ParsePosition;
+
+        specialinvoke $r4.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $r5 = virtualinvoke $r3.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String,java.text.ParsePosition)>($r1, $r4);
+
+        $r2 = new java.util.Date;
+
+        $l1 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke $r2.<java.util.Date: void <init>(long)>($l1);
+
+        $l1 = virtualinvoke $r2.<java.util.Date: long getTime()>();
+
+        $l2 = virtualinvoke $r5.<java.util.Date: long getTime()>();
+
+        $l1 = $l1 - $l2;
+
+        $b3 = $l1 cmp 31536000000L;
+
+        if $b3 <= 0 goto label03;
+
+        $l2 = $l1 / 31536000000L;
+
+        $i0 = (int) $l2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        if $i0 <= 1 goto label02;
+
+        $r1 = "years";
+
+     label01:
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label02:
+        $r1 = "year";
+
+        goto label01;
+
+     label03:
+        $b3 = $l1 cmp 2592000000L;
+
+        if $b3 <= 0 goto label06;
+
+        $l2 = $l1 / 2592000000L;
+
+        $i0 = (int) $l2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        if $i0 <= 1 goto label05;
+
+        $r1 = "months";
+
+     label04:
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label05:
+        $r1 = "month";
+
+        goto label04;
+
+     label06:
+        $b3 = $l1 cmp 86400000L;
+
+        if $b3 <= 0 goto label09;
+
+        $l2 = $l1 / 86400000L;
+
+        $i0 = (int) $l2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        if $i0 <= 1 goto label08;
+
+        $r1 = "days";
+
+     label07:
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label08:
+        $r1 = "day";
+
+        goto label07;
+
+     label09:
+        $b3 = $l1 cmp 3600000L;
+
+        if $b3 <= 0 goto label12;
+
+        $l2 = $l1 / 3600000L;
+
+        $i0 = (int) $l2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        if $i0 <= 1 goto label11;
+
+        $r1 = "hours";
+
+     label10:
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label11:
+        $r1 = "hour";
+
+        goto label10;
+
+     label12:
+        $l2 = $l1 / 60000L;
+
+        $i0 = (int) $l2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        if $i0 <= 1 goto label14;
+
+        $r1 = "minutes";
+
+     label13:
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+
+     label14:
+        $r1 = "minute";
+
+        goto label13;
+    }
+
+    private java.lang.String getTimeSinceDateAdded(java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.lang.String $r1, $r2;
+        java.lang.StringBuilder $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r1 = specialinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.lang.String getTimeAgo(java.lang.String)>($r1);
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>("uploaded ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ago by ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public android.graphics.Bitmap getBitmapFromURL(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        java.lang.String $r1;
+        java.io.IOException $r2;
+        java.net.URL $r3;
+        java.net.URLConnection $r4;
+        java.net.HttpURLConnection $r5;
+        java.io.InputStream $r6;
+        android.graphics.Bitmap $r7;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r3 = new java.net.URL;
+
+     label1:
+        specialinvoke $r3.<java.net.URL: void <init>(java.lang.String)>($r1);
+
+        $r4 = virtualinvoke $r3.<java.net.URL: java.net.URLConnection openConnection()>();
+
+        $r5 = (java.net.HttpURLConnection) $r4;
+
+        virtualinvoke $r5.<java.net.HttpURLConnection: void setDoInput(boolean)>(1);
+
+        virtualinvoke $r5.<java.net.HttpURLConnection: void connect()>();
+
+        $r6 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>();
+
+        $r7 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeStream(java.io.InputStream)>($r6);
+
+        virtualinvoke $r5.<java.net.HttpURLConnection: void disconnect()>();
+
+     label2:
+        return $r7;
+
+     label3:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.io.IOException: void printStackTrace()>();
+
+        return null;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public android.widget.Filter getFilter()
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter mVideoAdapterFilter>;
+
+        if $r1 != null goto label1;
+
+        $r1 = new a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter: void <init>(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter,a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter)>($r0, null);
+
+        $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter mVideoAdapterFilter> = $r1;
+
+     label1:
+        $r1 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$VideoAdapterFilter mVideoAdapterFilter>;
+
+        return $r1;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter $r0;
+        int $i0;
+        android.view.View $r1, $r3;
+        android.view.ViewGroup $r2;
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$2 $r4;
+        android.content.Context $r5;
+        java.lang.Object $r6;
+        android.view.LayoutInflater $r7;
+        java.util.ArrayList $r8;
+        a2z.Mobile.DevConnections.Classes.MediaLibrary $r9;
+        android.widget.ImageButton $r10;
+        android.widget.TextView $r11, $r12, $r13;
+        java.lang.String $r14;
+        android.graphics.Bitmap $r15;
+        boolean $z0;
+        java.lang.StringBuilder $r16;
+        a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$3 $r17;
+        a2z.Mobile.DevConnections.A2zApplication $r18;
+        android.content.res.Resources $r19;
+        android.graphics.drawable.Drawable $r20;
+        com.nostra13.universalimageloader.core.DisplayImageOptions$Builder $r21;
+        com.nostra13.universalimageloader.core.assist.ImageScaleType $r22;
+        android.graphics.Bitmap$Config $r23;
+        com.nostra13.universalimageloader.core.ImageLoader $r24;
+
+        $r0 := @this: a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.View;
+
+        $r2 := @parameter2: android.view.ViewGroup;
+
+        $r3 = $r1;
+
+        if $r1 != null goto label1;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: android.content.Context getContext()>();
+
+        $r6 = virtualinvoke $r5.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("layout_inflater");
+
+        $r7 = (android.view.LayoutInflater) $r6;
+
+        $r3 = virtualinvoke $r7.<android.view.LayoutInflater: android.view.View inflate(int,android.view.ViewGroup)>(2130903051, null);
+
+     label1:
+        $r8 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.util.ArrayList mFilteredMediaLibraryList>;
+
+        $r6 = virtualinvoke $r8.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r9 = (a2z.Mobile.DevConnections.Classes.MediaLibrary) $r6;
+
+        if $r9 == null goto label8;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230780);
+
+        $r10 = (android.widget.ImageButton) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230781);
+
+        $r11 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230782);
+
+        $r12 = (android.widget.TextView) $r1;
+
+        $r1 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(2131230783);
+
+        $r13 = (android.widget.TextView) $r1;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String ExternalAssetImgURL()>();
+
+        if $r14 == null goto label6;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String ExternalAssetImgURL()>();
+
+        if $r14 == "" goto label6;
+
+        $r15 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: android.graphics.Bitmap Thumbnail()>();
+
+        if $r15 == null goto label5;
+
+        $r15 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: android.graphics.Bitmap Thumbnail()>();
+
+        virtualinvoke $r10.<android.widget.ImageButton: void setImageBitmap(android.graphics.Bitmap)>($r15);
+
+     label2:
+        if $r11 == null goto label3;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String Title()>();
+
+        virtualinvoke $r11.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+     label3:
+        if $r12 == null goto label7;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String DateAdded()>();
+
+        if $r14 == null goto label7;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String DateAdded()>();
+
+        $z0 = virtualinvoke $r14.<java.lang.String: boolean isEmpty()>();
+
+        if $z0 != 0 goto label7;
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("uploaded ");
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String DateAdded()>();
+
+        $r14 = specialinvoke $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: java.lang.String getTimeAgo(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ago");
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r12.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        $r16 = new java.lang.StringBuilder;
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>("by ");
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String CoName()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (Booth ");
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String BoothLabel()>();
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r14 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r13.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        virtualinvoke $r12.<android.widget.TextView: void setVisibility(int)>(0);
+
+        virtualinvoke $r13.<android.widget.TextView: void setVisibility(int)>(0);
+
+     label4:
+        if $r10 == null goto label9;
+
+        $r17 = new a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$3;
+
+        specialinvoke $r17.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$3: void <init>(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter,a2z.Mobile.DevConnections.Classes.MediaLibrary)>($r0, $r9);
+
+        virtualinvoke $r10.<android.widget.ImageButton: void setOnClickListener(android.view.View$OnClickListener)>($r17);
+
+        return $r3;
+
+     label5:
+        $r18 = staticinvoke <a2z.Mobile.DevConnections.A2zApplication: a2z.Mobile.DevConnections.A2zApplication getApp()>();
+
+        $r19 = virtualinvoke $r18.<a2z.Mobile.DevConnections.A2zApplication: android.content.res.Resources getResources()>();
+
+        $r20 = virtualinvoke $r19.<android.content.res.Resources: android.graphics.drawable.Drawable getDrawable(int)>(2130837563);
+
+        virtualinvoke $r10.<android.widget.ImageButton: void setBackgroundDrawable(android.graphics.drawable.Drawable)>($r20);
+
+        $r21 = new com.nostra13.universalimageloader.core.DisplayImageOptions$Builder;
+
+        specialinvoke $r21.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: void <init>()>();
+
+        $r22 = <com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType IN_SAMPLE_POWER_OF_2>;
+
+        $r21 = virtualinvoke $r21.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder imageScaleType(com.nostra13.universalimageloader.core.assist.ImageScaleType)>($r22);
+
+        $r21 = virtualinvoke $r21.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheOnDisc()>();
+
+        $r23 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config ARGB_8888>;
+
+        $r21 = virtualinvoke $r21.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.DisplayImageOptions$Builder bitmapConfig(android.graphics.Bitmap$Config)>($r23);
+
+        virtualinvoke $r21.<com.nostra13.universalimageloader.core.DisplayImageOptions$Builder: com.nostra13.universalimageloader.core.DisplayImageOptions build()>();
+
+        $r24 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: com.nostra13.universalimageloader.core.ImageLoader mImageLoader>;
+
+        $r18 = $r0.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: a2z.Mobile.DevConnections.A2zApplication mApp>;
+
+        $r14 = virtualinvoke $r9.<a2z.Mobile.DevConnections.Classes.MediaLibrary: java.lang.String ExternalAssetImgURL()>();
+
+        $r4 = new a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$2;
+
+        specialinvoke $r4.<a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter$2: void <init>(a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter,a2z.Mobile.DevConnections.Classes.MediaLibrary,android.widget.ImageButton)>($r0, $r9, $r10);
+
+        virtualinvoke $r24.<com.nostra13.universalimageloader.core.ImageLoader: void loadImage(android.content.Context,java.lang.String,com.nostra13.universalimageloader.core.assist.ImageLoadingListener)>($r18, $r14, $r4);
+
+        goto label2;
+
+     label6:
+        $r5 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r19 = virtualinvoke $r5.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r20 = virtualinvoke $r19.<android.content.res.Resources: android.graphics.drawable.Drawable getDrawable(int)>(2130837563);
+
+        virtualinvoke $r10.<android.widget.ImageButton: void setBackgroundDrawable(android.graphics.drawable.Drawable)>($r20);
+
+        goto label2;
+
+     label7:
+        virtualinvoke $r12.<android.widget.TextView: void setVisibility(int)>(4);
+
+        goto label4;
+
+     label8:
+        return $r3;
+
+     label9:
+        return $r3;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long YEAR_MILLIS> = 31536000000L;
+
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long SECOND_MILLIS> = 1000L;
+
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long MONTH_MILLIS> = 2592000000L;
+
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long MINUTE_MILLIS> = 60000L;
+
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long HOUR_MILLIS> = 3600000L;
+
+        <a2z.Mobile.DevConnections.ListAdapters.MediaLibraryListAdapter: long DAY_MILLIS> = 86400000L;
+
+        return;
+    }
+}

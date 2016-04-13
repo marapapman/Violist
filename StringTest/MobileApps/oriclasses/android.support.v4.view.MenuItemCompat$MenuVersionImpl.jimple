@@ -1,0 +1,7 @@
+interface  android.support.v4.view.MenuItemCompat$MenuVersionImpl extends java.lang.Object
+{
+
+    public abstract android.view.MenuItem setActionView(android.view.MenuItem, android.view.View);
+
+    public abstract boolean setShowAsAction(android.view.MenuItem, int);
+}

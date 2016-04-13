@@ -1,0 +1,13 @@
+public interface  twitter4j.IDs extends java.lang.Object implements twitter4j.TwitterResponse, twitter4j.CursorSupport, java.io.Serializable
+{
+
+    public abstract long[] getIDs();
+
+    public abstract long getNextCursor();
+
+    public abstract long getPreviousCursor();
+
+    public abstract boolean hasNext();
+
+    public abstract boolean hasPrevious();
+}

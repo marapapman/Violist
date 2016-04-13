@@ -1,0 +1,151 @@
+public class twitter4j.internal.http.XAuthAuthorization extends java.lang.Object implements twitter4j.auth.Authorization, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private twitter4j.auth.BasicAuthorization basic;
+    private java.lang.String consumerKey;
+    private java.lang.String consumerSecret;
+
+    public void <init>(twitter4j.auth.BasicAuthorization)
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        twitter4j.auth.BasicAuthorization $r1;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 := @parameter0: twitter4j.auth.BasicAuthorization;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.internal.http.XAuthAuthorization: twitter4j.auth.BasicAuthorization basic> = $r1;
+
+        return;
+    }
+
+    public java.lang.String getAuthorizationHeader(twitter4j.internal.http.HttpRequest)
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        twitter4j.internal.http.HttpRequest $r1;
+        twitter4j.auth.BasicAuthorization $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpRequest;
+
+        $r2 = $r0.<twitter4j.internal.http.XAuthAuthorization: twitter4j.auth.BasicAuthorization basic>;
+
+        $r3 = virtualinvoke $r2.<twitter4j.auth.BasicAuthorization: java.lang.String getAuthorizationHeader(twitter4j.internal.http.HttpRequest)>($r1);
+
+        return $r3;
+    }
+
+    public java.lang.String getConsumerKey()
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        r1 = $r0.<twitter4j.internal.http.XAuthAuthorization: java.lang.String consumerKey>;
+
+        return r1;
+    }
+
+    public java.lang.String getConsumerSecret()
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        r1 = $r0.<twitter4j.internal.http.XAuthAuthorization: java.lang.String consumerSecret>;
+
+        return r1;
+    }
+
+    public java.lang.String getPassword()
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        twitter4j.auth.BasicAuthorization $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 = $r0.<twitter4j.internal.http.XAuthAuthorization: twitter4j.auth.BasicAuthorization basic>;
+
+        $r2 = virtualinvoke $r1.<twitter4j.auth.BasicAuthorization: java.lang.String getPassword()>();
+
+        return $r2;
+    }
+
+    public java.lang.String getUserId()
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        twitter4j.auth.BasicAuthorization $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 = $r0.<twitter4j.internal.http.XAuthAuthorization: twitter4j.auth.BasicAuthorization basic>;
+
+        $r2 = virtualinvoke $r1.<twitter4j.auth.BasicAuthorization: java.lang.String getUserId()>();
+
+        return $r2;
+    }
+
+    public boolean isEnabled()
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        twitter4j.auth.BasicAuthorization $r1;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 = $r0.<twitter4j.internal.http.XAuthAuthorization: twitter4j.auth.BasicAuthorization basic>;
+
+        $z0 = virtualinvoke $r1.<twitter4j.auth.BasicAuthorization: boolean isEnabled()>();
+
+        return $z0;
+    }
+
+    public void setOAuthConsumer(java.lang.String, java.lang.String)
+    {
+        twitter4j.internal.http.XAuthAuthorization $r0;
+        java.lang.String $r1, $r2;
+        java.lang.Throwable $r3;
+
+        $r0 := @this: twitter4j.internal.http.XAuthAuthorization;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        entermonitor $r0;
+
+     label1:
+        $r0.<twitter4j.internal.http.XAuthAuthorization: java.lang.String consumerKey> = $r1;
+
+        $r0.<twitter4j.internal.http.XAuthAuthorization: java.lang.String consumerSecret> = $r2;
+
+     label2:
+        exitmonitor $r0;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        exitmonitor $r0;
+
+        throw $r3;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.http.XAuthAuthorization: long serialVersionUID> = -6082451214083464902L;
+
+        return;
+    }
+}

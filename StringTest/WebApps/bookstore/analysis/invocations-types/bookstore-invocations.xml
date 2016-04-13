@@ -1,0 +1,704 @@
+<xml>
+<component name="org.apache.jsp.CardTypesRecord_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="CardTypes" target="CardTypesRecord.jsp" method="GET">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="PK_card_type_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="FormName" value="CardTypes" type="STRING"/>
+</invocation>
+<invocation name="CardTypes" target="CardTypesRecord.jsp" method="GET">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="PK_card_type_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="FormName" value="CardTypes" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.MembersGrid_jsp">
+<invocation name="null" target="MembersInfo.jsp" method="A">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="Search" target="MembersGrid.jsp" method="GET">
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormMembers_Page" value="INTEGER" type="INTEGER"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+	<arg name="FormMembers_Sorted" value="" type="STRING"/>
+	<arg name="FormMembers_Sorting" value="4" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+	<arg name="FormMembers_Sorted" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormMembers_Sorting" value="1" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersRecord.jsp" method="A">
+	<arg name="name" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+	<arg name="FormMembers_Sorted" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormMembers_Sorting" value="3" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+	<arg name="FormMembers_Sorted" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormMembers_Sorting" value="2" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.MembersInfo_jsp">
+<invocation name="null" target="MembersInfo.jsp" method="A">
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="3" type="STRING"/>
+</invocation>
+<invocation name="Record" target="MembersInfo.jsp" method="GET">
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Record" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="MembersRecord.jsp" method="A">
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersInfo.jsp" method="A">
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="1" type="STRING"/>
+</invocation>
+<invocation name="Record" target="MembersInfo.jsp" method="GET">
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MembersInfo.jsp" method="A">
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="2" type="STRING"/>
+</invocation>
+<invocation name="null" target="OrdersRecord.jsp" method="A">
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.CategoriesGrid_jsp">
+<invocation name="null" target="CategoriesGrid.jsp" method="A">
+	<arg name="FormCategories_Sorting" value="1" type="STRING"/>
+	<arg name="FormCategories_Sorted" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="CategoriesGrid.jsp" method="A">
+	<arg name="FormCategories_Page" value="INTEGER" type="INTEGER"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="CategoriesRecord.jsp" method="A">
+</invocation>
+<invocation name="null" target="CategoriesRecord.jsp" method="A">
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.OrdersGrid_jsp">
+<invocation name="null" target="OrdersGrid.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="3" type="STRING"/>
+</invocation>
+<invocation name="Search" target="OrdersGrid.jsp" method="GET">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="OrdersGrid.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="2" type="STRING"/>
+</invocation>
+<invocation name="null" target="OrdersGrid.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormOrders_Sorted" value="" type="STRING"/>
+	<arg name="FormOrders_Sorting" value="1" type="STRING"/>
+</invocation>
+<invocation name="null" target="OrdersRecord.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="OrdersGrid.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormOrders_Page" value="INTEGER" type="INTEGER"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="OrdersRecord.jsp" method="A">
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Login_jsp">
+<invocation name="null" target="Login.jsp" method="POST">
+	<arg name="FormAction" value="login" type="STRING"/>
+	<arg name="Login" value="" type="STRING"/>
+	<arg name="FormName" value="Login" type="STRING"/>
+	<arg name="Password" value="" type="STRING"/>
+	<arg name="querystring" value="" type="STRING"/>
+	<arg name="ret_page" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="Login.jsp" method="POST">
+	<arg name="FormAction" value="logout" type="STRING"/>
+	<arg name="FormName" value="Login" type="STRING"/>
+	<arg name="querystring" value="" type="STRING"/>
+	<arg name="ret_page" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.CardTypesGrid_jsp">
+<invocation name="null" target="CardTypesGrid.jsp" method="A">
+	<arg name="FormCardTypes_Sorted" value="" type="STRING"/>
+	<arg name="FormCardTypes_Sorting" value="1" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="CardTypesRecord.jsp" method="A">
+</invocation>
+<invocation name="null" target="CardTypesRecord.jsp" method="A">
+	<arg name="card_type_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.ShoppingCart_jsp">
+<invocation name="Member" target="ShoppingCart.jsp" method="GET">
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Member" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+</invocation>
+<invocation name="Member" target="ShoppingCart.jsp" method="GET">
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="ShoppingCartRecord.jsp" method="A">
+	<arg name="order_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="MyInfo.jsp" method="A">
+</invocation>
+</component>
+<component name="org.apache.jsp.MembersRecord_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Members" target="MembersRecord.jsp" method="GET">
+	<arg name="FormName" value="Members" type="STRING"/>
+	<arg name="Trn_member_login" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="member_level" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+<invocation name="Members" target="MembersRecord.jsp" method="GET">
+	<arg name="FormName" value="Members" type="STRING"/>
+	<arg name="Trn_member_login" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="member_level" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.EditorialCatGrid_jsp">
+<invocation name="null" target="EditorialCatGrid.jsp" method="A">
+	<arg name="Formeditorial_categories_Page" value="INTEGER" type="INTEGER"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="EditorialCatRecord.jsp" method="A">
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="EditorialCatRecord.jsp" method="A">
+</invocation>
+<invocation name="null" target="EditorialCatGrid.jsp" method="A">
+	<arg name="Formeditorial_categories_Sorted" value="" type="STRING"/>
+	<arg name="Formeditorial_categories_Sorting" value="1" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.EditorialsRecord_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="editorials" target="EditorialsRecord.jsp" method="GET">
+	<arg name="FormName" value="editorials" type="STRING"/>
+	<arg name="article_desc" value="" type="STRING"/>
+	<arg name="PK_article_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="article_id" value="" type="STRING"/>
+	<arg name="article_title" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+</invocation>
+<invocation name="editorials" target="EditorialsRecord.jsp" method="GET">
+	<arg name="FormName" value="editorials" type="STRING"/>
+	<arg name="article_desc" value="" type="STRING"/>
+	<arg name="PK_article_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="article_id" value="" type="STRING"/>
+	<arg name="article_title" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.AdminBooks_jsp">
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Sorting" value="1" type="STRING"/>
+	<arg name="FormItems_Sorted" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="BookMaint.jsp" method="A">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Page" value="INTEGER" type="INTEGER"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="FormItems_Sorting" value="3" type="STRING"/>
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Sorted" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="FormItems_Sorting" value="2" type="STRING"/>
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Sorted" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Sorting" value="4" type="STRING"/>
+	<arg name="FormItems_Sorted" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+	<arg name="FormItems_Sorting" value="5" type="STRING"/>
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="FormItems_Sorted" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="BookMaint.jsp" method="A">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="Search" target="AdminBooks.jsp" method="GET">
+	<arg name="is_recommended" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.BookMaint_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Book" target="BookMaint.jsp" method="GET">
+	<arg name="author" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="Trn_category_id" value="" type="STRING"/>
+	<arg name="FormName" value="Book" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="price" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="product_url" value="" type="STRING"/>
+	<arg name="image_url" value="" type="STRING"/>
+	<arg name="is_recommended" value="1" type="STRING"/>
+</invocation>
+<invocation name="Book" target="BookMaint.jsp" method="GET">
+	<arg name="author" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="Trn_category_id" value="" type="STRING"/>
+	<arg name="FormName" value="Book" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="price" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="product_url" value="" type="STRING"/>
+	<arg name="image_url" value="" type="STRING"/>
+	<arg name="is_recommended" value="1" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Default_jsp">
+<invocation name="Search" target="Books.jsp" method="GET">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdvSearch.jsp" method="A">
+</invocation>
+<invocation name="null" target="Books.jsp" method="A">
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="Default.jsp" method="A">
+	<arg name="FormRecommended_Page" value="INTEGER" type="INTEGER"/>
+</invocation>
+<invocation name="null" target="BookDetail.jsp" method="A">
+	<arg name="item_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="IMG">
+</invocation>
+</component>
+<component name="org.apache.jsp.MyInfo_jsp">
+<invocation name="Form" target="MyInfo.jsp" method="GET">
+	<arg name="address" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="FormName" value="Form" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+<invocation name="Form" target="MyInfo.jsp" method="GET">
+	<arg name="address" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="notes" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="FormName" value="Form" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+</component>
+<component name="org.apache.jsp.EditorialsGrid_jsp">
+<invocation name="null" target="EditorialsRecord.jsp" method="A">
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="EditorialsGrid.jsp" method="A">
+	<arg name="Formeditorials_Sorted" value="" type="STRING"/>
+	<arg name="Formeditorials_Sorting" value="1" type="STRING"/>
+</invocation>
+<invocation name="null" target="EditorialsGrid.jsp" method="A">
+	<arg name="Formeditorials_Sorting" value="2" type="STRING"/>
+	<arg name="Formeditorials_Sorted" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="EditorialsGrid.jsp" method="A">
+	<arg name="Formeditorials_Sorting" value="3" type="STRING"/>
+	<arg name="Formeditorials_Sorted" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="EditorialsRecord.jsp" method="A">
+	<arg name="article_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="EditorialsGrid.jsp" method="A">
+	<arg name="Formeditorials_Page" value="INTEGER" type="INTEGER"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Books_jsp">
+<invocation name="Search" target="Books.jsp" method="GET">
+	<arg name="name" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="AdvSearch.jsp" method="A">
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="Books.jsp" method="A">
+	<arg name="pricemin" value="" type="STRING"/>
+	<arg name="author" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="pricemax" value="" type="STRING"/>
+	<arg name="FormResults_Page" value="INTEGER" type="INTEGER"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="IMG">
+</invocation>
+<invocation name="null" target="BookDetail.jsp" method="A">
+	<arg name="pricemin" value="" type="STRING"/>
+	<arg name="author" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="pricemax" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.AdminMenu_jsp">
+<invocation name="null" target="CardTypesGrid.jsp" method="A">
+</invocation>
+<invocation name="null" target="OrdersGrid.jsp" method="A">
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="null" target="MembersGrid.jsp" method="A">
+</invocation>
+<invocation name="null" target="EditorialCatGrid.jsp" method="A">
+</invocation>
+<invocation name="null" target="AdminBooks.jsp" method="A">
+</invocation>
+<invocation name="null" target="CategoriesGrid.jsp" method="A">
+</invocation>
+<invocation name="null" target="EditorialsGrid.jsp" method="A">
+</invocation>
+</component>
+<component name="org.apache.jsp.EditorialCatRecord_jsp">
+<invocation name="editorial_categories" target="EditorialCatRecord.jsp" method="GET">
+	<arg name="editorial_cat_name" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="PK_editorial_cat_id" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="FormName" value="editorial_categories" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="editorial_categories" target="EditorialCatRecord.jsp" method="GET">
+	<arg name="editorial_cat_name" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="PK_editorial_cat_id" value="" type="STRING"/>
+	<arg name="editorial_cat_id" value="" type="STRING"/>
+	<arg name="FormName" value="editorial_categories" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.BookDetail_jsp">
+<invocation name="Rating" target="BookDetail.jsp" method="GET">
+	<arg name="rating" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="rating_count" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="FormName" value="Rating" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+<invocation name="Detail" target="BookDetail.jsp" method="GET">
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Detail" target="BookDetail.jsp" method="GET">
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+	<arg name="FormName" value="Detail" type="STRING"/>
+</invocation>
+<invocation name="Order" target="BookDetail.jsp" method="GET">
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="FormName" value="Order" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+</invocation>
+<invocation name="Order" target="BookDetail.jsp" method="GET">
+	<arg name="FormName" value="Order" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+</invocation>
+<invocation name="Rating" target="BookDetail.jsp" method="GET">
+	<arg name="rating" value="" type="STRING"/>
+	<arg name="PK_item_id" value="" type="STRING"/>
+	<arg name="rating_count" value="" type="STRING"/>
+	<arg name="FormName" value="Rating" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Registration_jsp">
+<invocation name="Reg" target="Registration.jsp" method="GET">
+	<arg name="member_password2" value="" type="STRING"/>
+	<arg name="FormName" value="Reg" type="STRING"/>
+	<arg name="first_name" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="FormAction" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Reg" target="Registration.jsp" method="GET">
+	<arg name="member_password2" value="" type="STRING"/>
+	<arg name="FormName" value="Reg" type="STRING"/>
+	<arg name="first_name" value="" type="STRING"/>
+	<arg name="address" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="card_type_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="email" value="" type="STRING"/>
+	<arg name="PK_member_id" value="" type="STRING"/>
+	<arg name="member_password" value="" type="STRING"/>
+	<arg name="phone" value="" type="STRING"/>
+	<arg name="last_name" value="" type="STRING"/>
+	<arg name="member_login" value="" type="STRING"/>
+	<arg name="card_number" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Header_jsp">
+<invocation name="null" target="Default.jsp" method="A">
+</invocation>
+<invocation name="null" target="AdminMenu.jsp" method="A">
+</invocation>
+<invocation name="null" target="Registration.jsp" method="A">
+</invocation>
+<invocation name="null" target="images/icon_shop.gif" method="IMG">
+</invocation>
+<invocation name="null" target="images/icon_home.gif" method="IMG">
+</invocation>
+<invocation name="null" target="images/icon_sign.gif" method="IMG">
+</invocation>
+<invocation name="null" target="Login.jsp" method="A">
+</invocation>
+<invocation name="null" target="images/icon_reg.gif" method="IMG">
+</invocation>
+<invocation name="null" target="ShoppingCart.jsp" method="A">
+</invocation>
+<invocation name="null" target="images/Logo_bookstore.gif" method="IMG">
+</invocation>
+<invocation name="null" target="images/icon_admin.gif" method="IMG">
+</invocation>
+</component>
+<component name="org.apache.jsp.CategoriesRecord_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Categories" target="CategoriesRecord.jsp" method="GET">
+	<arg name="PK_category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="FormName" value="Categories" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+<invocation name="Categories" target="CategoriesRecord.jsp" method="GET">
+	<arg name="PK_category_id" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="FormName" value="Categories" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.AdvSearch_jsp">
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Search" target="Books.jsp" method="GET">
+	<arg name="pricemin" value="" type="STRING"/>
+	<arg name="author" value="" type="STRING"/>
+	<arg name="name" value="" type="STRING"/>
+	<arg name="pricemax" value="" type="STRING"/>
+	<arg name="category_id" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.ShoppingCartRecord_jsp">
+<invocation name="ShoppingCartRecord" target="ShoppingCartRecord.jsp" method="GET">
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormName" value="ShoppingCartRecord" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="ShoppingCartRecord" target="ShoppingCartRecord.jsp" method="GET">
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="order_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="FormName" value="ShoppingCartRecord" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+</invocation>
+</component>
+<component name="org.apache.jsp.Footer_jsp">
+<invocation name="null" target="Default.jsp" method="A">
+</invocation>
+<invocation name="null" target="AdminMenu.jsp" method="A">
+</invocation>
+<invocation name="null" target="Registration.jsp" method="A">
+</invocation>
+<invocation name="null" target="Login.jsp" method="A">
+</invocation>
+<invocation name="null" target="ShoppingCart.jsp" method="A">
+</invocation>
+</component>
+<component name="org.apache.jsp.OrdersRecord_jsp">
+<invocation name="Orders" target="OrdersRecord.jsp" method="GET">
+	<arg name="Trn_member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Orders" type="STRING"/>
+	<arg name="FormAction" value="insert" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+<invocation name="null" target="" method="A">
+</invocation>
+<invocation name="Orders" target="OrdersRecord.jsp" method="GET">
+	<arg name="Trn_member_id" value="" type="STRING"/>
+	<arg name="FormName" value="Orders" type="STRING"/>
+	<arg name="item_id" value="" type="STRING"/>
+	<arg name="FormAction" value="update" type="STRING"/>
+	<arg name="member_id" value="" type="STRING"/>
+	<arg name="PK_order_id" value="" type="STRING"/>
+	<arg name="quantity" value="" type="STRING"/>
+	<arg name="Trn_item_id" value="" type="STRING"/>
+</invocation>
+</component>
+</xml>

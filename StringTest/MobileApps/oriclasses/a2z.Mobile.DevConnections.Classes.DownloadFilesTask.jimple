@@ -1,0 +1,284 @@
+public class a2z.Mobile.DevConnections.Classes.DownloadFilesTask extends android.os.AsyncTask
+{
+    private java.lang.String _URL;
+    private android.content.Context _context;
+    private java.lang.String _fileName;
+    private boolean _overwriteFile;
+    private java.lang.String _targetFileName;
+
+    public void <init>(android.content.Context, java.lang.String, java.lang.String, java.lang.String, boolean)
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        android.content.Context $r1;
+        java.lang.String $r2, $r3, $r4;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.String;
+
+        $z0 := @parameter4: boolean;
+
+        specialinvoke $r0.<android.os.AsyncTask: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: android.content.Context _context> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _fileName> = $r2;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _URL> = $r3;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _targetFileName> = $r4;
+
+        $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: boolean _overwriteFile> = $z0;
+
+        return;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.String $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r3 = (java.lang.String[]) $r1;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String doInBackground(java.lang.String[])>($r3);
+
+        return $r2;
+    }
+
+    protected transient java.lang.String doInBackground(java.lang.String[])
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.String[] $r1;
+        java.io.IOException $r2;
+        android.content.Context $r3;
+        java.lang.String $r4, $r5, $r6;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: android.content.Context _context>;
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _fileName>;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _URL>;
+
+        $r6 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _targetFileName>;
+
+        $z0 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: boolean _overwriteFile>;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void downloadFileFromURL(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean)>($r3, $r4, $r5, $r6, $z0);
+
+     label2:
+        return "complete";
+
+     label3:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.io.IOException: void printStackTrace()>();
+
+        goto label2;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.Object $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.String) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: void onPostExecute(java.lang.String)>($r2);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.String)
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.String $r1, $r5;
+        java.lang.Exception $r2;
+        java.io.File $r3, $r6;
+        boolean $z0, $z1;
+        android.content.Intent $r4;
+        android.net.Uri $r7;
+        android.webkit.MimeTypeMap $r8;
+        android.content.Context $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r5 = staticinvoke <android.os.Environment: java.lang.String getExternalStorageState()>();
+
+        $r1 = "mounted";
+
+        $z1 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z1 == 0 goto label07;
+
+        $z1 = 1;
+
+        $z0 = 1;
+
+     label01:
+        if $z0 == 0 goto label09;
+
+        if $z1 == 0 goto label09;
+
+        $r5 = <android.os.Environment: java.lang.String DIRECTORY_DOWNLOADS>;
+
+        $r6 = staticinvoke <android.os.Environment: java.io.File getExternalStoragePublicDirectory(java.lang.String)>($r5);
+
+        $r3 = new java.io.File;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _fileName>;
+
+        specialinvoke $r3.<java.io.File: void <init>(java.io.File,java.lang.String)>($r6, $r5);
+
+     label02:
+        $r4 = new android.content.Intent;
+
+     label03:
+        specialinvoke $r4.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.VIEW");
+
+     label04:
+        $r3 = new java.io.File;
+
+     label05:
+        $r5 = <android.os.Environment: java.lang.String DIRECTORY_DOWNLOADS>;
+
+        $r6 = staticinvoke <android.os.Environment: java.io.File getExternalStoragePublicDirectory(java.lang.String)>($r5);
+
+        $r1 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _fileName>;
+
+        specialinvoke $r3.<java.io.File: void <init>(java.io.File,java.lang.String)>($r6, $r1);
+
+        $r7 = staticinvoke <android.net.Uri: android.net.Uri fromFile(java.io.File)>($r3);
+
+        $r5 = virtualinvoke $r7.<android.net.Uri: java.lang.String toString()>();
+
+        $r5 = staticinvoke <android.webkit.MimeTypeMap: java.lang.String getFileExtensionFromUrl(java.lang.String)>($r5);
+
+        $r8 = staticinvoke <android.webkit.MimeTypeMap: android.webkit.MimeTypeMap getSingleton()>();
+
+        $r5 = virtualinvoke $r8.<android.webkit.MimeTypeMap: java.lang.String getMimeTypeFromExtension(java.lang.String)>($r5);
+
+        $r7 = staticinvoke <android.net.Uri: android.net.Uri fromFile(java.io.File)>($r3);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setDataAndType(android.net.Uri,java.lang.String)>($r7, $r5);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setFlags(int)>(1073741824);
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: android.content.Context _context>;
+
+        virtualinvoke $r9.<android.content.Context: void startActivity(android.content.Intent)>($r4);
+
+     label06:
+        return;
+
+     label07:
+        $r1 = "mounted_ro";
+
+        $z1 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z1 == 0 goto label08;
+
+        $z0 = 1;
+
+        $z1 = 0;
+
+        goto label01;
+
+     label08:
+        $z1 = 0;
+
+        $z0 = 0;
+
+        goto label01;
+
+     label09:
+        $r6 = staticinvoke <android.os.Environment: java.io.File getDataDirectory()>();
+
+        $r3 = new java.io.File;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: java.lang.String _fileName>;
+
+        specialinvoke $r3.<java.io.File: void <init>(java.io.File,java.lang.String)>($r6, $r5);
+
+        goto label02;
+
+     label10:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: java.lang.String getMessage()>();
+
+        return;
+
+        catch java.lang.Exception from label03 to label04 with label10;
+        catch java.lang.Exception from label05 to label06 with label10;
+    }
+
+    protected void onPreExecute()
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        specialinvoke $r0.<android.os.AsyncTask: void onPreExecute()>();
+
+        return;
+    }
+
+    protected transient volatile void onProgressUpdate(java.lang.Object[])
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.Object[] $r1;
+        java.lang.Void[] $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r2 = (java.lang.Void[]) $r1;
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.Classes.DownloadFilesTask: void onProgressUpdate(java.lang.Void[])>($r2);
+
+        return;
+    }
+
+    protected transient void onProgressUpdate(java.lang.Void[])
+    {
+        a2z.Mobile.DevConnections.Classes.DownloadFilesTask $r0;
+        java.lang.Void[] $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.Classes.DownloadFilesTask;
+
+        $r1 := @parameter0: java.lang.Void[];
+
+        specialinvoke $r0.<android.os.AsyncTask: void onProgressUpdate(java.lang.Object[])>($r1);
+
+        return;
+    }
+}

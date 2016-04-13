@@ -1,0 +1,103 @@
+public interface  twitter4j.User extends java.lang.Object implements java.lang.Comparable, twitter4j.TwitterResponse, java.io.Serializable
+{
+
+    public abstract java.lang.String getBiggerProfileImageURL();
+
+    public abstract java.lang.String getBiggerProfileImageURLHttps();
+
+    public abstract java.util.Date getCreatedAt();
+
+    public abstract java.lang.String getDescription();
+
+    public abstract twitter4j.URLEntity[] getDescriptionURLEntities();
+
+    public abstract int getFavouritesCount();
+
+    public abstract int getFollowersCount();
+
+    public abstract int getFriendsCount();
+
+    public abstract long getId();
+
+    public abstract java.lang.String getLang();
+
+    public abstract int getListedCount();
+
+    public abstract java.lang.String getLocation();
+
+    public abstract java.lang.String getMiniProfileImageURL();
+
+    public abstract java.lang.String getMiniProfileImageURLHttps();
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getOriginalProfileImageURL();
+
+    public abstract java.lang.String getOriginalProfileImageURLHttps();
+
+    public abstract java.lang.String getProfileBackgroundColor();
+
+    public abstract java.lang.String getProfileBackgroundImageURL();
+
+    public abstract java.lang.String getProfileBackgroundImageUrl();
+
+    public abstract java.lang.String getProfileBackgroundImageUrlHttps();
+
+    public abstract java.lang.String getProfileBannerIPadRetinaURL();
+
+    public abstract java.lang.String getProfileBannerIPadURL();
+
+    public abstract java.lang.String getProfileBannerMobileRetinaURL();
+
+    public abstract java.lang.String getProfileBannerMobileURL();
+
+    public abstract java.lang.String getProfileBannerRetinaURL();
+
+    public abstract java.lang.String getProfileBannerURL();
+
+    public abstract java.lang.String getProfileImageURL();
+
+    public abstract java.lang.String getProfileImageURLHttps();
+
+    public abstract java.net.URL getProfileImageUrlHttps();
+
+    public abstract java.lang.String getProfileLinkColor();
+
+    public abstract java.lang.String getProfileSidebarBorderColor();
+
+    public abstract java.lang.String getProfileSidebarFillColor();
+
+    public abstract java.lang.String getProfileTextColor();
+
+    public abstract java.lang.String getScreenName();
+
+    public abstract twitter4j.Status getStatus();
+
+    public abstract int getStatusesCount();
+
+    public abstract java.lang.String getTimeZone();
+
+    public abstract java.lang.String getURL();
+
+    public abstract twitter4j.URLEntity getURLEntity();
+
+    public abstract int getUtcOffset();
+
+    public abstract boolean isContributorsEnabled();
+
+    public abstract boolean isFollowRequestSent();
+
+    public abstract boolean isGeoEnabled();
+
+    public abstract boolean isProfileBackgroundTiled();
+
+    public abstract boolean isProfileUseBackgroundImage();
+
+    public abstract boolean isProtected();
+
+    public abstract boolean isShowAllInlineMedia();
+
+    public abstract boolean isTranslator();
+
+    public abstract boolean isVerified();
+}

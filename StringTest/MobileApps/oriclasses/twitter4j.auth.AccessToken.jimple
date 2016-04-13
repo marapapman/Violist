@@ -1,0 +1,350 @@
+public class twitter4j.auth.AccessToken extends twitter4j.auth.OAuthToken implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private java.lang.String screenName;
+    private long userId;
+
+    void <init>(java.lang.String)
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1;
+        long $l0;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.auth.OAuthToken: void <init>(java.lang.String)>($r1);
+
+        $r0.<twitter4j.auth.AccessToken: long userId> = -1L;
+
+        $r1 = virtualinvoke $r0.<twitter4j.auth.AccessToken: java.lang.String getParameter(java.lang.String)>("screen_name");
+
+        $r0.<twitter4j.auth.AccessToken: java.lang.String screenName> = $r1;
+
+        $r1 = virtualinvoke $r0.<twitter4j.auth.AccessToken: java.lang.String getParameter(java.lang.String)>("user_id");
+
+        if $r1 == null goto label1;
+
+        $l0 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r1);
+
+        $r0.<twitter4j.auth.AccessToken: long userId> = $l0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1, $r2;
+        int $i0;
+        long $l1;
+        java.lang.NumberFormatException $r3;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<twitter4j.auth.OAuthToken: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        $r0.<twitter4j.auth.AccessToken: long userId> = -1L;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int indexOf(java.lang.String)>("-");
+
+        if $i0 == -1 goto label4;
+
+        $r2 = virtualinvoke $r1.<java.lang.String: java.lang.String substring(int,int)>(0, $i0);
+
+     label1:
+        $l1 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>($r2);
+
+     label2:
+        $r0.<twitter4j.auth.AccessToken: long userId> = $l1;
+
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        return;
+
+     label4:
+        return;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public void <init>(java.lang.String, java.lang.String, long)
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1, $r2;
+        long $l0;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $l0 := @parameter2: long;
+
+        specialinvoke $r0.<twitter4j.auth.OAuthToken: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        $r0.<twitter4j.auth.AccessToken: long userId> = -1L;
+
+        $r0.<twitter4j.auth.AccessToken: long userId> = $l0;
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.http.HttpResponse) throws twitter4j.TwitterException
+    {
+        twitter4j.auth.AccessToken $r0;
+        twitter4j.internal.http.HttpResponse $r1;
+        java.lang.String $r2;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: twitter4j.internal.http.HttpResponse;
+
+        $r2 = virtualinvoke $r1.<twitter4j.internal.http.HttpResponse: java.lang.String asString()>();
+
+        specialinvoke $r0.<twitter4j.auth.AccessToken: void <init>(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.auth.AccessToken $r0, $r4;
+        java.lang.Object $r1;
+        long $l0, $l1;
+        java.lang.Class $r2, $r3;
+        boolean $z0;
+        byte $b2;
+        java.lang.String $r5, $r6;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        if $r1 == null goto label2;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $z0 = specialinvoke $r0.<twitter4j.auth.OAuthToken: boolean equals(java.lang.Object)>($r1);
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        $r4 = (twitter4j.auth.AccessToken) $r1;
+
+        $l1 = $r0.<twitter4j.auth.AccessToken: long userId>;
+
+        $l0 = $r4.<twitter4j.auth.AccessToken: long userId>;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 == 0 goto label5;
+
+        return 0;
+
+     label5:
+        $r5 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        if $r5 == null goto label7;
+
+        $r5 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        $r6 = $r4.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label8;
+
+     label6:
+        return 0;
+
+     label7:
+        $r6 = $r4.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        if $r6 == null goto label9;
+
+        goto label6;
+
+     label8:
+        return 1;
+
+     label9:
+        return 1;
+    }
+
+    public volatile java.lang.String getParameter(java.lang.String)
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r1 = specialinvoke $r0.<twitter4j.auth.OAuthToken: java.lang.String getParameter(java.lang.String)>($r1);
+
+        return $r1;
+    }
+
+    public java.lang.String getScreenName()
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        r1 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        return r1;
+    }
+
+    public volatile java.lang.String getToken()
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 = specialinvoke $r0.<twitter4j.auth.OAuthToken: java.lang.String getToken()>();
+
+        return $r1;
+    }
+
+    public volatile java.lang.String getTokenSecret()
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 = specialinvoke $r0.<twitter4j.auth.OAuthToken: java.lang.String getTokenSecret()>();
+
+        return $r1;
+    }
+
+    public long getUserId()
+    {
+        twitter4j.auth.AccessToken $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        l0 = $r0.<twitter4j.auth.AccessToken: long userId>;
+
+        return l0;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.String $r1;
+        int $i0, $i2;
+        long $l1, $l3;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $i0 = specialinvoke $r0.<twitter4j.auth.OAuthToken: int hashCode()>();
+
+        $i0 = $i0 * 31;
+
+        $r1 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        if $r1 == null goto label2;
+
+        $r1 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        $i2 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label1:
+        $i2 = $i0 + $i2;
+
+        $i2 = $i2 * 31;
+
+        $l3 = $r0.<twitter4j.auth.AccessToken: long userId>;
+
+        $l1 = $r0.<twitter4j.auth.AccessToken: long userId>;
+
+        $l1 = $l1 >>> 32;
+
+        $l3 = $l3 ^ $l1;
+
+        $i0 = (int) $l3;
+
+        $i2 = $i2 + $i0;
+
+        return $i2;
+
+     label2:
+        $i2 = 0;
+
+        goto label1;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.auth.AccessToken $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        long $l0;
+
+        $r0 := @this: twitter4j.auth.AccessToken;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("AccessToken{screenName=\'");
+
+        $r2 = $r0.<twitter4j.auth.AccessToken: java.lang.String screenName>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", userId=");
+
+        $l0 = $r0.<twitter4j.auth.AccessToken: long userId>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.auth.AccessToken: long serialVersionUID> = -8344528374458826291L;
+
+        return;
+    }
+}

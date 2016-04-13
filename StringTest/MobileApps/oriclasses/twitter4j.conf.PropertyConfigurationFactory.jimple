@@ -1,0 +1,68 @@
+class twitter4j.conf.PropertyConfigurationFactory extends java.lang.Object implements twitter4j.conf.ConfigurationFactory
+{
+    private static final twitter4j.conf.PropertyConfiguration ROOT_CONFIGURATION;
+
+    static void <clinit>()
+    {
+        twitter4j.conf.PropertyConfiguration $r0;
+
+        $r0 = new twitter4j.conf.PropertyConfiguration;
+
+        specialinvoke $r0.<twitter4j.conf.PropertyConfiguration: void <init>()>();
+
+        <twitter4j.conf.PropertyConfigurationFactory: twitter4j.conf.PropertyConfiguration ROOT_CONFIGURATION> = $r0;
+
+        return;
+    }
+
+    void <init>()
+    {
+        twitter4j.conf.PropertyConfigurationFactory $r0;
+
+        $r0 := @this: twitter4j.conf.PropertyConfigurationFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void dispose()
+    {
+        twitter4j.conf.PropertyConfigurationFactory $r0;
+
+        $r0 := @this: twitter4j.conf.PropertyConfigurationFactory;
+
+        return;
+    }
+
+    public twitter4j.conf.Configuration getInstance()
+    {
+        twitter4j.conf.PropertyConfigurationFactory $r0;
+        twitter4j.conf.PropertyConfiguration r1;
+
+        $r0 := @this: twitter4j.conf.PropertyConfigurationFactory;
+
+        r1 = <twitter4j.conf.PropertyConfigurationFactory: twitter4j.conf.PropertyConfiguration ROOT_CONFIGURATION>;
+
+        return r1;
+    }
+
+    public twitter4j.conf.Configuration getInstance(java.lang.String)
+    {
+        twitter4j.conf.PropertyConfigurationFactory $r0;
+        java.lang.String $r1;
+        twitter4j.conf.PropertyConfiguration $r2;
+
+        $r0 := @this: twitter4j.conf.PropertyConfigurationFactory;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = new twitter4j.conf.PropertyConfiguration;
+
+        specialinvoke $r2.<twitter4j.conf.PropertyConfiguration: void <init>(java.lang.String)>($r1);
+
+        virtualinvoke $r2.<twitter4j.conf.PropertyConfiguration: void dumpConfiguration()>();
+
+        return $r2;
+    }
+}

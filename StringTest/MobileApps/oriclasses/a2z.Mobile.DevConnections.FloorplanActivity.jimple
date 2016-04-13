@@ -1,0 +1,1714 @@
+public class a2z.Mobile.DevConnections.FloorplanActivity extends android.app.Activity
+{
+    private static final java.lang.String LOG_TAG;
+    private static int MAX_ALLOWED_TEXTURE_HEIGHT;
+    private static int MAX_ALLOWED_TEXTURE_WIDTH;
+    android.graphics.Bitmap base_image;
+    java.util.ArrayList boothList;
+    android.graphics.Bitmap booth_data;
+    android.util.DisplayMetrics dm;
+    android.graphics.Bitmap$Config mInPreferredConfig;
+    int mapID;
+    a2z.Mobile.DevConnections.Classes.Booth mapItBooth;
+    int mapItBoothID;
+    int resourceId;
+    int sessionCoordX;
+    int sessionCoordY;
+    int sessionMapID;
+
+    static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.FloorplanActivity: java.lang.String LOG_TAG> = "FloorplanActivity";
+
+        <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH> = 2048;
+
+        <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT> = 2048;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.graphics.Bitmap$Config $r1;
+        java.util.ArrayList $r2;
+        android.util.DisplayMetrics $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int resourceId> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionMapID> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordX> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordY> = 0;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image> = null;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data> = null;
+
+        $r1 = <android.graphics.Bitmap$Config: android.graphics.Bitmap$Config RGB_565>;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap$Config mInPreferredConfig> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth> = null;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.util.ArrayList boothList> = $r2;
+
+        $r3 = new android.util.DisplayMetrics;
+
+        specialinvoke $r3.<android.util.DisplayMetrics: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.util.DisplayMetrics dm> = $r3;
+
+        return;
+    }
+
+    private void drawBooths(android.graphics.Canvas, a2z.Mobile.DevConnections.Views.FloorplanView)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.graphics.Canvas $r1;
+        a2z.Mobile.DevConnections.Views.FloorplanView $r2;
+        float $f0, $f1, $f2, $f3, $f4;
+        android.graphics.Paint $r3;
+        android.graphics.RectF $r4;
+        android.view.WindowManager $r5;
+        android.graphics.Paint$Style $r6;
+        android.graphics.Bitmap $r7;
+        android.view.Display $r8;
+        android.util.DisplayMetrics $r9;
+        int $i0, $i2;
+        java.lang.StringBuilder $r10;
+        java.lang.String $r11;
+        byte $b1;
+        android.content.res.Resources $r12;
+        java.util.ArrayList $r13;
+        java.util.Iterator $r14;
+        boolean $z0;
+        a2z.Mobile.DevConnections.Classes.Booth $r15;
+        java.lang.Float $r16;
+        java.lang.Object $r17;
+        java.lang.Integer $r18;
+        java.lang.Boolean $r19;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.graphics.Canvas;
+
+        $r2 := @parameter1: a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>(-16776961);
+
+        $r6 = <android.graphics.Paint$Style: android.graphics.Paint$Style FILL>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setStyle(android.graphics.Paint$Style)>($r6);
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawBitmap(android.graphics.Bitmap,float,float,android.graphics.Paint)>($r7, 0.0F, 0.0F, $r3);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.view.WindowManager getWindowManager()>();
+
+        $r8 = interfaceinvoke $r5.<android.view.WindowManager: android.view.Display getDefaultDisplay()>();
+
+        $r9 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.util.DisplayMetrics dm>;
+
+        virtualinvoke $r8.<android.view.Display: void getMetrics(android.util.DisplayMetrics)>($r9);
+
+        $f0 = 1.0F;
+
+        $i0 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Views.FloorplanView: int getExpectedWidth()>();
+
+        if $i0 <= 0 goto label01;
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("FloorplanView.getExpectedWidth(): ");
+
+        $i0 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Views.FloorplanView: int getExpectedWidth()>();
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r11);
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $i0 = virtualinvoke $r7.<android.graphics.Bitmap: int getWidth()>();
+
+        $f1 = (float) $i0;
+
+        $i0 = virtualinvoke $r2.<a2z.Mobile.DevConnections.Views.FloorplanView: int getExpectedWidth()>();
+
+        $f0 = (float) $i0;
+
+        $f0 = $f1 / $f0;
+
+     label01:
+        $r11 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.lang.String getString(int)>(2131165199);
+
+        $f1 = staticinvoke <java.lang.Float: float parseFloat(java.lang.String)>($r11);
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("mapScale: ");
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(float)>($f0);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r11);
+
+        $r10 = new java.lang.StringBuilder;
+
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>(java.lang.String)>("clientMapScaleModifier: ");
+
+        $r10 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(float)>($f1);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r11);
+
+        $f2 = $f0 * $f1;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>(-16777216);
+
+        $r6 = <android.graphics.Paint$Style: android.graphics.Paint$Style STROKE>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setStyle(android.graphics.Paint$Style)>($r6);
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionMapID>;
+
+        if $i0 <= 0 goto label02;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordX>;
+
+        if $i0 <= 0 goto label02;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordY>;
+
+        if $i0 <= 0 goto label02;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordX>;
+
+        $f1 = (float) $i0;
+
+        $f0 = $f1 * $f2;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordY>;
+
+        $f1 = (float) $i0;
+
+        $f1 = $f1 * $f2;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $i0 = virtualinvoke $r7.<android.graphics.Bitmap: int getWidth()>();
+
+        $f3 = (float) $i0;
+
+        $b1 = $f0 cmpg $f3;
+
+        if $b1 >= 0 goto label02;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $i0 = virtualinvoke $r7.<android.graphics.Bitmap: int getHeight()>();
+
+        $f3 = (float) $i0;
+
+        $b1 = $f1 cmpg $f3;
+
+        if $b1 >= 0 goto label02;
+
+        $r12 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.res.Resources getResources()>();
+
+        $r7 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r12, 2130837548);
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawBitmap(android.graphics.Bitmap,float,float,android.graphics.Paint)>($r7, $f0, $f1, $r3);
+
+     label02:
+        $r13 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.util.ArrayList boothList>;
+
+        $r14 = virtualinvoke $r13.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label03:
+        $z0 = interfaceinvoke $r14.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label04;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        if $i0 <= 0 goto label09;
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        if $r15 == null goto label10;
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f3 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 + $f1;
+
+        $f3 = $f3 / 2.0F;
+
+        $f3 = $f3 * $f2;
+
+        $f3 = $f3 - 17.0F;
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 + $f0;
+
+        $f1 = $f1 / 2.0F;
+
+        $f2 = $f1 * $f2;
+
+        $f2 = $f2 - 14.0F;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $i0 = virtualinvoke $r7.<android.graphics.Bitmap: int getWidth()>();
+
+        $f1 = (float) $i0;
+
+        $b1 = $f3 cmpg $f1;
+
+        if $b1 >= 0 goto label11;
+
+        $r7 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $i0 = virtualinvoke $r7.<android.graphics.Bitmap: int getHeight()>();
+
+        $f1 = (float) $i0;
+
+        $b1 = $f2 cmpg $f1;
+
+        if $b1 >= 0 goto label12;
+
+        $r12 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.res.Resources getResources()>();
+
+        $r7 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int)>($r12, 2130837548);
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawBitmap(android.graphics.Bitmap,float,float,android.graphics.Paint)>($r7, $f3, $f2, $r3);
+
+        return;
+
+     label04:
+        $r17 = interfaceinvoke $r14.<java.util.Iterator: java.lang.Object next()>();
+
+        $r15 = (a2z.Mobile.DevConnections.Classes.Booth) $r17;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        if $i0 <= 0 goto label07;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        $r18 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Integer BoothID()>();
+
+        $i2 = virtualinvoke $r18.<java.lang.Integer: int intValue()>();
+
+        if $i0 != $i2 goto label07;
+
+        $i2 = staticinvoke <android.graphics.Color: int argb(int,int,int,int)>(255, 255, 255, 51);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>($i2);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth> = $r15;
+
+     label05:
+        $r6 = <android.graphics.Paint$Style: android.graphics.Paint$Style FILL>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setStyle(android.graphics.Paint$Style)>($r6);
+
+        $i2 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        if $i2 <= 0 goto label06;
+
+        $i2 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        $r18 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Integer BoothID()>();
+
+        $i0 = virtualinvoke $r18.<java.lang.Integer: int intValue()>();
+
+        if $i2 != $i0 goto label06;
+
+        $i2 = staticinvoke <android.graphics.Color: int argb(int,int,int,int)>(255, 255, 255, 51);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>($i2);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth> = $r15;
+
+     label06:
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f3 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f4 = $f0 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 * $f2;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f3, $f1, $f4, $f0, $r3);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>(-12303292);
+
+        $r6 = <android.graphics.Paint$Style: android.graphics.Paint$Style STROKE>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setStyle(android.graphics.Paint$Style)>($r6);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setTextSize(float)>(8.0F);
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f4 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f4 = $f4 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f3 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 * $f2;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 * $f2;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f4, $f3, $f1, $f0, $r3);
+
+        $r4 = new android.graphics.RectF;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f4 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f4 = $f4 * $f2;
+
+        $f4 = $f4 + 2.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f3 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 * $f2;
+
+        $f3 = $f3 - 2.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 * $f2;
+
+        $f1 = $f1 - 2.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 * $f2;
+
+        $f0 = $f0 + 12.0F;
+
+        specialinvoke $r4.<android.graphics.RectF: void <init>(float,float,float,float)>($f4, $f3, $f1, $f0);
+
+        $r11 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String BoothLabel()>();
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void drawText(android.graphics.Canvas,java.lang.CharSequence,android.graphics.RectF,android.graphics.Paint)>($r1, $r11, $r4, $r3);
+
+        $r11 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        $i2 = virtualinvoke $r11.<java.lang.String: int compareTo(java.lang.String)>("");
+
+        if $i2 == 0 goto label03;
+
+        $r11 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        $i2 = virtualinvoke $r11.<java.lang.String: int compareTo(java.lang.String)>("RESERVED");
+
+        if $i2 == 0 goto label03;
+
+        $r4 = new android.graphics.RectF;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLX()>();
+
+        $f4 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f4 = $f4 * $f2;
+
+        $f4 = $f4 + 2.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordLY()>();
+
+        $f3 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f3 = $f3 * $f2;
+
+        $f3 = $f3 + 12.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRX()>();
+
+        $f1 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f1 = $f1 * $f2;
+
+        $f1 = $f1 - 2.0F;
+
+        $r16 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Float CoordRY()>();
+
+        $f0 = virtualinvoke $r16.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 * $f2;
+
+        $f0 = $f0 - 15.0F;
+
+        specialinvoke $r4.<android.graphics.RectF: void <init>(float,float,float,float)>($f4, $f3, $f1, $f0);
+
+        $r11 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.String CompanyName()>();
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void drawText(android.graphics.Canvas,java.lang.CharSequence,android.graphics.RectF,android.graphics.Paint)>($r1, $r11, $r4, $r3);
+
+        goto label03;
+
+     label07:
+        $r19 = virtualinvoke $r15.<a2z.Mobile.DevConnections.Classes.Booth: java.lang.Boolean IsFavorite()>();
+
+        $z0 = virtualinvoke $r19.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $z0 == 0 goto label08;
+
+        $i2 = staticinvoke <android.graphics.Color: int parseColor(java.lang.String)>("#f2be7d");
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>($i2);
+
+        goto label05;
+
+     label08:
+        $i2 = staticinvoke <android.graphics.Color: int argb(int,int,int,int)>(200, 255, 204, 51);
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>($i2);
+
+        goto label05;
+
+     label09:
+        return;
+
+     label10:
+        return;
+
+     label11:
+        return;
+
+     label12:
+        return;
+    }
+
+    private void drawText(android.graphics.Canvas, java.lang.CharSequence, android.graphics.RectF, android.graphics.Paint)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.graphics.Canvas $r1;
+        java.lang.CharSequence $r2;
+        android.graphics.RectF $r3;
+        android.graphics.Paint $r4;
+        int $i0, $i1, $i2, $i3, $i5, $i6, $i9;
+        float $f0, $f1, $f2, $f3;
+        byte $b4, $b7;
+        char $c8;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.graphics.Canvas;
+
+        $r2 := @parameter1: java.lang.CharSequence;
+
+        $r3 := @parameter2: android.graphics.RectF;
+
+        $r4 := @parameter3: android.graphics.Paint;
+
+        $i0 = 0;
+
+        $i5 = interfaceinvoke $r2.<java.lang.CharSequence: int length()>();
+
+        $i3 = $i5 + -1;
+
+        $f0 = $r3.<android.graphics.RectF: float left>;
+
+        $f1 = $r3.<android.graphics.RectF: float top>;
+
+        $f2 = virtualinvoke $r3.<android.graphics.RectF: float width()>();
+
+        $b4 = $f2 cmpg 30.0F;
+
+        if $b4 >= 0 goto label01;
+
+        return;
+
+     label01:
+        $i6 = virtualinvoke $r4.<android.graphics.Paint: int getFontMetricsInt(android.graphics.Paint$FontMetricsInt)>(null);
+
+     label02:
+        if $i0 >= $i3 goto label15;
+
+        $i5 = $i3 - $i0;
+
+        $i1 = $i5 + 1;
+
+        $i2 = $i1;
+
+        $b4 = 0;
+
+     label03:
+        if $i2 <= 0 goto label04;
+
+        $i5 = $i0 + $i2;
+
+        $f3 = virtualinvoke $r4.<android.graphics.Paint: float measureText(java.lang.CharSequence,int,int)>($r2, $i0, $i5);
+
+        $b7 = $f3 cmpl $f2;
+
+        if $b7 > 0 goto label11;
+
+     label04:
+        $i5 = $i2;
+
+        if $i2 >= $i1 goto label06;
+
+     label05:
+        if $i2 <= 0 goto label06;
+
+        $i1 = $i0 + $i2;
+
+        $i1 = $i1 + -1;
+
+        $c8 = interfaceinvoke $r2.<java.lang.CharSequence: char charAt(int)>($i1);
+
+        $z0 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>($c8);
+
+        if $z0 == 0 goto label12;
+
+     label06:
+        $i1 = 0;
+
+     label07:
+        if $i1 < $i2 goto label13;
+
+     label08:
+        if $i2 >= 1 goto label09;
+
+        if $b4 != 0 goto label09;
+
+        $i2 = $i5;
+
+     label09:
+        if $i2 <= 0 goto label10;
+
+        $i1 = $i0 + $i2;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawText(java.lang.CharSequence,int,int,float,float,android.graphics.Paint)>($r2, $i0, $i1, $f0, $f1, $r4);
+
+     label10:
+        $i5 = $i2 + $b4;
+
+        $i0 = $i0 + $i5;
+
+        $f3 = (float) $i6;
+
+        $f1 = $f1 + $f3;
+
+        $i5 = $i2 + $b4;
+
+        if $i5 >= 1 goto label02;
+
+        return;
+
+     label11:
+        $i2 = $i2 + -1;
+
+        goto label03;
+
+     label12:
+        $i2 = $i2 + -1;
+
+        goto label05;
+
+     label13:
+        $i9 = $i0 + $i1;
+
+        $c8 = interfaceinvoke $r2.<java.lang.CharSequence: char charAt(int)>($i9);
+
+        if $c8 != 10 goto label14;
+
+        $i2 = $i1;
+
+        $b4 = 1;
+
+        goto label08;
+
+     label14:
+        $i1 = $i1 + 1;
+
+        goto label07;
+
+     label15:
+        return;
+    }
+
+    private void getMapImagePreCreationHeightAndWidth(android.content.res.Resources, int, android.graphics.BitmapFactory$Options)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.content.res.Resources $r1;
+        int $i0;
+        android.graphics.BitmapFactory$Options $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.content.res.Resources;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: android.graphics.BitmapFactory$Options;
+
+        $r2.<android.graphics.BitmapFactory$Options: boolean inJustDecodeBounds> = 1;
+
+        staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int,android.graphics.BitmapFactory$Options)>($r1, $i0, $r2);
+
+        return;
+    }
+
+    private void getMapImagePreferredHeightAndWidth(android.graphics.BitmapFactory$Options)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.graphics.BitmapFactory$Options $r1;
+        boolean $z0;
+        int $i0, $i2, $i3, $i7, $i8;
+        byte $b1, $b10;
+        long $l4, $l5, $l6, $l9;
+        java.lang.StringBuilder $r2;
+        a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass $r3;
+        java.lang.String $r4;
+        android.graphics.Bitmap$Config $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.graphics.BitmapFactory$Options;
+
+        $i3 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: int getMemoryClass(android.content.Context)>($r0);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Total memory allocated per process on this device: ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" MB");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: boolean isHoneycombOrAbove()>();
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("isHoneycombOrAbove:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $b1 = 1;
+
+        if $z0 != 0 goto label1;
+
+        $b1 = 2;
+
+     label1:
+        $z0 = 0;
+
+        $i0 = 1;
+
+        $i2 = $r1.<android.graphics.BitmapFactory$Options: int outHeight>;
+
+        $i3 = $r1.<android.graphics.BitmapFactory$Options: int outWidth>;
+
+     label2:
+        if $z0 == 0 goto label3;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("inSampleSize:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $r1.<android.graphics.BitmapFactory$Options: int inSampleSize> = $i0;
+
+        return;
+
+     label3:
+        $l4 = (long) $i3;
+
+        $l5 = (long) $i2;
+
+        $r5 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap$Config mInPreferredConfig>;
+
+        $l5 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: long getBitmapMemoryAllocationSize(long,long,android.graphics.Bitmap$Config)>($l4, $l5, $r5);
+
+        $l6 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: long FreeMemory()>();
+
+        $l4 = (long) $b1;
+
+        $l4 = $l4 * $l5;
+
+        $i7 = <a2z.Mobile.DevConnections.Utils.MemUtils: int MEGABYTE>;
+
+        $r3 = <a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass MEMORY_CEILING_BUFFER>;
+
+        $i8 = virtualinvoke $r3.<a2z.Mobile.DevConnections.Utils.MemUtils$MemoryClass: int getValue()>();
+
+        $i8 = $i7 * $i8;
+
+        $l9 = (long) $i8;
+
+        $l4 = $l4 + $l9;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("rawHeight:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("rawWidth:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("rawSize:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l5);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("totalFreeMemory:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l6);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("totalSizeNeeded:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l4);
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r4);
+
+        $b10 = $l4 cmp $l6;
+
+        if $b10 <= 0 goto label4;
+
+        $i0 = $i0 * 2;
+
+        $i2 = $i2 / 2;
+
+        $i3 = $i3 / 2;
+
+        goto label2;
+
+     label4:
+        $z0 = 1;
+
+        goto label2;
+    }
+
+    private android.graphics.Bitmap validateBaseImageMeetsGPURequirements(android.graphics.Bitmap)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.graphics.Bitmap $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        float $f0, $f1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        java.lang.Float $r4;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.graphics.Bitmap;
+
+        $i4 = 1024;
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $i0 = $i5;
+
+        $i2 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $i3 = $i2;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("base_image height:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("base_image width:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("base_image density:");
+
+        $i1 = virtualinvoke $r1.<android.graphics.Bitmap: int getDensity()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $i1 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        if $i2 > $i1 goto label01;
+
+        $i1 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        if $i5 <= $i1 goto label10;
+
+     label01:
+        if $i2 <= $i5 goto label05;
+
+        $i1 = $i2;
+
+        $i2 = $i5;
+
+     label02:
+        $f0 = (float) $i2;
+
+        $r4 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f0);
+
+        $f0 = virtualinvoke $r4.<java.lang.Float: float floatValue()>();
+
+        $f1 = (float) $i1;
+
+        $r4 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($f1);
+
+        $f1 = virtualinvoke $r4.<java.lang.Float: float floatValue()>();
+
+        $f0 = $f0 / $f1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("calculated heightToWidthRatio:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(float)>($f0);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        if $i5 != $i2 goto label06;
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        $f1 = (float) $i5;
+
+        $f1 = $f1 * $f0;
+
+        $i0 = (int) $f1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("calculated height:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+     label03:
+        if $i1 != $i0 goto label07;
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        if $i1 <= $i5 goto label07;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("calculated height shouldnt be greater then max allowed height:");
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        if $i3 > $i5 goto label04;
+
+        $i4 = $i3;
+
+     label04:
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        $r1 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createScaledBitmap(android.graphics.Bitmap,int,int,boolean)>($r1, $i4, $i5, 0);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final width:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final height:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        return $r1;
+
+     label05:
+        $i1 = $i5;
+
+        goto label02;
+
+     label06:
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        $f1 = (float) $i5;
+
+        $f1 = $f1 * $f0;
+
+        $i3 = (int) $f1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("calculated width:");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i3);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        goto label03;
+
+     label07:
+        if $i1 != $i3 goto label09;
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        if $i1 <= $i5 goto label09;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("calculated width shouldnt be greater then max allowed width");
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        $i3 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        if $i0 > $i3 goto label08;
+
+        $i4 = $i0;
+
+     label08:
+        $r1 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createScaledBitmap(android.graphics.Bitmap,int,int,boolean)>($r1, $i5, $i4, 0);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final width:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final height:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        return $r1;
+
+     label09:
+        if $i1 != $i0 goto label11;
+
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_WIDTH>;
+
+        $r1 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createScaledBitmap(android.graphics.Bitmap,int,int,boolean)>($r1, $i5, $i0, 0);
+
+     label10:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final width:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getWidth()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("final height:");
+
+        $i5 = virtualinvoke $r1.<android.graphics.Bitmap: int getHeight()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i5);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", $r3);
+
+        return $r1;
+
+     label11:
+        $i5 = <a2z.Mobile.DevConnections.FloorplanActivity: int MAX_ALLOWED_TEXTURE_HEIGHT>;
+
+        $r1 = staticinvoke <android.graphics.Bitmap: android.graphics.Bitmap createScaledBitmap(android.graphics.Bitmap,int,int,boolean)>($r1, $i3, $i5, 0);
+
+        goto label10;
+    }
+
+    public void onConfigurationChanged(android.content.res.Configuration)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.content.res.Configuration $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.content.res.Configuration;
+
+        specialinvoke $r0.<android.app.Activity: void onConfigurationChanged(android.content.res.Configuration)>($r1);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.os.Bundle $r1, $r10;
+        android.graphics.Canvas $r2;
+        java.lang.Exception $r3, $r4, $r20, $r21, $r23;
+        a2z.Mobile.DevConnections.Views.FloorplanView $r5;
+        android.graphics.BitmapFactory$Options $r6, $r7;
+        java.lang.String $r8, $r12;
+        android.content.Intent $r9;
+        boolean $z0;
+        int $i0;
+        java.lang.StringBuilder $r11;
+        android.content.res.Resources $r13;
+        android.graphics.Bitmap$Config $r14;
+        android.graphics.Bitmap $r15, $r16;
+        java.lang.Integer $r17;
+        java.util.ArrayList $r18;
+        a2z.Mobile.DevConnections.Classes.Booth $r19;
+        android.widget.Toast $r22;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: boolean requestWindowFeature(int)>(1);
+
+        $r9 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r9.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r8 = "";
+
+        if $r1 == null goto label03;
+
+     label01:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("MapItBoothID");
+
+        if $z0 == 0 goto label02;
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("MapItBoothID");
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID> = $i0;
+
+     label02:
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("SessionID");
+
+        if $z0 == 0 goto label03;
+
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("SessionRoomX");
+
+        if $z0 == 0 goto label03;
+
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean containsKey(java.lang.String)>("SessionRoomY");
+
+        if $z0 == 0 goto label03;
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("SessionID");
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionMapID> = $i0;
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("SessionRoomX");
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordX> = $i0;
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("SessionRoomY");
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int sessionCoordY> = $i0;
+
+     label03:
+        $r9 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.Intent getIntent()>();
+
+        $r10 = virtualinvoke $r9.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $i0 = virtualinvoke $r10.<android.os.Bundle: int getInt(java.lang.String)>("MapID");
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID> = $i0;
+
+     label04:
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID>;
+
+        if $i0 == 0 goto label05;
+
+        $r11 = new java.lang.StringBuilder;
+
+        $r8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>("MapID=");
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>($r8);
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID>;
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r8 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label05:
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        if $i0 == 0 goto label06;
+
+        $r11 = new java.lang.StringBuilder;
+
+        $r8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r8);
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>($r8);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("||mapItBoothID=");
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r8 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label06:
+        $r12 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Floorplan", $r12, $r8);
+
+     label07:
+        $r5 = new a2z.Mobile.DevConnections.Views.FloorplanView;
+
+        specialinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void <init>(android.content.Context)>($r0);
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void setDrawingCacheEnabled(boolean)>(1);
+
+     label08:
+        $r13 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.res.Resources getResources()>();
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("map");
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID>;
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("event");
+
+        $r12 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.lang.String getString(int)>(2131165185);
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.lang.String getPackageName()>();
+
+        $i0 = virtualinvoke $r13.<android.content.res.Resources: int getIdentifier(java.lang.String,java.lang.String,java.lang.String)>($r12, "drawable", $r8);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int resourceId> = $i0;
+
+     label09:
+        $r7 = new android.graphics.BitmapFactory$Options;
+
+     label10:
+        specialinvoke $r7.<android.graphics.BitmapFactory$Options: void <init>()>();
+
+        $r13 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.res.Resources getResources()>();
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int resourceId>;
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void getMapImagePreCreationHeightAndWidth(android.content.res.Resources,int,android.graphics.BitmapFactory$Options)>($r13, $i0, $r7);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void getMapImagePreferredHeightAndWidth(android.graphics.BitmapFactory$Options)>($r7);
+
+        $r6 = new android.graphics.BitmapFactory$Options;
+
+        specialinvoke $r6.<android.graphics.BitmapFactory$Options: void <init>()>();
+
+        $r14 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap$Config mInPreferredConfig>;
+
+        $r6.<android.graphics.BitmapFactory$Options: android.graphics.Bitmap$Config inPreferredConfig> = $r14;
+
+        $i0 = $r7.<android.graphics.BitmapFactory$Options: int inSampleSize>;
+
+        if $i0 <= 1 goto label11;
+
+        $i0 = $r7.<android.graphics.BitmapFactory$Options: int inSampleSize>;
+
+        $r6.<android.graphics.BitmapFactory$Options: int inSampleSize> = $i0;
+
+     label11:
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Utils.MemUtils: boolean isHoneycombOrAbove()>();
+
+        if $z0 == 0 goto label12;
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", "options.inMutable == true");
+
+        $r6.<android.graphics.BitmapFactory$Options: boolean inMutable> = 1;
+
+     label12:
+        $r13 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.res.Resources getResources()>();
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int resourceId>;
+
+        $r15 = staticinvoke <android.graphics.BitmapFactory: android.graphics.Bitmap decodeResource(android.content.res.Resources,int,android.graphics.BitmapFactory$Options)>($r13, $i0, $r6);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image> = $r15;
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $r15 = specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap validateBaseImageMeetsGPURequirements(android.graphics.Bitmap)>($r15);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image> = $r15;
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $z0 = virtualinvoke $r15.<android.graphics.Bitmap: boolean isMutable()>();
+
+        if $z0 != 0 goto label19;
+
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", "base_image is not mutable.");
+
+        $r15 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $r16 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $r14 = virtualinvoke $r16.<android.graphics.Bitmap: android.graphics.Bitmap$Config getConfig()>();
+
+        $r16 = virtualinvoke $r15.<android.graphics.Bitmap: android.graphics.Bitmap copy(android.graphics.Bitmap$Config,boolean)>($r14, 1);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data> = $r16;
+
+     label13:
+        $r2 = new android.graphics.Canvas;
+
+        $r16 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data>;
+
+        specialinvoke $r2.<android.graphics.Canvas: void <init>(android.graphics.Bitmap)>($r16);
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID>;
+
+        $r17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r18 = staticinvoke <a2z.Mobile.DevConnections.Classes.Booth: java.util.ArrayList getList(java.lang.Integer)>($r17);
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.util.ArrayList boothList> = $r18;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID>;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void setMapId(int)>($i0);
+
+        specialinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void drawBooths(android.graphics.Canvas,a2z.Mobile.DevConnections.Views.FloorplanView)>($r2, $r5);
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void draw(android.graphics.Canvas)>($r2);
+
+        $r16 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data>;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void setImageBitmap(android.graphics.Bitmap)>($r16);
+
+        $r18 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.util.ArrayList boothList>;
+
+        $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: java.util.ArrayList boothList> = $r18;
+
+     label14:
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void setMaxZoom(float)>(8.0F);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void setContentView(android.view.View)>($r5);
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID>;
+
+        if $i0 <= 0 goto label22;
+
+        $r19 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: a2z.Mobile.DevConnections.Classes.Booth mapItBooth>;
+
+        virtualinvoke $r5.<a2z.Mobile.DevConnections.Views.FloorplanView: void setZoom(float,a2z.Mobile.DevConnections.Classes.Booth)>(1.0F, $r19);
+
+        return;
+
+     label15:
+        $r4 := @caughtexception;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapItBoothID> = 0;
+
+        goto label03;
+
+     label16:
+        $r20 := @caughtexception;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: int mapID> = 0;
+
+        goto label04;
+
+     label17:
+        $r3 := @caughtexception;
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("Error in referral to ");
+
+        $r12 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: java.lang.String getLocalClassName()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r12);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r12, null, null);
+
+        virtualinvoke $r3.<java.lang.Exception: void printStackTrace()>();
+
+        goto label07;
+
+     label18:
+        $r21 := @caughtexception;
+
+        virtualinvoke $r21.<java.lang.Exception: void printStackTrace()>();
+
+        $r22 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Error - Map Not Found", 0);
+
+        virtualinvoke $r22.<android.widget.Toast: void show()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void finish()>();
+
+        goto label09;
+
+     label19:
+        staticinvoke <android.util.Log: int d(java.lang.String,java.lang.String)>("FloorplanActivity", "base_image is mutable.");
+
+        $r16 = $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap base_image>;
+
+        $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.graphics.Bitmap booth_data> = $r16;
+
+     label20:
+        goto label13;
+
+     label21:
+        $r23 := @caughtexception;
+
+        virtualinvoke $r23.<java.lang.Exception: void printStackTrace()>();
+
+        goto label14;
+
+     label22:
+        return;
+
+        catch java.lang.Exception from label01 to label03 with label15;
+        catch java.lang.Exception from label03 to label04 with label16;
+        catch java.lang.Exception from label06 to label07 with label17;
+        catch java.lang.Exception from label08 to label09 with label18;
+        catch java.lang.Exception from label10 to label14 with label21;
+        catch java.lang.Exception from label19 to label20 with label21;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.view.Menu $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        specialinvoke $r0.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Home");
+
+        return 1;
+    }
+
+    public void onDestroy()
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onDestroy()>();
+
+        staticinvoke <java.lang.System: void gc()>();
+
+        return;
+    }
+
+    protected void onNewIntent(android.content.Intent)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.content.Intent $r1;
+        android.view.Window $r2;
+        android.view.View $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.content.Intent;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.view.Window getWindow()>();
+
+        $r3 = virtualinvoke $r2.<android.view.Window: android.view.View getDecorView()>();
+
+        $r3 = virtualinvoke $r3.<android.view.View: android.view.View findViewById(int)>(16908290);
+
+        virtualinvoke $r3.<android.view.View: void invalidate()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void setIntent(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.view.MenuItem $r1;
+        android.app.Dialog $r2;
+        android.content.Intent $r3;
+        java.lang.CharSequence $r4;
+        boolean $z0;
+        android.content.Context $r5;
+        android.view.View $r6;
+        android.widget.Button $r7;
+        android.widget.EditText $r8;
+        a2z.Mobile.DevConnections.FloorplanActivity$1 $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r4 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>("Home");
+
+        if $z0 == 0 goto label2;
+
+        $r3 = new android.content.Intent;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r5, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Floorplan");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: void startActivity(android.content.Intent)>($r3);
+
+     label1:
+        return 1;
+
+     label2:
+        $r4 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>("Locate Me...");
+
+        if $z0 == 0 goto label1;
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ExhibitorListActivity");
+
+        $r2 = new android.app.Dialog;
+
+        specialinvoke $r2.<android.app.Dialog: void <init>(android.content.Context)>($r0);
+
+        virtualinvoke $r2.<android.app.Dialog: void setContentView(int)>(2130903061);
+
+        $r6 = virtualinvoke $r2.<android.app.Dialog: android.view.View findViewById(int)>(2131230814);
+
+        $r7 = (android.widget.Button) $r6;
+
+        $r6 = virtualinvoke $r2.<android.app.Dialog: android.view.View findViewById(int)>(2131230813);
+
+        $r8 = (android.widget.EditText) $r6;
+
+        $r9 = new a2z.Mobile.DevConnections.FloorplanActivity$1;
+
+        specialinvoke $r9.<a2z.Mobile.DevConnections.FloorplanActivity$1: void <init>(a2z.Mobile.DevConnections.FloorplanActivity,android.widget.EditText,android.content.Intent,android.app.Dialog)>($r0, $r8, $r3, $r2);
+
+        virtualinvoke $r7.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r9);
+
+        virtualinvoke $r2.<android.app.Dialog: void show()>();
+
+        goto label1;
+    }
+
+    public void onPause()
+    {
+        a2z.Mobile.DevConnections.FloorplanActivity $r0;
+        android.view.Window $r1;
+        android.view.View $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.FloorplanActivity;
+
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+        $r1 = virtualinvoke $r0.<a2z.Mobile.DevConnections.FloorplanActivity: android.view.Window getWindow()>();
+
+        $r2 = virtualinvoke $r1.<android.view.Window: android.view.View getDecorView()>();
+
+        $r2 = virtualinvoke $r2.<android.view.View: android.view.View findViewById(int)>(16908290);
+
+        virtualinvoke $r2.<android.view.View: void invalidate()>();
+
+        staticinvoke <java.lang.System: void gc()>();
+
+        return;
+    }
+}

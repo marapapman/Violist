@@ -1,0 +1,13 @@
+public interface  twitter4j.Friendship extends java.lang.Object implements java.io.Serializable
+{
+
+    public abstract long getId();
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getScreenName();
+
+    public abstract boolean isFollowedBy();
+
+    public abstract boolean isFollowing();
+}

@@ -1,0 +1,7 @@
+public interface  twitter4j.StatusDeletionNotice extends java.lang.Object implements java.lang.Comparable, java.io.Serializable
+{
+
+    public abstract long getStatusId();
+
+    public abstract long getUserId();
+}

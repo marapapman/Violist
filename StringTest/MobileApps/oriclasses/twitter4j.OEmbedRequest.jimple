@@ -1,0 +1,812 @@
+public final class twitter4j.OEmbedRequest extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private twitter4j.OEmbedRequest$Align align;
+    private boolean hideMedia;
+    private boolean hideThread;
+    private java.lang.String lang;
+    private int maxWidth;
+    private boolean omitScript;
+    private java.lang.String[] related;
+    private final long statusId;
+    private final java.lang.String url;
+
+    void <init>(long, java.lang.String)
+    {
+        twitter4j.OEmbedRequest $r0;
+        long $l0;
+        java.lang.String $r1;
+        twitter4j.OEmbedRequest$Align $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideMedia> = 1;
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideThread> = 1;
+
+        $r0.<twitter4j.OEmbedRequest: boolean omitScript> = 0;
+
+        $r2 = <twitter4j.OEmbedRequest$Align: twitter4j.OEmbedRequest$Align NONE>;
+
+        $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align> = $r2;
+
+        $r3 = newarray (java.lang.String)[0];
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String[] related> = $r3;
+
+        $r0.<twitter4j.OEmbedRequest: long statusId> = $l0;
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String url> = $r1;
+
+        return;
+    }
+
+    private void appendParameter(java.lang.String, long, java.util.List)
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String $r1, $r3;
+        long $l0;
+        java.util.List $r2;
+        byte $b1;
+        twitter4j.internal.http.HttpParameter $r4;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $l0 := @parameter1: long;
+
+        $r2 := @parameter2: java.util.List;
+
+        $b1 = 0L cmp $l0;
+
+        if $b1 > 0 goto label1;
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>($l0);
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>($r1, $r3);
+
+        interfaceinvoke $r2.<java.util.List: boolean add(java.lang.Object)>($r4);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void appendParameter(java.lang.String, java.lang.String, java.util.List)
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String $r1, $r2;
+        java.util.List $r3;
+        twitter4j.internal.http.HttpParameter $r4;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 := @parameter2: java.util.List;
+
+        if $r2 == null goto label1;
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        interfaceinvoke $r3.<java.util.List: boolean add(java.lang.Object)>($r4);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public twitter4j.OEmbedRequest HideMedia(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideMedia> = $z0;
+
+        return $r0;
+    }
+
+    public twitter4j.OEmbedRequest HideThread(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideThread> = $z0;
+
+        return $r0;
+    }
+
+    public twitter4j.OEmbedRequest MaxWidth(int)
+    {
+        twitter4j.OEmbedRequest $r0;
+        int $i0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $i0 := @parameter0: int;
+
+        $r0.<twitter4j.OEmbedRequest: int maxWidth> = $i0;
+
+        return $r0;
+    }
+
+    public twitter4j.OEmbedRequest align(twitter4j.OEmbedRequest$Align)
+    {
+        twitter4j.OEmbedRequest $r0;
+        twitter4j.OEmbedRequest$Align $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: twitter4j.OEmbedRequest$Align;
+
+        $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align> = $r1;
+
+        return $r0;
+    }
+
+    twitter4j.internal.http.HttpParameter[] asHttpParameterArray()
+    {
+        twitter4j.OEmbedRequest $r0;
+        twitter4j.internal.http.HttpParameter[] $r1;
+        java.util.ArrayList $r2;
+        long $l0;
+        boolean $z0;
+        java.lang.String $r3;
+        int $i1;
+        twitter4j.internal.http.HttpParameter $r4;
+        twitter4j.OEmbedRequest$Align $r5;
+        java.lang.String[] $r6;
+        java.lang.Object[] $r7;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>(int)>(12);
+
+        $l0 = $r0.<twitter4j.OEmbedRequest: long statusId>;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest: void appendParameter(java.lang.String,long,java.util.List)>("id", $l0, $r2);
+
+        $r3 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest: void appendParameter(java.lang.String,java.lang.String,java.util.List)>("url", $r3, $r2);
+
+        $i1 = $r0.<twitter4j.OEmbedRequest: int maxWidth>;
+
+        $l0 = (long) $i1;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest: void appendParameter(java.lang.String,long,java.util.List)>("maxwidth", $l0, $r2);
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideMedia>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,boolean)>("hide_media", $z0);
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r4);
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideThread>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,boolean)>("hide_thread", $z0);
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r4);
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean omitScript>;
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,boolean)>("omit_script", $z0);
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r4);
+
+        $r4 = new twitter4j.internal.http.HttpParameter;
+
+        $r5 = $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        $r3 = virtualinvoke $r5.<twitter4j.OEmbedRequest$Align: java.lang.String name()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        specialinvoke $r4.<twitter4j.internal.http.HttpParameter: void <init>(java.lang.String,java.lang.String)>("align", $r3);
+
+        virtualinvoke $r2.<java.util.ArrayList: boolean add(java.lang.Object)>($r4);
+
+        $r6 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $i1 = lengthof $r6;
+
+        if $i1 <= 0 goto label1;
+
+        $r6 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $r3 = staticinvoke <twitter4j.internal.util.z_T4JInternalStringUtil: java.lang.String join(java.lang.String[])>($r6);
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest: void appendParameter(java.lang.String,java.lang.String,java.util.List)>("related", $r3, $r2);
+
+     label1:
+        $r3 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        specialinvoke $r0.<twitter4j.OEmbedRequest: void appendParameter(java.lang.String,java.lang.String,java.util.List)>("lang", $r3, $r2);
+
+        $i1 = virtualinvoke $r2.<java.util.ArrayList: int size()>();
+
+        $r1 = newarray (twitter4j.internal.http.HttpParameter)[$i1];
+
+        $r7 = virtualinvoke $r2.<java.util.ArrayList: java.lang.Object[] toArray(java.lang.Object[])>($r1);
+
+        $r1 = (twitter4j.internal.http.HttpParameter[]) $r7;
+
+        return $r1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.OEmbedRequest $r0, $r4;
+        java.lang.Object $r1;
+        long $l0, $l3;
+        java.lang.Class $r2, $r3;
+        boolean $z0, $z1;
+        int $i1, $i2;
+        byte $b4;
+        twitter4j.OEmbedRequest$Align $r5, $r6;
+        java.lang.String $r7, $r8;
+        java.lang.String[] $r9, $r10;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label01;
+
+        return 1;
+
+     label01:
+        if $r1 == null goto label02;
+
+        $r2 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r2 == $r3 goto label03;
+
+     label02:
+        return 0;
+
+     label03:
+        $r4 = (twitter4j.OEmbedRequest) $r1;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideMedia>;
+
+        $z1 = $r4.<twitter4j.OEmbedRequest: boolean hideMedia>;
+
+        if $z0 == $z1 goto label04;
+
+        return 0;
+
+     label04:
+        $z1 = $r0.<twitter4j.OEmbedRequest: boolean hideThread>;
+
+        $z0 = $r4.<twitter4j.OEmbedRequest: boolean hideThread>;
+
+        if $z1 == $z0 goto label05;
+
+        return 0;
+
+     label05:
+        $i1 = $r0.<twitter4j.OEmbedRequest: int maxWidth>;
+
+        $i2 = $r4.<twitter4j.OEmbedRequest: int maxWidth>;
+
+        if $i1 == $i2 goto label06;
+
+        return 0;
+
+     label06:
+        $z1 = $r0.<twitter4j.OEmbedRequest: boolean omitScript>;
+
+        $z0 = $r4.<twitter4j.OEmbedRequest: boolean omitScript>;
+
+        if $z1 == $z0 goto label07;
+
+        return 0;
+
+     label07:
+        $l3 = $r0.<twitter4j.OEmbedRequest: long statusId>;
+
+        $l0 = $r4.<twitter4j.OEmbedRequest: long statusId>;
+
+        $b4 = $l3 cmp $l0;
+
+        if $b4 == 0 goto label08;
+
+        return 0;
+
+     label08:
+        $r5 = $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        $r6 = $r4.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        if $r5 == $r6 goto label09;
+
+        return 0;
+
+     label09:
+        $r7 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        if $r7 == null goto label11;
+
+        $r7 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        $r8 = $r4.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        $z1 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>($r8);
+
+        if $z1 != 0 goto label12;
+
+     label10:
+        return 0;
+
+     label11:
+        $r8 = $r4.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        if $r8 != null goto label10;
+
+     label12:
+        $r9 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $r10 = $r4.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $z1 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($r9, $r10);
+
+        if $z1 != 0 goto label13;
+
+        return 0;
+
+     label13:
+        $r8 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        if $r8 == null goto label15;
+
+        $r8 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        $r7 = $r4.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        $z1 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>($r7);
+
+        if $z1 != 0 goto label16;
+
+     label14:
+        return 0;
+
+     label15:
+        $r8 = $r4.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        if $r8 == null goto label17;
+
+        goto label14;
+
+     label16:
+        return 1;
+
+     label17:
+        return 1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.OEmbedRequest $r0;
+        int $i0, $i1, $i5;
+        byte $b2, $b6;
+        long $l3, $l4;
+        java.lang.String $r1;
+        boolean $z0;
+        twitter4j.OEmbedRequest$Align $r2;
+        java.lang.String[] $r3;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $b2 = 1;
+
+        $i1 = 0;
+
+        $l3 = $r0.<twitter4j.OEmbedRequest: long statusId>;
+
+        $l4 = $r0.<twitter4j.OEmbedRequest: long statusId>;
+
+        $l4 = $l4 >>> 32;
+
+        $l4 = $l3 ^ $l4;
+
+        $i0 = (int) $l4;
+
+        $i5 = $i0 * 31;
+
+        $r1 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        if $r1 == null goto label08;
+
+        $r1 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label01:
+        $i5 = $i5 + $i0;
+
+        $i5 = $i5 * 31;
+
+        $i0 = $r0.<twitter4j.OEmbedRequest: int maxWidth>;
+
+        $i5 = $i5 + $i0;
+
+        $i5 = $i5 * 31;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideMedia>;
+
+        if $z0 == 0 goto label09;
+
+        $b6 = 1;
+
+     label02:
+        $i5 = $i5 + $b6;
+
+        $i5 = $i5 * 31;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideThread>;
+
+        if $z0 == 0 goto label10;
+
+        $b6 = 1;
+
+     label03:
+        $i5 = $i5 + $b6;
+
+        $i5 = $i5 * 31;
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean omitScript>;
+
+        if $z0 == 0 goto label11;
+
+     label04:
+        $i5 = $i5 + $b2;
+
+        $i5 = $i5 * 31;
+
+        $r2 = $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        if $r2 == null goto label12;
+
+        $r2 = $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        $i0 = virtualinvoke $r2.<twitter4j.OEmbedRequest$Align: int hashCode()>();
+
+     label05:
+        $i5 = $i5 + $i0;
+
+        $i5 = $i5 * 31;
+
+        $r3 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        if $r3 == null goto label13;
+
+        $r3 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $i0 = staticinvoke <java.util.Arrays: int hashCode(java.lang.Object[])>($r3);
+
+     label06:
+        $i5 = $i5 + $i0;
+
+        $i5 = $i5 * 31;
+
+        $r1 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        if $r1 == null goto label07;
+
+        $r1 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        $i1 = virtualinvoke $r1.<java.lang.String: int hashCode()>();
+
+     label07:
+        $i5 = $i5 + $i1;
+
+        return $i5;
+
+     label08:
+        $i0 = 0;
+
+        goto label01;
+
+     label09:
+        $b6 = 0;
+
+        goto label02;
+
+     label10:
+        $b6 = 0;
+
+        goto label03;
+
+     label11:
+        $b2 = 0;
+
+        goto label04;
+
+     label12:
+        $i0 = 0;
+
+        goto label05;
+
+     label13:
+        $i0 = 0;
+
+        goto label06;
+    }
+
+    public twitter4j.OEmbedRequest lang(java.lang.String)
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String lang> = $r1;
+
+        return $r0;
+    }
+
+    public twitter4j.OEmbedRequest omitScript(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean omitScript> = $z0;
+
+        return $r0;
+    }
+
+    public twitter4j.OEmbedRequest related(java.lang.String[])
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String[] $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String[] related> = $r1;
+
+        return $r0;
+    }
+
+    public void setAlign(twitter4j.OEmbedRequest$Align)
+    {
+        twitter4j.OEmbedRequest $r0;
+        twitter4j.OEmbedRequest$Align $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: twitter4j.OEmbedRequest$Align;
+
+        $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align> = $r1;
+
+        return;
+    }
+
+    public void setHideMedia(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideMedia> = $z0;
+
+        return;
+    }
+
+    public void setHideThread(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean hideThread> = $z0;
+
+        return;
+    }
+
+    public void setLang(java.lang.String)
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String lang> = $r1;
+
+        return;
+    }
+
+    public void setMaxWidth(int)
+    {
+        twitter4j.OEmbedRequest $r0;
+        int $i0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $i0 := @parameter0: int;
+
+        $r0.<twitter4j.OEmbedRequest: int maxWidth> = $i0;
+
+        return;
+    }
+
+    public void setOmitScript(boolean)
+    {
+        twitter4j.OEmbedRequest $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<twitter4j.OEmbedRequest: boolean omitScript> = $z0;
+
+        return;
+    }
+
+    public void setRelated(java.lang.String[])
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.String[] $r1;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r0.<twitter4j.OEmbedRequest: java.lang.String[] related> = $r1;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.OEmbedRequest $r0;
+        java.lang.StringBuilder $r1;
+        long $l0;
+        java.lang.String $r2;
+        int $i1;
+        boolean $z0;
+        twitter4j.OEmbedRequest$Align $r3;
+        java.lang.String[] $r4;
+        java.util.List $r5;
+
+        $r0 := @this: twitter4j.OEmbedRequest;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("OEmbedRequest{statusId=");
+
+        $l0 = $r0.<twitter4j.OEmbedRequest: long statusId>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", url=\'");
+
+        $r2 = $r0.<twitter4j.OEmbedRequest: java.lang.String url>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", maxWidth=");
+
+        $i1 = $r0.<twitter4j.OEmbedRequest: int maxWidth>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", hideMedia=");
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideMedia>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", hideThread=");
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean hideThread>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", omitScript=");
+
+        $z0 = $r0.<twitter4j.OEmbedRequest: boolean omitScript>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", align=");
+
+        $r3 = $r0.<twitter4j.OEmbedRequest: twitter4j.OEmbedRequest$Align align>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", related=");
+
+        $r4 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        if $r4 != null goto label2;
+
+        $r5 = null;
+
+     label1:
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", lang=\'");
+
+        $r2 = $r0.<twitter4j.OEmbedRequest: java.lang.String lang>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+
+     label2:
+        $r4 = $r0.<twitter4j.OEmbedRequest: java.lang.String[] related>;
+
+        $r5 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r4);
+
+        goto label1;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.OEmbedRequest: long serialVersionUID> = -4330607167106242987L;
+
+        return;
+    }
+}

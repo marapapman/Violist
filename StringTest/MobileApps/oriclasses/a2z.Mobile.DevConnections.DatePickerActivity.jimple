@@ -1,0 +1,299 @@
+public class a2z.Mobile.DevConnections.DatePickerActivity extends android.app.Activity
+{
+    static final int DATE_DIALOG_ID;
+    private android.widget.Button btnChangeDate;
+    private android.app.DatePickerDialog$OnDateSetListener datePickerListener;
+    private int day;
+    private android.widget.DatePicker dpResult;
+    private int month;
+    private android.widget.TextView tvDisplayDate;
+    private int year;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        a2z.Mobile.DevConnections.DatePickerActivity$1 $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r1 = new a2z.Mobile.DevConnections.DatePickerActivity$1;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.DatePickerActivity$1: void <init>(a2z.Mobile.DevConnections.DatePickerActivity)>($r0);
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.app.DatePickerDialog$OnDateSetListener datePickerListener> = $r1;
+
+        return;
+    }
+
+    static void access$0(a2z.Mobile.DevConnections.DatePickerActivity, int)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int $i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $i0 := @parameter1: int;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year> = $i0;
+
+        return;
+    }
+
+    static void access$1(a2z.Mobile.DevConnections.DatePickerActivity, int)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int $i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $i0 := @parameter1: int;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month> = $i0;
+
+        return;
+    }
+
+    static void access$2(a2z.Mobile.DevConnections.DatePickerActivity, int)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int $i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $i0 := @parameter1: int;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day> = $i0;
+
+        return;
+    }
+
+    static android.widget.TextView access$3(a2z.Mobile.DevConnections.DatePickerActivity)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        android.widget.TextView r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.TextView tvDisplayDate>;
+
+        return r1;
+    }
+
+    static int access$4(a2z.Mobile.DevConnections.DatePickerActivity)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month>;
+
+        return i0;
+    }
+
+    static int access$5(a2z.Mobile.DevConnections.DatePickerActivity)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day>;
+
+        return i0;
+    }
+
+    static int access$6(a2z.Mobile.DevConnections.DatePickerActivity)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int i0;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year>;
+
+        return i0;
+    }
+
+    static android.widget.DatePicker access$7(a2z.Mobile.DevConnections.DatePickerActivity)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        android.widget.DatePicker r1;
+
+        $r0 := @parameter0: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        r1 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.DatePicker dpResult>;
+
+        return r1;
+    }
+
+    public void addListenerOnButton()
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        a2z.Mobile.DevConnections.DatePickerActivity$2 $r1;
+        android.view.View $r2;
+        android.widget.Button $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.view.View findViewById(int)>(2131230722);
+
+        $r3 = (android.widget.Button) $r2;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.Button btnChangeDate> = $r3;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.Button btnChangeDate>;
+
+        $r1 = new a2z.Mobile.DevConnections.DatePickerActivity$2;
+
+        specialinvoke $r1.<a2z.Mobile.DevConnections.DatePickerActivity$2: void <init>(a2z.Mobile.DevConnections.DatePickerActivity)>($r0);
+
+        virtualinvoke $r3.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r1);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        android.os.Bundle $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: void setContentView(int)>(2130903041);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: void setCurrentDateOnView()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: void addListenerOnButton()>();
+
+        return;
+    }
+
+    protected android.app.Dialog onCreateDialog(int)
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        int $i0, $i1, $i2;
+        android.app.DatePickerDialog $r1;
+        android.app.DatePickerDialog$OnDateSetListener $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case 999: goto label2;
+            default: goto label1;
+        };
+
+     label1:
+        return null;
+
+     label2:
+        $r1 = new android.app.DatePickerDialog;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.app.DatePickerDialog$OnDateSetListener datePickerListener>;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year>;
+
+        $i1 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month>;
+
+        $i2 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day>;
+
+        specialinvoke $r1.<android.app.DatePickerDialog: void <init>(android.content.Context,android.app.DatePickerDialog$OnDateSetListener,int,int,int)>($r0, $r2, $i0, $i1, $i2);
+
+        return $r1;
+    }
+
+    public void setCurrentDateOnView()
+    {
+        a2z.Mobile.DevConnections.DatePickerActivity $r0;
+        java.lang.StringBuilder $r1;
+        int $i0, $i1, $i2;
+        android.view.View $r2;
+        android.widget.TextView $r3;
+        android.widget.DatePicker $r4;
+        java.util.Calendar $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.DatePickerActivity;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.view.View findViewById(int)>(2131230724);
+
+        $r3 = (android.widget.TextView) $r2;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.TextView tvDisplayDate> = $r3;
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.view.View findViewById(int)>(2131230725);
+
+        $r4 = (android.widget.DatePicker) $r2;
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.DatePicker dpResult> = $r4;
+
+        $r5 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $i0 = virtualinvoke $r5.<java.util.Calendar: int get(int)>(1);
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year> = $i0;
+
+        $i0 = virtualinvoke $r5.<java.util.Calendar: int get(int)>(2);
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month> = $i0;
+
+        $i0 = virtualinvoke $r5.<java.util.Calendar: int get(int)>(5);
+
+        $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day> = $i0;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.TextView tvDisplayDate>;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month>;
+
+        $i0 = $i0 + 1;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        virtualinvoke $r3.<android.widget.TextView: void setText(java.lang.CharSequence)>($r1);
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: android.widget.DatePicker dpResult>;
+
+        $i1 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int year>;
+
+        $i2 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int month>;
+
+        $i0 = $r0.<a2z.Mobile.DevConnections.DatePickerActivity: int day>;
+
+        virtualinvoke $r4.<android.widget.DatePicker: void init(int,int,int,android.widget.DatePicker$OnDateChangedListener)>($i1, $i2, $i0, null);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.DatePickerActivity: int DATE_DIALOG_ID> = 999;
+
+        return;
+    }
+}

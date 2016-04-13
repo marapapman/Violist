@@ -1,0 +1,18 @@
+<html>
+    <body>>
+        <wicket:extend>
+            <form wicket:id="form">
+                <div class="heading">
+                    <wicket:message key="space_role_form.editRoleName"/>:
+                    <span wicket:id="label"></span>
+                    <input type="submit" wicket:id="delete" wicket:message="value:delete"/>                    
+                </div>
+                <div wicket:id="feedback"></div>
+                <input wicket:id="roleKey"/>
+                <input type="submit" wicket:message="value:submit"/>                
+                <p/>
+                <a href="#" wicket:id="cancel"><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

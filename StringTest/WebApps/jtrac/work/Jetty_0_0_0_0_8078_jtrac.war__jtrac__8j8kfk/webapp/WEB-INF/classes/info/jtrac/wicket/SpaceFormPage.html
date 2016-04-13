@@ -1,0 +1,64 @@
+<html>
+    <body>
+        <wicket:extend>
+            <form wicket:id="form">                
+                <div class="heading">
+                    <wicket:message key="space_form.spaceDetails"/>
+                    <input type="submit" wicket:id="delete" wicket:message="value:delete"/>                    
+                </div>
+                <div wicket:id="feedback"></div>
+                <table class="jtrac">
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="space_form.displayName"/>
+                            <font color="red">*</font>
+                        </td>    
+                        <td>
+                            <input wicket:id="space.name"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="space_form.spaceKey"/>
+                            <font color="red">*</font>
+                        </td>    
+                        <td>
+                            <input wicket:id="space.prefixCode" size="10"/>                                                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="space_form.description"/>                            
+                        </td>    
+                        <td>
+                            <textarea wicket:id="space.description" rows="3" cols="40"></textarea>                                                                                      
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <wicket:message key="space_form.makePublic"/>                            
+                        </td>    
+                        <td>
+                            <input type="checkbox" wicket:id="space.guestAllowed"/>                                                            
+                        </td>                        
+                    </tr> 
+                    <tr wicket:id="hide">
+                        <td class="label">
+                            <wicket:message key="space_form.copyExisting"/>
+                        </td>
+                        <td>
+                            <select wicket:id="copyFrom"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td/>
+                        <td>
+                            <input type="submit" wicket:message="value:next"/>                                                                                       
+                        </td>
+                    </tr>                    
+                </table>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

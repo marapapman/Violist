@@ -1,0 +1,9 @@
+interface  android.support.v4.widget.SearchViewCompat$SearchViewCompatImpl extends java.lang.Object
+{
+
+    public abstract java.lang.Object newOnQueryTextListener(android.support.v4.widget.SearchViewCompat$OnQueryTextListenerCompat);
+
+    public abstract android.view.View newSearchView(android.content.Context);
+
+    public abstract void setOnQueryTextListener(java.lang.Object, java.lang.Object);
+}

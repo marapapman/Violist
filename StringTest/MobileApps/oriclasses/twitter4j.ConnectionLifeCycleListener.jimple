@@ -1,0 +1,9 @@
+public interface  twitter4j.ConnectionLifeCycleListener extends java.lang.Object
+{
+
+    public abstract void onCleanUp();
+
+    public abstract void onConnect();
+
+    public abstract void onDisconnect();
+}

@@ -1,0 +1,83 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;5.&nbsp;Roadmap</title><link rel="stylesheet" href="../styles/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.60.1"><link rel="home" href="index.html" title="JTrac"><link rel="up" href="index.html" title="JTrac"><link rel="previous" href="faq.html" title="Chapter&nbsp;4.&nbsp;FAQ"><link rel="next" href="interim-builds.html" title="Chapter&nbsp;6.&nbsp;Interim Builds"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navheader"><table width="100%" summary="Navigation footer"><tr><td><a href="http://jtrac.info/"><img style="border:none" src="../images/jtrac-logo.png"></a></td><td align="right"><a href="http://sourceforge.net"><img style="border:none" src="http://sflogo.sourceforge.net/sflogo.php?group_id=162983&amp;type=7"></a></td></tr></table></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="roadmap"></a>Chapter&nbsp;5.&nbsp;Roadmap</h2></div></div><div></div></div><p>
+            Have a look at our detailed <a href="dev-guide.html" title="Chapter&nbsp;8.&nbsp;Developer Guide">developer guide</a> and you will find that 
+            JTrac has one of the most developer-friendly set-ups among open-source projects.  It will take you
+            only a few minutes to be up and running no matter which Java IDE you use.  We actively encourage 
+            contributions and with your support JTrac can become better than it is today.
+        </p><p>
+            Apart from using the <a href="http://sourceforge.net/forum/forum.php?forum_id=552477" target="_top">forums</a>
+            you can also consider joining the JTrac 
+            <a href="https://lists.sourceforge.net/lists/listinfo/j-trac-users" target="_top">mailing-list</a>.
+        </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-hide"></a>5.1.&nbsp;Field-Level "Hide" Permissions</h2></div></div><div></div></div><p>
+                In a future version of JTrac, the ability to even hide fields depending on the role and status
+                will be implemented.  The design for this is already in place.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-nested"></a>5.2.&nbsp;Nested Items</h2></div></div><div></div></div><p>
+                JTrac will support "nested" items under a first-level "parent" item and the design
+                and database schema for this is already in place.  This will allow users to split tasks into sub-tasks 
+                and opens up other possibilities.  One of the plans in the roadmap is to build JTrac into a full-fledged
+                requirements capture tool complete with test-case management and traceability.  JTrac can then be used to
+                manage user-stories or use-cases for agile development teams.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-validation"></a>5.3.&nbsp;Custom Validation</h2></div></div><div></div></div><p>
+                Using <a href="http://www.beanshell.org/" target="_top">Beanshell</a>, users should be able to introduce custom routines
+                to validate item data entered by a user.  Even conditional validation across fields should be possible.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-scheduler"></a>5.4.&nbsp;Custom Scheduled Jobs</h2></div></div><div></div></div><p>
+                Again using Beanshell, users should be able to define routines to execute periodically, say at a pre-determined
+                time every day.  This would allow triggers for events such as slippage of a "due-date" field.
+                This can be combined with e-mail notifications.  Also a daily dashboard summary could be mailed out once
+                the scheduler is in place. [As of version 2.1.0 - the scheduler is already in place for those 
+                who are working on extending JTrac.]
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-email"></a>5.5.&nbsp;Submit By Email</h2></div></div><div></div></div><p>
+                JTrac should be able to monitor an e-mail account and incoming e-mail should trigger
+                creation / updation of items.  It would be handy to have attachments submitted through
+                email also.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-screenshot"></a>5.6.&nbsp;Screenshot Capture</h2></div></div><div></div></div><p>
+                Using a Java applet, it should be possible for the user to upload a screenshot directly from the 
+                system clipboard.  The user should be able to annotate (e.g. highlight a particular area of) the 
+                image before uploading.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-savedsearches"></a>5.7.&nbsp;Saved Searches</h2></div></div><div></div></div><p>
+                It should be possible for users to save search filters and re-use them.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-wiki"></a>5.8.&nbsp;Wiki Engine</h2></div></div><div></div></div><p>
+                There is a plan to embed a wiki-engine into JTrac.  This will supplement the requirements management
+                road map.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-svn"></a>5.9.&nbsp;Subversion Integration</h2></div></div><div></div></div><p>
+                Integration with <a href="http://subversion.tigris.org/" target="_top">Subversion</a> has already been implemented 
+                using the <a href="http://tmate.org/svn/" target="_top">JavaSVN</a> library and this will enable effective 
+                integration of bug reports with commit history in the future. You can try out the existing experimental 
+                support by going to the following url of your JTrac installation: http://[hostname]/jtrac/app/svn                
+            </p><p>
+                </p><div class="mediaobject" align="center"><img src="../images/svn-view.png" align="middle"><div class="caption"><p>Experimental Subversion support: commits per user report</p></div></div><p>
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-tags"></a>5.10.&nbsp;Tags</h2></div></div><div></div></div><p>
+                A one-to-many data model for being able to tag items "Web 2.0" style is already in place.  
+                This would be ideal to track things such as mapping bugs to software release version numbers, 
+                associating keywords with items and to do all kinds of other cool stuff.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-feeds"></a>5.11.&nbsp;RSS Feeds</h2></div></div><div></div></div><p>
+                RSS feeds will be introduced so that you can monitor new items and updates to items.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-import"></a>5.12.&nbsp;Import from other tools</h2></div></div><div></div></div><p>
+                Import from other issue tracking systems (such as BugZilla) to be considered.
+                Once complete, this feature will allow you to import raw data from a spreadsheet, apply any
+                data cleanup needed, identify and load custom fields / drop down values and finally import the items,
+                creating a new Space and users if required.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-sso"></a>5.13.&nbsp;Single Sign On</h2></div></div><div></div></div><p>
+                JTrac uses the <a href="http://www.acegisecurity.org/" target="_top">Acegi Security</a> 
+                framework which supports integration with a
+                <a href="http://www.ja-sig.org/products/cas/" target="_top">Central Authentication Service</a> (CAS) installation.
+                You can refer to the <a href="installation.html#installation-cas" title="3.9.&nbsp;Integrating with CAS for Single Sign On">installation guide</a> for how to configure JTrac to use CAS 
+                for single sign on.  As of version 2.1.0 JTrac supports LDAP authentication out of the box.  This needs to be 
+                improved by adding an admin screen that can browse and add users from an LDAP server.  Authorization using LDAP 
+                and allowing users to plug in custom authentication and authorization routines would be good to have as well.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-xmlapi"></a>5.14.&nbsp;XML API</h2></div></div><div></div></div><p>
+                JTrac should be able to expose a remote XML API (SOAP or REST) so that core functionality can be 
+                invoked / integrated with other systems.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-mylar"></a>5.15.&nbsp;Eclipse Mylyn integration</h2></div></div><div></div></div><p>
+                <a href="http://www.eclipse.org/mylyn/" target="_top">Mylyn</a> (previously known as Mylar) integration in the 
+                form of a connector (Eclipse plugin) is currently being implemented.  The remote API mentioned above is 
+                also being developed (REST).
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-timetracking"></a>5.16.&nbsp;Time Tracking</h2></div></div><div></div></div><p>
+                The database schema already has support for capturing planned vs actual effort against items.
+                This needs to be implemented and obviously will open up a lot of possibilities.
+            </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="roadmap-reporting"></a>5.17.&nbsp;Custom Reports</h2></div></div><div></div></div><p>
+                Although JTrac has an '<a href="features.html#features-excel" title="2.11.&nbsp;Export to Excel">Excel Export</a>' feature that should
+                suffice for all your reporting and charting needs, it would be good to have a reporting engine 
+                that allows the user to create custom reports and even schedule reports to be sent out over e-mail.
+            </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="faq.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="index.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="interim-builds.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;4.&nbsp;FAQ&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;Interim Builds</td></tr></table></div></body></html>

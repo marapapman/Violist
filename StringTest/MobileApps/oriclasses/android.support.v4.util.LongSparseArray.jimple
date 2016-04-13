@@ -1,0 +1,922 @@
+public class android.support.v4.util.LongSparseArray extends java.lang.Object implements java.lang.Cloneable
+{
+    private static final java.lang.Object DELETED;
+    private boolean mGarbage;
+    private long[] mKeys;
+    private int mSize;
+    private java.lang.Object[] mValues;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        <android.support.v4.util.LongSparseArray: java.lang.Object DELETED> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        android.support.v4.util.LongSparseArray $r0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void <init>(int)>(10);
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0;
+        long[] $r1;
+        java.lang.Object[] $r2;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage> = 0;
+
+        $i0 = staticinvoke <android.support.v4.util.LongSparseArray: int idealLongArraySize(int)>($i0);
+
+        $r1 = newarray (long)[$i0];
+
+        $r0.<android.support.v4.util.LongSparseArray: long[] mKeys> = $r1;
+
+        $r2 = newarray (java.lang.Object)[$i0];
+
+        $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues> = $r2;
+
+        $r0.<android.support.v4.util.LongSparseArray: int mSize> = 0;
+
+        return;
+    }
+
+    private static int binarySearch(long[], int, int, long)
+    {
+        long[] $r0;
+        int $i0, $i1, $i3, $i4, $i5;
+        long $l2, $l6;
+        byte $b7;
+
+        $r0 := @parameter0: long[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $l2 := @parameter3: long;
+
+        $i4 = $i0 + $i1;
+
+        $i5 = $i0 + -1;
+
+     label1:
+        $i3 = $i4 - $i5;
+
+        if $i3 <= 1 goto label3;
+
+        $i3 = $i4 + $i5;
+
+        $i3 = $i3 / 2;
+
+        $l6 = $r0[$i3];
+
+        $b7 = $l6 cmp $l2;
+
+        if $b7 >= 0 goto label2;
+
+        $i5 = $i3;
+
+        goto label1;
+
+     label2:
+        $i4 = $i3;
+
+        goto label1;
+
+     label3:
+        $i5 = $i0 + $i1;
+
+        if $i4 != $i5 goto label4;
+
+        $i5 = $i0 + $i1;
+
+        $i4 = $i5 ^ -1;
+
+        return $i4;
+
+     label4:
+        $l6 = $r0[$i4];
+
+        $b7 = $l6 cmp $l2;
+
+        if $b7 == 0 goto label5;
+
+        $i4 = $i4 ^ -1;
+
+        return $i4;
+
+     label5:
+        return $i4;
+    }
+
+    private void gc()
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0, $i1, $i2;
+        long[] $r1;
+        java.lang.Object $r2, $r4;
+        java.lang.Object[] $r3;
+        long $l3;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i2 = 0;
+
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label4;
+
+        $r2 = $r3[$i0];
+
+        $r4 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        if $r2 == $r4 goto label3;
+
+        if $i0 == $i2 goto label2;
+
+        $l3 = $r1[$i0];
+
+        $r1[$i2] = $l3;
+
+        $r3[$i2] = $r2;
+
+        $r3[$i0] = null;
+
+     label2:
+        $i2 = $i2 + 1;
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage> = 0;
+
+        $r0.<android.support.v4.util.LongSparseArray: int mSize> = $i2;
+
+        return;
+    }
+
+    public static int idealByteArraySize(int)
+    {
+        int $i0, $i1, $i2;
+
+        $i0 := @parameter0: int;
+
+        $i1 = 4;
+
+     label1:
+        if $i1 >= 32 goto label3;
+
+        $i2 = 1 << $i1;
+
+        $i2 = $i2 + -12;
+
+        if $i0 > $i2 goto label2;
+
+        $i2 = 1 << $i1;
+
+        $i0 = $i2 + -12;
+
+        return $i0;
+
+     label2:
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label3:
+        return $i0;
+    }
+
+    public static int idealLongArraySize(int)
+    {
+        int $i0;
+
+        $i0 := @parameter0: int;
+
+        $i0 = $i0 * 8;
+
+        $i0 = staticinvoke <android.support.v4.util.LongSparseArray: int idealByteArraySize(int)>($i0);
+
+        $i0 = $i0 / 8;
+
+        return $i0;
+    }
+
+    public void append(long, java.lang.Object)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0, $l3;
+        java.lang.Object $r1;
+        long[] $r2, $r4, $r5;
+        java.lang.Object[] $r3, $r6, $r7;
+        int $i1, $i2;
+        byte $b4;
+        boolean $z0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        if $i1 == 0 goto label1;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i2 = $i1 + -1;
+
+        $l3 = $r2[$i2];
+
+        $b4 = $l0 cmp $l3;
+
+        if $b4 > 0 goto label1;
+
+        virtualinvoke $r0.<android.support.v4.util.LongSparseArray: void put(long,java.lang.Object)>($l0, $r1);
+
+        return;
+
+     label1:
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label2;
+
+        $i2 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = lengthof $r2;
+
+        if $i2 < $i1 goto label2;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label2:
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i2 = lengthof $r2;
+
+        if $i1 < $i2 goto label3;
+
+        $i2 = $i1 + 1;
+
+        $i2 = staticinvoke <android.support.v4.util.LongSparseArray: int idealLongArraySize(int)>($i2);
+
+        $r2 = newarray (long)[$i2];
+
+        $r3 = newarray (java.lang.Object)[$i2];
+
+        $r4 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r5 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i2 = lengthof $r5;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r4, 0, $r2, 0, $i2);
+
+        $r6 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r7 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $i2 = lengthof $r7;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r6, 0, $r3, 0, $i2);
+
+        $r0.<android.support.v4.util.LongSparseArray: long[] mKeys> = $r2;
+
+        $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues> = $r3;
+
+     label3:
+        $r5 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r5[$i1] = $l0;
+
+        $r7 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r7[$i1] = $r1;
+
+        $i2 = $i1 + 1;
+
+        $r0.<android.support.v4.util.LongSparseArray: int mSize> = $i2;
+
+        return;
+    }
+
+    public void clear()
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0, $i1;
+        java.lang.Object[] $r1;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1[$i0] = null;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        $r0.<android.support.v4.util.LongSparseArray: int mSize> = 0;
+
+        $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage> = 0;
+
+        return;
+    }
+
+    public android.support.v4.util.LongSparseArray clone()
+    {
+        android.support.v4.util.LongSparseArray $r0, $r1, $r3;
+        java.lang.Object $r2;
+        long[] $r4;
+        java.lang.Object[] $r5;
+        java.lang.CloneNotSupportedException $r6;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $r1 = null;
+
+     label1:
+        $r2 = specialinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+     label2:
+        $r3 = (android.support.v4.util.LongSparseArray) $r2;
+
+        $r1 = $r3;
+
+     label3:
+        $r4 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r2 = virtualinvoke $r4.<java.lang.Object: java.lang.Object clone()>();
+
+     label4:
+        $r4 = (long[]) $r2;
+
+        $r3.<android.support.v4.util.LongSparseArray: long[] mKeys> = $r4;
+
+     label5:
+        $r5 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r2 = virtualinvoke $r5.<java.lang.Object: java.lang.Object clone()>();
+
+     label6:
+        $r5 = (java.lang.Object[]) $r2;
+
+        $r3.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues> = $r5;
+
+        return $r3;
+
+     label7:
+        $r6 := @caughtexception;
+
+        return $r1;
+
+        catch java.lang.CloneNotSupportedException from label1 to label2 with label7;
+        catch java.lang.CloneNotSupportedException from label3 to label4 with label7;
+        catch java.lang.CloneNotSupportedException from label5 to label6 with label7;
+    }
+
+    public volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        android.support.v4.util.LongSparseArray $r0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $r0 = virtualinvoke $r0.<android.support.v4.util.LongSparseArray: android.support.v4.util.LongSparseArray clone()>();
+
+        return $r0;
+    }
+
+    public void delete(long)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+        long[] $r1;
+        int $i1;
+        java.lang.Object[] $r2;
+        java.lang.Object $r3, $r4;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = staticinvoke <android.support.v4.util.LongSparseArray: int binarySearch(long[],int,int,long)>($r1, 0, $i1, $l0);
+
+        if $i1 < 0 goto label1;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3 = $r2[$i1];
+
+        $r4 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        if $r3 == $r4 goto label2;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r4 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        $r2[$i1] = $r4;
+
+        $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage> = 1;
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    public java.lang.Object get(long)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+        java.lang.Object $r1;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $r1 = virtualinvoke $r0.<android.support.v4.util.LongSparseArray: java.lang.Object get(long,java.lang.Object)>($l0, null);
+
+        return $r1;
+    }
+
+    public java.lang.Object get(long, java.lang.Object)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+        java.lang.Object $r1, $r4, $r5;
+        long[] $r2;
+        int $i1;
+        java.lang.Object[] $r3;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = staticinvoke <android.support.v4.util.LongSparseArray: int binarySearch(long[],int,int,long)>($r2, 0, $i1, $l0);
+
+        if $i1 < 0 goto label2;
+
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r4 = $r3[$i1];
+
+        $r5 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        if $r4 != $r5 goto label1;
+
+        return $r1;
+
+     label1:
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r1 = $r3[$i1];
+
+        return $r1;
+
+     label2:
+        return $r1;
+    }
+
+    public int indexOfKey(long)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+        boolean $z0;
+        int $i1;
+        long[] $r1;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = staticinvoke <android.support.v4.util.LongSparseArray: int binarySearch(long[],int,int,long)>($r1, 0, $i1, $l0);
+
+        return $i1;
+    }
+
+    public int indexOfValue(java.lang.Object)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        java.lang.Object $r1, $r3;
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.Object[] $r2;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        $i0 = 0;
+
+     label2:
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        if $i0 >= $i1 goto label4;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3 = $r2[$i0];
+
+        if $r3 != $r1 goto label3;
+
+        return $i0;
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label4:
+        return -1;
+    }
+
+    public long keyAt(int)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0;
+        boolean $z0;
+        long[] $r1;
+        long $l1;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i0 := @parameter0: int;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $l1 = $r1[$i0];
+
+        return $l1;
+    }
+
+    public void put(long, java.lang.Object)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+        java.lang.Object $r1, $r4, $r5;
+        long[] $r2, $r6, $r7;
+        java.lang.Object[] $r3, $r8, $r9;
+        int $i1, $i2, $i3;
+        boolean $z0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = staticinvoke <android.support.v4.util.LongSparseArray: int binarySearch(long[],int,int,long)>($r2, 0, $i1, $l0);
+
+        if $i1 < 0 goto label1;
+
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3[$i1] = $r1;
+
+        return;
+
+     label1:
+        $i2 = $i1 ^ -1;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        if $i2 >= $i1 goto label2;
+
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r4 = $r3[$i2];
+
+        $r5 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        if $r4 != $r5 goto label2;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r2[$i2] = $l0;
+
+        $r3 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3[$i2] = $r1;
+
+        return;
+
+     label2:
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label3;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i3 = lengthof $r2;
+
+        if $i1 < $i3 goto label3;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i3 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i3 = staticinvoke <android.support.v4.util.LongSparseArray: int binarySearch(long[],int,int,long)>($r2, 0, $i3, $l0);
+
+        $i2 = $i3 ^ -1;
+
+     label3:
+        $i3 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i1 = lengthof $r2;
+
+        if $i3 < $i1 goto label4;
+
+        $i3 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i3 = $i3 + 1;
+
+        $i3 = staticinvoke <android.support.v4.util.LongSparseArray: int idealLongArraySize(int)>($i3);
+
+        $r2 = newarray (long)[$i3];
+
+        $r3 = newarray (java.lang.Object)[$i3];
+
+        $r6 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r7 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i3 = lengthof $r7;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r6, 0, $r2, 0, $i3);
+
+        $r8 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r9 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $i3 = lengthof $r9;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r8, 0, $r3, 0, $i3);
+
+        $r0.<android.support.v4.util.LongSparseArray: long[] mKeys> = $r2;
+
+        $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues> = $r3;
+
+     label4:
+        $i3 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i3 = $i3 - $i2;
+
+        if $i3 == 0 goto label5;
+
+        $r7 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r6 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $i3 = $i2 + 1;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = $i1 - $i2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r7, $i2, $r6, $i3, $i1);
+
+        $r9 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r8 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $i3 = $i2 + 1;
+
+        $i1 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i1 = $i1 - $i2;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($r9, $i2, $r8, $i3, $i1);
+
+     label5:
+        $r7 = $r0.<android.support.v4.util.LongSparseArray: long[] mKeys>;
+
+        $r7[$i2] = $l0;
+
+        $r9 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r9[$i2] = $r1;
+
+        $i3 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        $i3 = $i3 + 1;
+
+        $r0.<android.support.v4.util.LongSparseArray: int mSize> = $i3;
+
+        return;
+    }
+
+    public void remove(long)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        long $l0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $l0 := @parameter0: long;
+
+        virtualinvoke $r0.<android.support.v4.util.LongSparseArray: void delete(long)>($l0);
+
+        return;
+    }
+
+    public void removeAt(int)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0;
+        java.lang.Object[] $r1;
+        java.lang.Object $r2, $r3;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3 = $r1[$i0];
+
+        $r2 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        if $r3 == $r2 goto label1;
+
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r3 = <android.support.v4.util.LongSparseArray: java.lang.Object DELETED>;
+
+        $r1[$i0] = $r3;
+
+        $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage> = 1;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public void setValueAt(int, java.lang.Object)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.lang.Object[] $r2;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        $r2 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r2[$i0] = $r1;
+
+        return;
+    }
+
+    public int size()
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        boolean $z0;
+        int i0;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        i0 = $r0.<android.support.v4.util.LongSparseArray: int mSize>;
+
+        return i0;
+    }
+
+    public java.lang.Object valueAt(int)
+    {
+        android.support.v4.util.LongSparseArray $r0;
+        int $i0;
+        boolean $z0;
+        java.lang.Object[] $r1;
+        java.lang.Object $r2;
+
+        $r0 := @this: android.support.v4.util.LongSparseArray;
+
+        $i0 := @parameter0: int;
+
+        $z0 = $r0.<android.support.v4.util.LongSparseArray: boolean mGarbage>;
+
+        if $z0 == 0 goto label1;
+
+        specialinvoke $r0.<android.support.v4.util.LongSparseArray: void gc()>();
+
+     label1:
+        $r1 = $r0.<android.support.v4.util.LongSparseArray: java.lang.Object[] mValues>;
+
+        $r2 = $r1[$i0];
+
+        return $r2;
+    }
+}

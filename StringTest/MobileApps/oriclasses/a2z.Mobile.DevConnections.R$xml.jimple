@@ -1,0 +1,22 @@
+public final class a2z.Mobile.DevConnections.R$xml extends java.lang.Object
+{
+    public static final int searchable;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$xml $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$xml;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$xml: int searchable> = 2130968576;
+
+        return;
+    }
+}

@@ -1,0 +1,98 @@
+public class android.support.v4.app.NotificationCompat extends java.lang.Object
+{
+    public static final int FLAG_HIGH_PRIORITY;
+    private static final android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL;
+    public static final int PRIORITY_DEFAULT;
+    public static final int PRIORITY_HIGH;
+    public static final int PRIORITY_LOW;
+    public static final int PRIORITY_MAX;
+    public static final int PRIORITY_MIN;
+
+    static void <clinit>()
+    {
+        int $i0;
+        android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean $r0;
+        android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich $r1;
+        android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb $r2;
+        android.support.v4.app.NotificationCompat$NotificationCompatImplBase $r3;
+
+        <android.support.v4.app.NotificationCompat: int PRIORITY_MIN> = -2;
+
+        <android.support.v4.app.NotificationCompat: int PRIORITY_MAX> = 2;
+
+        <android.support.v4.app.NotificationCompat: int PRIORITY_LOW> = -1;
+
+        <android.support.v4.app.NotificationCompat: int PRIORITY_HIGH> = 1;
+
+        <android.support.v4.app.NotificationCompat: int PRIORITY_DEFAULT> = 0;
+
+        <android.support.v4.app.NotificationCompat: int FLAG_HIGH_PRIORITY> = 128;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 16 goto label1;
+
+        $r0 = new android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean;
+
+        specialinvoke $r0.<android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean: void <init>()>();
+
+        <android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL> = $r0;
+
+        return;
+
+     label1:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 14 goto label2;
+
+        $r1 = new android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich;
+
+        specialinvoke $r1.<android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich: void <init>()>();
+
+        <android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL> = $r1;
+
+        return;
+
+     label2:
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label3;
+
+        $r2 = new android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb;
+
+        specialinvoke $r2.<android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb: void <init>()>();
+
+        <android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL> = $r2;
+
+        return;
+
+     label3:
+        $r3 = new android.support.v4.app.NotificationCompat$NotificationCompatImplBase;
+
+        specialinvoke $r3.<android.support.v4.app.NotificationCompat$NotificationCompatImplBase: void <init>()>();
+
+        <android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL> = $r3;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        android.support.v4.app.NotificationCompat $r0;
+
+        $r0 := @this: android.support.v4.app.NotificationCompat;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static android.support.v4.app.NotificationCompat$NotificationCompatImpl access$000()
+    {
+        android.support.v4.app.NotificationCompat$NotificationCompatImpl r0;
+
+        r0 = <android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL>;
+
+        return r0;
+    }
+}

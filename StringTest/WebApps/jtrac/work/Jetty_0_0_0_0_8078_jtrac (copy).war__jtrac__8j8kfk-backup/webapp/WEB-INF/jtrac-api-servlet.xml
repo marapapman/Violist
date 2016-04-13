@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- application context definition for "jtrac" Dispatcher Servlet (Spring MVC front controller) -->
+
+<beans>
+    
+    <!-- explicit URL mapper used by the "jtrac" DispatcherServlet -->    
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+                    <property name="sessionFactory" ref="sessionFactory"/>
+                </bean>
+            </list>
+        </property>
+        <property name="alwaysUseFullPath" value="true"/>
+        <property name="urlMap">
+            <map>
+                <!-- backwards compatibility with 2.0 and previous -->
+                <entry key="/api/**" value-ref="restController"/>
+                <entry key="/**" value-ref="defaultController"/>                           
+            </map>
+        </property>
+    </bean>    
+    
+    <!--
+    - This is a MultiActionController that manages simple view rendering where backend services 
+    - are invoked but there is no need for form binding or a FormController
+    -->
+    <bean id="defaultController" class="info.jtrac.web.DefaultMultiActionController">
+        <property name="methodNameResolver">
+            <bean class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+                <property name="alwaysUseFullPath" value="true"/>
+                <property name="mappings">
+                    <props>
+                        <prop key="/flow/item_view">itemViewHandler</prop>                     
+                    </props>
+                </property>
+            </bean>        
+        </property>
+        <property name="jtrac" ref="jtrac"/>
+    </bean>    
+    
+    <!--
+    - This is an additional MultiActionController that specifically handles remote-api REST requests
+    - a custom MethodNameResolver is set which uses the value of the expected "method" request parameter
+    - see constructor for details
+    -->
+    <bean id="restController" class="info.jtrac.web.RestMultiActionController">
+        <property name="jtrac" ref="jtrac"/>
+    </bean>    
+        
+</beans>

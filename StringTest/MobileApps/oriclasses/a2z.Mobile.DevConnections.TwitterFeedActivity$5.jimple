@@ -1,0 +1,75 @@
+class a2z.Mobile.DevConnections.TwitterFeedActivity$5 extends java.lang.Thread
+{
+    final a2z.Mobile.DevConnections.TwitterFeedActivity this$0;
+    private final android.os.Bundle val$extras;
+
+    void <init>(a2z.Mobile.DevConnections.TwitterFeedActivity, android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity$5 $r0;
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r1;
+        android.os.Bundle $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity$5;
+
+        $r1 := @parameter0: a2z.Mobile.DevConnections.TwitterFeedActivity;
+
+        $r2 := @parameter1: android.os.Bundle;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: a2z.Mobile.DevConnections.TwitterFeedActivity this$0> = $r1;
+
+        $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: android.os.Bundle val$extras> = $r2;
+
+        specialinvoke $r0.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        a2z.Mobile.DevConnections.TwitterFeedActivity$5 $r0;
+        twitter4j.TwitterException $r1;
+        android.os.Bundle $r2;
+        java.lang.String $r3;
+        a2z.Mobile.DevConnections.TwitterFeedActivity $r4;
+        java.lang.StringBuilder $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.TwitterFeedActivity$5;
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: android.os.Bundle val$extras>;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Utils.TwitterUtils: void setAccessToken(android.os.Bundle)>($r2);
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: android.os.Bundle val$extras>;
+
+        $r3 = virtualinvoke $r2.<android.os.Bundle: java.lang.String getString(java.lang.String)>("text_to_send_to_twitter");
+
+        $r4 = $r0.<a2z.Mobile.DevConnections.TwitterFeedActivity$5: a2z.Mobile.DevConnections.TwitterFeedActivity this$0>;
+
+        staticinvoke <a2z.Mobile.DevConnections.TwitterFeedActivity: void access$7(a2z.Mobile.DevConnections.TwitterFeedActivity,java.lang.String)>($r4, $r3);
+
+     label2:
+        return;
+
+     label3:
+        $r1 := @caughtexception;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("Exception trying to set the Twitter Access Token");
+
+        $r3 = virtualinvoke $r1.<twitter4j.TwitterException: java.lang.String getMessage()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("TwitterFeedActivity", $r3);
+
+        virtualinvoke $r1.<twitter4j.TwitterException: void printStackTrace()>();
+
+        return;
+
+        catch twitter4j.TwitterException from label1 to label2 with label3;
+    }
+}

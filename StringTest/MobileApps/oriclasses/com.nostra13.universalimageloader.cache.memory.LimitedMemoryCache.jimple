@@ -1,0 +1,196 @@
+public abstract class com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache extends com.nostra13.universalimageloader.cache.memory.BaseMemoryCache
+{
+    private static final int MAX_NORMAL_CACHE_SIZE;
+    private static final int MAX_NORMAL_CACHE_SIZE_IN_MB;
+    private int cacheSize;
+    private final java.util.List hardCache;
+    private final int sizeLimit;
+
+    public void <init>(int)
+    {
+        com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache $r0;
+        int $i0;
+        java.util.LinkedList $r1;
+        java.util.List $r2;
+        java.lang.Object[] $r3;
+        java.lang.Integer $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache;
+
+        $i0 := @parameter0: int;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: void <init>()>();
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize> = 0;
+
+        $r1 = new java.util.LinkedList;
+
+        specialinvoke $r1.<java.util.LinkedList: void <init>()>();
+
+        $r2 = staticinvoke <java.util.Collections: java.util.List synchronizedList(java.util.List)>($r1);
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.util.List hardCache> = $r2;
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int sizeLimit> = $i0;
+
+        if $i0 <= 16777216 goto label1;
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(16);
+
+        $r3[0] = $r4;
+
+        staticinvoke <com.nostra13.universalimageloader.utils.L: void w(java.lang.String,java.lang.Object[])>("You set too large memory cache size (more than %1$d Mb)", $r3);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public void clear()
+    {
+        com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache $r0;
+        java.util.List $r1;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache;
+
+        $r1 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.util.List hardCache>;
+
+        interfaceinvoke $r1.<java.util.List: void clear()>();
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize> = 0;
+
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: void clear()>();
+
+        return;
+    }
+
+    protected abstract int getSize(java.lang.Object);
+
+    protected int getSizeLimit()
+    {
+        com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache $r0;
+        int i0;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache;
+
+        i0 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int sizeLimit>;
+
+        return i0;
+    }
+
+    public boolean put(java.lang.Object, java.lang.Object)
+    {
+        com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache $r0;
+        java.lang.Object $r1, $r2, $r3;
+        boolean $z0;
+        int $i0, $i1, $i2, $i3;
+        java.util.List $r4;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $z0 = 0;
+
+        $i1 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int getSize(java.lang.Object)>($r2);
+
+        $i2 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int getSizeLimit()>();
+
+        if $i1 >= $i2 goto label3;
+
+     label1:
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize>;
+
+        $i0 = $i0 + $i1;
+
+        if $i0 <= $i2 goto label2;
+
+        $r3 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.lang.Object removeNext()>();
+
+        $r4 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.util.List hardCache>;
+
+        $z0 = interfaceinvoke $r4.<java.util.List: boolean remove(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize>;
+
+        $i3 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int getSize(java.lang.Object)>($r3);
+
+        $i3 = $i0 - $i3;
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize> = $i3;
+
+        goto label1;
+
+     label2:
+        $r4 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.util.List hardCache>;
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r2);
+
+        $i3 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize>;
+
+        $i3 = $i3 + $i1;
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize> = $i3;
+
+        $z0 = 1;
+
+     label3:
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: boolean put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return $z0;
+    }
+
+    public void remove(java.lang.Object)
+    {
+        com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache $r0;
+        java.lang.Object $r1, $r3;
+        java.util.List $r2;
+        boolean $z0;
+        int $i0, $i1;
+
+        $r0 := @this: com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r3 = specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: java.lang.Object get(java.lang.Object)>($r1);
+
+        if $r3 == null goto label1;
+
+        $r2 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: java.util.List hardCache>;
+
+        $z0 = interfaceinvoke $r2.<java.util.List: boolean remove(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        $i0 = $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize>;
+
+        $i1 = virtualinvoke $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int getSize(java.lang.Object)>($r3);
+
+        $i1 = $i0 - $i1;
+
+        $r0.<com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int cacheSize> = $i1;
+
+     label1:
+        specialinvoke $r0.<com.nostra13.universalimageloader.cache.memory.BaseMemoryCache: void remove(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    protected abstract java.lang.Object removeNext();
+
+    public static void <clinit>()
+    {
+        <com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int MAX_NORMAL_CACHE_SIZE_IN_MB> = 16;
+
+        <com.nostra13.universalimageloader.cache.memory.LimitedMemoryCache: int MAX_NORMAL_CACHE_SIZE> = 16777216;
+
+        return;
+    }
+}

@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <wicket:extend>
+            <div class="heading" wicket:id="heading"></div>
+            <form wicket:id="form">
+                <p wicket:id="lines"><span wicket:id="line"></span></p>                
+                <img src="resources/warning.gif" class="nav-link"/><span wicket:id="warning" class="error"></span>
+                <input type="submit" wicket:message="value:submit"/>                
+                <p/>
+                <a href="#" wicket:id="cancel"><img src="resources/cancel.gif" class="nav-link"/><wicket:message key="cancel"/></a>
+            </form>
+        </wicket:extend>
+    </body>
+</html>

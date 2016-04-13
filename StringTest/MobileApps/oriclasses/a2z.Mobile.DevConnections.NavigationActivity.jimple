@@ -1,0 +1,1301 @@
+public class a2z.Mobile.DevConnections.NavigationActivity extends android.app.Activity implements android.widget.AdapterView$OnItemClickListener
+{
+    public static java.lang.String PACKAGE_NAME;
+    private static final java.lang.String TAG;
+    public static android.content.Context baseContext;
+    private boolean dbUpdate;
+    private java.util.ArrayList navigationList;
+    private java.util.Timer syncAnalyticsTimer;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    private void ShowBlog()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ContentPageActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("ContentUrl", "http://www.blogspot.com");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", "Blog");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    private void ShowFacebook()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+        android.content.res.Resources $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ContentPageActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: java.lang.String getString(int)>(2131165197);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("ContentUrl", $r3);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", "Facebook");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    private void ShowSponsor()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+        android.content.res.Resources $r2;
+        java.lang.String $r3;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ContentPageActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: java.lang.String getString(int)>(2131165195);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("ContentUrl", $r3);
+
+        $r2 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: java.lang.String getString(int)>(2131165196);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", $r3);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    private void ShowVideoGallery()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/VideoGalleryActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("NetCnxn", "true");
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    private void showMyNotes()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/MyNotesActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowBuzzList()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/BuzzListActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public void ShowContentPage(java.lang.String, java.lang.String)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        java.lang.String $r1, $r2;
+        android.content.Intent $r3;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ContentPageActivity");
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("URL", $r2);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", $r1);
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.LauncherUtils: void startWebActivity(android.content.Context,java.lang.String)>($r0, $r2);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public void ShowEventInfo()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/EventInfoActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowExhibitorList()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ExhibitorListActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowLocalInfo()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+        java.lang.String $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/ContentPageActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "LocalInfoUrl");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("ContentUrl", $r2);
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "LocalInfoTitle");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", $r2);
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "LocalInfoUrl");
+
+        staticinvoke <a2z.Mobile.DevConnections.Utils.LauncherUtils: void startWebActivity(android.content.Context,java.lang.String)>($r0, $r2);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public void ShowLogin()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/LoginActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowMap()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        java.util.ArrayList $r1;
+        android.content.Intent $r2;
+        int $i0;
+        java.lang.Object $r3;
+        a2z.Mobile.DevConnections.Classes.Map $r4;
+        java.lang.Integer $r5;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r1 = staticinvoke <a2z.Mobile.DevConnections.Classes.Map: java.util.ArrayList getList()>();
+
+        $i0 = virtualinvoke $r1.<java.util.ArrayList: int size()>();
+
+        if $i0 <= 1 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/MapListActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r2);
+
+        return;
+
+     label1:
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/FloorplanActivity");
+
+        $r3 = virtualinvoke $r1.<java.util.ArrayList: java.lang.Object get(int)>(0);
+
+        $r4 = (a2z.Mobile.DevConnections.Classes.Map) $r3;
+
+        $r5 = virtualinvoke $r4.<a2z.Mobile.DevConnections.Classes.Map: java.lang.Integer MapID()>();
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.io.Serializable)>("MapID", $r5);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r2);
+
+        return;
+    }
+
+    public void ShowPlanner()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/PlannerActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Mode", "My Itinerary");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowSession()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/SessionListActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowSpeakerList()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/SpeakerListActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowSync()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/SyncActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowTrackList()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/TrackListActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void ShowTwitterFeed()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/TwitterFeedActivity");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+
+     label1:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public void ShowWalkingMap()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.app.AlertDialog$Builder $r1, $r5;
+        android.content.Intent $r2;
+        boolean $z0;
+        android.content.Context $r3;
+        java.lang.String $r4;
+        int $i0;
+        a2z.Mobile.DevConnections.NavigationActivity$2 $r6;
+        a2z.Mobile.DevConnections.NavigationActivity$3 $r7;
+        android.app.AlertDialog $r8;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label2;
+
+        $r3 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r3, "ContactID");
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int compareTo(java.lang.String)>("0");
+
+        if $i0 == 0 goto label1;
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "a2z/Mobile/DevConnections/WalkingMapActivity");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("PageTitle", "Walking Map");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("isSample", "false");
+
+        $r3 = <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext>;
+
+        $r4 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r3, "ContactID");
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("ContactID", $r4);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r2);
+
+        return;
+
+     label1:
+        $r1 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r1.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r0);
+
+        $r5 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>("You must login to see your customized Walking Map.  Would you like to view a sample Walking Map?");
+
+        $r5 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r6 = new a2z.Mobile.DevConnections.NavigationActivity$2;
+
+        specialinvoke $r6.<a2z.Mobile.DevConnections.NavigationActivity$2: void <init>(a2z.Mobile.DevConnections.NavigationActivity)>($r0);
+
+        $r5 = virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Login", $r6);
+
+        $r7 = new a2z.Mobile.DevConnections.NavigationActivity$3;
+
+        specialinvoke $r7.<a2z.Mobile.DevConnections.NavigationActivity$3: void <init>(a2z.Mobile.DevConnections.NavigationActivity)>($r0);
+
+        virtualinvoke $r5.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("View Sample", $r7);
+
+        $r8 = virtualinvoke $r1.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r8.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label2:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return;
+    }
+
+    public void onBackPressed()
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.content.Intent $r1;
+        java.util.Timer $r2;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.MAIN");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent addCategory(java.lang.String)>("android.intent.category.HOME");
+
+        virtualinvoke $r1.<android.content.Intent: android.content.Intent setFlags(int)>(268435456);
+
+        $r2 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.Timer syncAnalyticsTimer>;
+
+        virtualinvoke $r2.<java.util.Timer: void cancel()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.os.Bundle $r1;
+        a2z.Mobile.DevConnections.NavigationActivity$1 $r2;
+        boolean[] $r3;
+        java.lang.Exception $r4, $r20;
+        android.content.Context $r5;
+        java.lang.String $r6, $r8;
+        android.content.res.Resources $r7;
+        boolean $z0;
+        java.lang.String[] $r9;
+        java.util.Timer $r10;
+        java.util.ArrayList $r11;
+        android.view.View $r12;
+        android.widget.ListView $r13;
+        a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter $r14;
+        android.content.Intent $r15;
+        int $i0;
+        a2z.Mobile.DevConnections.Classes.UpdateChecker $r16;
+        java.lang.Void[] $r17;
+        android.os.AsyncTask $r18;
+        java.lang.Object $r19;
+        java.lang.StringBuilder $r21;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getApplicationContext()>();
+
+        $r6 = virtualinvoke $r5.<android.content.Context: java.lang.String getPackageName()>();
+
+        <a2z.Mobile.DevConnections.NavigationActivity: java.lang.String PACKAGE_NAME> = $r6;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getBaseContext()>();
+
+        <a2z.Mobile.DevConnections.NavigationActivity: android.content.Context baseContext> = $r5;
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.res.Resources getResources()>();
+
+        $r6 = virtualinvoke $r7.<android.content.res.Resources: java.lang.String getString(int)>(2131165205);
+
+        $r8 = <android.os.Build: java.lang.String FINGERPRINT>;
+
+        $z0 = virtualinvoke $r8.<java.lang.String: boolean startsWith(java.lang.String)>("generic");
+
+        if $z0 != 0 goto label01;
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void checkDevice(android.content.Context)>($r0);
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void checkManifest(android.content.Context)>($r0);
+
+        $r8 = staticinvoke <com.google.android.gcm.GCMRegistrar: java.lang.String getRegistrationId(android.content.Context)>($r0);
+
+        $z0 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label06;
+
+        $r9 = newarray (java.lang.String)[1];
+
+        $r9[0] = $r6;
+
+        staticinvoke <com.google.android.gcm.GCMRegistrar: void register(android.content.Context,java.lang.String[])>($r0, $r9);
+
+     label01:
+        $r10 = new java.util.Timer;
+
+        specialinvoke $r10.<java.util.Timer: void <init>()>();
+
+        $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.Timer syncAnalyticsTimer> = $r10;
+
+        $r2 = new a2z.Mobile.DevConnections.NavigationActivity$1;
+
+        specialinvoke $r2.<a2z.Mobile.DevConnections.NavigationActivity$1: void <init>(a2z.Mobile.DevConnections.NavigationActivity)>($r0);
+
+        $r10 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.Timer syncAnalyticsTimer>;
+
+        virtualinvoke $r10.<java.util.Timer: void schedule(java.util.TimerTask,long,long)>($r2, 10000L, 120000L);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: boolean requestWindowFeature(int)>(1);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void setContentView(int)>(2130903055);
+
+     label02:
+        $r11 = staticinvoke <a2z.Mobile.DevConnections.Classes.Navigation: java.util.ArrayList getList()>();
+
+        $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList> = $r11;
+
+     label03:
+        $r12 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.view.View findViewById(int)>(2131230790);
+
+        $r13 = (android.widget.ListView) $r12;
+
+        $r14 = new a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter;
+
+        $r11 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        specialinvoke $r14.<a2z.Mobile.DevConnections.ListAdapters.NavigationAdapter: void <init>(android.app.Activity,java.util.ArrayList)>($r0, $r11);
+
+        virtualinvoke $r13.<android.widget.ListView: void setAdapter(android.widget.ListAdapter)>($r14);
+
+        virtualinvoke $r13.<android.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r0);
+
+     label04:
+        $r15 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r15.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        if $r8 == null goto label08;
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Dashboard", $r8, null);
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("Referrer");
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int compareTo(java.lang.String)>("Splash");
+
+        if $i0 != 0 goto label11;
+
+        $r8 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("CheckForDBUpdate");
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int compareTo(java.lang.String)>("true");
+
+        if $i0 != 0 goto label12;
+
+        $r3 = newarray (boolean)[1];
+
+        $r16 = new a2z.Mobile.DevConnections.Classes.UpdateChecker;
+
+        specialinvoke $r16.<a2z.Mobile.DevConnections.Classes.UpdateChecker: void <init>(android.content.Context)>($r0);
+
+        $r17 = newarray (java.lang.Void)[0];
+
+        $r18 = virtualinvoke $r16.<a2z.Mobile.DevConnections.Classes.UpdateChecker: android.os.AsyncTask execute(java.lang.Object[])>($r17);
+
+        $r19 = virtualinvoke $r18.<android.os.AsyncTask: java.lang.Object get()>();
+
+        $r3 = (boolean[]) $r19;
+
+        $z0 = $r3[0];
+
+        if $z0 == 0 goto label13;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void SyncDatabase(android.content.Context,boolean)>($r0, 0);
+
+     label05:
+        return;
+
+     label06:
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("NavigationActivity", "Already registered for GCM");
+
+        goto label01;
+
+     label07:
+        $r4 := @caughtexception;
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Dashboard", "NavigationAdapter.getList() failed");
+
+        virtualinvoke $r4.<java.lang.Exception: void printStackTrace()>();
+
+        goto label03;
+
+     label08:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Dashboard", "Splash", "");
+
+     label09:
+        return;
+
+     label10:
+        $r20 := @caughtexception;
+
+        $r21 = new java.lang.StringBuilder;
+
+        $r8 = virtualinvoke $r20.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $r8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r8);
+
+        specialinvoke $r21.<java.lang.StringBuilder: void <init>(java.lang.String)>($r8);
+
+        $r21 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Error in referral to ");
+
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getLocalClassName()>();
+
+        $r21 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r8 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>($r8, "", "");
+
+        virtualinvoke $r20.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+     label11:
+        return;
+
+     label12:
+        return;
+
+     label13:
+        return;
+
+        catch java.lang.Exception from label02 to label03 with label07;
+        catch java.lang.Exception from label04 to label05 with label10;
+        catch java.lang.Exception from label08 to label09 with label10;
+    }
+
+    public void onItemClick(android.widget.AdapterView, android.view.View, int, long)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.widget.AdapterView $r1;
+        android.view.View $r2;
+        int $i0, $i2;
+        long $l1;
+        java.util.ArrayList $r3;
+        java.lang.Object $r4;
+        a2z.Mobile.DevConnections.Classes.Navigation $r5;
+        java.lang.Integer $r6;
+        java.lang.String $r7, $r8;
+        java.lang.StringBuilder $r9;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: android.widget.AdapterView;
+
+        $r2 := @parameter1: android.view.View;
+
+        $i0 := @parameter2: int;
+
+        $l1 := @parameter3: long;
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r6 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.Integer SortOrder()>();
+
+        $i2 = virtualinvoke $r6.<java.lang.Integer: int intValue()>();
+
+        lookupswitch($i2)
+        {
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label06;
+            case 6: goto label07;
+            case 7: goto label08;
+            case 8: goto label09;
+            case 9: goto label01;
+            case 10: goto label01;
+            case 11: goto label11;
+            case 12: goto label12;
+            case 13: goto label13;
+            case 14: goto label14;
+            case 15: goto label15;
+            case 16: goto label16;
+            case 17: goto label17;
+            case 18: goto label18;
+            case 19: goto label19;
+            case 20: goto label20;
+            case 21: goto label21;
+            case 22: goto label10;
+            case 23: goto label22;
+            case 24: goto label23;
+            case 25: goto label24;
+            default: goto label01;
+        };
+
+     label01:
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r7 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String Name()>();
+
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r8 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String AdditionalInfo()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>($r7, $r8);
+
+        return;
+
+     label02:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowExhibitorList()>();
+
+        return;
+
+     label03:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowMap()>();
+
+        return;
+
+     label04:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowPlanner()>();
+
+        return;
+
+     label05:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowSession()>();
+
+        return;
+
+     label06:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowSpeakerList()>();
+
+        return;
+
+     label07:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowTrackList()>();
+
+        return;
+
+     label08:
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165193);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>("Local Info", $r8);
+
+        return;
+
+     label09:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowEventInfo()>();
+
+        return;
+
+     label10:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowLogin()>();
+
+        return;
+
+     label11:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowSync()>();
+
+        return;
+
+     label12:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowBuzzList()>();
+
+        return;
+
+     label13:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowTwitterFeed()>();
+
+        return;
+
+     label14:
+        specialinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowBlog()>();
+
+        return;
+
+     label15:
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165197);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>("Facebook", $r8);
+
+        return;
+
+     label16:
+        specialinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowVideoGallery()>();
+
+        return;
+
+     label17:
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r8 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String Name()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("http://chirpe.com/ProductList.aspx?BOOTHID=0&EVENTID=");
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165186);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&DISPLAYMODE=1");
+
+        $r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>($r8, $r7);
+
+        return;
+
+     label18:
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r8 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String Name()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("http://chirpe.com/EventPressReleases.aspx?BOOTHID=0&EVENTID=");
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165186);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&DISPLAYMODE=1");
+
+        $r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>($r8, $r7);
+
+        return;
+
+     label19:
+        $r3 = $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.util.ArrayList navigationList>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r5 = (a2z.Mobile.DevConnections.Classes.Navigation) $r4;
+
+        $r8 = virtualinvoke $r5.<a2z.Mobile.DevConnections.Classes.Navigation: java.lang.String Name()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>(java.lang.String)>("http://chirpe.com/EventShowSpecials.aspx?BOOTHID=0&EVENTID=");
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165186);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&SHOWSPECIALID=0&DISPLAYMODE=1");
+
+        $r7 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>($r8, $r7);
+
+        return;
+
+     label20:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowWalkingMap()>();
+
+        return;
+
+     label21:
+        specialinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void showMyNotes()>();
+
+        return;
+
+     label22:
+        $r8 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165196);
+
+        $r7 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: java.lang.String getString(int)>(2131165195);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>($r8, $r7);
+
+        return;
+
+     label23:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>("eBay", "http://www.ebay.com");
+
+        return;
+
+     label24:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void ShowContentPage(java.lang.String,java.lang.String)>("eBay", "http://www.ebay.com");
+
+        return;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.view.MenuItem $r1;
+        java.lang.Exception $r2, $r7;
+        android.content.Intent $r3;
+        java.lang.CharSequence $r4;
+        boolean $z0;
+        android.content.Context $r5;
+        int $i0;
+        android.widget.Toast $r6;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $r4 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>("Sync");
+
+        if $z0 == 0 goto label02;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label01;
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void SyncDatabase(android.content.Context,boolean)>($r0, 1);
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Dashboard", "Dashboard", null);
+
+        return 1;
+
+     label01:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return 1;
+
+     label02:
+        $r4 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>("Login");
+
+        if $z0 == 0 goto label07;
+
+        $z0 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: boolean IsInternetAvailable(android.content.Context)>($r0);
+
+        if $z0 == 0 goto label06;
+
+        $r3 = new android.content.Intent;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getBaseContext()>();
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r5, class "a2z/Mobile/DevConnections/LoginActivity");
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("Referrer", "Dashboard");
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label04;
+
+     label03:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void invalidateOptionsMenu()>();
+
+     label04:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivityForResult(android.content.Intent,int)>($r3, 0);
+
+        return 1;
+
+     label05:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        goto label04;
+
+     label06:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void ShowNetworkError(android.content.Context)>($r0);
+
+        return 1;
+
+     label07:
+        $r4 = interfaceinvoke $r1.<android.view.MenuItem: java.lang.CharSequence getTitle()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.Object: boolean equals(java.lang.Object)>("Logout");
+
+        if $z0 == 0 goto label11;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getBaseContext()>();
+
+        staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: void Logout(android.content.Context)>($r5);
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getBaseContext()>();
+
+        $r6 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r5, "You have been logged out", 0);
+
+        virtualinvoke $r6.<android.widget.Toast: void show()>();
+
+        $r3 = new android.content.Intent;
+
+        $r5 = virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: android.content.Context getBaseContext()>();
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r5, class "a2z/Mobile/DevConnections/NavigationActivity");
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 11 goto label09;
+
+     label08:
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void invalidateOptionsMenu()>();
+
+     label09:
+        staticinvoke <a2z.Mobile.DevConnections.Classes.Analytics: void TrackEvent(java.lang.String,java.lang.String,java.lang.String)>("Dashboard", "Dashboard", null);
+
+        virtualinvoke $r0.<a2z.Mobile.DevConnections.NavigationActivity: void startActivityForResult(android.content.Intent,int)>($r3, 0);
+
+        return 1;
+
+     label10:
+        $r7 := @caughtexception;
+
+        virtualinvoke $r7.<java.lang.Exception: void printStackTrace()>();
+
+        goto label09;
+
+     label11:
+        return 1;
+
+        catch java.lang.Exception from label03 to label04 with label05;
+        catch java.lang.Exception from label08 to label09 with label10;
+    }
+
+    public boolean onPrepareOptionsMenu(android.view.Menu)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.view.Menu $r1;
+        java.lang.String $r2;
+        int $i0;
+        android.view.MenuItem $r3;
+        boolean $z0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        interfaceinvoke $r1.<android.view.Menu: void clear()>();
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Sync");
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Login");
+
+        interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("Logout");
+
+        $r2 = staticinvoke <a2z.Mobile.DevConnections.Classes.CFunctions: java.lang.String getConfig(android.content.Context,java.lang.String)>($r0, "ContactID");
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int compareTo(java.lang.String)>("0");
+
+        if $i0 != 0 goto label2;
+
+        $r3 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem getItem(int)>(1);
+
+        interfaceinvoke $r3.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(1);
+
+        $r3 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem getItem(int)>(2);
+
+        interfaceinvoke $r3.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(0);
+
+     label1:
+        $z0 = specialinvoke $r0.<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>($r1);
+
+        return $z0;
+
+     label2:
+        $r3 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem getItem(int)>(1);
+
+        interfaceinvoke $r3.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(0);
+
+        $r3 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem getItem(int)>(2);
+
+        interfaceinvoke $r3.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(1);
+
+        goto label1;
+    }
+
+    public void onResume(android.os.Bundle)
+    {
+        a2z.Mobile.DevConnections.NavigationActivity $r0;
+        android.os.Bundle $r1;
+
+        $r0 := @this: a2z.Mobile.DevConnections.NavigationActivity;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onResume()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.NavigationActivity: java.lang.String TAG> = "NavigationActivity";
+
+        return;
+    }
+}

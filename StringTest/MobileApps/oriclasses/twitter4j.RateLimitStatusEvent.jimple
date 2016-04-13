@@ -1,0 +1,78 @@
+public final class twitter4j.RateLimitStatusEvent extends java.util.EventObject
+{
+    private static final long serialVersionUID;
+    private boolean isAccountRateLimitStatus;
+    private twitter4j.RateLimitStatus rateLimitStatus;
+
+    void <init>(java.lang.Object, twitter4j.RateLimitStatus, boolean)
+    {
+        twitter4j.RateLimitStatusEvent $r0;
+        java.lang.Object $r1;
+        twitter4j.RateLimitStatus $r2;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.RateLimitStatusEvent;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 := @parameter1: twitter4j.RateLimitStatus;
+
+        $z0 := @parameter2: boolean;
+
+        specialinvoke $r0.<java.util.EventObject: void <init>(java.lang.Object)>($r1);
+
+        $r0.<twitter4j.RateLimitStatusEvent: twitter4j.RateLimitStatus rateLimitStatus> = $r2;
+
+        $r0.<twitter4j.RateLimitStatusEvent: boolean isAccountRateLimitStatus> = $z0;
+
+        return;
+    }
+
+    public twitter4j.RateLimitStatus getRateLimitStatus()
+    {
+        twitter4j.RateLimitStatusEvent $r0;
+        twitter4j.RateLimitStatus r1;
+
+        $r0 := @this: twitter4j.RateLimitStatusEvent;
+
+        r1 = $r0.<twitter4j.RateLimitStatusEvent: twitter4j.RateLimitStatus rateLimitStatus>;
+
+        return r1;
+    }
+
+    public boolean isAccountRateLimitStatus()
+    {
+        twitter4j.RateLimitStatusEvent $r0;
+        boolean z0;
+
+        $r0 := @this: twitter4j.RateLimitStatusEvent;
+
+        z0 = $r0.<twitter4j.RateLimitStatusEvent: boolean isAccountRateLimitStatus>;
+
+        return z0;
+    }
+
+    public boolean isIPRateLimitStatus()
+    {
+        twitter4j.RateLimitStatusEvent $r0;
+        boolean $z0;
+
+        $r0 := @this: twitter4j.RateLimitStatusEvent;
+
+        $z0 = $r0.<twitter4j.RateLimitStatusEvent: boolean isAccountRateLimitStatus>;
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.RateLimitStatusEvent: long serialVersionUID> = -2332507741769177298L;
+
+        return;
+    }
+}

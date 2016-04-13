@@ -1,0 +1,461 @@
+public class twitter4j.internal.json.MediaEntityJSONImpl extends twitter4j.internal.json.EntityIndex implements twitter4j.MediaEntity
+{
+    private static final long serialVersionUID;
+    private java.lang.String displayURL;
+    private java.lang.String expandedURL;
+    private long id;
+    private java.lang.String mediaURL;
+    private java.lang.String mediaURLHttps;
+    private java.util.Map sizes;
+    private java.lang.String type;
+    private java.lang.String url;
+
+    void <init>()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        specialinvoke $r0.<twitter4j.internal.json.EntityIndex: void <init>()>();
+
+        return;
+    }
+
+    void <init>(twitter4j.internal.org.json.JSONObject) throws twitter4j.TwitterException
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        twitter4j.internal.org.json.JSONObject $r1, $r5;
+        twitter4j.internal.org.json.JSONException $r2;
+        twitter4j.internal.org.json.JSONArray $r3;
+        int $i0;
+        long $l1;
+        java.lang.String $r4;
+        java.util.HashMap $r6;
+        java.util.Map $r7;
+        java.lang.Integer $r8;
+        boolean $z0;
+        twitter4j.TwitterException $r9;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.org.json.JSONObject;
+
+        specialinvoke $r0.<twitter4j.internal.json.EntityIndex: void <init>()>();
+
+     label01:
+        $r3 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONArray getJSONArray(java.lang.String)>("indices");
+
+        $i0 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONArray: int getInt(int)>(0);
+
+        virtualinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void setStart(int)>($i0);
+
+        $i0 = virtualinvoke $r3.<twitter4j.internal.org.json.JSONArray: int getInt(int)>(1);
+
+        virtualinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void setEnd(int)>($i0);
+
+        $l1 = staticinvoke <twitter4j.internal.json.z_T4JInternalParseUtil: long getLong(java.lang.String,twitter4j.internal.org.json.JSONObject)>("id", $r1);
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id> = $l1;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("url");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String url> = $r4;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("expanded_url");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String expandedURL> = $r4;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("media_url");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURL> = $r4;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("media_url_https");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURLHttps> = $r4;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("display_url");
+
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String displayURL> = $r4;
+
+        $r5 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>("sizes");
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<java.util.HashMap: void <init>(int)>(4);
+
+     label02:
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes> = $r6;
+
+        $r7 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+     label03:
+        $r8 = <twitter4j.MediaEntity$Size: java.lang.Integer LARGE>;
+
+        specialinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void addMediaEntitySizeIfNotNull(java.util.Map,twitter4j.internal.org.json.JSONObject,java.lang.Integer,java.lang.String)>($r7, $r5, $r8, "large");
+
+     label04:
+        $r7 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+     label05:
+        $r8 = <twitter4j.MediaEntity$Size: java.lang.Integer MEDIUM>;
+
+        specialinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void addMediaEntitySizeIfNotNull(java.util.Map,twitter4j.internal.org.json.JSONObject,java.lang.Integer,java.lang.String)>($r7, $r5, $r8, "medium");
+
+     label06:
+        $r7 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+     label07:
+        $r8 = <twitter4j.MediaEntity$Size: java.lang.Integer SMALL>;
+
+        specialinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void addMediaEntitySizeIfNotNull(java.util.Map,twitter4j.internal.org.json.JSONObject,java.lang.Integer,java.lang.String)>($r7, $r5, $r8, "small");
+
+     label08:
+        $r7 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+     label09:
+        $r8 = <twitter4j.MediaEntity$Size: java.lang.Integer THUMB>;
+
+        specialinvoke $r0.<twitter4j.internal.json.MediaEntityJSONImpl: void addMediaEntitySizeIfNotNull(java.util.Map,twitter4j.internal.org.json.JSONObject,java.lang.Integer,java.lang.String)>($r7, $r5, $r8, "thumb");
+
+        $z0 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>("type");
+
+        if $z0 != 0 goto label12;
+
+        $r4 = virtualinvoke $r1.<twitter4j.internal.org.json.JSONObject: java.lang.String getString(java.lang.String)>("type");
+
+     label10:
+        $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String type> = $r4;
+
+        return;
+
+     label11:
+        $r2 := @caughtexception;
+
+        $r9 = new twitter4j.TwitterException;
+
+        specialinvoke $r9.<twitter4j.TwitterException: void <init>(java.lang.Exception)>($r2);
+
+        throw $r9;
+
+     label12:
+        return;
+
+        catch twitter4j.internal.org.json.JSONException from label01 to label02 with label11;
+        catch twitter4j.internal.org.json.JSONException from label03 to label04 with label11;
+        catch twitter4j.internal.org.json.JSONException from label05 to label06 with label11;
+        catch twitter4j.internal.org.json.JSONException from label07 to label08 with label11;
+        catch twitter4j.internal.org.json.JSONException from label09 to label10 with label11;
+    }
+
+    private void addMediaEntitySizeIfNotNull(java.util.Map, twitter4j.internal.org.json.JSONObject, java.lang.Integer, java.lang.String) throws twitter4j.internal.org.json.JSONException
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.util.Map $r1;
+        twitter4j.internal.org.json.JSONObject $r2;
+        java.lang.Integer $r3;
+        java.lang.String $r4;
+        boolean $z0;
+        twitter4j.internal.json.MediaEntityJSONImpl$Size $r5;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r1 := @parameter0: java.util.Map;
+
+        $r2 := @parameter1: twitter4j.internal.org.json.JSONObject;
+
+        $r3 := @parameter2: java.lang.Integer;
+
+        $r4 := @parameter3: java.lang.String;
+
+        $z0 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: boolean isNull(java.lang.String)>($r4);
+
+        if $z0 != 0 goto label1;
+
+        $r5 = new twitter4j.internal.json.MediaEntityJSONImpl$Size;
+
+        $r2 = virtualinvoke $r2.<twitter4j.internal.org.json.JSONObject: twitter4j.internal.org.json.JSONObject getJSONObject(java.lang.String)>($r4);
+
+        specialinvoke $r5.<twitter4j.internal.json.MediaEntityJSONImpl$Size: void <init>(twitter4j.internal.org.json.JSONObject)>($r2);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r5);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public volatile int compareTo(twitter4j.internal.json.EntityIndex)
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        twitter4j.internal.json.EntityIndex $r1;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r1 := @parameter0: twitter4j.internal.json.EntityIndex;
+
+        $i0 = specialinvoke $r0.<twitter4j.internal.json.EntityIndex: int compareTo(twitter4j.internal.json.EntityIndex)>($r1);
+
+        return $i0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0, $r2;
+        java.lang.Object $r1;
+        boolean $z0;
+        long $l0, $l1;
+        byte $b2;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        if $r0 != $r1 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r1 instanceof twitter4j.internal.json.MediaEntityJSONImpl;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r2 = (twitter4j.internal.json.MediaEntityJSONImpl) $r1;
+
+        $l1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        $l0 = $r2.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        $b2 = $l1 cmp $l0;
+
+        if $b2 == 0 goto label3;
+
+        return 0;
+
+     label3:
+        return 1;
+    }
+
+    public java.lang.String getDisplayURL()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String displayURL>;
+
+        return r1;
+    }
+
+    public int getEnd()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $i0 = specialinvoke $r0.<twitter4j.internal.json.EntityIndex: int getEnd()>();
+
+        return $i0;
+    }
+
+    public java.lang.String getExpandedURL()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String expandedURL>;
+
+        return r1;
+    }
+
+    public long getId()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        long l0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        l0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        return l0;
+    }
+
+    public java.lang.String getMediaURL()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURL>;
+
+        return r1;
+    }
+
+    public java.lang.String getMediaURLHttps()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURLHttps>;
+
+        return r1;
+    }
+
+    public java.util.Map getSizes()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.util.Map r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+        return r1;
+    }
+
+    public int getStart()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        int $i0;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $i0 = specialinvoke $r0.<twitter4j.internal.json.EntityIndex: int getStart()>();
+
+        return $i0;
+    }
+
+    public java.lang.String getType()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String type>;
+
+        return r1;
+    }
+
+    public java.lang.String getURL()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.String r1;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        r1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String url>;
+
+        return r1;
+    }
+
+    public int hashCode()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        long $l0, $l1;
+        int $i2;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $l0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        $l1 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        $l1 = $l1 >>> 32;
+
+        $l1 = $l0 ^ $l1;
+
+        $i2 = (int) $l1;
+
+        return $i2;
+    }
+
+    public java.lang.String toString()
+    {
+        twitter4j.internal.json.MediaEntityJSONImpl $r0;
+        java.lang.StringBuilder $r1;
+        long $l0;
+        java.lang.String $r2;
+        java.util.Map $r3;
+
+        $r0 := @this: twitter4j.internal.json.MediaEntityJSONImpl;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("MediaEntityJSONImpl{id=");
+
+        $l0 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: long id>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", url=");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String url>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", mediaURL=");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURL>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", mediaURLHttps=");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String mediaURLHttps>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", expandedURL=");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String expandedURL>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", displayURL=\'");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String displayURL>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", sizes=");
+
+        $r3 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.util.Map sizes>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", type=");
+
+        $r2 = $r0.<twitter4j.internal.json.MediaEntityJSONImpl: java.lang.String type>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(125);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public static void <clinit>()
+    {
+        <twitter4j.internal.json.MediaEntityJSONImpl: long serialVersionUID> = 224487082931268487L;
+
+        return;
+    }
+}

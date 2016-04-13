@@ -1,0 +1,481 @@
+public final class a2z.Mobile.DevConnections.R$id extends java.lang.Object
+{
+    public static final int banner_ad;
+    public static final int btnChangeDate;
+    public static final int btnFloorplanLocate;
+    public static final int chkExpoPlan;
+    public static final int chkItinerary;
+    public static final int content_view;
+    public static final int dpResult;
+    public static final int embedded_webview;
+    public static final int event_home_text;
+    public static final int event_info_text;
+    public static final int exhib_fav_star;
+    public static final int exhib_meeting_icon;
+    public static final int exhibitor_list_enhancedBadge;
+    public static final int exhibitor_list_visitedicon;
+    public static final int exhibitor_profile_boothLabel;
+    public static final int exhibitor_profile_booth_visited;
+    public static final int exhibitor_profile_booth_visited_btn;
+    public static final int exhibitor_profile_booth_visited_text;
+    public static final int exhibitor_profile_email;
+    public static final int exhibitor_profile_exhibitorCategory;
+    public static final int exhibitor_profile_exhibitorCategoryLabel;
+    public static final int exhibitor_profile_exhibitorLogo;
+    public static final int exhibitor_profile_exhibitorName;
+    public static final int exhibitor_profile_exhibitorProfile;
+    public static final int exhibitor_profile_exhibitorProfileLabel;
+    public static final int exhibitor_profile_fav_text;
+    public static final int exhibitor_profile_linearLayout;
+    public static final int exhibitor_profile_mapIt;
+    public static final int exhibitor_profile_meeting_text;
+    public static final int exhibitor_profile_notes;
+    public static final int exhibitor_profile_phone;
+    public static final int exhibitor_profile_scrollView;
+    public static final int exhibitor_profile_url;
+    public static final int exhibitor_profile_videoSectionLabel;
+    public static final int floorplanimage;
+    public static final int floorplanlayout;
+    public static final int generic_list_name;
+    public static final int imageView1;
+    public static final int individual_tweet_thumbnail;
+    public static final int lblDate;
+    public static final int linearLayout1;
+    public static final int linlayoutexlistitem;
+    public static final int list_header_title;
+    public static final int login_OR;
+    public static final int login_ecode;
+    public static final int login_email;
+    public static final int login_login;
+    public static final int login_panel;
+    public static final int login_password;
+    public static final int login_signup;
+    public static final int logout;
+    public static final int logout_panel;
+    public static final int mediaLibraryThumbnail;
+    public static final int medialibrary_listing_linearLayout;
+    public static final int my_note_booth_or_date_and_time;
+    public static final int my_note_content;
+    public static final int my_note_title;
+    public static final int my_notes_listview;
+    public static final int navigation_linearLayout;
+    public static final int navigation_list;
+    public static final int navigation_logo;
+    public static final int navigation_menuName;
+    public static final int note_input_dialog_delete_button;
+    public static final int note_input_dialog_edittext;
+    public static final int note_input_dialog_email_button;
+    public static final int note_input_dialog_input;
+    public static final int note_input_dialog_message;
+    public static final int note_input_dialog_save_button;
+    public static final int note_input_dialog_title;
+    public static final int post_to_twitter_button;
+    public static final int profile_confirm_password;
+    public static final int profile_email;
+    public static final int profile_first_name;
+    public static final int profile_last_name;
+    public static final int profile_password;
+    public static final int profile_submit;
+    public static final int rate_this_session;
+    public static final int rate_this_session_progress_bar;
+    public static final int rate_this_session_webview;
+    public static final int scrollView1;
+    public static final int searchDialogButtonOK;
+    public static final int searchDialogEditText;
+    public static final int searchDialogtext;
+    public static final int session_detail_add_to_calendar;
+    public static final int session_detail_date;
+    public static final int session_detail_description;
+    public static final int session_detail_descriptionLabel;
+    public static final int session_detail_mapIt;
+    public static final int session_detail_notes;
+    public static final int session_detail_roomNumber;
+    public static final int session_detail_sessionHandoutsLabel;
+    public static final int session_detail_sessionSpeakerLabel;
+    public static final int session_detail_sessionSpeakers;
+    public static final int session_detail_session_hanouts_tableLayout;
+    public static final int session_detail_time;
+    public static final int session_detail_title;
+    public static final int session_list_item_date;
+    public static final int session_list_item_roomNumber;
+    public static final int session_list_item_time;
+    public static final int session_list_item_title;
+    public static final int session_table_row_textview;
+    public static final int speaker_list_item_name;
+    public static final int speaker_list_item_thumbnail;
+    public static final int speaker_personal_info_container;
+    public static final int speaker_personal_profile_container;
+    public static final int speaker_profile_company;
+    public static final int speaker_profile_linearLayout;
+    public static final int speaker_profile_scrollView;
+    public static final int speaker_profile_speakerName;
+    public static final int speaker_profile_speakerProfile;
+    public static final int speaker_profile_speakerProfileLabel;
+    public static final int speaker_profile_speakerSession;
+    public static final int speaker_profile_speakerSessionLabel;
+    public static final int speaker_profile_title;
+    public static final int speakers_thumbnail;
+    public static final int splash_image;
+    public static final int tableLayout1;
+    public static final int tableRow1;
+    public static final int tableRow2;
+    public static final int tableRow3;
+    public static final int tableRow4;
+    public static final int textView1;
+    public static final int timePicker1;
+    public static final int tvDate;
+    public static final int tweet_authors_name_textview;
+    public static final int tweet_sent_timestamp_textview;
+    public static final int tweet_text_textview;
+    public static final int tweet_title;
+    public static final int twitter_author;
+    public static final int twitter_content;
+    public static final int twitter_feed_listview;
+    public static final int twitter_individual_tweet_container;
+    public static final int twitter_individual_tweet_description_container;
+    public static final int twitter_individual_tweet_post_to_twitter_button;
+    public static final int twitter_individual_tweet_stretch_container;
+    public static final int twitter_individual_tweet_title_container;
+    public static final int twitter_post_dialog_cancel_button;
+    public static final int twitter_post_dialog_send_button;
+    public static final int twitter_post_dialog_tweet_content;
+    public static final int txtBoothLabel;
+    public static final int txtExhibitorName;
+    public static final int txtVwLogoutMsg;
+    public static final int txtVwVideoTimestamp;
+    public static final int txtVwVideoTitle;
+    public static final int txtVwVideoUploadedBy;
+    public static final int video_gallery_linearLayout;
+    public static final int video_gallery_search_box;
+    public static final int video_list;
+    public static final int view_tweet_detail_favorite_button;
+    public static final int view_tweet_detail_reply_button;
+    public static final int view_tweet_detail_retweet_button;
+    public static final int view_tweet_senders_profile_button;
+    public static final int view_tweet_senders_profile_button_container;
+    public static final int webview_progress_bar;
+
+    public void <init>()
+    {
+        a2z.Mobile.DevConnections.R$id $r0;
+
+        $r0 := @this: a2z.Mobile.DevConnections.R$id;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <a2z.Mobile.DevConnections.R$id: int webview_progress_bar> = 2131230872;
+
+        <a2z.Mobile.DevConnections.R$id: int view_tweet_senders_profile_button_container> = 2131230860;
+
+        <a2z.Mobile.DevConnections.R$id: int view_tweet_senders_profile_button> = 2131230861;
+
+        <a2z.Mobile.DevConnections.R$id: int view_tweet_detail_retweet_button> = 2131230864;
+
+        <a2z.Mobile.DevConnections.R$id: int view_tweet_detail_reply_button> = 2131230863;
+
+        <a2z.Mobile.DevConnections.R$id: int view_tweet_detail_favorite_button> = 2131230865;
+
+        <a2z.Mobile.DevConnections.R$id: int video_list> = 2131230870;
+
+        <a2z.Mobile.DevConnections.R$id: int video_gallery_search_box> = 2131230869;
+
+        <a2z.Mobile.DevConnections.R$id: int video_gallery_linearLayout> = 2131230868;
+
+        <a2z.Mobile.DevConnections.R$id: int txtVwVideoUploadedBy> = 2131230783;
+
+        <a2z.Mobile.DevConnections.R$id: int txtVwVideoTitle> = 2131230781;
+
+        <a2z.Mobile.DevConnections.R$id: int txtVwVideoTimestamp> = 2131230782;
+
+        <a2z.Mobile.DevConnections.R$id: int txtVwLogoutMsg> = 2131230778;
+
+        <a2z.Mobile.DevConnections.R$id: int txtExhibitorName> = 2131230761;
+
+        <a2z.Mobile.DevConnections.R$id: int txtBoothLabel> = 2131230762;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_post_dialog_tweet_content> = 2131230807;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_post_dialog_send_button> = 2131230809;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_post_dialog_cancel_button> = 2131230808;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_individual_tweet_title_container> = 2131230857;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_individual_tweet_stretch_container> = 2131230866;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_individual_tweet_post_to_twitter_button> = 2131230867;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_individual_tweet_description_container> = 2131230855;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_individual_tweet_container> = 2131230854;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_feed_listview> = 2131230852;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_content> = 2131230851;
+
+        <a2z.Mobile.DevConnections.R$id: int twitter_author> = 2131230850;
+
+        <a2z.Mobile.DevConnections.R$id: int tweet_title> = 2131230806;
+
+        <a2z.Mobile.DevConnections.R$id: int tweet_text_textview> = 2131230862;
+
+        <a2z.Mobile.DevConnections.R$id: int tweet_sent_timestamp_textview> = 2131230859;
+
+        <a2z.Mobile.DevConnections.R$id: int tweet_authors_name_textview> = 2131230858;
+
+        <a2z.Mobile.DevConnections.R$id: int tvDate> = 2131230724;
+
+        <a2z.Mobile.DevConnections.R$id: int timePicker1> = 2131230726;
+
+        <a2z.Mobile.DevConnections.R$id: int textView1> = 2131230871;
+
+        <a2z.Mobile.DevConnections.R$id: int tableRow4> = 2131230742;
+
+        <a2z.Mobile.DevConnections.R$id: int tableRow3> = 2131230740;
+
+        <a2z.Mobile.DevConnections.R$id: int tableRow2> = 2131230738;
+
+        <a2z.Mobile.DevConnections.R$id: int tableRow1> = 2131230736;
+
+        <a2z.Mobile.DevConnections.R$id: int tableLayout1> = 2131230735;
+
+        <a2z.Mobile.DevConnections.R$id: int splash_image> = 2131230849;
+
+        <a2z.Mobile.DevConnections.R$id: int speakers_thumbnail> = 2131230840;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_title> = 2131230843;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_speakerSessionLabel> = 2131230847;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_speakerSession> = 2131230848;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_speakerProfileLabel> = 2131230845;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_speakerProfile> = 2131230846;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_speakerName> = 2131230842;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_scrollView> = 2131230815;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_linearLayout> = 2131230838;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_profile_company> = 2131230844;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_personal_profile_container> = 2131230839;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_personal_info_container> = 2131230841;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_list_item_thumbnail> = 2131230836;
+
+        <a2z.Mobile.DevConnections.R$id: int speaker_list_item_name> = 2131230837;
+
+        <a2z.Mobile.DevConnections.R$id: int session_table_row_textview> = 2131230835;
+
+        <a2z.Mobile.DevConnections.R$id: int session_list_item_title> = 2131230831;
+
+        <a2z.Mobile.DevConnections.R$id: int session_list_item_time> = 2131230834;
+
+        <a2z.Mobile.DevConnections.R$id: int session_list_item_roomNumber> = 2131230832;
+
+        <a2z.Mobile.DevConnections.R$id: int session_list_item_date> = 2131230833;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_title> = 2131230816;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_time> = 2131230819;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_session_hanouts_tableLayout> = 2131230828;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_sessionSpeakers> = 2131230826;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_sessionSpeakerLabel> = 2131230825;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_sessionHandoutsLabel> = 2131230827;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_roomNumber> = 2131230817;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_notes> = 2131230821;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_mapIt> = 2131230820;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_descriptionLabel> = 2131230823;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_description> = 2131230824;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_date> = 2131230818;
+
+        <a2z.Mobile.DevConnections.R$id: int session_detail_add_to_calendar> = 2131230822;
+
+        <a2z.Mobile.DevConnections.R$id: int searchDialogtext> = 2131230812;
+
+        <a2z.Mobile.DevConnections.R$id: int searchDialogEditText> = 2131230813;
+
+        <a2z.Mobile.DevConnections.R$id: int searchDialogButtonOK> = 2131230814;
+
+        <a2z.Mobile.DevConnections.R$id: int scrollView1> = 2131230728;
+
+        <a2z.Mobile.DevConnections.R$id: int rate_this_session_webview> = 2131230811;
+
+        <a2z.Mobile.DevConnections.R$id: int rate_this_session_progress_bar> = 2131230810;
+
+        <a2z.Mobile.DevConnections.R$id: int rate_this_session> = 2131230829;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_submit> = 2131230798;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_password> = 2131230796;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_last_name> = 2131230794;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_first_name> = 2131230793;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_email> = 2131230795;
+
+        <a2z.Mobile.DevConnections.R$id: int profile_confirm_password> = 2131230797;
+
+        <a2z.Mobile.DevConnections.R$id: int post_to_twitter_button> = 2131230853;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_title> = 2131230799;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_save_button> = 2131230803;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_message> = 2131230800;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_input> = 2131230802;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_email_button> = 2131230804;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_edittext> = 2131230801;
+
+        <a2z.Mobile.DevConnections.R$id: int note_input_dialog_delete_button> = 2131230805;
+
+        <a2z.Mobile.DevConnections.R$id: int navigation_menuName> = 2131230792;
+
+        <a2z.Mobile.DevConnections.R$id: int navigation_logo> = 2131230791;
+
+        <a2z.Mobile.DevConnections.R$id: int navigation_list> = 2131230790;
+
+        <a2z.Mobile.DevConnections.R$id: int navigation_linearLayout> = 2131230788;
+
+        <a2z.Mobile.DevConnections.R$id: int my_notes_listview> = 2131230787;
+
+        <a2z.Mobile.DevConnections.R$id: int my_note_title> = 2131230784;
+
+        <a2z.Mobile.DevConnections.R$id: int my_note_content> = 2131230786;
+
+        <a2z.Mobile.DevConnections.R$id: int my_note_booth_or_date_and_time> = 2131230785;
+
+        <a2z.Mobile.DevConnections.R$id: int medialibrary_listing_linearLayout> = 2131230758;
+
+        <a2z.Mobile.DevConnections.R$id: int mediaLibraryThumbnail> = 2131230780;
+
+        <a2z.Mobile.DevConnections.R$id: int logout_panel> = 2131230777;
+
+        <a2z.Mobile.DevConnections.R$id: int logout> = 2131230779;
+
+        <a2z.Mobile.DevConnections.R$id: int login_signup> = 2131230776;
+
+        <a2z.Mobile.DevConnections.R$id: int login_password> = 2131230774;
+
+        <a2z.Mobile.DevConnections.R$id: int login_panel> = 2131230770;
+
+        <a2z.Mobile.DevConnections.R$id: int login_login> = 2131230775;
+
+        <a2z.Mobile.DevConnections.R$id: int login_email> = 2131230773;
+
+        <a2z.Mobile.DevConnections.R$id: int login_ecode> = 2131230771;
+
+        <a2z.Mobile.DevConnections.R$id: int login_OR> = 2131230772;
+
+        <a2z.Mobile.DevConnections.R$id: int list_header_title> = 2131230769;
+
+        <a2z.Mobile.DevConnections.R$id: int linlayoutexlistitem> = 2131230760;
+
+        <a2z.Mobile.DevConnections.R$id: int linearLayout1> = 2131230733;
+
+        <a2z.Mobile.DevConnections.R$id: int lblDate> = 2131230723;
+
+        <a2z.Mobile.DevConnections.R$id: int individual_tweet_thumbnail> = 2131230856;
+
+        <a2z.Mobile.DevConnections.R$id: int imageView1> = 2131230720;
+
+        <a2z.Mobile.DevConnections.R$id: int generic_list_name> = 2131230768;
+
+        <a2z.Mobile.DevConnections.R$id: int floorplanlayout> = 2131230765;
+
+        <a2z.Mobile.DevConnections.R$id: int floorplanimage> = 2131230766;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_videoSectionLabel> = 2131230757;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_url> = 2131230743;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_scrollView> = 2131230730;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_phone> = 2131230739;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_notes> = 2131230745;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_meeting_text> = 2131230752;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_mapIt> = 2131230744;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_linearLayout> = 2131230731;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_fav_text> = 2131230750;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorProfileLabel> = 2131230753;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorProfile> = 2131230754;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorName> = 2131230732;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorLogo> = 2131230734;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorCategoryLabel> = 2131230755;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_exhibitorCategory> = 2131230756;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_email> = 2131230741;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_booth_visited_text> = 2131230747;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_booth_visited_btn> = 2131230746;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_booth_visited> = 2131230748;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_profile_boothLabel> = 2131230737;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_list_visitedicon> = 2131230764;
+
+        <a2z.Mobile.DevConnections.R$id: int exhibitor_list_enhancedBadge> = 2131230763;
+
+        <a2z.Mobile.DevConnections.R$id: int exhib_meeting_icon> = 2131230751;
+
+        <a2z.Mobile.DevConnections.R$id: int exhib_fav_star> = 2131230749;
+
+        <a2z.Mobile.DevConnections.R$id: int event_info_text> = 2131230729;
+
+        <a2z.Mobile.DevConnections.R$id: int event_home_text> = 2131230727;
+
+        <a2z.Mobile.DevConnections.R$id: int embedded_webview> = 2131230873;
+
+        <a2z.Mobile.DevConnections.R$id: int dpResult> = 2131230725;
+
+        <a2z.Mobile.DevConnections.R$id: int content_view> = 2131230721;
+
+        <a2z.Mobile.DevConnections.R$id: int chkItinerary> = 2131230830;
+
+        <a2z.Mobile.DevConnections.R$id: int chkExpoPlan> = 2131230759;
+
+        <a2z.Mobile.DevConnections.R$id: int btnFloorplanLocate> = 2131230767;
+
+        <a2z.Mobile.DevConnections.R$id: int btnChangeDate> = 2131230722;
+
+        <a2z.Mobile.DevConnections.R$id: int banner_ad> = 2131230789;
+
+        return;
+    }
+}
