@@ -1,9 +1,0 @@
-public interface  twitter4j.management.APIStatisticsMBean extends java.lang.Object implements twitter4j.management.InvocationStatistics
-{
-
-    public abstract java.lang.Iterable getInvocationStatistics();
-
-    public abstract java.util.Map getMethodLevelSummariesAsString();
-
-    public abstract java.lang.String getMethodLevelSummary(java.lang.String);
-}

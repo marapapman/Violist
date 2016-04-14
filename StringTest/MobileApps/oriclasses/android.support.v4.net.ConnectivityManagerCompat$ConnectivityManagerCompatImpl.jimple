@@ -1,5 +1,0 @@
-interface  android.support.v4.net.ConnectivityManagerCompat$ConnectivityManagerCompatImpl extends java.lang.Object
-{
-
-    public abstract boolean isActiveNetworkMetered(android.net.ConnectivityManager);
-}

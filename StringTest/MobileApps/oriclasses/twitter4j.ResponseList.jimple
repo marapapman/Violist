@@ -1,5 +1,0 @@
-public interface  twitter4j.ResponseList extends java.lang.Object implements twitter4j.TwitterResponse, java.util.List
-{
-
-    public abstract twitter4j.RateLimitStatus getRateLimitStatus();
-}

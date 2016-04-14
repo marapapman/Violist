@@ -1,7 +1,0 @@
-public interface  a2z.Mobile.DevConnections.Utils.DialogUtils$TwitterStatusUpdateInterface extends java.lang.Object
-{
-
-    public abstract void onCancel();
-
-    public abstract void onSendStatusUpdate(java.lang.String);
-}

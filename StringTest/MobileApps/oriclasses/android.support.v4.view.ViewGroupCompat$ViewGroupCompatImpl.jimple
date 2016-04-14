@@ -1,5 +1,0 @@
-interface  android.support.v4.view.ViewGroupCompat$ViewGroupCompatImpl extends java.lang.Object
-{
-
-    public abstract boolean onRequestSendAccessibilityEvent(android.view.ViewGroup, android.view.View, android.view.accessibility.AccessibilityEvent);
-}

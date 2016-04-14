@@ -1,5 +1,0 @@
-public interface  twitter4j.internal.http.HttpClientWrapperConfiguration extends java.lang.Object implements twitter4j.internal.http.HttpClientConfiguration
-{
-
-    public abstract java.util.Map getRequestHeaders();
-}

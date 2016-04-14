@@ -1,5 +1,0 @@
-interface  android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderImpl extends java.lang.Object
-{
-
-    public abstract java.lang.Object newAccessibilityNodeProviderBridge(android.support.v4.view.accessibility.AccessibilityNodeProviderCompat);
-}

@@ -1,5 +1,0 @@
-public interface  a2z.Mobile.DevConnections.Utils.TwitterUtils$OnCompletedCheckRetweetAndFavoriteTweetInterface extends java.lang.Object
-{
-
-    public abstract void onCompleted(boolean, boolean);
-}

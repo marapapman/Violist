@@ -1,7 +1,0 @@
-public interface  twitter4j.internal.async.Dispatcher extends java.lang.Object
-{
-
-    public abstract void invokeLater(java.lang.Runnable);
-
-    public abstract void shutdown();
-}

@@ -1,7 +1,0 @@
-public interface  twitter4j.RateLimitStatusListener extends java.lang.Object
-{
-
-    public abstract void onRateLimitReached(twitter4j.RateLimitStatusEvent);
-
-    public abstract void onRateLimitStatus(twitter4j.RateLimitStatusEvent);
-}

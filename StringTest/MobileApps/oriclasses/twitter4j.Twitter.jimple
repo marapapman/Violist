@@ -1,3 +1,0 @@
-public interface  twitter4j.Twitter extends java.lang.Object implements java.io.Serializable, twitter4j.auth.OAuthSupport, twitter4j.TwitterBase, twitter4j.api.TimelinesResources, twitter4j.api.TweetsResources, twitter4j.api.SearchResource, twitter4j.api.DirectMessagesResources, twitter4j.api.FriendsFollowersResources, twitter4j.api.UsersResources, twitter4j.api.SuggestedUsersResources, twitter4j.api.FavoritesResources, twitter4j.api.ListsResources, twitter4j.api.SavedSearchesResources, twitter4j.api.PlacesGeoResources, twitter4j.api.TrendsResources, twitter4j.api.SpamReportingResource, twitter4j.api.HelpResources, twitter4j.api.UndocumentedResources
-{
-}

@@ -1,5 +1,0 @@
-public interface  a2z.Mobile.DevConnections.Utils.DialogUtils$NoteSaveInterface extends java.lang.Object
-{
-
-    public abstract void onSaveNote(java.lang.String, java.lang.String);
-}

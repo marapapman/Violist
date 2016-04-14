@@ -1,7 +1,0 @@
-public interface  twitter4j.auth.Authorization extends java.lang.Object implements java.io.Serializable
-{
-
-    public abstract java.lang.String getAuthorizationHeader(twitter4j.internal.http.HttpRequest);
-
-    public abstract boolean isEnabled();
-}

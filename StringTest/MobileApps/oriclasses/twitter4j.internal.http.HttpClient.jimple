@@ -1,7 +1,0 @@
-public interface  twitter4j.internal.http.HttpClient extends java.lang.Object
-{
-
-    public abstract twitter4j.internal.http.HttpResponse request(twitter4j.internal.http.HttpRequest) throws twitter4j.TwitterException;
-
-    public abstract void shutdown();
-}

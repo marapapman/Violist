@@ -1,9 +1,0 @@
-public interface  twitter4j.TimeZone extends java.lang.Object implements java.io.Serializable
-{
-
-    public abstract java.lang.String getName();
-
-    public abstract java.lang.String tzinfoName();
-
-    public abstract int utcOffset();
-}

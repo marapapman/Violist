@@ -1,9 +1,0 @@
-interface  android.support.v4.view.KeyEventCompat$KeyEventVersionImpl extends java.lang.Object
-{
-
-    public abstract boolean metaStateHasModifiers(int, int);
-
-    public abstract boolean metaStateHasNoModifiers(int);
-
-    public abstract int normalizeMetaState(int);
-}

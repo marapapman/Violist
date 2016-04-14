@@ -1,5 +1,0 @@
-interface  android.support.v4.view.ViewConfigurationCompat$ViewConfigurationVersionImpl extends java.lang.Object
-{
-
-    public abstract int getScaledPagingTouchSlop(android.view.ViewConfiguration);
-}
