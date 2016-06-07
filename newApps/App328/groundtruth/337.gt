@@ -1,0 +1,1 @@
+INSERT INTO newspapers (newspaper_addedby,newspaper_is_favorite,newspaper_is_deleted) VALUES (\'app\',1,0)

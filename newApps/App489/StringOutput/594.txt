@@ -1,0 +1,1 @@
+public class DefaultTagProvider extends HashMap implements ITagInfoProvider {

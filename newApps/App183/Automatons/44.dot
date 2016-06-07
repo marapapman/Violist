@@ -1,0 +1,20 @@
+digraph Automaton {
+  rankdir = LR;
+  0 [shape=circle,label=""];
+  0 -> 2 [label="F"]
+  1 [shape=circle,label=""];
+  1 -> 0 [label="F"]
+  2 [shape=circle,label=""];
+  2 -> 7 [label="F"]
+  3 [shape=circle,label=""];
+  3 -> 1 [label="F"]
+  4 [shape=circle,label=""];
+  4 -> 3 [label="F"]
+  5 [shape=circle,label=""];
+  initial [shape=plaintext,label=""];
+  initial -> 5
+  5 -> 4 [label="#"]
+  6 [shape=doublecircle,label=""];
+  7 [shape=circle,label=""];
+  7 -> 6 [label="F"]
+}

@@ -1,0 +1,2 @@
+mraid.triggerEvent(\'ready\');
+mraid.triggerEvent(\'sizeChange\');

@@ -1,0 +1,7 @@
+text
+declaration
+data
+action
+prompt
+type
+comment

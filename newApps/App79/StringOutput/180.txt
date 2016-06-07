@@ -1,0 +1,2 @@
+Scheduling action com.urbanairship.push.DELETE_APID in 10 minutes
+Scheduling action com.urbanairship.push.UPDATE_APID in 10 minutes

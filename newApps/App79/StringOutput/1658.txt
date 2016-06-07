@@ -1,0 +1,2 @@
+AirshipConfigOptions does not contain a valid development app secret
+AirshipConfigOptions does not contain a valid production app secret

@@ -1,0 +1,4 @@
+mraid.setState(\'resized\');
+mraid.setState(\'expanded\');
+mraid.setState(\'hidden\');
+mraid.setState(\'default\');

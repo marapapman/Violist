@@ -1,0 +1,7 @@
+The android:configChanges value of the com.google.ads.AdActivity must include screenSize.
+The android:configChanges value of the com.google.ads.AdActivity must include keyboardHidden.
+The android:configChanges value of the com.google.ads.AdActivity must include uiMode.
+The android:configChanges value of the com.google.ads.AdActivity must include screenLayout.
+The android:configChanges value of the com.google.ads.AdActivity must include smallestScreenSize.
+The android:configChanges value of the com.google.ads.AdActivity must include orientation.
+The android:configChanges value of the com.google.ads.AdActivity must include keyboard.

@@ -1,0 +1,2 @@
+<html><head><script src=\http://media.admob.com/sdk-core-v40.js\></script><script>
+<html><head><script src=\http://www.gstatic.com/safa/sdk-core-v40.js\></script><script>

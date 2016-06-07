@@ -1,0 +1,6 @@
+tabBus
+tabAbout
+tabPace
+tabNearby
+tabTrain
+tabFav

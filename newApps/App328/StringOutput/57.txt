@@ -1,0 +1,6 @@
+AFMA_ReceiveMessage(\'onshow\');
+AFMA_ReceiveMessage(\'onhide\');
+AFMA_ReceiveMessage(\'openableURLs\');
+AFMA_ReceiveMessage(\'onopeninapp\');
+AFMA_ReceiveMessage(\'onleaveapp\');
+AFMA_ReceiveMessage(\'onVideoEvent\');

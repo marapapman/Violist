@@ -1,0 +1,12 @@
+Tracking event key not present in vast xml mute
+Tracking event key not present in vast xml firstQuartile
+Tracking event key not present in vast xml pause
+Tracking event key not present in vast xml creativeView
+Tracking event key not present in vast xml start
+Tracking event key not present in vast xml unmute
+Tracking event key not present in vast xml close
+Tracking event key not present in vast xml resume
+Tracking event key not present in vast xml midpoint
+Tracking event key not present in vast xml thirdQuartile
+Tracking event key not present in vast xml skip
+Tracking event key not present in vast xml complete

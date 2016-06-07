@@ -1,0 +1,1 @@
+getFavorQuestions query 2 : SELECT ChoiceID,ChoiceName,Description,IsCorrect,QuestionId FROM Choices WHERE QuestionId IN (SELECT QuestionID FROM Questions WHERE Mark=2 )

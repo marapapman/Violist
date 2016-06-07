@@ -1,0 +1,4 @@
+Required XML attribute \keywords\ missing
+Required XML attribute \adUnitId\ missing
+Required XML attribute \adSize\ missing
+Required XML attribute \testDevices\ missing

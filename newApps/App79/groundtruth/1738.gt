@@ -1,0 +1,2 @@
+AndroidManifest.xml missing required permission: android.permission.ACCESS_NETWORK_STATE
+AndroidManifest.xml missing required permission: android.permission.INTERNET
